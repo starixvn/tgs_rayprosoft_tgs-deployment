@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-tgs-mocksite
+  namespace: prod
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  tls:
+  - hosts:
+    - ms.srvptt.com
+    secretName: ms.srvptt.com
+  rules:        
+  - host: ms.srvptt.com
+    http:
+      paths:
+      - path: /api
+        backend:
+          serviceName: operator-api
+          servicePort: 80  
+      - path: /global-api
+        backend:
+          serviceName: global-api
+          servicePort: 80  
+      - path: /
+        backend:
+          serviceName: mocksite
+          servicePort: 80

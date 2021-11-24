@@ -1,0 +1,74 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pgpool
+  namespace: staging
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: pgpool
+  template:
+    metadata:
+      labels:
+        app: pgpool
+    spec:
+      nodeSelector:
+        dedicated: nonprod
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: nonprod
+      containers:
+      - name: pgpool
+        image: pgpool/pgpool:4.2.2
+        livenessProbe:
+          tcpSocket:
+            port: 9999
+          initialDelaySeconds: 30
+          periodSeconds: 5
+        readinessProbe:
+          tcpSocket:
+            port: 9999
+          initialDelaySeconds: 30
+          periodSeconds: 5
+        resources:
+          limits:
+            cpu: 900m
+            memory: 900Mi
+          requests:
+            cpu: 500m
+            memory: 600Mi
+        env:
+        - name: POSTGRES_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: secret-pgpool
+              key: username
+        - name: POSTGRES_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: secret-pgpool
+              key: password
+        volumeMounts:
+        - name: volume-config
+          mountPath: /config
+      volumes:
+      - name: volume-config
+        configMap:
+          name: configmap-pgpool
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: pgpool
+  namespace: staging
+spec:
+  selector:
+    app: pgpool
+  ports:
+  - name: pgpool-port
+    protocol: TCP
+    port: 9999
+    targetPort: 9999

@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap-sms-service
+  namespace: dev
+data:
+  appsettings.json: |
+    {
+        "Logging": {
+            "LogLevel": {
+                "Default": "Information",
+                "Microsoft": "Warning",
+                "Microsoft.Hosting.Lifetime": "Information"
+            }
+        },
+        "Sms": {
+            "RabbitMQUrl": "amqp://sms.rabbitmq:5672",
+            "UserName": "devadmin",
+            "Password": "devadmin",
+            "VirtualHost": "/devhost"
+        },
+        "AllowedHosts": "*"
+    }

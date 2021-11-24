@@ -1,0 +1,2 @@
+helm upgrade elasticsearch bitnami/elasticsearch -n monitoring -f values.yaml
+

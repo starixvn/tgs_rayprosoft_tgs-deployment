@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt
+  namespace: staging
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: lester.wei@rayprosoft.com
+    privateKeySecretRef:
+      name: letsencrypt-secret
+    solvers:
+    - http01:
+        ingress:
+          class: nginx

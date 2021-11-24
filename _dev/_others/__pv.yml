@@ -1,0 +1,123 @@
+## Redis 
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: dev-redis-data-master-0
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 8Gi
+  accessModes:
+    - ReadWriteOnce
+  claimRef:
+    namespace: dev
+    name: redis-data-redis-master-0
+  nfs:
+    server: 192.168.50.111
+    path: /nfsshare/redis/dev/master
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: dev-redis-data-slave-0
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 8Gi
+  accessModes:
+    - ReadWriteOnce
+  claimRef:
+    namespace: dev
+    name: redis-data-redis-slave-0
+  nfs:
+    server: 192.168.50.111
+    path: /nfsshare/redis/dev/slave
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: dev-redis-data-slave-1
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 8Gi
+  accessModes:
+    - ReadWriteOnce
+  claimRef:
+    namespace: dev
+    name: redis-data-redis-slave-1
+  nfs:
+    server: 192.168.50.111
+    path: /nfsshare/redis/dev/slave-1
+---
+## postgres 
+# kind: PersistentVolume
+# apiVersion: v1
+# metadata:
+  # name: pv-postgres
+  # labels:
+    # type: local
+    # app: postgres
+# spec:
+  # storageClassName: postgres-storage-class
+  # capacity:
+    # storage: 8Gi
+  # accessModes:
+    # - ReadWriteOnce
+  # claimRef:
+    # namespace: dev
+    # name: data-postgres-postgresql-0
+  # nfs:
+    # server: 192.168.50.111
+    # path: "/nfsshare/postgres/dev"
+---
+## mongodb
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: pv-mongodb
+  labels:
+    type: local
+spec:
+  storageClassName: mongodb-storage-class
+  capacity:
+    storage: 8Gi
+  accessModes:
+    - ReadWriteOnce
+  claimRef:
+    namespace: dev
+    name: mongodb
+  nfs:
+    server: 192.168.50.111
+    path: "/nfsshare/mongodb/dev"
+---
+## pgadmin
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: pv-pgadmin
+  labels:
+    type: local
+spec:
+  storageClassName: pgadmin-storage-class
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  claimRef:
+    namespace: default
+    name: pgadmin-pgadmin4 
+  nfs:
+    server: 192.168.50.111
+    path: "/nfsshare/pgadmin"
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    

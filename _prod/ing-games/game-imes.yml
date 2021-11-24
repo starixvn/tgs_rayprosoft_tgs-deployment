@@ -1,0 +1,37 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-game-imes
+  namespace: prod
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/server-snippet: |-
+      allow 64.145.91.127/32;
+      allow 180.232.67.94/32;
+      allow 43.224.90.30/32;
+      allow 43.224.90.62/32;
+      allow 165.84.237.190/32;
+      allow 165.84.237.191/32;
+      allow 165.84.237.192/32;
+      allow 203.192.181.94/32;
+      allow 205.252.84.158/32;
+      allow 43.224.90.250/32;
+      allow 165.84.237.123/32;
+      allow 43.224.90.222/32;
+      allow 103.69.138.250/32;
+      allow 220.132.206.70/32;
+      deny all;
+spec:
+  # tls:
+  # - hosts:
+    # - game-imes.yydsgo.xyz
+    # secretName: game-imes.yydsgo.xyz
+  rules: 
+  - host: game-imes.yydsgo.xyz
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: game-imes
+          servicePort: 80   

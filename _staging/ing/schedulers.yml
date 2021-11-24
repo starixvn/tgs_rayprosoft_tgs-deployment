@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-tgs-schedulers
+  namespace: staging
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  tls:
+  - hosts:
+    - stg-schedulers.rpgp.cc
+    secretName: stg-schedulers.rpgp.cc
+  rules: 
+  - host: stg-schedulers.rpgp.cc
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: schedulers
+          servicePort: 80               

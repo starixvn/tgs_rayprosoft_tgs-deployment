@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-tgs-production
+  namespace: prod
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  tls:
+  - hosts:
+    - pegagaming.com
+    secretName: pegagaming.com
+  - hosts:
+    - www.pegagaming.com
+    secretName: www.pegagaming.com
+  rules:
+  - host: pegagaming.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: tgs-production
+          servicePort: 80
+  - host: www.pegagaming.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: tgs-production
+          servicePort: 80

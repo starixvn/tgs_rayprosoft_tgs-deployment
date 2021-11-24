@@ -1,0 +1,43 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-payment
+  namespace: dev
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+spec:
+  tls:
+  - hosts:
+    - dev-payment.rpgp.cc
+    secretName: payment.rpgp.cc
+  rules:
+  - host: dev-payment.rpgp.cc
+    http:
+      paths:
+      - pathType: Prefix
+        path: /leepay(/|$)(.*)
+        backend:
+          serviceName: payment-leepay
+          servicePort: 80
+      - pathType: Prefix
+        path: /primepay(/|$)(.*)
+        backend:
+          serviceName: payment-primepay
+          servicePort: 80
+      - pathType: Prefix
+        path: /applepay(/|$)(.*)
+        backend:
+          serviceName: payment-applepay
+          servicePort: 80
+      - pathType: Prefix
+        path: /umpay(/|$)(.*)
+        backend:
+          serviceName: payment-umpay
+          servicePort: 80
+      - pathType: Prefix
+        path: /maticpay(/|$)(.*)
+        backend:
+          serviceName: payment-maticpay  
+          servicePort: 80

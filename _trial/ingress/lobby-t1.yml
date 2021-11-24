@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ing-lobby-t1
+  namespace: trial
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  tls:
+  - hosts:
+    - trial-t1.rpgp.cc
+    secretName: trial-t1.rpgp.cc
+  rules:
+  - host: trial-t1.rpgp.cc
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          serviceName: lobby-t1
+          servicePort: 80
+      - pathType: Prefix
+        path: /api
+        backend:
+          serviceName: operator-api
+          servicePort: 80

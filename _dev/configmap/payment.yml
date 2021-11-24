@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap-payment
+  namespace: dev
+data:
+   appsettings.json: |
+    {
+      "ConnectionStrings": {
+        "Tgs": "Server=pgpool;Port=9999;Database=tgs;User Id=tgs_app;Password=abcd1234"
+      },
+      "LeePay": {
+        "PaymentApiUrl": "https://api.leepay-wallet.com",
+        "NatsUrl": "nats://nats-client:4222",
+        "CallbackBaseUrl": "https://dev.payment.tgsdev.gq/leepay"
+      }
+    }

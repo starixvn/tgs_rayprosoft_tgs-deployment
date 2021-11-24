@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: agent-api
+  namespace: dev
+  labels:
+    app: agent-api
+    type: backend
+spec:
+  selector:
+    matchLabels:
+      app: agent-api
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: agent-api
+        type: backend
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      containers:
+        - name: agent-api
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-api:dev
+          imagePullPolicy: Always
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+          ports:
+            - containerPort: 80
+          env:
+            - name: aspnetcore_environment
+              value: "Development"
+            - name: aspnetcore_https_port
+              value: "443"
+          volumeMounts:
+            - mountPath: /config/appsettings.json
+              name: appsettings
+              readOnly: true
+              subPath: appsettings.json 
+      volumes:
+        - name: appsettings
+          configMap:
+            name: configmap-agent-api
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: agent-api
+  namespace: dev
+spec: 
+  ports:
+    - protocol: TCP
+      port: 80
+      name: api
+  selector:
+      app: agent-api                  

@@ -1,0 +1,33 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-game-bg
+  namespace: dev
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  tls:
+  - hosts:
+    - dev.game-bg.tgsdev.gq
+    secretName: dev.game-bg.tgsdev.gq
+  - hosts:
+    - game-bg.yydsgo.xyz
+    secretName: game-bg.yydsgo.xyz
+  rules:
+  - host: dev.game-bg.tgsdev.gq
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          serviceName: game-bg
+          servicePort: 80
+  - host: game-bg.yydsgo.xyz
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          serviceName: game-bg
+          servicePort: 80

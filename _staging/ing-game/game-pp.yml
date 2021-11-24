@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-game-pp
+  namespace: staging
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/server-snippet: |-
+      allow 88.99.46.26/32;
+      allow 88.99.46.30/32;
+      allow 138.201.254.70/32;
+      allow 85.10.243.144/29;
+      allow 220.132.206.70/32;
+      deny all;
+spec:
+  tls:
+  - hosts:
+    - game-pp.rpgp.cc
+    secretName: game-pp.rpgp.cc
+  rules: 
+  - host: game-pp.rpgp.cc
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: game-pp
+          servicePort: 80

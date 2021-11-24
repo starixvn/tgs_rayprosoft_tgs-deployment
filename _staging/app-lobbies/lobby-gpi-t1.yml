@@ -1,0 +1,85 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: lobby-gpi-t1
+  namespace: staging
+  labels:
+    app: lobby-gpi-t1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lobby-gpi-t1
+  template:
+    metadata:
+      labels:
+        app: lobby-gpi-t1
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      nodeSelector:
+        dedicated: nonprod
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: nonprod
+      containers:
+        - name: lobby-gpi-t1
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t1:staging
+          imagePullPolicy: IfNotPresent
+          env:
+          - name: CLIENT
+            value: "I7nKiimrZQOqnJ6ryjUw74c0Hi64KC6Myunhob4cHh8VOUIuZh4p63czefxyyzbZ"
+          - name: CURRENCY
+            value: "CNY"
+          - name: BRAND
+            value: "PGG"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
+          - name: THEME
+            value: "red"
+          - name: SOURCE_URL
+            value: "https://images.srvptt.com/"
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: site-data
+              mountPath: /data
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          resources:
+            limits:
+              cpu: 200m
+              memory: 400Mi
+            requests:
+              cpu: 200m
+              memory: 400Mi
+      volumes:
+        - name: site-data
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lobby-gpi-t1
+  namespace: staging
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      name: web
+  selector:
+    app: lobby-gpi-t1

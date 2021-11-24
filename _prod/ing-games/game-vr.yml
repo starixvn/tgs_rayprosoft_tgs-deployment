@@ -1,0 +1,41 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-game-vr
+  namespace: prod
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/server-snippet: |-
+      allow 13.75.71.28/32;
+      allow 13.88.217.195/32;
+      allow 13.94.27.164/32;
+      allow 23.100.92.161/32;
+      allow 23.101.7.218/32;
+      allow 40.83.100.85/32;
+      allow 52.175.25.162/32;
+      allow 52.175.25.23/32;
+      allow 65.52.189.136/32;
+      allow 168.63.211.210/32;
+      allow 13.76.241.29/32;
+      allow 207.46.231.190/32;
+      allow 52.163.58.199/32;
+      allow 207.46.227.24/32;
+      allow 52.230.23.217/32;
+      allow 13.76.7.30/32;
+      allow 52.187.66.168/32;
+      allow 220.132.206.70/32;
+      deny all;
+spec:
+  tls:
+  - hosts:
+    - game-vr.yydsgo.xyz
+    secretName: game-vr.yydsgo.xyz
+  rules: 
+  - host: game-vr.yydsgo.xyz
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: game-vr
+          servicePort: 80   

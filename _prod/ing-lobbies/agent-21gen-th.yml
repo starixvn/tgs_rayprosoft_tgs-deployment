@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: agent-21gen-th
+  namespace: prod
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  tls:
+  - hosts:
+    - agent-th.21gen.com
+    secretName: agent-th.21gen.com
+  rules:
+  - host: agent-th.21gen.com
+    http:
+      paths:
+      - path: /api
+        backend:
+          serviceName: agent-api
+          servicePort: 80
+      - path: /
+        backend:
+          serviceName: agent-21gen-th
+          servicePort: 80

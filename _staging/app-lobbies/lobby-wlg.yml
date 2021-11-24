@@ -1,0 +1,89 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: lobby-wlg
+  namespace: staging
+  labels:
+    app: lobby-wlg
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lobby-wlg
+  template:
+    metadata:
+      labels:
+        app: lobby-wlg
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      nodeSelector:
+        dedicated: nonprod
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: nonprod
+      containers:
+        - name: lobby-wlg
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t1:staging
+          imagePullPolicy: IfNotPresent
+          env:
+          - name: CLIENT
+            value: "Sb5G45kyG0QRDmZTL9WctlQJnWz2QZVdDAdrtgDK3xX0KIvnSRrDMf"
+          - name: CURRENCY
+            value: "CNY"
+          - name: BRAND
+            value: "WLG"
+          - name: LANGUAGES
+            value: "[{\"name\":\"zh-CN\",\"label\":\"简体\"},{\"name\":\"zh-TW\",\"label\":\"繁體\"},{\"name\":\"en-US\",\"label\":\"English\"}]"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
+          - name: BANNER_COUNT
+            value: "1"
+          - name: THEME
+            value: "red"
+          - name: SOURCE_URL
+            value: "https://images.srvptt.com/"
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: site-data
+              mountPath: /data
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          resources:
+            limits:
+              cpu: 200m
+              memory: 400Mi
+            requests:
+              cpu: 200m
+              memory: 400Mi
+      volumes:
+        - name: site-data
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lobby-wlg
+  namespace: staging
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      name: web
+  selector:
+    app: lobby-wlg

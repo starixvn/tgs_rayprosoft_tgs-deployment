@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap-{{ include "schedulers.fullname" . }}
+  namespace: {{ .Values.namespace }}
+data:
+  appsettings.json: |
+    {
+      "Logging": {
+        "LogLevel": {
+          "Default": "Information",
+          "System.Net.Http.HttpClient": "Warning",
+          "Microsoft": "Warning",
+          "Microsoft.Hosting.Lifetime": "Information"
+        }
+      },
+      "AllowedHosts": "*",
+      "ConnectionStrings": {
+        "Tgs": "{{ .Values.connectionStrings.tgs }}",
+        "RedisConfigurationString": "{{ .Values.connectionStrings.redis }}"
+      },
+      "Hangfire": {
+        "ConnectionString": "{{ .Values.connectionStrings.redis }}",
+        "Prefix": "hangfire.postgres",
+        "Schedule": { "SchedulePollingInterval": 15 }
+      },
+      "GameProviders": {
+        "ConnectionString": "{{ .Values.connectionStrings.mongo }}"
+      },
+      "NatsSetting": {
+        "Urls": "{{ .Values.nats.urls }}",
+        "ConnectTimeoutMs": 2000,
+        "PingInterval": 5000,
+        "PingMaxOutStanding": 3,
+        "SubscriptionBatchSize": 128
+      },
+      "Report": {
+        "Url": "http://report-api"
+      },
+      "Promotion": {
+        "Url": "http://promotion-api"
+      },
+      "Email": {
+        "Url": "{{ .Values.mail.url }}"
+      }
+    }

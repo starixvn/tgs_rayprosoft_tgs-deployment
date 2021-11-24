@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-game-wm
+  namespace: dev
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  tls:
+  - hosts:
+    - game-wm.rpgp.cc
+    secretName: game-wm.rpgp.cc
+  rules:
+  - host: game-wm.rpgp.cc
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          serviceName: game-wm
+          servicePort: 80

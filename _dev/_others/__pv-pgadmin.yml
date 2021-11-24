@@ -1,0 +1,18 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: pv-pgadmin
+  labels:
+    type: local
+spec:
+  storageClassName: pgadmin-storage-class
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  claimRef:
+    namespace: default
+    name: pgadmin-pgadmin4 
+  nfs:
+    server: 192.168.50.111
+    path: "/nfsshare/pgadmin"

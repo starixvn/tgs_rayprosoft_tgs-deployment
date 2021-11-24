@@ -1,0 +1,85 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: lobby-21gen-th
+  namespace: prod
+  labels:
+    app: lobby-21gen-th
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lobby-21gen-th
+  template:
+    metadata:
+      labels:
+        app: lobby-21gen-th
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      nodeSelector:
+        dedicated: prod
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: prod
+      containers:
+        - name: lobby-21gen-th
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t1:prod
+          imagePullPolicy: IfNotPresent
+          env:
+          - name: CLIENT
+            value: "sAZdYNXfXdE1FgWX0ZkcJKnzn5xPdsuT0nHUX3CIyoMF1bzSon6dBM"
+          - name: CURRENCY
+            value: "THB"
+          - name: BRAND
+            value: "21gen"
+          - name: DEFAULT_LANGUAGE
+            value: "th-TH"
+          - name: THEME
+            value: "red"
+          - name: SOURCE_URL
+            value: "https://images.srvptt.com/"
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: site-data
+              mountPath: /data
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          resources:
+            limits:
+              cpu: 150m
+              memory: 300Mi
+            requests:
+              cpu: 150m
+              memory: 300Mi
+      volumes:
+        - name: site-data
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lobby-21gen-th
+  namespace: prod
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      name: web
+  selector:
+    app: lobby-21gen-th

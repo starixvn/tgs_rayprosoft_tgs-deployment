@@ -1,0 +1,1 @@
+helm upgrade kibana bitnami/kibana -f values.yaml -n monitoring --install

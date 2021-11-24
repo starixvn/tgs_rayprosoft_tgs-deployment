@@ -1,0 +1,63 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backoffice-api
+  namespace: dev
+  labels:
+    app: backoffice-api
+    type: backend
+spec:
+  selector:
+    matchLabels:
+      app: backoffice-api
+  replicas: 1
+  minReadySeconds: 8 #狀態為可以最小秒數
+  strategy:
+    type: RollingUpdate #使用RollingUpdate類型, 可以保證佈署期間服務不中斷
+    rollingUpdate:
+      maxUnavailable: 1 #佈署期間允許最大停止pod數量(replicas)
+      maxSurge: 2 #佈署期間允許最大建立pod數量(replicas)
+  template:
+    metadata:
+      labels:
+        app: backoffice-api
+        type: backend
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      containers:
+        - name: backoffice-api
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/backoffice-api:dev
+          imagePullPolicy: Always
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+          ports:
+            - containerPort: 80
+          env:
+            - name: aspnetcore_environment
+              value: "Development"
+            - name: aspnetcore_https_port
+              value: "443"
+          volumeMounts:
+            - mountPath: /app/appsettings.json
+              name: appsettings
+              readOnly: true
+              subPath: appsettings.json
+      volumes:
+        - name: appsettings
+          configMap:
+            name: configmap-backoffice-api
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: backoffice-api
+  namespace: dev
+spec: 
+  ports:
+    - protocol: TCP
+      port: 80
+      name: api
+  selector:
+      app: backoffice-api

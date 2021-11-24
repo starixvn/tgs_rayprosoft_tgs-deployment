@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-game-evo
+  namespace: dev
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  tls:
+  - hosts:
+    - game-evo.tgsdev.gq
+    secretName: game-evo.tgsdev.gq
+  rules:
+  - host: game-evo.tgsdev.gq
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          serviceName: game-evo
+          servicePort: 80

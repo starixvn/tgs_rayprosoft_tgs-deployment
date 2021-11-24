@@ -1,0 +1,53 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap-game
+  namespace: dev
+data:
+  appsettings.json: |
+    {
+      "Logging": {
+        "LogLevel": {
+          "Default": "Information",
+          "Microsoft": "Warning",
+          "Microsoft.Hosting.Lifetime": "Information"
+        }
+      },
+      "LoggerServiceConfig": {
+        "BatchInsertWaitingSeconds": 1,
+        "BatchInsertCounts": 100,
+        "LogLevel": "ALL",
+        "UnrestrictedLoggers": []
+      },
+      "AllowedHosts": "*",
+      "FeatureManagement": {
+        "RT": false,
+        "EVO": false,
+        "HABA": false,
+        "PP": false,
+        "KY": false,
+        "AG": false,
+        "SABA": false,
+        "VR": false,
+        "IMES": false,
+        "JDB": false,
+        "BG": false,
+        "SG": false,
+        "SW": false,
+        "WGFM": false,
+        "WGVIA": false,
+        "WM": false,
+        "TCG": false
+      },
+      "ConnectionStrings": {
+        "Tgs": "Server=pgpool;Port=9999;Database=tgs;User Id=rpdev;Password=abcd1234",
+        "RedisConfigurationString": "redis-master,abortConnect=false,connectTimeout=3000,password=1qaz2wsx"
+      },
+      "NatsSetting": {
+        "Urls": "nats://nats-client:4222",
+        "ConnectTimeoutMs": 2000,
+        "PingInterval": 5000,
+        "PingMaxOutStanding": 3,
+        "SubscriptionBatchSize": 128
+      }
+    }

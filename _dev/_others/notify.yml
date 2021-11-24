@@ -1,0 +1,47 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: notify-api
+  namespace: dev
+  labels:
+    app: notify-api
+spec:
+  selector:
+    matchLabels:
+      app: notify-api
+  replicas: 1
+  minReadySeconds: 8 #狀態為可以最小秒數
+  strategy:
+    type: RollingUpdate #使用RollingUpdate類型, 可以保證佈署期間服務不中斷
+    rollingUpdate:
+      maxUnavailable: 1 #佈署期間允許最大停止pod數量(replicas)
+      maxSurge: 2 #佈署期間允許最大建立pod數量(replicas)
+  template:
+    metadata:
+      labels:
+        app: notify-api
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      containers:
+        - name: notify-api
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/notify-api:latest
+          imagePullPolicy: Always
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+          ports:
+            - containerPort: 80   
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: notify-api
+  namespace: dev
+spec: 
+  ports:
+    - protocol: TCP
+      port: 80
+      name: api
+  selector:
+      app: notify-api

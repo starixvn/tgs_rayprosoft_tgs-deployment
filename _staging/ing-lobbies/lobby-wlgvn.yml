@@ -1,0 +1,36 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: lobby-wlgvn
+  namespace: staging
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+        proxy_set_header Brand-Token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiV0xHVk4iLCJzdWIiOiI3NzIyZDRjMC0yZmFhLTQyNGEtYTcyNC00MGNiYzg3OTM0ZjkiLCJuYmYiOjE2Mzc2MzU3MjUsImV4cCI6MTYzNzYzOTMyNSwiaWF0IjoxNjM3NjM1NzI1LCJpc3MiOiJ0Z3MifQ.aDPCeL_YfT4MEudPjlXDEWDojRlXnQc-0NIm0__dZBTozYx5u_md2vTUxPp1Mvv3NN8fvcNXV4r8l2rGZI_5JF29kmrEN1NUian_th5gBDQhl7PlLOjn2zWcCmYvZsm3gJMc2ohcwAy0rkPKGnrtA0XH34SduXK6-XwFkhu2jM2nnFOhvAmXU-M8wjAei6HWKSQuNfN5JjmAeQ0WWbRykeooXp2sMWGGVZEM50ysj0flSX9AnBXnmx0pb_MViu8429-QaQ-IAuaTYslRMCL78G8hgeOLliNREpAvThHiF3amhNd62Xu00b43v6Nga37hK8dlXfyN7BESpnifirhYmw;
+spec:
+  tls:
+  - hosts:
+    - stg.wlgvn.com
+    secretName: stg.wlgvn.com
+  rules:
+  - host: stg.wlgvn.com
+    http:
+      paths:
+      - path: /api/brandcommunication
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /api/brandlivechat
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /
+        backend:
+          serviceName: lobby-wlgvn
+          servicePort: 80
+      - path: /api
+        backend:
+          serviceName: operator-api
+          servicePort: 80

@@ -1,0 +1,38 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-game-sg
+  namespace: staging
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    # nginx.ingress.kubernetes.io/server-snippet: |-
+      # allow 1.32.212.184/32;
+      # allow 1.32.212.188/32;
+      # allow 1.32.212.194/32;
+      # allow 1.32.212.195/32;
+      # allow 1.32.212.196/32;
+      # allow 1.32.212.198/32;
+      # allow 1.32.212.199/32;
+      # allow 1.32.212.200/32;
+      # allow 1.32.212.201/32;
+      # allow 1.32.212.202/32;
+      # allow 1.32.212.203/32;
+      # allow 1.32.212.204/32;
+      # allow 1.32.212.205/32;
+      # allow 1.32.212.206/32;
+      # allow 220.132.206.70/32;
+      # deny all;
+spec:
+  tls:
+  - hosts:
+    - game-sg.rpgp.cc
+    secretName: game-sg.rpgp.cc
+  rules: 
+  - host: game-sg.rpgp.cc
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: game-sg
+          servicePort: 80

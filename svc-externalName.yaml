@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Service
+metadata: 
+  name: apple-pay-test
+  namespace: dev
+spec:
+  type: ExternalName
+  externalName: 192.168.50.44

@@ -1,0 +1,1 @@
+helm upgrade logstash bitnami/logstash -f values.yaml -n monitoring

@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: game-kickplayer-receiver
+  namespace: dev
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  tls:
+  - hosts:
+    - game-kickplayer-receiver.rpgp.cc
+    secretName: game-kickplayer-receiver.rpgp.cc
+  rules:
+  - host: game-kickplayer-receiver.rpgp.cc
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          serviceName: game-kickplayer-receiverserver 
+          servicePort: 80

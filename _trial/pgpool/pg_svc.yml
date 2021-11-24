@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: pgpool
+  namespace: trial
+  labels:
+    app: pgpool
+spec:
+  ports:
+  - name: pgpool
+    port: 9999
+    targetPort: 9999
+  selector:
+    app: pgpool
+  type: NodePort

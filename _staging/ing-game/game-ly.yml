@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-game-ly
+  namespace: staging
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  tls:
+  - hosts:
+    - game-ly.rpgp.cc
+    secretName: game-ly.rpgp.cc
+  rules:
+  - host: game-ly.rpgp.cc
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: game-ly
+          servicePort: 80

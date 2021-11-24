@@ -1,0 +1,54 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap-{{ include "operator-api.fullname" . }}
+  namespace: {{ .Values.namespace }}
+data:
+  appsettings.json: |
+    {
+      "Operator": {
+        "FileServiceBaseUrl" : "http://file-service",
+        "ValidateCodeBaseUrl": "http://validatecode-api",
+        "SmsBaseUrl": "http://sms-service",
+        "ValidateCodeTestEnabled": {{ .Values.validateCodeTestEnabled }},
+        "PaymentServiceBaseUrl": "http://payment-api",
+        "BrandCertificateBaseUrl": "http://brand-cert-api",
+        "CashBaseUrl": "http://cashservice-api"
+      },
+      "EmailSetting": {
+        "FromMail": "verifyme@163.com",
+        "FromName": "TGS",
+        "SmtpServer": "smtp.163.com",
+        "Port": 25,
+        "Password": "IAUSMDLMDZWJECBP"
+      },
+      "ConnectionStrings": {
+        "Tgs": "{{ .Values.connectionStrings.tgs }}",
+        "RedisConfigurationString": "{{ .Values.connectionStrings.redis }}"
+      },
+      "NatsSetting": {
+        "Urls": "{{ .Values.nats.urls }}",
+        "ConnectTimeoutMs": 2000,
+        "PingInterval": 5000,
+        "PingMaxOutStanding": 3,
+        "SubscriptionBatchSize": 128
+      },
+      "Report": {
+        "Url": "http://report-api"
+      },
+      "Promotion": {
+        "Url": "http://promotion-api"
+      },
+      "CorsDomain": {
+        "Urls": [ "https://dev.lobby.tgsdev.gq"]
+      },
+      "Email": {
+        "Url": "{{ .Values.mail.url }}"
+      },
+      "RequestLocalization": {
+        "DefaultRequestCulture": "en-US",
+        "ApplyCurrentCultureToResponseHeaders": true,
+        "SupportedCultures": [ "en-US", "zh-CN", "zh-TW", "th-TH" ],
+        "SupportedUICultures": [ "en-US", "zh-CN", "zh-TW", "th-TH" ]
+      }
+    }

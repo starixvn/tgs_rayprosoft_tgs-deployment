@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: payment-api
+  namespace: staging
+  labels:
+    app: payment-api
+spec:
+  selector:
+    matchLabels:
+      app: payment-api
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: payment-api
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      nodeSelector:
+        dedicated: nonprod
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: nonprod
+      containers:
+        - name: payment-api
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/payment-api:v31
+          imagePullPolicy: Always
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 5
+          readinessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 5
+          volumeMounts:
+            - mountPath: /app/appsettings.json
+              name: appsettings
+              readOnly: true
+              subPath: appsettings.json
+      volumes:
+        - name: appsettings
+          configMap:
+            name: configmap-payment-api
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: payment-api
+  namespace: staging
+spec: 
+  ports:
+    - protocol: TCP
+      port: 80
+      name: api
+  selector:
+      app: payment-api

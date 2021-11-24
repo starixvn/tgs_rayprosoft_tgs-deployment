@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-agent-wlg
+  namespace: prod
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  tls:
+  - hosts:
+    - agent.wlgtop.com
+    secretName: agent.wlgtop.com
+  rules:
+  - host: agent.wlgtop.com
+    http:
+      paths:
+      - path: /api
+        backend:
+          serviceName: agent-api
+          servicePort: 80
+      - path: /
+        backend:
+          serviceName: agent-wlg
+          servicePort: 80

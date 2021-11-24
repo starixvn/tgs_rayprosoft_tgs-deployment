@@ -1,0 +1,27 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-game-365
+  namespace: prod
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/server-snippet: |-
+      allow 103.4.104.63/32;
+      allow 218.32.214.9/32;
+      allow 205.252.17.83/32;
+      allow 220.132.206.70/32;
+      deny all;
+spec:
+  tls:
+  - hosts:
+    - game-365.yydsgo.xyz
+    secretName: game-365.yydsgo.xyz
+  rules: 
+  - host: game-365.yydsgo.xyz
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: game-365
+          servicePort: 80   

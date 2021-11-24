@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-agent-api
+  namespace: prod
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  tls:
+  - hosts:
+    - agent-api.srvptt.com
+    secretName: agent-api.srvptt.com
+  rules:
+  - host: agent-api.srvptt.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: agent-api
+          servicePort: 80

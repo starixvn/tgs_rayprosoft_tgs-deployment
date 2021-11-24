@@ -1,0 +1,84 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: game-imes
+  namespace: staging
+  labels:
+    app: game-imes
+spec:
+  selector:
+    matchLabels:
+      app: game-imes
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: game-imes
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      nodeSelector:
+        dedicated: nonprod
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: nonprod
+      containers:
+        - name: game-imes
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/tgs-api:staging
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              cpu: 500m
+              memory: 1Gi
+            requests:
+              cpu: 250m
+              memory: 500Mi
+          livenessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 5
+          readinessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 5
+          env:
+            - name: aspnetcore_environment
+              value: "Staging"
+            - name: aspnetcore_https_port
+              value: "443"
+            - name: GameProviderCode
+              value: "IMES"
+          volumeMounts:
+            - mountPath: /app/appsettings.json
+              name: appsettings
+              readOnly: true
+              subPath: appsettings.json
+      volumes:
+        - name: appsettings
+          configMap:
+            name: configmap-game-imes
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: game-imes
+  namespace: staging
+  annotations: 
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: tcp
+    service.beta.kubernetes.io/aws-load-balancer-internal: 0.0.0.0/0
+spec: 
+  ports:
+    - protocol: TCP
+      port: 80
+      name: api
+  selector:
+      app: game-imes

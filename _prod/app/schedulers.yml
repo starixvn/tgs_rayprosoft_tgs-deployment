@@ -1,0 +1,76 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: schedulers
+  namespace: prod
+  labels:
+    app: schedulers
+spec:
+  selector:
+    matchLabels:
+      app: schedulers
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: schedulers
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      nodeSelector:
+        dedicated: prod
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: prod
+      containers:
+        - name: schedulers
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/schedulers:prod
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              cpu: 950m
+              memory: 1.5Gi
+            requests:
+              cpu: 500m
+              memory: 900Mi
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: "Production"
+            - name: aspnetcore_https_port
+              value: "443"
+          volumeMounts:
+            - mountPath: /app/appsettings.json
+              name: appsettings
+              readOnly: true
+              subPath: appsettings.json  
+            - mountPath: /etc/ssl/certs/rds-combined-ca-bundle.pem
+              name: rds-combined-ca-bundle
+              readOnly: true
+              subPath: rds-combined-ca-bundle.pem
+      volumes:
+        - name: appsettings
+          configMap:
+            name: configmap-schedulers
+        - name: rds-combined-ca-bundle
+          configMap:
+            name: configmap-mongodb-pem
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: schedulers
+  namespace: prod
+spec: 
+  ports:
+    - protocol: TCP
+      port: 80
+      name: schedulers
+  selector:
+      app: schedulers

@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: game-record-receiver
+  namespace: staging
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  tls:
+  - hosts:
+    - stg-record-receiver.rpgp.cc
+    secretName: stg-record-receiver.rpgp.cc
+  rules:
+  - host: stg-record-receiver.rpgp.cc
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: game-gamerecord-receiverserver 
+          servicePort: 80

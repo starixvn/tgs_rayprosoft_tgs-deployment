@@ -1,0 +1,33 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap-{{ include "backoffice-api.fullname" . }}
+  namespace: {{ .Values.namespace }}
+data:
+  appsettings.json: |
+    {
+      "ConnectionStrings": {
+        "Tgs": "{{ .Values.connectionStrings.tgs }}",
+        "RedisConfigurationString": "{{ .Values.connectionStrings.redis }}",
+        "GameProvidersPluggable": "http://game-pluggable-service",
+      },
+      "NatsSetting": {
+        "Urls": "{{ .Values.nats.urls }}"
+      },
+      "File": {
+        "FileServiceBaseUrl": "http://file-service"
+      },
+      "Report": {
+        "Url": "http://report-api"
+      },
+      "Promotion": {
+        "Url": "http://promotion-api"
+      },
+      "BackOffice": {
+        "PaymentServiceBaseUrl": "http://payment-api",
+        "CashBaseUrl": "http://cashservice-api"
+      },
+      "TGSGameProvidersKickPlayerApi": {
+        "BaseUrl": "http://game-kickplayer-server"
+      }
+    }

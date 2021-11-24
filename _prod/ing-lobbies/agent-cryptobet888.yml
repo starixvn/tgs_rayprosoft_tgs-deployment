@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-agent-cryptobet888
+  namespace: prod
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  tls:
+  - hosts:
+    - cryptobet888.net
+    secretName: cryptobet888.net
+  rules:
+  - host: cryptobet888.net
+    http:
+      paths:
+      - path: /api
+        backend:
+          serviceName: agent-api
+          servicePort: 80
+      - path: /
+        backend:
+          serviceName: agent-cryptobet888
+          servicePort: 80
