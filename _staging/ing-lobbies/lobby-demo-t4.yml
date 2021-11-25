@@ -1,0 +1,36 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: lobby-demo-t4
+  namespace: staging
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+        proxy_set_header Brand-Token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiZHNpdGUiLCJzdWIiOiJlYmU1MTI4OC1lZDg3LTRlMWYtOTZlYi04ZmRhMmIyZTczNDQiLCJuYmYiOjE2Mzc4MjAxMTEsImV4cCI6MTYzNzgyMzcxMSwiaWF0IjoxNjM3ODIwMTExLCJpc3MiOiJ0Z3MifQ.EieZf17nxb0_TxVC3-IENy9DW5AJDjE8KGLIzZaZmZVJSEs7MVREDUG8sBgq2J_VHxolofhx87AWpSCotgJeJmrLov0TsePHqN6HdvhC5gzovB1aiFMF0pjJIOq0y54k_ApLS5btCqJ91GKFFlZFYf_qYZ4MFY4F9h_32oOAFOBjvpK6mt4t_LBvDRdnX4M7I2NMCZxzqG_YcjA-XH02S2SDX2vNN6lSfoJFzxw4yUJRSZhsrsM26fltJjLo5aS0UMHTtlGy13vd63z6wOanetG31ZJ6zsJw_i_ztiMTg0n4hCuyp7IwSJrexFAD_u97VYRfLUqJkZACyWDdVX_l0A;
+spec:
+  tls:
+  - hosts:
+    - t4.pgdemo.online
+    secretName: t4.pgdemo.online
+  rules:
+  - host: t4.pgdemo.online
+    http:
+      paths:
+      - path: /api/brandcommunication
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /api/brandlivechat
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /api
+        backend:
+          serviceName: operator-api
+          servicePort: 80
+      - path: /
+        backend:
+          serviceName: lobby-demo-t4
+          servicePort: 80
