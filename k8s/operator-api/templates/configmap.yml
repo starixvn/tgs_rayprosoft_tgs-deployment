@@ -48,7 +48,25 @@ data:
       "RequestLocalization": {
         "DefaultRequestCulture": "en-US",
         "ApplyCurrentCultureToResponseHeaders": true,
-        "SupportedCultures": [ "en-US", "zh-CN", "zh-TW", "th-TH" ],
-        "SupportedUICultures": [ "en-US", "zh-CN", "zh-TW", "th-TH" ]
+        "SupportedCultures": [
+          "en-US",
+          "zh-CN",
+          "zh-TW",
+          "th-TH",
+          "id-ID",
+          "ja-JP",
+          "ko-KR",
+          "vi-VN"
+        ],
+        "SupportedUICultures": [
+          "en-US",
+          "zh-CN",
+          "zh-TW",
+          "th-TH",
+          "id-ID",
+          "ja-JP",
+          "ko-KR",
+          "vi-VN"
+        ]
       }
     }
