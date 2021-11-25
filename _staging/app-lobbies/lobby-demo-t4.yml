@@ -26,7 +26,7 @@ spec:
         value: nonprod
       containers:
         - name: lobby-demo-t4
-          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t4:staging
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t3:staging
           imagePullPolicy: IfNotPresent
           env:
           - name: CLIENT
