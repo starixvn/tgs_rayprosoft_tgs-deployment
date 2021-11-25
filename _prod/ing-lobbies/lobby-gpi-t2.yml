@@ -12,31 +12,9 @@ metadata:
 spec:
   tls:
   - hosts:
-    - t2.pgdemo.online
-    secretName: t2.pgdemo.online
-  - hosts:
     - t2.srvptt.com
     secretName: t2.srvptt.com
   rules:
-  - host: t2.pgdemo.online
-    http:
-      paths:
-      - path: /api/brandcommunication
-        backend:
-          serviceName: brand-api
-          servicePort: 80
-      - path: /api/brandlivechat
-        backend:
-          serviceName: brand-api
-          servicePort: 80
-      - path: /
-        backend:
-          serviceName: lobby-gpi-t2
-          servicePort: 80
-      - path: /api
-        backend:
-          serviceName: operator-api
-          servicePort: 80
   - host: t2.srvptt.com
     http:
       paths:
