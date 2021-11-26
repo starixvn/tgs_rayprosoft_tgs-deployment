@@ -13,13 +13,13 @@ spec:
       labels:
         app: pgpool
     spec:
-      nodeSelector:
-        dedicated: nonprod
-      tolerations:
-      - effect: NoSchedule
-        key: dedicated
-        operator: Equal
-        value: nonprod
+      # nodeSelector:
+        # dedicated: nonprod
+      # tolerations:
+      # - effect: NoSchedule
+        # key: dedicated
+        # operator: Equal
+        # value: nonprod
       containers:
       - name: pgpool
         image: pgpool/pgpool:4.2.2
