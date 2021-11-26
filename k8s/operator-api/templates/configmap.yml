@@ -40,7 +40,7 @@ data:
         "Url": "http://promotion-api"
       },
       "CorsDomain": {
-        "Urls": [ "https://dev.lobby.tgsdev.gq"]
+        "Urls": []
       },
       "Email": {
         "Url": "{{ .Values.mail.url }}"

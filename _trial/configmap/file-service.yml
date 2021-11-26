@@ -1,0 +1,47 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fileservice
+  namespace: dev
+data:
+  appsettings.json: |
+    {
+      "Logging": {
+        "LogLevel": {
+          "Default": "Information",
+          "Microsoft": "Warning",
+          "Microsoft.Hosting.Lifetime": "Information"
+        }
+      },
+      "AllowedHosts": "*",
+      "DatabaseSettings": {
+        "ConnectionString": "mongodb://root:1qaz2wsx@mongodb/filedb?retryWrites=true&w=majority&authSource=admin"
+      },
+      "NatsSetting": {
+        "Urls": "nats://nats-client:4222",
+        "ConnectTimeoutMs": 2000,
+        "PingInterval": 5000,
+        "PingMaxOutStanding": 3,
+        "SubscriptionBatchSize": 128
+      },
+      "FileSetting": {
+        "Path": "UploadImages",
+        "FileSizeLimit": 2097152
+      },
+      "AWS": {
+        "AccessKeyId": "AKIAQ4KFUNHMWDQG7BVC",
+        "SecretAccessKey": "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",
+        "Region": "ap-east-1",
+        "UseHttp": true,
+        "Project": {
+          "ExternalServiceUrl": "https://project.srvptt.com",
+          "ServiceUrl": "http://project.srvptt.com.s3.ap-east-1.amazonaws.com",
+          "Bucket": "tgs-project"
+        },
+        "Secret": {
+          "ExternalServiceUrl": "https://tgs-secret.s3.ap-east-1.amazonaws.com",
+          "ServiceUrl": "https://tgs-secret.s3.ap-east-1.amazonaws.com",
+          "Bucket": "tgs-secret"
+        }
+      }
+    }

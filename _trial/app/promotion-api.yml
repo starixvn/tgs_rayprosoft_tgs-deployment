@@ -1,0 +1,79 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: promotion-api
+  namespace: dev
+  labels:
+    app: promotion-api
+spec:
+  selector:
+    matchLabels:
+      app: promotion-api
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: promotion-api
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      nodeSelector:
+        dedicated: nonprod
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: nonprod
+      containers:
+        - name: promotion-api
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/promotion-api:stag
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 5
+          readinessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 5
+          resources:
+            limits:
+              cpu: 400m
+              memory: 1000Mi
+            requests:
+              cpu: 400m
+              memory: 1000Mi
+          env:
+            - name: aspnetcore_environment
+              value: "Staging"
+            - name: aspnetcore_https_port
+              value: "443"
+          volumeMounts:
+            - mountPath: /config/appsettings.json
+              name: appsettings
+              readOnly: true
+              subPath: appsettings.json
+      volumes:
+        - name: appsettings
+          configMap:
+            name: configmap-promotion-api
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: promotion-api
+  namespace: dev
+spec: 
+  ports:
+    - protocol: TCP
+      port: 80
+      name: api
+  selector:
+      app: promotion-api
