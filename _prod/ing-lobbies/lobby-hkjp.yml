@@ -17,12 +17,6 @@ spec:
   - hosts:
     - www.hkjp168.com
     secretName: www.hkjp168.com
-  - hosts:
-    - hkjp6688.co
-    secretName: hkjp6688.co
-  - hosts:
-    - www.hkjp6688.co
-    secretName: www.hkjp6688.co
   rules:
   - host: hkjp168.com
     http:
@@ -44,44 +38,6 @@ spec:
           serviceName: lobby-hkjp
           servicePort: 80
   - host: www.hkjp168.com
-    http:
-      paths:
-      - path: /api/brandcommunication
-        backend:
-          serviceName: brand-api
-          servicePort: 80
-      - path: /api/brandlivechat
-        backend:
-          serviceName: brand-api
-          servicePort: 80
-      - path: /api
-        backend:
-          serviceName: operator-api
-          servicePort: 80
-      - path: /
-        backend:
-          serviceName: lobby-hkjp
-          servicePort: 80
-  - host: hkjp6688.co
-    http:
-      paths:
-      - path: /api/brandcommunication
-        backend:
-          serviceName: brand-api
-          servicePort: 80
-      - path: /api/brandlivechat
-        backend:
-          serviceName: brand-api
-          servicePort: 80
-      - path: /api
-        backend:
-          serviceName: operator-api
-          servicePort: 80
-      - path: /
-        backend:
-          serviceName: lobby-hkjp
-          servicePort: 80
-  - host: www.hkjp6688.co
     http:
       paths:
       - path: /api/brandcommunication
