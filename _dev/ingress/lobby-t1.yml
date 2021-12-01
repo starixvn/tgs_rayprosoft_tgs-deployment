@@ -20,26 +20,40 @@ spec:
   - host: dev-t1.rpgp.cc
     http:
       paths:
-      - pathType: Prefix
-        path: /
+      paths:
+      - path: /api/brandcommunication
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /api/brandlivechat
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /
         backend:
           serviceName: lobby-t1
           servicePort: 80
-      - pathType: Prefix
-        path: /api
+      - path: /api
         backend:
           serviceName: operator-api
           servicePort: 80
   - host: dev-t1-affiliate.rpgp.cc
     http:
       paths:
-      - pathType: Prefix
-        path: /
+      paths:
+      - path: /api/brandcommunication
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /api/brandlivechat
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /
         backend:
           serviceName: lobby-t1
           servicePort: 80
-      - pathType: Prefix
-        path: /api
+      - path: /api
         backend:
           serviceName: operator-api
           servicePort: 80

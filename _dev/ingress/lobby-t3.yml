@@ -17,13 +17,19 @@ spec:
   - host: dev-t3.rpgp.cc
     http:
       paths:
-      - pathType: Prefix
-        path: /
+      - path: /api/brandcommunication
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /api/brandlivechat
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /
         backend:
           serviceName: lobby-t3
           servicePort: 80
-      - pathType: Prefix
-        path: /api
+      - path: /api
         backend:
           serviceName: operator-api
           servicePort: 80
