@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: ingress-lobby-crmyr
+  name: lobby-crmyr
   namespace: prod
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
