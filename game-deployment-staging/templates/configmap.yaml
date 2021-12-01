@@ -20,6 +20,9 @@ data:
         "UnrestrictedLoggers": []
       },
       "AllowedHosts": "*",
+      "Game": {
+        "CashBaseUrl": "http://cashservice-api"
+      },
       "FeatureManagement": {
         "{{ .Values.gpCode }}": false,
       },
