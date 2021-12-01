@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: lobby-hkjp-hk8889-co
+  name: lobby-hkjp-hk8899-co
   namespace: prod
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
@@ -13,13 +13,13 @@ metadata:
 spec:
   tls:
   - hosts:
-    - hk8889.co
-    secretName: hk8889.co
+    - hk8899.co
+    secretName: hk8899.co
   - hosts:
-    - www.hk8889.co
-    secretName: www.hk8889.co
+    - www.hk8899.co
+    secretName: www.hk8899.co
   rules:
-  - host: hk8889.co
+  - host: hk8899.co
     http:
       paths:
       - path: /api/brandcommunication
@@ -38,7 +38,7 @@ spec:
         backend:
           serviceName: lobby-hkjp
           servicePort: 80
-  - host: www.hk8889.co
+  - host: www.hk8899.co
     http:
       paths:
       - path: /api/brandcommunication
