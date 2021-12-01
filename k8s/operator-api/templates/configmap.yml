@@ -13,7 +13,8 @@ data:
         "ValidateCodeTestEnabled": {{ .Values.validateCodeTestEnabled }},
         "PaymentServiceBaseUrl": "http://payment-api",
         "BrandCertificateBaseUrl": "http://brand-cert-api",
-        "CashBaseUrl": "http://cashservice-api"
+        "CashBaseUrl": "http://cashservice-api",
+        "GameProvidersPluggableBaseUrl": "http://game-pluggable-service"
       },
       "EmailSetting": {
         "FromMail": "verifyme@163.com",
