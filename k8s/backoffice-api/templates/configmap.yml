@@ -9,7 +9,7 @@ data:
       "ConnectionStrings": {
         "Tgs": "{{ .Values.connectionStrings.tgs }}",
         "RedisConfigurationString": "{{ .Values.connectionStrings.redis }}",
-        "GameProvidersPluggable": "http://game-pluggable-service",
+        "GameProvidersPluggable": "http://game-pluggable-service"
       },
       "NatsSetting": {
         "Urls": "{{ .Values.nats.urls }}"
@@ -25,7 +25,8 @@ data:
       },
       "BackOffice": {
         "PaymentServiceBaseUrl": "http://payment-api",
-        "CashBaseUrl": "http://cashservice-api"
+        "CashBaseUrl": "http://cashservice-api",
+        "GameProvidersPluggableBaseUrl": "http://game-pluggable-service"
       },
       "TGSGameProvidersKickPlayerApi": {
         "BaseUrl": "http://game-kickplayer-server"
