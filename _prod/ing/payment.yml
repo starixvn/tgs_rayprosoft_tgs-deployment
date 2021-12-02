@@ -51,3 +51,15 @@ spec:
         backend:
           serviceName: payment-maticpay  
           servicePort: 80
+      - path: /help2pay(/|$)(.*)
+        backend:
+          serviceName: payment-help2pay
+          servicePort: 80
+      - path: /skypay-vn(/|$)(.*)
+        backend:
+          serviceName: payment-skypay
+          servicePort: 80
+      - path: /skypay-cn(/|$)(.*)
+        backend:
+          serviceName: payment-skypay
+          servicePort: 81
