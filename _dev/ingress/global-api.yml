@@ -1,0 +1,22 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: global-api
+  namespace: dev
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  tls:
+  - hosts:
+    - global-api.rpgp.cc
+    secretName: global-api.rpgp.cc
+  rules:
+  - host: global-api.rpgp.cc
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          serviceName: global-api
+          servicePort: 80
