@@ -17,7 +17,7 @@ spec:
     secretName: 28bet.live
   - hosts:
     - www.28bet.live
-    secretName: 28bet.live
+    secretName: www.28bet.live
   rules:
   - host: 28bet.live
     http:
