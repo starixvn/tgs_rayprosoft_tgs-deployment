@@ -42,5 +42,8 @@ data:
       },
       "Email": {
         "Url": "{{ .Values.mail.url }}"
+      },
+      "ProfitRebate": {
+        "Url": "http://profit-rebate-service"
       }
     }
