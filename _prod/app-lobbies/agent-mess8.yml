@@ -38,7 +38,7 @@ spec:
           - name: BRAND
             value: "mess8"
           - name: LANGUAGES
-            value: "[{\"name\":\"zh-CN\",\"label\":\"简体\"},{\"name\":\"zh-TW\",\"label\":\"繁體\"},{\"name\":\"en-US\",\"label\":\"English\"},{\"name\":\"th-TH\",\"label\":\"Thai\"}]"
+            value: "[{\"name\":\"zh-CN\",\"label\":\"简体\"},{\"name\":\"zh-TW\",\"label\":\"繁體\"},{\"name\":\"en-US\",\"label\":\"English\"},{\"name\":\"th-TH\",\"label\":\"Thai\"},{\"name\":\"vi-VN\",\"label\":\"Vietnam\"}]"
           - name: DEFAULT_LANGUAGE
             value: "en-US"
           - name: THEME
