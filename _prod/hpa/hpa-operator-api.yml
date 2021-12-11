@@ -9,13 +9,13 @@ spec:
     kind: Deployment
     name: operator-api
   minReplicas: 1
-  maxReplicas: 10
+  maxReplicas: 3
   metrics: 
     - type: Resource
       resource:
         name: cpu
-        targetAverageUtilization: 60
+        targetAverageUtilization: 80
     - type: Resource
       resource:
         name: memory
-        targetAverageUtilization: 60
+        targetAverageUtilization: 80
