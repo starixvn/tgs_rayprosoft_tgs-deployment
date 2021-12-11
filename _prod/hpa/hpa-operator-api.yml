@@ -1,7 +1,7 @@
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: hpa-operator-api
+  name: operator-api
   namespace: prod
 spec:
   scaleTargetRef:
