@@ -1,0 +1,79 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: op-api-wlghk
+  namespace: prod
+  labels:
+    app: op-api-wlghk
+spec:
+  selector:
+    matchLabels:
+      app: op-api-wlghk
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: op-api-wlghk
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      nodeSelector:
+        dedicated: prod
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: prod
+      containers:
+        - name: op-api-wlghk
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/operator-api:prod
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 5
+          readinessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 5
+          resources:
+            limits:
+              cpu: 900m
+              memory: 900Mi
+            requests:
+              cpu: 250m
+              memory: 512Mi
+          env:
+            - name: aspnetcore_environment
+              value: "Production"
+            - name: aspnetcore_https_port
+              value: "443"
+          volumeMounts:
+            - mountPath: /config/appsettings.json
+              name: appsettings
+              readOnly: true
+              subPath: appsettings.json 
+      volumes:
+        - name: appsettings
+          configMap:
+            name: configmap-operator-api
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: op-api-wlghk
+  namespace: prod
+spec: 
+  ports:
+    - protocol: TCP
+      port: 80
+      name: api
+  selector:
+      app: op-api-wlghk                    
