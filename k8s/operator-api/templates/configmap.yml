@@ -47,7 +47,8 @@ data:
         "Url": "{{ .Values.mail.url }}"
       },
       "ForwardedHeaders": {
-        "ForwardLimit": 2,
+        "ForwardLimit": 1,
+        "ForwardedForHeaderName": "cf-connecting-ip",
         "KnownProxies": [],
         "KnownNetworks": ["10.0.0.0/8"]
       },
