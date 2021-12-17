@@ -73,16 +73,43 @@ spec:
             periodSeconds: 5
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
-          env:
-            - name: aspnetcore_environment
-              value: "{{ .Values.aspNetCoreEnvironment}}"
-            - name: aspnetcore_https_port
-              value: "443"
           volumeMounts:
             - mountPath: /config/appsettings.json
               name: appsettings
               readOnly: true
-              subPath: appsettings.json  
+              subPath: appsettings.json
+        {{- if eq .Values.namespace "dev" }}
+        - name: {{ .Chart.Name }}-yarp
+          securityContext:
+            {{- toYaml .Values.securityContext | nindent 12 }}
+          image: harbor.rpgp.cc/tgs/yarp-sidecar:2021.12.17.0718
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+            - name: yarp
+              containerPort: 9090
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 9090
+            initialDelaySeconds: 10
+            failureThreshold: 10
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 9090
+            initialDelaySeconds: 10
+            failureThreshold: 10
+            periodSeconds: 5
+          resources:
+            {{- toYaml .Values.resources | nindent 12 }}
+          volumeMounts:
+            - mountPath: /config/appsettings.json
+              name: appsettings
+              readOnly: true
+              subPath: yarp-settings.json
+        {{- end }}
       volumes:
         - name: appsettings
           configMap:

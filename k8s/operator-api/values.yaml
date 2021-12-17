@@ -12,6 +12,7 @@ image:
 
 imagePullSecrets:
   - name: registry-credentials
+  - name: secret-tgs-harbor
 nameOverride: "operator-api"
 fullnameOverride: "operator-api"
 namespace: dev
