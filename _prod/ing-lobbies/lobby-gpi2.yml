@@ -1,0 +1,36 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: lobby-gpi2
+  namespace: prod
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+        proxy_set_header Brand-Token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR1BJMiIsInN1YiI6IjA3NGFjZDhjLTRiM2MtNGZkYy04NmZkLTdhOTQ0ZjMxNDI0NyIsIm5iZiI6MTYzOTczMjEwNCwiZXhwIjoxNjM5NzM1NzA0LCJpYXQiOjE2Mzk3MzIxMDQsImlzcyI6InRncyJ9.Aca69nauEDmlCf1x0W9E4D3eJSYrFPuDic7BR90a6InQrQBw_hVbedHIme2y8-kh2pSoIyr9VO-32AHo-x89D_zWTYlGT5AtwQR7jZSOhbm0EDYecF1QnGfwNXx3mrCLULAolSddTLMlPpwljE4OJRer1P95CqpFdAw9CHwc5SgoVRjvxSQethlJc6zTxorb4VjY_oXT8haezEg04Zc10craaXZoLEv2NtsAaZndWEDpdXuNGkHB0P8XL0Z6htU1E_jKK51Lrm6cjOLzVPW_bI8axQGL3ldnBwzwNNYER34gpnIOOK2swwHoj01DTrSagsnGoFc6C54tDiyyTQ0-GA;
+spec:
+  tls:
+  - hosts:
+    - gpi2.srvptt.com
+    secretName: gpi2.srvptt.com
+  rules:
+  - host: gpi2.srvptt.com
+    http:
+      paths:
+      - path: /api/brandcommunication
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /api/brandlivechat
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /
+        backend:
+          serviceName: lobby-gpi2
+          servicePort: 80
+      - path: /api
+        backend:
+          serviceName: operator-api
+          servicePort: 80
