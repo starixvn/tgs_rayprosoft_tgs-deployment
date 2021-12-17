@@ -30,7 +30,7 @@ spec:
           imagePullPolicy: IfNotPresent
           env:
           - name: CLIENT
-            value: "VxSVy4C2tGgoNBq3JVzlJSghtkU3ydxAbdjxUBvZfJUJkgXRb8MM3"
+            value: "VxSVy4C2tGgoNBq3JVzlJSghtkU3ydxAbdjxUBvZfJUJkgXRb8MM32"
           - name: CURRENCY
             value: "CNY"
           - name: BRAND
