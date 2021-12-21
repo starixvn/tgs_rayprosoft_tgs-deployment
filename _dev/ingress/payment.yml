@@ -30,35 +30,29 @@ spec:
         path: /applepay(/|$)(.*)
         backend:
           serviceName: payment-applepay
-          servicePort: 80
+          servicePort: 80   
       - pathType: Prefix
         path: /umpay(/|$)(.*)
         backend:
           serviceName: payment-umpay
-          servicePort: 80
+          servicePort: 80    
       - pathType: Prefix
         path: /maticpay(/|$)(.*)
         backend:
           serviceName: payment-maticpay  
           servicePort: 80
-       - backend:
-          service:
-            name: payment-help2pay
-            port:
-              number: 80
+      - pathType: Prefix
         path: /help2pay(/|$)(.*)
-        pathType: Prefix
-      - backend:
-          service:
-            name: payment-skypay
-            port:
-              number: 80
+        backend:
+          serviceName: payment-help2pay
+          servicePort: 80
+      - pathType: Prefix
         path: /skypay-vn(/|$)(.*)
-        pathType: Prefix
-      - backend:
-          service:
-            name: payment-skypay
-            port:
-              number: 81
+        backend:
+          serviceName: payment-skypay
+          servicePort: 80
+      - pathType: Prefix
         path: /skypay-cn(/|$)(.*)
-        pathType: Prefix
+        backend:
+          serviceName: payment-skypay
+          servicePort: 81
