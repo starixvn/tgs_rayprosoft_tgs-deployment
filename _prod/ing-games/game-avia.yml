@@ -1,0 +1,21 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-game-avia
+  namespace: prod
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  tls:
+  - hosts:
+    - game-avia.yydsgo.xyz
+    secretName: game-avia.yydsgo.xyz
+  rules: 
+  - host: game-avia.yydsgo.xyz
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: game-avia
+          servicePort: 80   
