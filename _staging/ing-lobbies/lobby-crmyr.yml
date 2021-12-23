@@ -7,6 +7,7 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
     nginx.ingress.kubernetes.io/configuration-snippet: |
         proxy_set_header Brand-Token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiY3JteXIiLCJzdWIiOiIzZTQ2ZTIyMi04MmM2LTQzNTItOGFjNi1iNDU4MzM5YzhkYTciLCJuYmYiOjE2Mzc2MzQ5NzMsImV4cCI6MTYzNzYzODU3MywiaWF0IjoxNjM3NjM0OTczLCJpc3MiOiJ0Z3MifQ.laIEOOffZqgtWS0uBij4Ahe7Vqx_Ns8kYzcQi0aBIb4kuO7MvQ7bdmtI0rnKhagvaRyWalpECH49V9Q8YD95CIt1pL7dzQ7efx75kkU3e_3Yew9T7TKrS4XHUWZYF2t8BgR0fqBINy3pr8Ixax2WFCVb8TRqIdtJGWBPUukbj9j2qXoggkM0MCQ_Jp-AhqEJ5lxjRizq0jH0bbzoqK0_HcflHMwU9_FcGOxIrZsIas8hkN2UxmyrJMaTTKCgYD3bjNQUJ0at0PfUL1oBY76bx1xpqv7qwXPIwBv3BdCihqIZRbwnEnCfS7oEaiWfIkZNoRR4GVH99kj6dq6zN8J2AA;
 spec:
