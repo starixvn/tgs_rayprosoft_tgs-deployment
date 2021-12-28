@@ -12,6 +12,7 @@ metadata:
       allow 35.240.213.159;
       allow 34.87.89.148;
       allow 34.87.165.104;
+      allow 220.132.206.70;
       deny all;
 spec:
   tls:
