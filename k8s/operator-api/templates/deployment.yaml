@@ -57,6 +57,13 @@ spec:
             - name: http
               containerPort: 80
               protocol: TCP
+          env:
+            - name: OTEL_SERVICE_NAME
+              value: Operator-Api-{{ .Values.namespace }}
+            - name: NODE_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP
           livenessProbe:
             httpGet:
               path: /health
