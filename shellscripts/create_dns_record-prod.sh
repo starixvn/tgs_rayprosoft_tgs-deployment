@@ -3,7 +3,7 @@
 url='https://api.cloudflare.com/client/v4/zones/10f05709c7cfb730ef46a95bdefc6387/dns_records'
 email='infrastructure@rayprosoft.com'
 apikey='ea16209785cb4fa06858c5571ff5b8057840f'
-content='a6c1116e0e2dc481981b9b39d0283c43-383156902.ap-east-1.elb.amazonaws.com'
+content='ac14ad4ad050b4a71b144385e51a20f5-1241810226.ap-east-1.elb.amazonaws.com'
 domain='.yydsgo.xyz'
 
 echo "input:$1"
