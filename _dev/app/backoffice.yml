@@ -34,6 +34,23 @@ spec:
             runAsGroup: 0
           ports:
             - containerPort: 80
+          env:
+          - name: MODE
+            value: "Staging"
+          - name: LOGIN_BUTTON_COLOR
+            value: "#ffffff"
+          - name: LOGIN_BUTTON_BACKGROUND
+            value: "#C48207"
+          - name: HEADER_BACKGROUND
+            value: "#C48207"
+          - name: HEADER_BUTTON_COLOR
+            value: "#ffffff"
+          - name: HEADER_BUTTON_BACKGROUND
+            value: "transparent"
+          - name: LOGIN_IMAGE_URL
+            value: "//images.srvptt.com/GMS%20Logo/GMS.png"
+          - name: HEADER_IMAGE_URL
+            value: "//images.srvptt.com/GMS%20Logo/GMS.png"
 ---
 apiVersion: v1
 kind: Service
