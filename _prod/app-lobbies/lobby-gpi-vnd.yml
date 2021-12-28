@@ -1,0 +1,89 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: lobby-gpi-vnd
+  namespace: prod
+  labels:
+    app: lobby-gpi-vnd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lobby-gpi-vnd
+  template:
+    metadata:
+      labels:
+        app: lobby-gpi-vnd
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      nodeSelector:
+        dedicated: prod
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: prod
+      containers:
+        - name: lobby-gpi-vnd
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t1:prod
+          imagePullPolicy: IfNotPresent
+          env:
+          - name: CLIENT
+            value: "TbkNfCctswLCM8FldHkY4i2w9Cpjjlaed17BoNvVOaeX7TIvdqUoBo"
+          - name: CURRENCY
+            value: "VND_1000"
+          - name: BRAND
+            value: "PGG"
+          - name: LANGUAGES
+            value: "[{\"name\":\"zh-CN\",\"label\":\"简体\"},{\"name\":\"zh-TW\",\"label\":\"繁體\"},{\"name\":\"en-US\",\"label\":\"English\"},{\"name\":\"th-TH\",\"label\":\"Thai\"}]"
+          - name: DEFAULT_LANGUAGE
+            value: "en-US"
+          - name: BANNER_COUNT
+            value: "2"
+          - name: THEME
+            value: "red"
+          - name: SOURCE_URL
+            value: "https://images.srvptt.com/"
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: site-data
+              mountPath: /data
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          resources:
+            limits:
+              cpu: 150m
+              memory: 300Mi
+            requests:
+              cpu: 150m
+              memory: 300Mi
+      volumes:
+        - name: site-data
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lobby-gpi-vnd
+  namespace: prod
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      name: web
+  selector:
+    app: lobby-gpi-vnd
