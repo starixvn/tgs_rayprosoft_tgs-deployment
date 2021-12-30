@@ -36,7 +36,7 @@ spec:
             - containerPort: 80
           env:
           - name: MODE
-            value: "Staging"
+            value: "Deployment"
           - name: LOGIN_BUTTON_COLOR
             value: "#ffffff"
           - name: LOGIN_BUTTON_BACKGROUND
