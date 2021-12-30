@@ -47,7 +47,7 @@ spec:
         path: /
         backend:
           service:
-            name: lobby-mess8
+            name: lobby-t1
             port:
               number: 80
   - host: www.srvttt.com
@@ -78,6 +78,6 @@ spec:
         path: /
         backend:
           service:
-            name: lobby-mess8
+            name: lobby-t1
             port:
               number: 80
