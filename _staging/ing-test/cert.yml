@@ -1,0 +1,15 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: certificate-mess8
+  namespace: prod
+spec:
+  secretName: ing-test.srvttt.com
+  duration: 2160h # 90d
+  renewBefore: 360h # 15d
+  issuerRef:
+    name: letsencrypt
+    kind: ClusterIssuer
+  dnsNames:
+  - ing-test.srvttt.com
+  - www.srvttt.com
