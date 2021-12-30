@@ -13,6 +13,7 @@ metadata:
 spec:
   rules:
   - host: ing-test.srvttt.com
+    secretName: ing-test.srvttt.com
     http:
       paths:
       - pathType: Prefix
@@ -20,26 +21,31 @@ spec:
         backend:
           service:
             name: brand-api
-            port: 80
+            port:
+              number: 80
       - pathType: Prefix
         path: /api/brandlivechat
         backend:
           service:
             name: brand-api
-            port: 80
+            port:
+              number: 80
       - pathType: Prefix
         path: /api
         backend:
           service:
             name: operator-api
-            port: 80
+            port:
+              number: 80
       - pathType: Prefix
         path: /
         backend:
           service:
             name: lobby-mess8
-            port: 80
+            port:
+              number: 80
   - host: www.srvttt.com
+    secretName: ing-test.srvttt.com
     http:
       paths:
       - pathType: Prefix  
@@ -47,22 +53,26 @@ spec:
         backend:
           service:
             name: brand-api
-            port: 80
+            port:
+              number: 80
       - pathType: Prefix
         path: /api/brandlivechat
         backend:
           service:
             name: brand-api
-            port: 80
+            port:
+              number: 80
       - pathType: Prefix
         path: /api
         backend:
           service:
             name: operator-api
-            port: 80
+            port:
+              number: 80
       - pathType: Prefix
         path: /
         backend:
           service:
             name: lobby-mess8
-            port: 80
+            port:
+              number: 80
