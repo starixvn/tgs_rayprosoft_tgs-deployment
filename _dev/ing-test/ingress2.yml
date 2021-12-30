@@ -18,7 +18,7 @@ spec:
     secretName: ing-test.srvttt.com
   - hosts:
     - www.srvttt.com
-    secretName: ing-test.srvttt.com
+    secretName: www.srvttt.com
   rules:
   - host: ing-test.srvttt.com
     http:
