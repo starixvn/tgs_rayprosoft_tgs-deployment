@@ -1,0 +1,49 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: lobby-crmyr
+  namespace: prod
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+        proxy_set_header Brand-Token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQ3JNWVIiLCJzdWIiOiJmY2Y3MjYxNS04OWI1LTQ0ZjItYjYyOC0zYmE0ZTVmN2Y2NGQiLCJuYmYiOjE2Mzc2MzY2OTcsImV4cCI6MTYzNzY0MDI5NywiaWF0IjoxNjM3NjM2Njk3LCJpc3MiOiJ0Z3MifQ.UubOIs39xygtrMdPfIeDeRvPMMI_g5aH--TUSFAnDk31O99zIry9W9INLz82wN5b52AURB3m-WqWtx_Z9nojm8JKJJeth8E2ckbts8dpNWI8x-RlVkPRk6C790KE6qMBW1hkbqBITxNq_AVDIZ2ujVQGRlOMZDvqdTsM_l8-MHNzRF1DN5Aqb-YUi95NsoEFI3Z9roQlceqq3nepeo2HYMCan429Gs9nzKY3Q8dIXHwE0D2EgpOA1sbYWPl9OieElqREK6nTtcusRTlRcfdhYZgVbTVvwhri75-NrXcskjuVWVpISp8cc-TdDnf6nWvjXyQ4Xu6xLYWu4PRuNtX_YA;
+spec:
+  tls:
+  - hosts:
+    - cryptobet888.com
+    secretName: cryptobet888.com
+  rules:
+  - host: cryptobet888.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /api/brandcommunication
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api/brandlivechat
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api
+        backend:
+          service:
+            name: operator-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: lobby-crmyr
+            port:
+              number: 80

@@ -1,0 +1,83 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-lobby-wlg
+  namespace: prod
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+        proxy_set_header Brand-Token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiV0xHIiwic3ViIjoiMDkyZTJhYmYtYmIyOS00ZWQ1LTliMTctZTRkODdjODYzYzU5IiwibmJmIjoxNjM3NjM2NTkwLCJleHAiOjE2Mzc2NDAxOTAsImlhdCI6MTYzNzYzNjU5MCwiaXNzIjoidGdzIn0.cbK6NFsgPTceQpEqT_AG7APtSoxqPRkFA80zwOOu5djJ6my0HjfL5ReC6wkLmOKlk7Xyy95Nc8UWhSeDBwpNfa12mKtpe7jMQX7mqFoQd8EEyp_oVX_BiGcBk72_fwrcxj7TnTf68rHnjUGPLH0nlvuw9VI4RWby3YrSpmS-4viUIk0RUfYvLMdcIL_SLMMEuaWWB8UGGOolCzp0rhuErZ7v40_tGzphQ5PFdSbVpjal4FbDDpPxv_Q1Cnw9GhZGnvkjQvIHHkIOlSsfrBPxJrdcCddwF_ZO9oxJeO4jJIDmCcT7uJq1lWanmOMdXPcCGIlh6b7U1TdI2KsFMzlwCw;
+spec:
+  tls:
+  - hosts:
+    - wlgtop.com
+    secretName: wlgtop.com
+  - hosts:
+    - www.wlgtop.com
+    secretName: www.wlgtop.com
+  rules:
+  - host: wlgtop.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /api/brandcommunication
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api/brandlivechat
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api
+        backend:
+          service:
+            name: operator-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: lobby-wlg
+            port:
+              number: 80
+  - host: www.wlgtop.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /api/brandcommunication
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api/brandlivechat
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api
+        backend:
+          service:
+            name: operator-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: lobby-wlg
+            port:
+              number: 80
