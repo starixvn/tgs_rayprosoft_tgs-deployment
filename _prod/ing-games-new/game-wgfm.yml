@@ -1,0 +1,24 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-game-wgfm
+  namespace: prod
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  tls:
+  - hosts:
+    - game-wgfm.yydsgo.xyz
+    secretName: game-wgfm.yydsgo.xyz
+  rules: 
+  - host: game-wgfm.yydsgo.xyz
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: game-wgfm
+            port:
+              number: 80

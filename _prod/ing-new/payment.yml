@@ -1,0 +1,93 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-payment
+  namespace: prod
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/rewrite-target: /$2
+    nginx.ingress.kubernetes.io/server-snippet: |-
+      allow 113.21.161.134/32;
+      allow 203.175.169.56/32;
+      allow 52.220.190.119/32;
+      allow 18.140.88.85/32;
+      allow 13.214.16.84/32;
+      allow 61.216.128.109/32;
+      allow 122.146.57.9/32;
+      allow 123.51.167.64/32;
+      allow 63.217.71.162/32;
+      allow 220.132.206.70/32;
+      allow 13.229.102.78/32;
+      allow 3.112.127.0/32;
+      allow 13.55.162.28/32;
+      allow 3.105.171.93/32;
+      allow 52.64.184.122/32;
+      allow 13.236.99.26/32;
+      deny all;
+spec:
+  tls:
+  - hosts:
+    - payment.yydsgo.xyz
+    secretName: payment.yydsgo.xyz
+  rules:
+  - host: payment.yydsgo.xyz
+    http:
+      paths:
+      - pathType: Prefix
+        path: /leepay(/|$)(.*)
+        backend:
+          service:
+            name: payment-leepay
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /primepay(/|$)(.*)
+        backend:
+          service:
+            name: payment-primepay
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /applepay(/|$)(.*)
+        backend:
+          service:
+            name: payment-applepay
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /umpay(/|$)(.*)
+        backend:
+          service:
+            name: payment-umpay
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /maticpay(/|$)(.*)
+        backend:
+          service:
+            name: payment-maticpay
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /help2pay(/|$)(.*)
+        backend:
+          service:
+            name: payment-help2pay
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /skypay-vn(/|$)(.*)
+        backend:
+          service:
+            name: payment-skypay
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /skypay-cn(/|$)(.*)
+        backend:
+          service:
+            name: payment-skypay
+            port:
+              number: 81

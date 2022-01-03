@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-tgs-schedulers
+  namespace: prod
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/server-snippet: |-
+      allow 220.132.206.70/32;
+      deny all;
+spec:
+  tls:
+  - hosts:
+    - schedulers.srvptt.com
+    secretName: schedulers.srvptt.com
+  rules: 
+  - host: schedulers.srvptt.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: schedulers
+            port:
+              number: 80
