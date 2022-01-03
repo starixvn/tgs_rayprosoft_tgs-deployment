@@ -1,0 +1,37 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: lobby-gpi-myr
+  namespace: prod
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+        proxy_set_header Brand-Token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR1BJX01ZUiIsInN1YiI6IjNiZTllNThjLWEzNWItNDMxYS1hOTBjLWRkN2JmYWFiZTk0MSIsIm5iZiI6MTY0MTE4ODU1NCwiZXhwIjoxNjQxMTkyMTU0LCJpYXQiOjE2NDExODg1NTQsImlzcyI6InRncyJ9.umPKjaCNsbEGPWu9rE2DJmZMuGkjJ858EqPNRJ-2o9eF7EF4MMpgvVn8681PIf8hv15o5Cdx0MRAAWDfX8-NpCi____6hlzf1UwXc0fD0Cih70He5685fYoTvk-8HLE_Qrr6Vd4h2H-328tlcWXmdTuklQRvx1zmQ-i6uxdRkUbCRLtIh6sv2jaZRu0sIqYwvu3QNvdWnAgNm-PQ40ANvkFXyPnIHK4o_4UxFYUYf0P8Y-co1Anz2sbHCmZ5kXx2XkPEB9kHAYXAIgjg8Uc3Crxf7RfI_7mbDBJitNkrt-Yzn7sM95XG6yQKMnQzZHncjUf3aYfn36gN0g7OBJT6yg;
+spec:
+  tls:
+  - hosts:
+    - gpi-myr.srvptt.com
+    secretName: gpi-myr.srvptt.com
+  rules:
+  - host: gpi-myr.srvptt.com
+    http:
+      paths:
+      - path: /api/brandcommunication
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /api/brandlivechat
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /api
+        backend:
+          serviceName: operator-api
+          servicePort: 80
+      - path: /
+        backend:
+          serviceName: lobby-gpi-myr
+          servicePort: 80
