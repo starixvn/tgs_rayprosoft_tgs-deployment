@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: viplevel-aggregateserver
+  namespace: dev
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  tls:
+  - hosts:
+    - viplevel-aggregateserver.rpgp.cc
+    secretName: viplevel-aggregateserver.rpgp.cc
+  rules:
+  - host: viplevel-aggregateserver.rpgp.cc
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          serviceName: viplevel-aggregateserver
+          servicePort: 80

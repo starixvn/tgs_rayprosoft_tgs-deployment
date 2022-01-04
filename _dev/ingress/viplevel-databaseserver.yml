@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: viplevel-databaseserver
+  namespace: dev
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  tls:
+  - hosts:
+    - viplevel-databaseserver.rpgp.cc
+    secretName: viplevel-databaseserver.rpgp.cc
+  rules:
+  - host: viplevel-databaseserver.rpgp.cc
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          serviceName: viplevel-databaseserver
+          servicePort: 80
