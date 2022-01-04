@@ -1,0 +1,52 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: lobby-bunny
+  namespace: prod
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+        proxy_set_header Brand-Token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiQnVubnkiLCJzdWIiOiI1OWQxZDcxNS0yYzBhLTQxMWMtYjhiMy04YzNhNWI2ZWIxMjMiLCJuYmYiOjE2NDEyNjE4NTYsImV4cCI6MTY0MTI2NTQ1NiwiaWF0IjoxNjQxMjYxODU2LCJpc3MiOiJ0Z3MifQ.CYBqsFgFY3x7GRE0PXpa9Il2-_Z5h5E0IQmGnRbenzX4S1qqTxJqVY0FEg0EVKS5QS07OUVNeopErWEGWoufvaAZYBM5CK9XD7oeazgLu2udCpPnw8Pze0y4jGrSU7eNudnWDf2KF3nk97MAeif94yWUmYBw086KICc1pPA51NpBuM6KbUxxlbl1Z2jn7sGXH4qekNYiAClk9X083QwzglEYmGSsh-D7dTrveJ-tK5CL97Il1EFessNyTm95h73uwf3qryTbvD4OYtz5AfzGTMQmBXoV1njWfwJ3FRJAU1MUwVshudQ_FKfnddNOGwnaE0j2NSJGc8d5QaPX6EE67w;
+spec:
+  rules:
+  - host: atebunny.com
+    http:
+      paths:
+      - path: /api/brandcommunication
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /api/brandlivechat
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /api
+        backend:
+          serviceName: operator-api
+          servicePort: 80
+      - path: /
+        backend:
+          serviceName: lobby-bunny
+          servicePort: 80
+  - host: www.atebunny.com
+    http:
+      paths:
+      - path: /api/brandcommunication
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /api/brandlivechat
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /api
+        backend:
+          serviceName: operator-api
+          servicePort: 80
+      - path: /
+        backend:
+          serviceName: lobby-bunny
+          servicePort: 80
