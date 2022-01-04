@@ -1,0 +1,87 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: agent-mgm
+  namespace: prod
+  labels:
+    app: agent-mgm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: agent-mgm
+  template:
+    metadata:
+      labels:
+        app: agent-mgm
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      nodeSelector:
+        dedicated: prod
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: prod
+      containers:
+        - name: agent-mgm
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent:prod
+          imagePullPolicy: IfNotPresent
+          env:
+          - name: CLIENT
+            value: "QCbG7I4YfECOFiLCWnYdfVWAV93OTTuOOqGgOjIzG2nESR1my8ro6J"
+          - name: CURRENCY
+            value: "HKD"
+          - name: SITE
+            value: https://mgm22888.com/
+          - name: BRAND
+            value: "MGM"
+          - name: LANGUAGES
+            value: "[{\"name\":\"zh-CN\",\"label\":\"简体\"},{\"name\":\"zh-TW\",\"label\":\"繁體\"},{\"name\":\"en-US\",\"label\":\"English\"},{\"name\":\"th-TH\",\"label\":\"Thai\"}]"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-TW"
+          - name: THEME
+            value: "red"
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: site-data
+              mountPath: /data
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          resources:
+            limits:
+              cpu: 150m
+              memory: 300Mi
+            requests:
+              cpu: 150m
+              memory: 300Mi
+      volumes:
+        - name: site-data
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: agent-mgm
+  namespace: prod
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      name: web
+  selector:
+    app: agent-mgm
