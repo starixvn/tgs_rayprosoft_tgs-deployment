@@ -30,7 +30,7 @@ spec:
           imagePullPolicy: IfNotPresent
           env:
           - name: CLIENT
-            value: "VWQVAd0teQR3XBk7D618pgeWjCRI2mJr2VqvJXpJIAsKkl3ohGIlSa"
+            value: "PFgYNAnJqOpkt6zHX3FWQTvMhweGY1C6EcjmAldCVoNRErXNKgUdgT"
           - name: CURRENCY
             value: "PHP"
           - name: BRAND
