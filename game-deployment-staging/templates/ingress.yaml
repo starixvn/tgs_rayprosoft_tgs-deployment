@@ -11,7 +11,7 @@ spec:
   - hosts:
     - {{ include "gameProvider.fullname" . }}.yydsgo.xyz
     secretName: {{ include "gameProvider.fullname" . }}.yydsgo.xyz
-  {{{ else }}
+  {{ else }}
   - hosts:
     - {{ include "gameProvider.fullname" . }}.rpgp.cc
     secretName: {{ include "gameProvider.fullname" . }}.rpgp.cc
