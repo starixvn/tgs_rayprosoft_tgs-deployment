@@ -4,6 +4,7 @@ metadata:
   name: tgs-production
   namespace: prod
   labels:
+    type: lobby
     app: tgs-production
 spec:
   replicas: 1

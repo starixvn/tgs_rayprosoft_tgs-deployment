@@ -4,6 +4,7 @@ metadata:
   name: agent-bin
   namespace: prod
   labels:
+    type: agent
     app: agent-bin
 spec:
   replicas: 1

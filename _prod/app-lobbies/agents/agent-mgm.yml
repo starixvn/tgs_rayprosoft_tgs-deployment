@@ -4,6 +4,7 @@ metadata:
   name: agent-mgm
   namespace: prod
   labels:
+    type: agent
     app: agent-mgm
 spec:
   replicas: 1

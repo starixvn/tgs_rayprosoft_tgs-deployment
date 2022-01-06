@@ -4,6 +4,7 @@ metadata:
   name: agent-bunny
   namespace: prod
   labels:
+    type: agent
     app: agent-bunny
 spec:
   replicas: 1

@@ -4,6 +4,7 @@ metadata:
   name: lobby-landing
   namespace: prod
   labels:
+    type: lobby
     app: lobby-landing
 spec:
   replicas: 1

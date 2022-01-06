@@ -4,6 +4,7 @@ metadata:
   name: lobby-gpi-myr
   namespace: prod
   labels:
+    type: lobby
     app: lobby-gpi-myr
 spec:
   replicas: 1

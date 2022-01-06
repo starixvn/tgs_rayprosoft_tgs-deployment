@@ -4,6 +4,7 @@ metadata:
   name: lobby-bunny
   namespace: prod
   labels:
+    type: lobby
     app: lobby-bunny
 spec:
   replicas: 1

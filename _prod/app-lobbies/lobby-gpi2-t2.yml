@@ -4,6 +4,7 @@ metadata:
   name: lobby-gpi2
   namespace: prod
   labels:
+    type: lobby
     app: lobby-gpi2
 spec:
   replicas: 1

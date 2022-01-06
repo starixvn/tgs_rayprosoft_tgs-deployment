@@ -4,6 +4,7 @@ metadata:
   name: lobby-gp-test
   namespace: prod
   labels:
+    type: lobby
     app: lobby-gp-test
 spec:
   replicas: 1

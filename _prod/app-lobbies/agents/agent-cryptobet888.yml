@@ -4,6 +4,7 @@ metadata:
   name: agent-cryptobet888
   namespace: prod
   labels:
+    type: agent
     app: agent-cryptobet888
 spec:
   replicas: 1

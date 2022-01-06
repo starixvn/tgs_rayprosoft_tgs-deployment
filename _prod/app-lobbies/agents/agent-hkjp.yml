@@ -4,6 +4,7 @@ metadata:
   name: agent-hkjp
   namespace: prod
   labels:
+    type: agent
     app: agent-hkjp
 spec:
   replicas: 1

@@ -4,6 +4,7 @@ metadata:
   name: lobby-hkjp
   namespace: prod
   labels:
+    type: lobby
     app: lobby-hkjp
 spec:
   replicas: 1

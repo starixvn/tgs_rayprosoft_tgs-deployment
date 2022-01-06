@@ -4,6 +4,7 @@ metadata:
   name: lobby-gpi-php
   namespace: prod
   labels:
+    type: lobby
     app: lobby-gpi-php
 spec:
   replicas: 1

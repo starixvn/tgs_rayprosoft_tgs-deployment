@@ -4,6 +4,7 @@ metadata:
   name: lobby-mgm
   namespace: prod
   labels:
+    type: lobby
     app: lobby-mgm
 spec:
   replicas: 1

@@ -4,6 +4,7 @@ metadata:
   name: agent-pisobet
   namespace: prod
   labels:
+    type: agent
     app: agent-pisobet
 spec:
   replicas: 1

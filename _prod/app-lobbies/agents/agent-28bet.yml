@@ -4,6 +4,7 @@ metadata:
   name: agent-28bet
   namespace: prod
   labels:
+    type: agent
     app: agent-28bet
 spec:
   replicas: 1

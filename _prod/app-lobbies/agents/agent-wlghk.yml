@@ -4,6 +4,7 @@ metadata:
   name: agent-wlghk
   namespace: prod
   labels:
+    type: agent
     app: agent-wlghk
 spec:
   replicas: 1

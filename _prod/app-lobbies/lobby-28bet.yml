@@ -4,6 +4,7 @@ metadata:
   name: lobby-28bet
   namespace: prod
   labels:
+    type: lobby
     app: lobby-28bet
 spec:
   replicas: 1

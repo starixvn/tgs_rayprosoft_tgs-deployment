@@ -4,6 +4,7 @@ metadata:
   name: lobby-21gen-th
   namespace: prod
   labels:
+    type: lobby
     app: lobby-21gen-th
 spec:
   replicas: 1

@@ -4,6 +4,7 @@ metadata:
   name: lobby-wlghk
   namespace: prod
   labels:
+    type: lobby
     app: lobby-wlghk
 spec:
   replicas: 1

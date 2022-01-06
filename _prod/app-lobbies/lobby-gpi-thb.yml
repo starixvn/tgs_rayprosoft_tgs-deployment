@@ -4,6 +4,7 @@ metadata:
   name: lobby-gpi-thb
   namespace: prod
   labels:
+    type: lobby
     app: lobby-gpi-thb
 spec:
   replicas: 1

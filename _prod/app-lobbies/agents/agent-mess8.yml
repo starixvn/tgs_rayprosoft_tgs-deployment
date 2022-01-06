@@ -4,6 +4,7 @@ metadata:
   name: agent-mess8
   namespace: prod
   labels:
+    type: agent
     app: agent-mess8
 spec:
   replicas: 1

@@ -4,6 +4,7 @@ metadata:
   name: agent-gpi
   namespace: prod
   labels:
+    type: agent
     app: agent-gpi
 spec:
   replicas: 1

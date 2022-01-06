@@ -4,6 +4,7 @@ metadata:
   name: agent-21gen-my
   namespace: prod
   labels:
+    type: agent
     app: agent-21gen-my
 spec:
   replicas: 1

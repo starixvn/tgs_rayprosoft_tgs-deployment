@@ -4,6 +4,7 @@ metadata:
   name: lobby-gpi-hkd
   namespace: prod
   labels:
+    type: lobby
     app: lobby-gpi-hkd
 spec:
   replicas: 1

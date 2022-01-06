@@ -4,6 +4,7 @@ metadata:
   name: lobby-crmyr
   namespace: prod
   labels:
+    type: lobby
     app: lobby-crmyr
 spec:
   replicas: 1
