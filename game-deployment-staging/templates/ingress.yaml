@@ -1,0 +1,30 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-{{ include "gameProvider.fullname" . }}
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  tls:
+  {{- if eq .Values.namespace "prod" }}
+  - hosts:
+    - {{ include "gameProvider.fullname" . }}.yydsgo.xyz
+    secretName: {{ include "gameProvider.fullname" . }}.yydsgo.xyz
+  {{{ else }}
+  - hosts:
+    - {{ include "gameProvider.fullname" . }}.rpgp.cc
+    secretName: {{ include "gameProvider.fullname" . }}.rpgp.cc
+  {{- end }}
+  rules: 
+  {{- if eq .Values.namespace "prod" }}
+  - host: {{ include "gameProvider.fullname" . }}.yydsgo.xyz
+  {{ else }}
+  - host: {{ include "gameProvider.fullname" . }}.rpgp.cc
+  {{- end }}
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: {{ include "gameProvider.fullname" . }}
+          servicePort: 80   
