@@ -1,0 +1,52 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: lobby-m9th
+  namespace: prod
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+        proxy_set_header Brand-Token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibTl0aCIsInN1YiI6IjBlOThiMjczLTNhMTctNDBiMS04ZGNlLTkxMzczY2YwNzg3MyIsIm5iZiI6MTY0MTUyMDI5MCwiZXhwIjoxNjQxNTIzODkwLCJpYXQiOjE2NDE1MjAyOTAsImlzcyI6InRncyJ9.rKCKVoGK5NOdPuTkzam_mKG4Vh_PTJhoi2SL_ll2lPdHe-F8qngoOdh_Iz0Q2hczj3-IZC_j095o-TJs0lxMx3nr4pnJQYrJDofuQ987qqDfsLxTbibSbRC_Xqy9mUhF-42OkP5t7S0VpTXaeZks2m00uQQxj15aT1uAS2JAlwhsg3VhOWwGPXNTSrS5ZBWBKhIdsu2pA0rm2pvvr_P5gXwKYUUKCrEvj2kE3wr230-2BrdSDwptSBOmbxjlImO9Qbxu63kb-Jflv9eJWSOZvedhjHEKT-xIsYKE4K03M_eh0Fwg9hmZszg4mUbZFb7O8z_4Ylvy5LCzrWsiP57N5w;
+spec:
+  rules:
+  - host: chaiyo777.com
+    http:
+      paths:
+      - path: /api/brandcommunication
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /api/brandlivechat
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /api
+        backend:
+          serviceName: operator-api
+          servicePort: 80
+      - path: /
+        backend:
+          serviceName: lobby-m9th
+          servicePort: 80
+  - host: www.chaiyo777.com
+    http:
+      paths:
+      - path: /api/brandcommunication
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /api/brandlivechat
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /api
+        backend:
+          serviceName: operator-api
+          servicePort: 80
+      - path: /
+        backend:
+          serviceName: lobby-m9th
+          servicePort: 80
