@@ -14,13 +14,13 @@ metadata:
 spec:
   tls:
   - hosts:
-    - dd28bet-com
-    secretName: dd28bet-com
+    - dd28bet.com
+    secretName: dd28bet.com
   - hosts:
-    - www.dd28bet-com
-    secretName: www.dd28bet-com
+    - www.dd28bet.com
+    secretName: www.dd28bet.com
   rules:
-  - host: dd28bet-com
+  - host: dd28bet.com
     http:
       paths:
       - path: /api/brandcommunication
@@ -39,7 +39,7 @@ spec:
         backend:
           serviceName: lobby-28bet
           servicePort: 80
-  - host: www.dd28bet-com
+  - host: www.dd28bet.com
     http:
       paths:
       - path: /api/brandcommunication
