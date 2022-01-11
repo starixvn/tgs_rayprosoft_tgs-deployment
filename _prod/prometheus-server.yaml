@@ -46,7 +46,7 @@ spec:
         imagePullPolicy: IfNotPresent
         name: prometheus-server-configmap-reload
         resources: {}
-		terminationMessagePath: /dev/termination-log
+        terminationMessagePath: /dev/termination-log
         terminationMessagePolicy: File
         volumeMounts:
         - mountPath: /etc/config
