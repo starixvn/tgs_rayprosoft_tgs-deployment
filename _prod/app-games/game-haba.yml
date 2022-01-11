@@ -18,7 +18,7 @@ spec:
       imagePullSecrets:
         - name: registry-credentials
       nodeSelector:
-        dedicated: prod
+        dedicated: prod  
       tolerations:
       - effect: NoSchedule
         key: dedicated
