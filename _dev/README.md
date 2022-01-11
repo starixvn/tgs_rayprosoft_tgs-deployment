@@ -40,6 +40,9 @@ https://github.com/nats-io/k8s/tree/master/helm/charts/stan
 
 # redis, redis exporter and redisinsight
 helm install redis bitnami/redis --set password=1qaz2wsx,metrics.enabled=true,master.disableCommands=["FLUSHDB"] -n dev
+
+helm install redis bitnami/redis --set global.redis.password=1qaz2wsx,metrics.enabled=true -n dev
+
 redis-metrics:9121/metrics 
 https://github.com/bitnami/charts/tree/master/bitnami/redis/#installing-the-chart
 

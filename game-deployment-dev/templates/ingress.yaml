@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-{{ .Values.gpName }}
@@ -10,12 +10,14 @@ spec:
   - hosts:
     - {{ .Values.gpName }}.rpgp.cc
     secretName: {{ .Values.gpName }}.rpgp.cc
-  rules:
+  rules:         
   - host: {{ .Values.gpName }}.rpgp.cc
     http:
       paths:
       - pathType: Prefix
         path: /
         backend:
-          serviceName: {{ .Values.gpName }}
-          servicePort: 80
+          service:
+            name: {{ .Values.gpName }}
+            port: 
+              number: 80
