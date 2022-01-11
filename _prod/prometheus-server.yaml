@@ -103,7 +103,7 @@ spec:
         terminationMessagePolicy: File
         volumeMounts:
         - mountPath: /etc/config
-		  name: config-volume
+        name: config-volume
         - mountPath: /data
           name: storage-volume
       dnsPolicy: ClusterFirst
