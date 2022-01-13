@@ -28,7 +28,7 @@ data:
         "ConnectionString": "mongodb://admin:abcd1234@192.168.50.111/gameprovider?retryWrites=true&w=majority&authSource=admin"
       },
       "NatsSetting": {
-        "Urls": "nats://nats-client:4222",
+        "Urls": "nats://nats:4222",
         "ConnectTimeoutMs": 2000,
         "PingInterval": 5000,
         "PingMaxOutStanding": 3,

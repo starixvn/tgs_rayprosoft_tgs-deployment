@@ -19,7 +19,7 @@ data:
         "RedisConfigurationString": "redis-master,abortConnect=false,connectTimeout=3000,password=1qaz2wsx"
       },
       "NatsSetting": {
-        "Urls": "nats://nats-client:4222",
+        "Urls": "nats://nats:4222",
         "ConnectTimeoutMs": 2000,
         "PingInterval": 5000,
         "PingMaxOutStanding": 3,

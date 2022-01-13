@@ -16,7 +16,7 @@ data:
       },
       "AllowedHosts": "*",
       "Notify": {
-        "Url": "https://notify.tgsdev.gq",
+        "Url": "https://notify.rpgp.cc",
         "Path": "telegram/dev/log-alert"
       },
       "ConnectionStrings": {
@@ -24,7 +24,7 @@ data:
         "RedisConfigurationString": "redis-master,abortConnect=false,connectTimeout=3000,password=1qaz2wsx"
       },
       "NatsSetting": {
-        "Urls": "nats://nats-client:4222",
+        "Urls": "nats://nats:4222",
         "ConnectTimeoutMs": 2000,
         "PingInterval": 5000,
         "PingMaxOutStanding": 3,

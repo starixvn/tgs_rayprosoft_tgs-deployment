@@ -11,7 +11,7 @@ data:
       },
       "LeePay": {
         "PaymentApiUrl": "https://api.leepay-wallet.com",
-        "NatsUrl": "nats://nats-client:4222",
+        "NatsUrl": "nats://nats:4222",
         "CallbackBaseUrl": "https://dev.payment.tgsdev.gq/leepay"
       }
     }
