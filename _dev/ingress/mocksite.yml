@@ -1,16 +1,11 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-mocksite
   namespace: dev
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
     kubernetes.io/ingress.class: "nginx"
 spec:
-  tls:
-  - hosts:
-    - dev-ms.rpgp.cc
-    secretName: dev-ms.rpgp.cc
   rules:     
   - host: dev-ms.rpgp.cc
     http:
@@ -18,15 +13,21 @@ spec:
       - pathType: Prefix
         path: /api
         backend:
-          serviceName: operator-api
-          servicePort: 80
+          service:
+            name: operator-api
+            port:
+              number: 80
       - pathType: Prefix
         path: /global-api
         backend:
-          serviceName: global-api
-          servicePort: 80
+          service:
+            name: global-api
+            port:
+              number: 80
       - pathType: Prefix
         path: /
         backend:
-          serviceName: mocksite
-          servicePort: 80
+          service:
+            name: mocksite
+            port:
+              number: 80

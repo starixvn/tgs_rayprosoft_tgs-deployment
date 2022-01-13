@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-backoffice
@@ -18,15 +18,21 @@ spec:
       - pathType: Prefix
         path: /api
         backend:
-          serviceName: backoffice-api
-          servicePort: 80
+          service:
+            name: backoffice-api
+            port:
+              number: 80
       - pathType: Prefix
         path: /fs
         backend:
-          serviceName: file-service
-          servicePort: 80
+          service:
+            name: file-service
+            port:
+              number: 80
       - pathType: Prefix
         path: /
         backend:
-          serviceName: backoffice-site
-          servicePort: 80
+          service:
+            name: backoffice-site
+            port:
+              number: 80
