@@ -22,5 +22,6 @@ spec:
       paths:
       - path: /
         backend:
+
           serviceName: game-ag
           servicePort: 80

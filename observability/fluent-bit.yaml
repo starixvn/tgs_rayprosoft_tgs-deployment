@@ -1,0 +1,13 @@
+
+https://artifacthub.io/packages/helm/aws/aws-for-fluent-bit
+
+
+
+helm repo add eks https://aws.github.io/eks-charts
+
+helm upgrade --install aws-fluent-bit --namespace kube-system eks/aws-for-fluent-bit
+
+helm upgrade --install aws-for-fluent-bit  eks/aws-for-fluent-bit --set cloudWatch.region=ap-east-1,firehose.enabled=false,kinesis.enabled=false,elasticsearch.awsRegion=ap-east-1 --namespace monitoring
+
+
+
