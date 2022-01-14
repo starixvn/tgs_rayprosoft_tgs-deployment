@@ -26,7 +26,7 @@ spec:
         value: nonprod
       containers:
         - name: lobby-m9th
-          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t1:staging
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t3:staging
           imagePullPolicy: IfNotPresent
           env:
           - name: CLIENT
@@ -37,12 +37,14 @@ spec:
             value: "M9TH"
           - name: BRANDNAME
             value: "M9TH"
-          - name: DEFAULT_LANGUAGE
-            value: "en-US"
           - name: THEME
-            value: "red"
+            value: "black"
+          - name: "WAPTEMPLATE"
+            value: "3"
           - name: SOURCE_URL
             value: "https://images.srvptt.com/"
+          - name: HOMEPAGE
+            value: "[\"t3-1\",\"t3-2\",\"t3-3\"]"
           ports:
             - containerPort: 80
           volumeMounts:
