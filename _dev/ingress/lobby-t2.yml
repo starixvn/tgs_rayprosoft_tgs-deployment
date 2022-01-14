@@ -14,25 +14,29 @@ spec:
   - host: dev-t2.rpgp.cc
     http:
       paths:
-      - path: /api/brandcommunication
+      - pathType: Prefix
+        path: /api/brandcommunication
         backend:
           service:
             name: brand-api
             port:
               number: 80
-      - path: /api/brandlivechat
+      - pathType: Prefix
+        path: /api/brandlivechat
         backend:
           service:
             name: brand-api
             port:
               number: 80
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
           service:
             name: lobby-t2
             port:
               number: 80
-      - path: /api
+      - pathType: Prefix
+        path: /api
         backend:
           service:
             name: operator-api
