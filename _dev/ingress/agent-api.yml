@@ -1,16 +1,11 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-agent-api
   namespace: dev
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
     kubernetes.io/ingress.class: "nginx"
 spec:
-  tls:
-  - hosts:
-    - agent-api.rpgp.cc
-    secretName: agent-api.rpgp.cc
   rules:
   - host: agent-api.rpgp.cc
     http:
@@ -18,5 +13,7 @@ spec:
       - pathType: Prefix
         path: /
         backend:
-          serviceName: agent-api
-          servicePort: 80
+          service:
+            name: agent-api
+            port: 
+              number: 80

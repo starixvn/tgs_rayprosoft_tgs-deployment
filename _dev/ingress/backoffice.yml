@@ -4,7 +4,6 @@ metadata:
   name: ingress-backoffice
   namespace: dev
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/enable-cors: "true"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"

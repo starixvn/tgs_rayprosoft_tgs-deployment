@@ -1,23 +1,20 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: game-pluggableservice
   namespace: dev
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
-  tls:
-  - hosts:
-    - game-pluggableservice.rpgp.cc
-    secretName: game-pluggableservice.rpgp.cc
   rules:
   - host: game-pluggableservice.rpgp.cc
     http:
       paths:
       - pathType: Prefix
-        path: /
+        path: /api/game-pluggable-service
         backend:
-          serviceName: game-pluggable-service
-          servicePort: 80
+          service:
+            name: brand-api
+            port:
+              number: 80

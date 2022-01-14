@@ -1,16 +1,11 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-game-ab
   namespace: dev
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
     kubernetes.io/ingress.class: "nginx"
 spec:
-  tls:
-  - hosts:
-    - game-ab.tgsdev.gq
-    secretName: game-ab.tgsdev.gq
   rules:
   - host: game-ab.tgsdev.gq
     http:
@@ -18,5 +13,7 @@ spec:
       - pathType: Prefix
         path: /
         backend:
-          serviceName: game-ab
-          servicePort: 80
+          service:
+            name: game-ab
+            port: 
+              number: 80

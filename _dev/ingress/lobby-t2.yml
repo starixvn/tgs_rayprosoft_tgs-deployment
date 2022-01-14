@@ -1,37 +1,40 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ing-lobby-t2
   namespace: dev
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/proxy-body-size: "50m"
     nginx.ingress.kubernetes.io/configuration-snippet: |
       proxy_set_header Brand-Token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR1BJIiwic3ViIjoiNGU4NjcxOWYtMjQzZi00NmY2LWIwMTAtNWM3NThiNzI4NWFmIiwibmJmIjoxNjM2NjE4MjQ0LCJleHAiOjE2MzY2MjE4NDQsImlhdCI6MTYzNjYxODI0NCwiaXNzIjoidGdzIn0.lmKkWai-FV_Rt-jiQPHCxZxFxNG6aW78ppBMPXHrnrT1jgyiw7wCfw7obYL7gwXoP4W0GX4Q-Cus9A1kU0gkqkxKu23sS5IF5Q0PtEG43qo668V1FxRo0qApRukjqeirdPjQNqu-y1mIc19rNiVRT0DCu_TC-sQaa0HcZazJB-mREdmBWcOazGzfpHnm3OIbcTwNHelrNJJ1cMhDNCtEDMWTftKqDPC55hdAhmibzD8ZYv0LLyI3cDfD72bxeGwsxOlWN2oZU8z3TsMvoFF8DmUxkkAhais8DZAaI9NjVKme7Mrw3XXbpJQWLhH8I2AsMGMYWvCrjoCOu9z1tTeGFQ;
 spec:
-  tls:
-  - hosts:
-    - dev-t2.rpgp.cc
-    secretName: dev-t2.rpgp.cc
   rules:
   - host: dev-t2.rpgp.cc
     http:
       paths:
       - path: /api/brandcommunication
         backend:
-          serviceName: brand-api
-          servicePort: 80
+          service:
+            name: brand-api
+            port:
+              number: 80
       - path: /api/brandlivechat
         backend:
-          serviceName: brand-api
-          servicePort: 80
+          service:
+            name: brand-api
+            port:
+              number: 80
       - path: /
         backend:
-          serviceName: lobby-t2
-          servicePort: 80
+          service:
+            name: lobby-t2
+            port:
+              number: 80
       - path: /api
         backend:
-          serviceName: operator-api
-          servicePort: 80
+          service:
+            name: operator-api
+            port:
+              number: 80

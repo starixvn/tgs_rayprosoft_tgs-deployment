@@ -1,17 +1,12 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-payment
   namespace: dev
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/rewrite-target: /$2
 spec:
-  tls:
-  - hosts:
-    - dev-payment.rpgp.cc
-    secretName: payment.rpgp.cc
   rules:
   - host: dev-payment.rpgp.cc
     http:
@@ -19,40 +14,56 @@ spec:
       - pathType: Prefix
         path: /leepay(/|$)(.*)
         backend:
-          serviceName: payment-leepay
-          servicePort: 80
+          service:
+            name: payment-leepay
+            port:
+              number: 80
       - pathType: Prefix
         path: /primepay(/|$)(.*)
         backend:
-          serviceName: payment-primepay
-          servicePort: 80
+          service:
+            name: payment-primepay
+            port:
+              number: 80
       - pathType: Prefix
         path: /applepay(/|$)(.*)
         backend:
-          serviceName: payment-applepay
-          servicePort: 80   
+          service:
+            name: payment-applepay
+            port:
+              number: 80  
       - pathType: Prefix
         path: /umpay(/|$)(.*)
         backend:
-          serviceName: payment-umpay
-          servicePort: 80    
+          service:
+            name: payment-umpay
+            port:
+              number: 80  
       - pathType: Prefix
         path: /maticpay(/|$)(.*)
         backend:
-          serviceName: payment-maticpay  
-          servicePort: 80
+          service:
+            name: payment-maticpay
+            port:
+              number: 80
       - pathType: Prefix
         path: /help2pay(/|$)(.*)
         backend:
-          serviceName: payment-help2pay
-          servicePort: 80
+          service:
+            name: payment-help2pay
+            port:
+              number: 80
       - pathType: Prefix
         path: /skypay-vn(/|$)(.*)
         backend:
-          serviceName: payment-skypay
-          servicePort: 80
+          service:
+            name: payment-skypay
+            port:
+              number: 80
       - pathType: Prefix
         path: /skypay-cn(/|$)(.*)
         backend:
-          serviceName: payment-skypay
-          servicePort: 81
+          service:
+            name: payment-skypay
+            port:
+              number: 81

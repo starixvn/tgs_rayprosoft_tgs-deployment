@@ -1,33 +1,38 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ing-lobby-t1-test
   namespace: dev
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
     kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/proxy-body-size: "50m"
 spec:
-  tls:
-  - hosts:
-    - dev-lobby-test.rpgp.cc
-    secretName: dev-lobby-test.rpgp.cc
   rules:
   - host: dev-lobby-test.rpgp.cc
     http:
       paths:
       - path: /api/brandcommunication
         backend:
-          serviceName: brand-api
-          servicePort: 80
-      - pathType: Prefix
-        path: /
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - path: /api/brandlivechat
         backend:
-          serviceName: lobby-t1
-          servicePort: 80
-      - pathType: Prefix
-        path: /api
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - path: /
         backend:
-          serviceName: operator-api
-          servicePort: 80
+          service:
+            name: lobby-t1
+            port:
+              number: 80
+      - path: /api
+        backend:
+          service:
+            name: operator-api
+            port:
+              number: 80
