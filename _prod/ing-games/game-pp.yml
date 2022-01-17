@@ -25,7 +25,10 @@ spec:
   - host: game-pp.yydsgo.xyz
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: game-pp
-          servicePort: 80              
+          service:
+            name: game-pp
+            port:
+              number: 80

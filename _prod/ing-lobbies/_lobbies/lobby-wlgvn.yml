@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: lobby-wlgvn
@@ -22,38 +22,62 @@ spec:
   - host: wlgvn.com
     http:
       paths:
-      - path: /api/brandcommunication
+      - pathType: Prefix
+        path: /api/brandcommunication
         backend:
-          serviceName: brand-api
-          servicePort: 80
-      - path: /api/brandlivechat
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api/brandlivechat
         backend:
-          serviceName: brand-api
-          servicePort: 80
-      - path: /api
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api
         backend:
-          serviceName: operator-api
-          servicePort: 80
-      - path: /
+          service:
+            name: operator-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: lobby-wlgvn
-          servicePort: 80
+          service:
+            name: lobby-wlgvn
+            port:
+              number: 80
   - host: www.wlgvn.com
     http:
       paths:
-      - path: /api/brandcommunication
+      - pathType: Prefix
+        path: /api/brandcommunication
         backend:
-          serviceName: brand-api
-          servicePort: 80
-      - path: /api/brandlivechat
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api/brandlivechat
         backend:
-          serviceName: brand-api
-          servicePort: 80
-      - path: /api
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api
         backend:
-          serviceName: operator-api
-          servicePort: 80
-      - path: /
+          service:
+            name: operator-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: lobby-wlgvn
-          servicePort: 80
+          service:
+            name: lobby-wlgvn
+            port:
+              number: 80

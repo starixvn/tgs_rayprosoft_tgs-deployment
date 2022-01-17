@@ -24,7 +24,10 @@ spec:
   - host: game-wm.yydsgo.xyz
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: game-wm
-          servicePort: 80   
+          service:
+            name: game-wm
+            port:
+              number: 80

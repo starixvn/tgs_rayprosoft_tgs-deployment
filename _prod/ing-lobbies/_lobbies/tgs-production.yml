@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-tgs-production
@@ -19,14 +19,20 @@ spec:
   - host: pegagaming.com
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: tgs-production
-          servicePort: 80
+          service:
+            name: tgs-production
+            port:
+              number: 80
   - host: www.pegagaming.com
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: tgs-production
-          servicePort: 80
+          service:
+            name: tgs-production
+            port:
+              number: 80

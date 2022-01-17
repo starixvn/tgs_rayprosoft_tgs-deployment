@@ -37,7 +37,10 @@ spec:
   - host: game-bc.yydsgo.xyz
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: game-bc
-          servicePort: 80   
+          service:
+            name: game-bc
+            port:
+              number: 80

@@ -15,7 +15,10 @@ spec:
   - host: game-wgfm.yydsgo.xyz
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: game-wgfm
-          servicePort: 80   
+          service:
+            name: game-wgfm
+            port:
+              number: 80

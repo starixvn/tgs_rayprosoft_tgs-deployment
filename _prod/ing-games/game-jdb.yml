@@ -20,7 +20,10 @@ spec:
   - host: game-jdb.yydsgo.xyz
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: game-jdb
-          servicePort: 80   
+          service:
+            name: game-jdb
+            port:
+              number: 80

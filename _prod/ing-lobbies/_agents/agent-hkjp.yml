@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-agent-hkjp
@@ -16,12 +16,17 @@ spec:
   - host: we8889.com
     http:
       paths:
-      - path: /api
+      - pathType: Prefix
+        path: /api
         backend:
-          serviceName: agent-api
-          servicePort: 80
-      - path: /
+          service:
+            name: agent-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: agent-hkjp
-          servicePort: 80
-          
+          service:
+            name: agent-hkjp
+            port:
+              number: 80

@@ -33,7 +33,10 @@ spec:
   - host: game-sbo.yydsgo.xyz
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: game-sbo
-          servicePort: 80
+          service:
+            name: game-sbo
+            port:
+              number: 80

@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: lobby-m9th
+  name: lobby-mgm-mgmwin668-com
   namespace: prod
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
@@ -9,10 +9,11 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/proxy-body-size: "50m"
     nginx.ingress.kubernetes.io/configuration-snippet: |
-        proxy_set_header Brand-Token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibTl0aCIsInN1YiI6IjBlOThiMjczLTNhMTctNDBiMS04ZGNlLTkxMzczY2YwNzg3MyIsIm5iZiI6MTY0MTUyMDI5MCwiZXhwIjoxNjQxNTIzODkwLCJpYXQiOjE2NDE1MjAyOTAsImlzcyI6InRncyJ9.rKCKVoGK5NOdPuTkzam_mKG4Vh_PTJhoi2SL_ll2lPdHe-F8qngoOdh_Iz0Q2hczj3-IZC_j095o-TJs0lxMx3nr4pnJQYrJDofuQ987qqDfsLxTbibSbRC_Xqy9mUhF-42OkP5t7S0VpTXaeZks2m00uQQxj15aT1uAS2JAlwhsg3VhOWwGPXNTSrS5ZBWBKhIdsu2pA0rm2pvvr_P5gXwKYUUKCrEvj2kE3wr230-2BrdSDwptSBOmbxjlImO9Qbxu63kb-Jflv9eJWSOZvedhjHEKT-xIsYKE4K03M_eh0Fwg9hmZszg4mUbZFb7O8z_4Ylvy5LCzrWsiP57N5w;
+        proxy_set_header Brand-Token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTUdNIiwic3ViIjoiMjNjZjIyNzYtYjg5NS00NGIzLWE1MTEtODNhNjYyMjhmMjliIiwibmJmIjoxNjQxMjYxNzk2LCJleHAiOjE2NDEyNjUzOTYsImlhdCI6MTY0MTI2MTc5NiwiaXNzIjoidGdzIn0.loS_qzXE-dYBoewkrfXtE1zeZ-eAPk_7kzNjioqXYTt5JEoi7wEJdLM-t_2DgYd8ueAvx71FGkXdFhN708sNPQZw1TVl7LwpcI3QZdeNtVv43SgYT1jJgEGT6HPaAYFkaikIfPS8OsrJQFir7ruCZ7fvnabnph6tP-st1xjSbWdim44_SIFZ9mY95uSwEi0Irfci08Zmu_lMvdVPDeQHK8TKvyMuaCz04NmrnPrdk05zmsXyZwxVtEiSgW6tCp1jHTlK29oNfGbl3xE1rv5o_2J5sBuLA9QD_7XUV59NH06KQOTZF27xzKO4qASEUQ--5xAv2cCevEcSR_Pz8hmsCg;
+        proxy_set_header Agent-Invitation-Code vh60d3;
 spec:
   rules:
-  - host: chaiyo777.com
+  - host: mgmwin668.com
     http:
       paths:
       - path: /api/brandcommunication
@@ -25,13 +26,13 @@ spec:
           servicePort: 80
       - path: /api
         backend:
-          serviceName: operator-api
+          serviceName: op-api-mgm
           servicePort: 80
       - path: /
         backend:
-          serviceName: lobby-m9th
+          serviceName: lobby-mgm
           servicePort: 80
-  - host: www.chaiyo777.com
+  - host: www.mgmwin668.com
     http:
       paths:
       - path: /api/brandcommunication
@@ -44,9 +45,9 @@ spec:
           servicePort: 80
       - path: /api
         backend:
-          serviceName: operator-api
+          serviceName: op-api-mgm
           servicePort: 80
       - path: /
         backend:
-          serviceName: lobby-m9th
+          serviceName: lobby-mgm
           servicePort: 80

@@ -31,7 +31,10 @@ spec:
   - host: game-saba.yydsgo.xyz
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: game-saba
-          servicePort: 80              
+          service:
+            name: game-saba
+            port:
+              number: 80

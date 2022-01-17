@@ -31,7 +31,10 @@ spec:
   - host: game-imes.yydsgo.xyz
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: game-imes
-          servicePort: 80   
+          service:
+            name: game-imes
+            port:
+              number: 80

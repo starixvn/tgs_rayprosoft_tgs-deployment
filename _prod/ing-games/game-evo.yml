@@ -19,7 +19,10 @@ spec:
   - host: game-evo.yydsgo.xyz
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: game-evo
-          servicePort: 80   
+          service:
+            name: game-evo
+            port:
+              number: 80

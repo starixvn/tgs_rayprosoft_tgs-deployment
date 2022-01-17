@@ -20,7 +20,10 @@ spec:
   - host: game-tcg.yydsgo.xyz
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: game-tcg
-          servicePort: 80   
+          service:
+            name: game-tcg
+            port:
+              number: 80

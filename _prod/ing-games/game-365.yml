@@ -21,7 +21,10 @@ spec:
   - host: game-365.yydsgo.xyz
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: game-365
-          servicePort: 80   
+          service:
+            name: game-365
+            port:
+              number: 80

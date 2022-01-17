@@ -43,7 +43,10 @@ spec:
   - host: game-sw.yydsgo.xyz
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: game-sw
-          servicePort: 80   
+          service:
+            name: game-sw
+            port:
+              number: 80

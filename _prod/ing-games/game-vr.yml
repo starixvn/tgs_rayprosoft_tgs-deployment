@@ -35,7 +35,10 @@ spec:
   - host: game-vr.yydsgo.xyz
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: game-vr
-          servicePort: 80   
+          service:
+            name: game-vr
+            port:
+              number: 80

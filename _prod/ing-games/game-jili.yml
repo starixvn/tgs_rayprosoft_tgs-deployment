@@ -23,7 +23,10 @@ spec:
   - host: game-jili.yydsgo.xyz
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: game-jili
-          servicePort: 80   
+          service:
+            name: game-jili
+            port:
+              number: 80

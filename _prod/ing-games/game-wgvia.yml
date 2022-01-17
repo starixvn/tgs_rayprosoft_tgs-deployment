@@ -15,7 +15,10 @@ spec:
   - host: game-wgvia.yydsgo.xyz
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: game-wgvia
-          servicePort: 80   
+          service:
+            name: game-wgvia
+            port:
+              number: 80

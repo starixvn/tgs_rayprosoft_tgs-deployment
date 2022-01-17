@@ -23,7 +23,10 @@ spec:
   - host: game-haba.yydsgo.xyz
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: game-haba
-          servicePort: 80   
+          service:
+            name: game-haba
+            port:
+              number: 80

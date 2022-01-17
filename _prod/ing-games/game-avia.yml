@@ -15,7 +15,10 @@ spec:
   - host: game-avia.yydsgo.xyz
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: game-avia
-          servicePort: 80   
+          service:
+            name: game-avia
+            port:
+              number: 80

@@ -15,7 +15,10 @@ spec:
   - host: game-ly.yydsgo.xyz
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: game-ly
-          servicePort: 80   
+          service:
+            name: game-ly
+            port:
+              number: 80

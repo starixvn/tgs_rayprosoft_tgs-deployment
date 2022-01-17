@@ -19,7 +19,10 @@ spec:
   - host: game-ky.yydsgo.xyz
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: game-ky
-          servicePort: 80
+          service:
+            name: game-ky
+            port:
+              number: 80

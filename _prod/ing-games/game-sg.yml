@@ -23,7 +23,10 @@ spec:
   - host: game-sg.yydsgo.xyz
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: game-sg
-          servicePort: 80   
+          service:
+            name: game-sg
+            port:
+              number: 80
