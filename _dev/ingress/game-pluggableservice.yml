@@ -15,6 +15,6 @@ spec:
         path: /api/game-pluggable-service
         backend:
           service:
-            name: brand-api
+            name: game-pluggable-service 
             port:
               number: 80
