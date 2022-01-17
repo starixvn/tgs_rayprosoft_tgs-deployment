@@ -13,10 +13,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - rabbitmq.srvptt.com
-    secretName: rabbitmq.srvptt.com
+    - rabbitmq.rpgp.cc
+    secretName: rabbitmq.rpgp.cc
   rules: 
-  - host: rabbitmq.srvptt.com
+  - host: rabbitmq.rpgp.cc
     http:
       paths:
       - path: /
