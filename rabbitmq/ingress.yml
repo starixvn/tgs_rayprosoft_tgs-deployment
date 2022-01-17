@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-rabbitmq
@@ -11,15 +11,14 @@ metadata:
       allow 220.132.206.70/32;
       deny all;
 spec:
-  tls:
-  - hosts:
-    - rabbitmq.rpgp.cc
-    secretName: rabbitmq.rpgp.cc
   rules: 
   - host: rabbitmq.rpgp.cc
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: mq
-          servicePort: 15672               
+          service:
+            name: mq
+            port: 
+              number: 15672
