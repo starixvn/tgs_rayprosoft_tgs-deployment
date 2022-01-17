@@ -12,7 +12,7 @@ spec:
     http:
       paths:
       - pathType: Prefix
-        path: /api/game-pluggable-service
+        path: /
         backend:
           service:
             name: game-pluggable-service 
