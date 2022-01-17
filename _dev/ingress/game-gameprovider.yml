@@ -3,9 +3,8 @@ kind: Ingress
 metadata:
   name: game-gameproviders
   namespace: dev
-  annotations:
-    kubernetes.io/ingress.class: "nginx"
 spec:
+  ingressClassName: nginx
   rules:
   - host: game-gameproviders.rpgp.cc
     http:
@@ -13,7 +12,7 @@ spec:
       - pathType: Prefix
         path: /
         backend:
-          service
+          service:
             name: game-gameproviders
             port: 
               number: 80
