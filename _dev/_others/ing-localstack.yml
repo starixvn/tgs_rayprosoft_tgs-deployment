@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: localstack
@@ -13,5 +13,7 @@ spec:
       - pathType: Prefix
         path: /
         backend:
-          serviceName: localstack
-          servicePort: 80
+          service:
+            name: localstack
+            port: 
+              number: 80
