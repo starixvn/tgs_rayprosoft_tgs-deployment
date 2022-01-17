@@ -46,7 +46,7 @@ helm install redis bitnami/redis --set global.redis.password=1qaz2wsx,metrics.en
 redis-metrics:9121/metrics 
 https://github.com/bitnami/charts/tree/master/bitnami/redis/#installing-the-chart
 
-helm install redisinsight . -f values.yaml
+helm install redisinsight . -f values.yaml -n dev
 https://docs.redislabs.com/latest/ri/installing/install-k8s/
 http://redisinsight.tgsdev.gq/
 
