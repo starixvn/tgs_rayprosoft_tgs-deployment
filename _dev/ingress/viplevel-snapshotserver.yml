@@ -4,13 +4,9 @@ metadata:
   name: viplevel-snapshotserver
   namespace: dev
   annotations:
-    kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
-  tls:
-  - hosts:
-    - viplevel-snapshotserver.rpgp.cc
-    secretName: viplevel-snapshotserver.rpgp.cc
+  ingressClassName: nginx
   rules:
   - host: viplevel-snapshotserver.rpgp.cc
     http:

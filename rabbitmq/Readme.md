@@ -15,8 +15,12 @@ kubectl rabbitmq install-cluster-operator
 https://blog.csdn.net/qq_24095055/article/details/97001679
 
 rabbitmqctl add_user tgs TgsP@ssw0rd
+
+rabbitmqctl add_vhost /tgs/dev
 rabbitmqctl add_vhost /tgs/staging
 rabbitmqctl add_vhost /tgs/prod
+
+rabbitmqctl set_permissions -p "/tgs/dev" "tgs" '.*' '.*' '.*'
 rabbitmqctl set_permissions -p "/tgs/staging" "tgs" '.*' '.*' '.*'
 rabbitmqctl set_permissions -p "/tgs/prod" "tgs" '.*' '.*' '.*'
 

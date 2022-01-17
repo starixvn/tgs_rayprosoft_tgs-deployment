@@ -4,13 +4,9 @@ metadata:
   name: viplevel-aggregateserver
   namespace: dev
   annotations:
-    kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
-  tls:
-  - hosts:
-    - viplevel-aggregateserver.rpgp.cc
-    secretName: viplevel-aggregateserver.rpgp.cc
+  ingressClassName: nginx
   rules:
   - host: viplevel-aggregateserver.rpgp.cc
     http:
