@@ -14,8 +14,10 @@ metadata:
 spec:
   - hosts:
     - vipgroup.club
-    - www.vipgroup.club
     secretName: vipgroup.club
+  - hosts:
+    - www.vipgroup.club
+    secretName: www.vipgroup.club
   rules:
   - host: vipgroup.club
     http:
