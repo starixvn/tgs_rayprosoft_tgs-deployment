@@ -1,20 +1,20 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: agent-m9th
+  name: agent-m9thb
   namespace: prod
   labels:
     type: agent
-    app: agent-m9th
+    app: agent-m9thb
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: agent-m9th
+      app: agent-m9thb
   template:
     metadata:
       labels:
-        app: agent-m9th
+        app: agent-m9thb
     spec:
       imagePullSecrets:
         - name: registry-credentials
@@ -26,18 +26,18 @@ spec:
         operator: Equal
         value: prod
       containers:
-        - name: agent-m9th
+        - name: agent-m9thb
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent:prod
           imagePullPolicy: IfNotPresent
           env:
           - name: CLIENT
-            value: "miQjLz8Qb5ilLQo1IJitd8iWqM1ch01BhTKeDq3UNjO6eVZurSE806"
+            value: "LKACY35mwhC7X8UOiVQzWBhQXdIHg7hJcLsRXUi2CkiiBsAkFLCGI0"
           - name: CURRENCY
             value: "THB"
           - name: SITE
-            value: https://bobo1668.com/
+            value: https://chaiyo777.com/
           - name: BRAND
-            value: "M9TH"
+            value: "M9THB"
           - name: LANGUAGES
             value: "[{\"name\":\"zh-CN\",\"label\":\"简体\"},{\"name\":\"zh-TW\",\"label\":\"繁體\"},{\"name\":\"en-US\",\"label\":\"English\"},{\"name\":\"th-TH\",\"label\":\"Thai\"}]"
           - name: DEFAULT_LANGUAGE
@@ -77,7 +77,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: agent-m9th
+  name: agent-m9thb
   namespace: prod
 spec:
   ports:
@@ -85,4 +85,4 @@ spec:
       port: 80
       name: web
   selector:
-    app: agent-m9th
+    app: agent-m9thb

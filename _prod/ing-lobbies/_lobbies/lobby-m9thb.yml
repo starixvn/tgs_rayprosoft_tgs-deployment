@@ -1,0 +1,75 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: lobby-m9thb
+  namespace: prod
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+        proxy_set_header Brand-Token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibTl0aGIiLCJzdWIiOiJmMGY2YjIxNi1mODU3LTRiYjEtOTNmMS04ZjM2MWM5MmNkN2UiLCJuYmYiOjE2NDI0OTYwMjgsImV4cCI6MTY0MjQ5OTYyOCwiaWF0IjoxNjQyNDk2MDI4LCJpc3MiOiJ0Z3MifQ.iOOp13Av3EY915Z0qPZDySfJltM1KpJGqmgkCnwUOoR3zwS0A2pt4YrR51it2EK5T22yNnw6BMpZIMC3yqq3LAFIYTzqdsiKy2C_B2mRLUikeiDhXdoTL9x6pzeps1sg4i5T9ygRbUnYah9lY2GQ8hbdIjZJlmLY7KFlCBTMYA1N2C4AxUNE4h5cV0TryT-AGPGp3bBwbMR4uWWRE2x-9i68Q3OIQro6fZjFe0D2ZQ-AomFZgEPrjcslYGeJGR13WuaADBJ97ESoinREWt_ICAgmwPud3gsRDIWIn6XD4-vcHasN_F7vx6e1-ju4PDORa19DCA5jn0RlPWvtqu9luw;
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: chaiyo777.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /api/brandcommunication
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api/brandlivechat
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api
+        backend:
+          service:
+            name: operator-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: lobby-m9thb
+            port:
+              number: 80
+  - host: www.chaiyo777.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /api/brandcommunication
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api/brandlivechat
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api
+        backend:
+          service:
+            name: operator-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: lobby-m9thb
+            port:
+              number: 80
