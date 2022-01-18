@@ -31,7 +31,8 @@ spec:
         backend:
           service: 
             name: op-api-mgm
-          servicePort: 80
+            port: 
+              number: 80
       - path: /
         backend:
           service:
@@ -57,7 +58,8 @@ spec:
         backend:
           service: 
             name: op-api-mgm
-          servicePort: 80
+            port: 
+              number: 80
       - path: /
         backend:
           service:
