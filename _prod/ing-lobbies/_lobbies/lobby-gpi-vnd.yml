@@ -13,10 +13,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - gpi-vnd.srvptt.com
-    secretName: gpi-vnd.srvptt.com
+    - gpi-vndk.srvptt.com
+    secretName: gpi-vndk.srvptt.com
   rules:
-  - host: gpi-vnd.srvptt.com
+  - host: gpi-vndk.srvptt.com
     http:
       paths:
       - pathType: Prefix
