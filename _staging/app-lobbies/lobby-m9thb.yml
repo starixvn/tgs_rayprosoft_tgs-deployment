@@ -1,19 +1,19 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: lobby-m9th
+  name: lobby-m9thb
   namespace: staging
   labels:
-    app: lobby-m9th
+    app: lobby-m9thb
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: lobby-m9th
+      app: lobby-m9thb
   template:
     metadata:
       labels:
-        app: lobby-m9th
+        app: lobby-m9thb
     spec:
       imagePullSecrets:
         - name: registry-credentials
@@ -25,18 +25,18 @@ spec:
         operator: Equal
         value: nonprod
       containers:
-        - name: lobby-m9th
+        - name: lobby-m9thb
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t3:staging
           imagePullPolicy: IfNotPresent
           env:
           - name: CLIENT
-            value: "U5cbsZdVYCPtYKFJPLOsJCxaLM4Hz2WoshAtM6MgjDiujrXlOOgV0c"
+            value: "SC8CfwKitkbbdicsk4AZFdOsdbeXet1ZqMAJSL05Q4RkJejNSI0u0M"
           - name: CURRENCY
             value: "THB"
           - name: BRAND
-            value: "M9TH"
+            value: "M9THB"
           - name: BRANDNAME
-            value: "M9TH"
+            value: "M9THB"
           - name: THEME
             value: "black"
           - name: "WAPTEMPLATE"
@@ -78,7 +78,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: lobby-m9th
+  name: lobby-m9thb
   namespace: staging
 spec:
   ports:
@@ -86,4 +86,4 @@ spec:
       port: 80
       name: web
   selector:
-    app: lobby-m9th
+    app: lobby-m9thb
