@@ -60,6 +60,12 @@ spec:
               value: "443"
             - name: GameProviderCode
               value: "{{ .Values.gpCode }}"
+            - name: OTEL_SERVICE_NAME
+              value: "Game-{{ .Values.gpCode }}-Api({{ .Values.namespace }})"
+            - name: NODE_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP
           volumeMounts:
             - mountPath: /app/appsettings.json
               name: appsettings
