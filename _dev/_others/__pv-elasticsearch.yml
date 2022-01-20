@@ -1,0 +1,84 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: data-elasticsearch-data-0
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 8Gi
+  accessModes:
+    - ReadWriteOnce
+  claimRef:
+    namespace: elastic-system
+    name: data-elasticsearch-data-0
+  nfs:
+    server: 192.168.50.111
+    path: /nfsshare/elasticsearch/data
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: data-elasticsearch-data-1
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 8Gi
+  accessModes:
+    - ReadWriteOnce
+  claimRef:
+    namespace: elastic-system
+    name: data-elasticsearch-data-1
+  nfs:
+    server: 192.168.50.111
+    path: /nfsshare/elasticsearch/data1
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: data-elasticsearch-master-0
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 8Gi
+  accessModes:
+    - ReadWriteOnce
+  claimRef:
+    namespace: elastic-system
+    name: data-elasticsearch-master-0
+  nfs:
+    server: 192.168.50.111
+    path: /nfsshare/elasticsearch/master0
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: data-elasticsearch-master-1
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 8Gi
+  accessModes:
+    - ReadWriteOnce
+  claimRef:
+    namespace: elastic-system
+    name: data-elasticsearch-master-1
+  nfs:
+    server: 192.168.50.111
+    path: /nfsshare/elasticsearch/master1
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: data-elasticsearch-master-2
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 8Gi
+  accessModes:
+    - ReadWriteOnce
+  claimRef:
+    namespace: elastic-system
+    name: data-elasticsearch-master-2
+  nfs:
+    server: 192.168.50.111
+    path: /nfsshare/elasticsearch/master2
