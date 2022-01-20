@@ -5,7 +5,7 @@ metadata:
   namespace: dev
 subjects:
 - kind: ServiceAccount
-  name: jaeger-operator
+  name: observability
   namespace: elastic-system
 roleRef:
   kind: Role
