@@ -14,16 +14,16 @@ spec:
       labels:
         name: otel-collector
     spec:
+      nodeSelector:
+        dedicated: nonprod
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: nonprod
       containers:
         - name: otel-collector
           image: otel/opentelemetry-collector:0.41.0
-          nodeSelector:
-            dedicated: nonprod
-          tolerations:
-          - effect: NoSchedule
-            key: dedicated
-            operator: Equal
-            value: nonprod
           resources:
             limits:
               memory: 200Mi
