@@ -14,6 +14,13 @@ spec:
       labels:
         name: otel-collector
     spec:
+      nodeSelector:
+        dedicated: prod
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: prod
       containers:
         - name: otel-collector
           image: otel/opentelemetry-collector:0.41.0
