@@ -9,5 +9,5 @@ spec:
     type: elasticsearch # <1>
     options:
       es:
-        server-urls: http://elasticsearch-master:9200 # <2>
+        server-urls: http://elasticsearch-master.elastic-system:9200 # <2>
         index-prefix: tgs
