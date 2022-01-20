@@ -10,15 +10,4 @@ spec:
     options:
       es:
         server-urls: http://elasticsearch-master:9200 # <2>
-        index-prefix: my-prefix
-        tls: # <3>
-          ca: /es/certificates/ca.crt
-    secretName: jaeger-secret # <4>
-  volumeMounts: # <5>
-    - name: certificates
-      mountPath: /es/certificates/
-      readOnly: true
-  volumes:
-    - name: certificates
-      secret:
-        secretName: quickstart-es-http-certs-public
+        index-prefix: tgs
