@@ -3,11 +3,7 @@ kind: Jaeger
 metadata:
   name: jaeger
 spec:
-  strategy: allInOne
-  allInOne:
-    image: jaegertracing/all-in-one:latest
-    options:
-      log-level: debug
+  strategy: production
   storage:
     type: elasticsearch
     options:

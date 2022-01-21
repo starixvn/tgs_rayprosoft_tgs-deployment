@@ -49,4 +49,11 @@ xpack.security.enabled: true
 
 
 ## install elasticsearch
+
+helm uninstall elasticsearch -n observability
 helm install elasticsearch bitnami/elasticsearch -n observability
+
+
+## install jaeger
+helm install jaeger jaegertracing/jaeger --set provisionDataStore.cassandra=false --set provisionDataStore.elasticsearch=true --set storage.type=elasticsearch --set storage.elasticsearch.user=tgs --set storage.elasticsearch.password=tgs123 -n observability
+
