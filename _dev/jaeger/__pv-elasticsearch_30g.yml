@@ -39,7 +39,7 @@ metadata:
 spec:
   storageClassName: manual
   capacity:
-    storage: 30Gi
+    storage: 8Gi
   accessModes:
     - ReadWriteOnce
   claimRef:
@@ -56,7 +56,7 @@ metadata:
 spec:
   storageClassName: manual
   capacity:
-    storage: 30Gi
+    storage: 8Gi
   accessModes:
     - ReadWriteOnce
   claimRef:
@@ -73,7 +73,7 @@ metadata:
 spec:
   storageClassName: manual
   capacity:
-    storage: 30Gi
+    storage: 8Gi
   accessModes:
     - ReadWriteOnce
   claimRef:
