@@ -3,6 +3,7 @@ kind: Ingress
 metadata:
   name: elasticsearch
 spec:
+  ingressClassName: nginx
   rules:
   - host: elasticsearch.rpgp.cc
     http:
