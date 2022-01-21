@@ -9,7 +9,10 @@ spec:
   - host: jaeger.rpgp.cc
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: jaeger-query
-          servicePort: 16687               
+          service:
+            name: jaeger-query
+            port: 
+              number: 16687               
