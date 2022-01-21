@@ -1,0 +1,52 @@
+helm install jaeger jaegertracing/jaeger \
+	--set provisionDataStore.cassandra=false \   
+	--set provisionDataStore.elasticsearch=true \
+	--set storage.type=elasticsearch \
+	--set storage.elasticsearch.user=tgs \
+	--set storage.elasticsearch.password=tgs123 \
+	-n observability
+
+helm install jaeger jaegertracing/jaeger --set provisionDataStore.cassandra=false,provisionDataStore.elasticsearch=true,storage.type=elasticsearch,storage.elasticsearch.user=tgs,storage.elasticsearch.password=tgs123 -n elastic-system
+	
+https://www.jaegertracing.io/docs/1.29/cli/#jaeger-all-in-one-elasticsearch
+
+helm install jaeger jaegertracing/jaeger --set provisionDataStore.cassandra=false --set provisionDataStore.elasticsearch=true --set storage.type=elasticsearch --set storage.elasticsearch.user=tgs --set storage.elasticsearch.password=tgs123 --set es.username=tgs --set es.password=tgs123 -n observability
+	
+
+helm template jaeger jaegertracing/jaeger \
+	--set provisionDataStore.cassandra=false \   
+	--set provisionDataStore.elasticsearch=true \
+	--set storage.type=elasticsearch \
+	-n elastic-system
+	
+
+https://github.com/elastic/helm-charts/tree/main/kibana
+
+
+
+helm install kibana elastic/kibana
+	--set imageTag=7.16.2
+	--set ingress.enabled=true \
+	--set ingress.hosts[0].host=kibana.srvptt.com \
+	--set ingress.hosts[0].paths[0]=/ 
+	-n observability
+	
+helm upgrade --install kibana elastic/kibana -n observability
+	
+helm upgrade --install kibana elastic/kibana --set imageTag=7.16.2 --set ingress.enabled=true --set ingress.hosts[0].host=kibana.srvptt.com --set ingress.hosts[0].path[0]=/ -n observability
+
+https://artifacthub.io/packages/helm/elastic/kibana
+
+
+
+
+
+/usr/share/elasticsearch/config/elasticsearch.yml
+cluster.name: "docker-cluster"
+network.host: 0.0.0.0
+xpack.security.enabled: true
+
+
+
+
+helm install elasticsearch bitnami/elasticsearch -n elastic-system
