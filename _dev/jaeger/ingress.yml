@@ -1,22 +1,15 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-jaeger
+  name: jaeger
   namespace: observability
-  annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
-    kubernetes.io/ingress.class: "nginx"
-    nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
-  tls:
-  - hosts:
-    - jaeger.srvptt.com
-    secretName: jaeger.srvptt.com
+  ingressClassName: nginx
   rules: 
-  - host: jaeger.srvptt.com
+  - host: jaeger.rpgp.cc
     http:
       paths:
       - path: /
         backend:
-          serviceName: jaeger-operator-metrics 
-          servicePort: 8443               
+          serviceName: jaeger-query
+          servicePort: 16687               
