@@ -1,3 +1,4 @@
+
 apiVersion: v1
 kind: PersistentVolume
 metadata:
@@ -9,7 +10,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   claimRef:
-    namespace: elastic-system
+    namespace: observability
     name: data-elasticsearch-data-0
   nfs:
     server: 192.168.50.111
@@ -26,7 +27,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   claimRef:
-    namespace: elastic-system
+    namespace: observability
     name: data-elasticsearch-data-1
   nfs:
     server: 192.168.50.111
@@ -43,7 +44,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   claimRef:
-    namespace: elastic-system
+    namespace: observability
     name: data-elasticsearch-master-0
   nfs:
     server: 192.168.50.111
@@ -60,7 +61,7 @@ spec:
   accessModes:
     - ReadWriteOnce
   claimRef:
-    namespace: elastic-system
+    namespace: observability
     name: data-elasticsearch-master-1
   nfs:
     server: 192.168.50.111
@@ -77,8 +78,9 @@ spec:
   accessModes:
     - ReadWriteOnce
   claimRef:
-    namespace: elastic-system
+    namespace: observability
     name: data-elasticsearch-master-2
   nfs:
     server: 192.168.50.111
     path: /nfsshare/elasticsearch/master2
+---
