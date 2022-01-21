@@ -58,3 +58,7 @@ helm install elasticsearch bitnami/elasticsearch -n observability
 helm uninstall jaeger -n observability
 helm install jaeger jaegertracing/jaeger --set provisionDataStore.cassandra=false --set provisionDataStore.elasticsearch=true --set storage.type=elasticsearch --set storage.elasticsearch.user=tgs --set storage.elasticsearch.password=tgs123 -n observability
 
+
+helm template jaeger jaegertracing/jaeger --set provisionDataStore.cassandra=false --set provisionDataStore.elasticsearch=true --set storage.type=elasticsearch --set storage.elasticsearch.user=tgs --set storage.elasticsearch.password=tgs123 -n observability
+
+helm show values jaegertracing/jaeger 
