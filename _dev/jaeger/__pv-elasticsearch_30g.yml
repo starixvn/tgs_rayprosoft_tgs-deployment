@@ -44,7 +44,7 @@ spec:
     - ReadWriteOnce
   claimRef:
     namespace: observability
-    name: elasticsearch-master-elasticsearch-master-0
+    name: data-elasticsearch-master-0
   nfs:
     server: 192.168.50.111
     path: /nfsshare/elasticsearch/master0
@@ -61,7 +61,7 @@ spec:
     - ReadWriteOnce
   claimRef:
     namespace: observability
-    name: elasticsearch-master-elasticsearch-master-1
+    name: data-elasticsearch-master-1
   nfs:
     server: 192.168.50.111
     path: /nfsshare/elasticsearch/master1
@@ -78,7 +78,7 @@ spec:
     - ReadWriteOnce
   claimRef:
     namespace: observability
-    name: elasticsearch-master-elasticsearch-master-2
+    name: data-elasticsearch-master-2
   nfs:
     server: 192.168.50.111
     path: /nfsshare/elasticsearch/master2
