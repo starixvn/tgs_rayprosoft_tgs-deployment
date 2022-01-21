@@ -13,6 +13,6 @@ spec:
         path: /
         backend:
           service:
-            name: jaeger-query
+            name: jaeger-operator-metrics
             port: 
-              number: 16687               
+              number: 8443               
