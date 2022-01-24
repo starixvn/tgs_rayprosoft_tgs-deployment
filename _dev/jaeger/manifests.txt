@@ -11,6 +11,19 @@ helm install jaeger jaegertracing/jaeger --set provisionDataStore.cassandra=fals
 https://www.jaegertracing.io/docs/1.29/cli/#jaeger-all-in-one-elasticsearch
 
 helm install jaeger jaegertracing/jaeger --set provisionDataStore.cassandra=false --set provisionDataStore.elasticsearch=true --set storage.type=elasticsearch --set storage.elasticsearch.user=tgs --set storage.elasticsearch.password=tgs123 --set es.username=tgs --set es.password=tgs123 -n observability
+
+helm install jaeger jaegertracing/jaeger --set provisionDataStore.cassandra=false --set provisionDataStore.elasticsearch=true --set storage.type=elasticsearch -n observability
+
+
+helm uninstall jaeger -n observability
+
+kubectl delete pvc elasticsearch-master-elasticsearch-master-0 -n observability
+kubectl delete pvc elasticsearch-master-elasticsearch-master-1 -n observability
+kubectl delete pvc elasticsearch-master-elasticsearch-master-2 -n observability
+
+kubectl delete -f __pv-elasticsearch_30g.yml
+
+
 	
 
 helm template jaeger jaegertracing/jaeger \
