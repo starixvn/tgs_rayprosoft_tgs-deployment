@@ -19,4 +19,6 @@ data:
         - name: elasticsearch
           configMap:
             name: elasticsearch
-            
+            items:
+              - key: elasticsearch.yml
+                path: elasticsearch.yml

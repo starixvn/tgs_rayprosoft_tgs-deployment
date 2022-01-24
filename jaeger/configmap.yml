@@ -4,7 +4,7 @@ metadata:
   name: configmap-elasticsearch
   namespace: observability
 data:
-  elasticsearch.yml: |
+  elasticsearch: |
     cluster.name: "docker-cluster"
     network.host: 0.0.0.0
     xpack.security.enabled: false

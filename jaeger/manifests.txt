@@ -1,14 +1,8 @@
-helm install jaeger jaegertracing/jaeger \
-	--set provisionDataStore.cassandra=false \   
-	--set provisionDataStore.elasticsearch=true \
-	--set storage.type=elasticsearch \
-	--set storage.elasticsearch.user=tgs \
-	--set storage.elasticsearch.password=tgs123 \
-	-n observability
-
 https://www.jaegertracing.io/docs/1.29/cli/#jaeger-all-in-one-elasticsearch
 
-helm upgrade --install jaeger jaegertracing/jaeger --set provisionDataStore.cassandra=false --set provisionDataStore.elasticsearch=true --set storage.type=elasticsearch --set storage.elasticsearch.user=tgs --set storage.elasticsearch.password=tgs123 --set es.username=tgs --set es.password=tgs123 -n observability
+
+kubectl apply -f 1.RoleBinding.yml
+kubectl apply -f configmap.yml
 
 helm upgrade --install jaeger jaegertracing/jaeger --set provisionDataStore.cassandra=false --set provisionDataStore.elasticsearch=true --set storage.type=elasticsearch -n observability
 
