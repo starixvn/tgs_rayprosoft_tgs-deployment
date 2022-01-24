@@ -110,6 +110,6 @@ xpack.security.enabled: false
       volumes:
         - name: elasticsearch
           configMap:
-            name: configmap-game-elasticsearch
+            name: configmap-elasticsearch
 			
 

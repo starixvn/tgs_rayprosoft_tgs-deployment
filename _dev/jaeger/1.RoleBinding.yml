@@ -1,12 +1,12 @@
 kind: RoleBinding
 apiVersion: rbac.authorization.k8s.io/v1
 metadata:
-  name: jaeger-operator-in-myproject
-  namespace: dev
+  name: jaeger-operator
+  namespace: observability
 subjects:
 - kind: ServiceAccount
-  name: observability
-  namespace: elastic-system
+  name: jaeger-operator
+  namespace: observability
 roleRef:
   kind: Role
   name: jaeger-operator
