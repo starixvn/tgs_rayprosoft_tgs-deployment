@@ -14,6 +14,10 @@ spec:
       labels:
         name: otel-collector
     spec:
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Exists
       containers:
         - name: otel-collector
           image: otel/opentelemetry-collector:0.41.0
