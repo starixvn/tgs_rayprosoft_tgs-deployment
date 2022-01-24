@@ -10,7 +10,7 @@ data:
     xpack.security.enabled: true
     
 
-          volumeMounts:
+          //volumeMounts:
             - mountPath: /usr/share/elasticsearch/config/elasticsearch.yml
               name: elasticsearch
               readOnly: true
@@ -18,7 +18,7 @@ data:
       volumes:
         - name: elasticsearch
           configMap:
-            name: elasticsearch
+            name: configmap-elasticsearch
             items:
-              - key: elasticsearch.yml
+              - key: elasticsearch
                 path: elasticsearch.yml

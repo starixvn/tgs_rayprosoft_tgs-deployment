@@ -1,19 +1,55 @@
 https://www.jaegertracing.io/docs/1.29/cli/#jaeger-all-in-one-elasticsearch
 
+kubectl create namespace observability # <1>
+kubectl create -f https://github.com/jaegertracing/jaeger-operator/releases/download/v1.29.0/jaeger-operator.yaml -n observability # <
 
 kubectl apply -f 1.RoleBinding.yml
 kubectl apply -f configmap.yml
 
 helm upgrade --install jaeger jaegertracing/jaeger --set provisionDataStore.cassandra=false --set provisionDataStore.elasticsearch=true --set storage.type=elasticsearch -n observability
 
-	
+kubectl edit statefulsets elasticsearch-master -n observability
 
-helm template jaeger jaegertracing/jaeger \
-	--set provisionDataStore.cassandra=false \   
-	--set provisionDataStore.elasticsearch=true \
-	--set storage.type=elasticsearch \
-	-n observability
-	
+
+			- mountPath: /usr/share/elasticsearch/config/elasticsearch.yml
+              name: elasticsearch
+              readOnly: true
+              subPath: elasticsearch.yml
+      volumes:
+        - name: elasticsearch
+          configMap:
+            name: configmap-elasticsearch
+            items:
+              - key: elasticsearch
+                path: elasticsearch.yml
+
+kubectl edit daemonsets jaeger-agent  -n observability
+
+	  tolerations:
+	  - effect: NoSchedule
+		key: dedicated
+		operator: Exists
+		
+kubectl exec -it debug-79sgk  -- curl http://jaeger-operator-metrics.observability:8443
+
+
+
+helm uninstall jaeger -n observability
+kubectl delete pvc elasticsearch-master-elasticsearch-master-0  -n observability
+kubectl delete pvc elasticsearch-master-elasticsearch-master-1  -n observability
+kubectl delete pvc elasticsearch-master-elasticsearch-master-2  -n observability
+
+kubectl delete -f https://github.com/jaegertracing/jaeger-operator/releases/download/v1.29.0/jaeger-operator.yaml -n observability
+
+
+
+
+
+///////////////////////////////////////////////////
+
+
+
+
 
 https://github.com/elastic/helm-charts/tree/main/kibana
 
