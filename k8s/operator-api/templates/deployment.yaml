@@ -89,7 +89,7 @@ spec:
         - name: {{ .Chart.Name }}-yarp
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: harbor.rpgp.cc/tgs/yarp-sidecar:2021.12.17.0718
+          image: harbor.rpgp.cc/tgs/yarp-sidecar:2022.01.24.0324
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: yarp
