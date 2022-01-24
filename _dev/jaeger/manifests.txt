@@ -75,3 +75,41 @@ helm install jaeger jaegertracing/jaeger --set provisionDataStore.cassandra=fals
 helm template jaeger jaegertracing/jaeger --set provisionDataStore.cassandra=false --set provisionDataStore.elasticsearch=true --set storage.type=elasticsearch --set storage.elasticsearch.user=tgs --set storage.elasticsearch.password=tgs123 -n observability
 
 helm show values jaegertracing/jaeger 
+
+
+
+
+
+https://stackoverflow.com/questions/67993633/how-to-fix-this-in-error-rails-warning-299-elasticsearch-built-in-security-fea
+
+kubectl -n observability  edit statefulsets elasticsearch-master
+
+echo "xpack.security.enabled: false" >> /usr/share/elasticsearch/config/elasticsearch.yml
+echo "http.cors.enabled: true" >> /usr/share/elasticsearch/config/elasticsearch.yml
+echo "http.cors.allow-origin: \"*\"" >> /usr/share/elasticsearch/config/elasticsearch.yml
+
+
+
+https://www.its404.com/article/nxw_tsp/120075844
+
+
+cat /usr/share/elasticsearch/config/elasticsearch.yml
+
+
+cluster.name: "docker-cluster"
+network.host: 0.0.0.0
+xpack.security.enabled: false
+
+
+
+			volumeMounts:
+            - mountPath: //usr/share/elasticsearch/config/elasticsearch.yml
+              name: elasticsearch
+              readOnly: true
+              subPath: elasticsearch.yml
+      volumes:
+        - name: elasticsearch
+          configMap:
+            name: configmap-game-elasticsearch
+			
+
