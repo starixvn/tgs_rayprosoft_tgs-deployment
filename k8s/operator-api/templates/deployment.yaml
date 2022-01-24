@@ -59,7 +59,7 @@ spec:
               protocol: TCP
           env:
             - name: OTEL_SERVICE_NAME
-              value: Operator-Api-{{ .Values.namespace }}
+              value: Operator-Api({{ .Values.namespace }})
             - name: NODE_IP
               valueFrom:
                 fieldRef:
