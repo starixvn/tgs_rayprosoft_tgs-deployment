@@ -5,6 +5,7 @@ metadata:
   namespace: staging
   labels:
     app: lobby-gpi-t4
+    type: lobby
 spec:
   replicas: 1
   selector:
@@ -14,6 +15,7 @@ spec:
     metadata:
       labels:
         app: lobby-gpi-t4
+        type: lobby
     spec:
       imagePullSecrets:
         - name: registry-credentials
@@ -64,11 +66,11 @@ spec:
             periodSeconds: 5
           resources:
             limits:
-              cpu: 200m
-              memory: 400Mi
+              cpu: 10m
+              memory: 60Mi
             requests:
-              cpu: 200m
-              memory: 400Mi
+              cpu: 2m
+              memory: 12Mi
       volumes:
         - name: site-data
           emptyDir: {}
