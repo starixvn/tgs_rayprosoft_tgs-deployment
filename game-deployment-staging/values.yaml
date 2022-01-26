@@ -39,5 +39,5 @@ resources:
     cpu: 60m
     memory: 256Mi
   requests:
-    cpu: 20m
-    memory: 128Mi
+    cpu: 10m
+    memory: 80Mi
