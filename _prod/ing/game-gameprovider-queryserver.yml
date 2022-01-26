@@ -4,10 +4,6 @@ metadata:
   name: game-gameprovider-queryserver
   namespace: prod
 spec:
-  tls:
-  - hosts:
-    - game-gameprovider-queryserver.yydsgo.xyz
-    secretName: game-kickplayer-receiver.yydsgo.xyz
   rules:
   - host: game-gameprovider-queryserver.yydsgo.xyz
     http:
