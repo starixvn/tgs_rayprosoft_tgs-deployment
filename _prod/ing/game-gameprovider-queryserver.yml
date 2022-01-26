@@ -12,7 +12,10 @@ spec:
   - host: game-gameprovider-queryserver.yydsgo.xyz
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
-          serviceName: game-gameprovider-queryserver
-          servicePort: 80
+          service:
+            name: game-gameprovider-queryserver
+            port: 
+              number: 80
