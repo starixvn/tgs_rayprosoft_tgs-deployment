@@ -37,7 +37,7 @@ data:
         "SubscriptionBatchSize": 128
       },
       "Report": {
-        "Url": "http://report-api"
+        "Url": "http://report-service"
       },
       "Promotion": {
         "Url": "http://promotion-api"

@@ -40,7 +40,7 @@ data:
         "Urls": [ "http://localhost", "https://localhost" ]
       },
       "Report": {
-        "Url": "http://report-api"
+        "Url": "http://report-service"
       },
       "Promotion": {
         "Url": "http://promotion-api"
