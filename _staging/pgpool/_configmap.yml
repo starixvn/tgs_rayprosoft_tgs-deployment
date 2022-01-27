@@ -778,6 +778,8 @@ data:
     # Lines beginning with '#' (pound) are comments and will
     # be ignored. Again, no spaces or tabs allowed before '#'.
     # USERID:MD5PASSWD
+    staging_app:md5e5fcc5bcfba09afd816fb7d0ff520cdb
+    staging_migration:md523bec46e6cd536530581babecb670cb8
     tgs_app:md50cfe4def966ced48e9d4b1b1b64399b9
     tgs_reader:md53019873e8c62073e5d11495ecfc081d8
     tgs_monitor:md58193dd83626265aeef9b6f9fae5e4ebc
@@ -785,6 +787,8 @@ data:
     postgres:md554b17250afaa97f9502147f0d71771bb
 
   pool_passwd: |
+    staging_app:md5e5fcc5bcfba09afd816fb7d0ff520cdb
+    staging_migration:md523bec46e6cd536530581babecb670cb8
     tgs_app:md50cfe4def966ced48e9d4b1b1b64399b9
     tgs_reader:md53019873e8c62073e5d11495ecfc081d8
     tgs_monitor:md58193dd83626265aeef9b6f9fae5e4ebc
