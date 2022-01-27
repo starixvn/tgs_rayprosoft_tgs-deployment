@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: profit-rebate-service.yydsgo.xyz
+  - host: profit-rebate-service.rpgp.cc
     http:
       paths:
       - pathType: Prefix
