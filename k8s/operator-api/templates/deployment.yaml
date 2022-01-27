@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: {{ include "operator-api.fullname" . }}
-  namespace: {{ .Values.namespace }}
+  namespace: {{ .Release.Namespace }}
   labels:
     type: backend
     {{- include "operator-api.labels" . | nindent 4 }}
@@ -29,24 +29,6 @@ spec:
       {{- end }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
-      {{- if eq .Values.namespace "staging" }}
-      nodeSelector:
-        dedicated: nonprod
-      tolerations:
-      - effect: NoSchedule
-        key: dedicated
-        operator: Equal
-        value: nonprod
-      {{- end }}
-      {{- if eq .Values.namespace "prod" }}
-      nodeSelector:
-        dedicated: prod
-      tolerations:
-      - effect: NoSchedule
-        key: dedicated
-        operator: Equal
-        value: prod
-      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -59,7 +41,7 @@ spec:
               protocol: TCP
           env:
             - name: OTEL_SERVICE_NAME
-              value: Operator-Api({{ .Values.namespace }})
+              value: Operator-Api({{ .Release.Namespace }})
             - name: NODE_IP
               valueFrom:
                 fieldRef:
@@ -68,16 +50,14 @@ spec:
             httpGet:
               path: /health
               port: 80
-            initialDelaySeconds: 10
-            failureThreshold: 10
+            failureThreshold: 3
             periodSeconds: 5
-          readinessProbe:
+          startupProbe:
             httpGet:
               path: /health
               port: 80
-            initialDelaySeconds: 10
-            failureThreshold: 10
-            periodSeconds: 5
+            failureThreshold: 30
+            periodSeconds: 2
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
@@ -85,12 +65,19 @@ spec:
               name: appsettings
               readOnly: true
               subPath: appsettings.json
-        {{- if eq .Values.namespace "dev" }}
+        {{- if eq .Release.Namespace "dev" }}
         - name: {{ .Chart.Name }}-yarp
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: harbor.rpgp.cc/tgs/yarp-sidecar:2022.01.24.0324
+          image: harbor.rpgp.cc/tgs/yarp-sidecar:2022.01.27.0353
           imagePullPolicy: {{ .Values.image.pullPolicy }}
+          env:
+            - name: OTEL_SERVICE_NAME
+              value: Operator-Api({{ .Release.Namespace }})(yarp)
+            - name: NODE_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP
           ports:
             - name: yarp
               containerPort: 9090
@@ -99,16 +86,14 @@ spec:
             httpGet:
               path: /health
               port: 9090
-            initialDelaySeconds: 10
-            failureThreshold: 10
+            failureThreshold: 3
             periodSeconds: 5
-          readinessProbe:
+          startupProbe:
             httpGet:
               path: /health
               port: 9090
-            initialDelaySeconds: 10
             failureThreshold: 10
-            periodSeconds: 5
+            periodSeconds: 2
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           volumeMounts:
