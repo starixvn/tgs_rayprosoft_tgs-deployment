@@ -119,10 +119,10 @@ data:
 
     # - Concurrent session and pool size -
 
-    num_init_children = 25
+    num_init_children = 11
                                     # Number of concurrent sessions allowed
                                     # (change requires restart)
-    max_pool = 4
+    max_pool = 3
                                     # Number of connection pool caches per connection
                                     # (change requires restart)
 
