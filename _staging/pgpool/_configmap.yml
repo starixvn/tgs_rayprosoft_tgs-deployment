@@ -119,7 +119,7 @@ data:
 
     # - Concurrent session and pool size -
 
-    num_init_children = 11
+    num_init_children = 20
                                     # Number of concurrent sessions allowed
                                     # (change requires restart)
     max_pool = 3
