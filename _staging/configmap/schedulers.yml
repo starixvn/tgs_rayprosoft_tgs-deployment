@@ -25,6 +25,9 @@ data:
         "PingMaxOutStanding": 3,
         "SubscriptionBatchSize": 128
       },
+      "Report": {
+        "Url": "http://report-api"
+      },
       "ReportAggregate": {
         "Url": "http://report-aggregate-service"
       },
