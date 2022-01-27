@@ -62,6 +62,12 @@ spec:
               value: "{{ .Values.aspNetCoreEnvironment}}"
             - name: aspnetcore_https_port
               value: "443"
+            - name: OTEL_SERVICE_NAME
+              value: Promotion-Api({{ .Values.namespace }})
+            - name: NODE_IP
+              valueFrom:
+                fieldRef:
+                  fieldPath: status.hostIP
           volumeMounts:
             - mountPath: /config/appsettings.json
               name: appsettings
