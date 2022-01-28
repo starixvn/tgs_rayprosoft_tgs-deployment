@@ -37,6 +37,9 @@ data:
       "Report": {
         "Url": "http://report-api"
       },
+      "ReportAggregate": {
+        "Url": "http://report-aggregate-service"
+      },
       "Promotion": {
         "Url": "http://promotion-api"
       },
