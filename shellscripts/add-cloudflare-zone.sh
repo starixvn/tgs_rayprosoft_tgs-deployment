@@ -18,7 +18,7 @@ CreateDnsRecord(){
 }
 
 
-declare -a arr=("mclub001.com" "mclub002.com" "mclub006.com" "mclub007.com" "mclub008.com" "mclub009.com" "mclub010.com" "mclub011.com" "mclub012.com" "mclub013.com" "mclub014.com" "mclub015.com");
+declare -a arr=("moneyclub8.com" "hk2811.com" "hk2812.com" "hk2813.com" "hk2815.com" "hk2817.com" "hk2819.com" "hk2820.com" "hk2821.com" "hk2822.com" "hk2823.com" "hk2825.com" "hk2826.com" "hk2827.com" "hk2830.com" "hk2826.com" "hk2831.com" "hk2832.com" "hk2833.com" "hk2835.com");
 
 response=$(curl -X GET "https://api.cloudflare.com/client/v4/zones?per_page=1000" \
     -H "X-Auth-Email: ${auth_email}" \
