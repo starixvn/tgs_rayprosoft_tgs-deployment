@@ -7,7 +7,7 @@ export invite_code=$3
 
 echo ${brand} ${domain} ${invite_code}
 
-export domain_=echo "${domain}" | sed -e "s/./-/g"
+export domain_=$(echo "${domain}" | sed -e "s/./-/g")
 
 echo $domain_
 #envsubst <  ingress-$1.yml | kubectl apply -f - 
