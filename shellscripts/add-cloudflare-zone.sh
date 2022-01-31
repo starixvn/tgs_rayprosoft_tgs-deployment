@@ -89,9 +89,9 @@ for zone in "${arr[@]}"; do
 	echo ${result_minify}
 	
 	result_brotli=$(curl -X PATCH "https://api.cloudflare.com/client/v4/zones/${zoneid}/settings/brotli" \
-		 -H "X-Auth-Email: user@example.com" \
-		 -H "X-Auth-Key: c2547eb745079dac9320b638f5e225cf483cc5cfdda41" \
-		 -H "Content-Type: application/json" \
+		-H "X-Auth-Email: ${auth_email}" \
+	    -H "X-Auth-Key: ${auth_key}" \
+	    -H "Content-Type: application/json" \
 		 --data '{"value":"on"}')
 		 
 	echo ${result_brotli} 
