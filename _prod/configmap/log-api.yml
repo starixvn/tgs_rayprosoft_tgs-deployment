@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: configmap-log-api
+  name: resource-settings
   namespace: prod
 data:
   appsettings.json: |

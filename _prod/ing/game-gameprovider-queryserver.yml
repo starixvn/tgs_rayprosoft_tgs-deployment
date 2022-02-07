@@ -4,6 +4,7 @@ metadata:
   name: game-gameprovider-queryserver
   namespace: prod
 spec:
+  ingressClassName: nginx
   rules:
   - host: game-gameprovider-queryserver.yydsgo.xyz
     http:
