@@ -18,7 +18,7 @@ CreateDnsRecord(){
 }
 
 
-declare -a arr=("mclub001.com" "mclub002.com" "mclub006.com" "mclub007.com" "mclub008.com" "mclub009.com" "mclub010.com" "mclub011.com" "mclub012.com" "mclub013.com" "mclub014.com" "mclub015.com");
+declare -a arr=("moneyclub8.com" "betbet88.net" "hk2811.com" "hk2812.com" "hk2813.com" "hk2815.com" "hk2817.com" "hk2819.com" "hk2820.com" "hk2821.com" "hk2822.com" "hk2823.com" "hk2825.com" "hk2826.com" "hk2827.com" "hk2830.com" "hk2826.com" "hk2831.com" "hk2832.com" "hk2833.com" "hk2835.com");
 
 response=$(curl -X GET "https://api.cloudflare.com/client/v4/zones?per_page=1000" \
     -H "X-Auth-Email: ${auth_email}" \
@@ -61,8 +61,41 @@ for zone in "${arr[@]}"; do
 	     -H "Content-Type: application/json" \
 	     --data "{\"name\":\"${zone}\",\"account\":{\"id\":\"${account_id}\"},\"jump_start\":false,\"type\":\"full\"}")
 	echo ${result2}
-	zoneid=$(echo ${result2} | cut -c18-49)
 
+	zoneid=$(echo ${result2} | cut -c18-49)
+	 
+	result_automatic_https_rewrites=$(curl -X PATCH "https://api.cloudflare.com/client/v4/zones/${zoneid}/settings/automatic_https_rewrites" \
+		 -H "X-Auth-Email: ${auth_email}" \
+	     -H "X-Auth-Key: ${auth_key}" \
+	     -H "Content-Type: application/json" \
+		--data "{\"value\":\"on\"}")
+	 
+	echo ${result_automatic_https_rewrites}
+	 
+	result_always_use_https=$(curl -X PATCH "https://api.cloudflare.com/client/v4/zones/${zoneid}/settings/always_use_https" \
+		 -H "X-Auth-Email: ${auth_email}" \
+	     -H "X-Auth-Key: ${auth_key}" \
+	     -H "Content-Type: application/json" \
+		--data "{\"value\":\"on\"}")
+	
+	echo ${result_always_use_https}
+	 
+	result_minify=$(curl -X PATCH "https://api.cloudflare.com/client/v4/zones/${zoneid}/settings/minify" \
+		-H "X-Auth-Email: ${auth_email}" \
+	    -H "X-Auth-Key: ${auth_key}" \
+	    -H "Content-Type: application/json" \
+		--data "{\"value\":{\"css\":\"on\",\"html\":\"on\",\"js\":\"on\"}}")
+	 
+	echo ${result_minify}
+	
+	result_brotli=$(curl -X PATCH "https://api.cloudflare.com/client/v4/zones/${zoneid}/settings/brotli" \
+		-H "X-Auth-Email: ${auth_email}" \
+	    -H "X-Auth-Key: ${auth_key}" \
+	    -H "Content-Type: application/json" \
+		 --data '{"value":"on"}')
+		 
+	echo ${result_brotli} 
+	 
 	dns_record_result=$(CreateDnsRecord ${zone} ${zoneid})
 	dns_record_result=$(CreateDnsRecord "www" ${zoneid})
 	echo ${dns_record_result};
