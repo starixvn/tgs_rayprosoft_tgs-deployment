@@ -58,8 +58,8 @@ data:
    {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-tcg-ftp: | 
    {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
-  game-wm {"limits": | 
-   {"cpu":"750m","memory":"756Mi"},"requests":{"cpu":"200m","memory":"200Mi"}}
+  game-wm: | 
+   {"limits":{"cpu":"750m","memory":"756Mi"},"requests":{"cpu":"200m","memory":"200Mi"}}
   global-api: | 
    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   log-api: | 
