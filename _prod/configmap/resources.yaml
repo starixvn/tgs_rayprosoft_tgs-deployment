@@ -1,0 +1,254 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: resources-setting
+  namespace: prod
+data:
+  agent-21gen-my: | 
+   {"limits":{"cpu":"5m","memory":"20Mi"},"requests":{"cpu":"5m","memory":"20Mi"}}
+  agent-21gen-th: | 
+   {"limits":{"cpu":"5m","memory":"20Mi"},"requests":{"cpu":"5m","memory":"20Mi"}}
+  agent-28bet: | 
+   {"limits":{"cpu":"5m","memory":"20Mi"},"requests":{"cpu":"5m","memory":"20Mi"}}
+  agent-api: | 
+   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+  agent-bin: | 
+   {"limits":{"cpu":"5m","memory":"20Mi"},"requests":{"cpu":"5m","memory":"20Mi"}}
+  agent-bunny: | 
+   {"limits":{"cpu":"5m","memory":"20Mi"},"requests":{"cpu":"5m","memory":"20Mi"}}
+  agent-cryptobet888: | 
+   {"limits":{"cpu":"5m","memory":"20Mi"},"requests":{"cpu":"5m","memory":"20Mi"}}
+  agent-gpi: | 
+   {"limits":{"cpu":"5m","memory":"20Mi"},"requests":{"cpu":"5m","memory":"20Mi"}}
+  agent-gpi2: | 
+   {"limits":{"cpu":"5m","memory":"20Mi"},"requests":{"cpu":"5m","memory":"20Mi"}}
+  agent-hk28: | 
+   {"limits":{"cpu":"750m","memory":"756Mi"},"requests":{"cpu":"200m","memory":"200Mi"}}
+  agent-hkjp: | 
+   {"limits":{"cpu":"5m","memory":"20Mi"},"requests":{"cpu":"5m","memory":"20Mi"}}
+  agent-m9thb: | 
+   {"limits":{"cpu":"5m","memory":"20Mi"},"requests":{"cpu":"5m","memory":"20Mi"}}
+  agent-mess8: | 
+   {"limits":{"cpu":"5m","memory":"20Mi"},"requests":{"cpu":"5m","memory":"20Mi"}}
+  agent-mgm: | 
+   {"limits":{"cpu":"5m","memory":"20Mi"},"requests":{"cpu":"5m","memory":"20Mi"}}
+  agent-pisobet: | 
+   {"limits":{"cpu":"5m","memory":"20Mi"},"requests":{"cpu":"5m","memory":"20Mi"}}
+  agent-wlg: | 
+   {"limits":{"cpu":"5m","memory":"20Mi"},"requests":{"cpu":"5m","memory":"20Mi"}}
+  agent-wlghk: | 
+   {"limits":{"cpu":"5m","memory":"20Mi"},"requests":{"cpu":"5m","memory":"20Mi"}}
+  backoffice-api: | 
+   {"limits":{"cpu":"2","memory":"2000Mi"},"requests":{"cpu":"1","memory":"1000Mi"}}
+  brand-api: | 
+   {"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
+  brand-cert-api: | 
+   {"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
+  cashservice-api: | 
+   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+  domain-setting: | 
+   {"limits":{"cpu":"500m","memory":"200Mi"},"requests":{"cpu":"10m","memory":"50Mi"}}
+  game-365 : | 
+   {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"600m","memory":"1200Mi"}}
+  game-ab: | 
+   {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"600m","memory":"1200Mi"}}
+  game-ag: | 
+   {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"600m","memory":"1200Mi"}}
+  game-avia: | 
+   {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"600m","memory":"1200Mi"}}
+  game-bc: | 
+   {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"600m","memory":"1200Mi"}}
+  game-bg: | 
+   {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"600m","memory":"1200Mi"}}
+  game-evo : | 
+   {"limits":{"cpu":"100m","memory":"1200Mi"},"requests":{"cpu":"100m","memory":"1200Mi"}}
+  game-gameprovider-queryserver: | 
+   {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"100Mi"}}
+  game-gameproviders: | 
+   {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  game-gamerecord-databaseserver: | 
+   {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  game-gamerecord-receiverserver: | 
+   {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  game-gamerecord-receiverserver-avia: | 
+   {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  game-gamerecord-receiverserver-bg: | 
+   {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  game-gamerecord-receiverserver-ky: | 
+   {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  game-gamerecord-receiverserver-ly: | 
+   {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  game-gamerecord-receiverserver-tcg: | 
+   {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  game-gamerecord-receiverserver-vr: | 
+   {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  game-gamerecord-receiverserver-wgfm: | 
+   {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  game-gamerecord-receiverserver-wgvia : | 
+   {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  game-gamerecord-scheduler: | 
+   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+  game-haba: | 
+   {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"600m","memory":"1200Mi"}}
+  game-imes: | 
+   {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"600m","memory":"1200Mi"}}
+  game-jdb : | 
+   {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"600m","memory":"1200Mi"}}
+  game-jili: | 
+   {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"600m","memory":"1200Mi"}}
+  game-kickplayer-receiverserver: | 
+   {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  game-kickplayer-server: | 
+   {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  game-ky: | 
+   {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"600m","memory":"1200Mi"}}
+  game-ly: | 
+   {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"600m","memory":"1200Mi"}}
+  game-pluggable-service: | 
+   {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  game-pp: | 
+   {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"600m","memory":"1200Mi"}}
+  game-saba: | 
+   {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"600m","memory":"1200Mi"}}
+  game-sbo : | 
+   {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"600m","memory":"1200Mi"}}
+  game-sg: | 
+   {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"600m","memory":"1200Mi"}}
+  game-sw: | 
+   {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"600m","memory":"1200Mi"}}
+  game-tcg : | 
+   {"limits":{"cpu":"100m","memory":"1200Mi"},"requests":{"cpu":"100m","memory":"1200Mi"}}
+  game-tcg-ftp : | 
+   {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  game-tf: | 
+   {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"600m","memory":"1200Mi"}}
+  game-vr: | 
+   {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"600m","memory":"1200Mi"}}
+  game-wgfm: | 
+   {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"600m","memory":"1200Mi"}}
+  game-wgvia: | 
+   {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"600m","memory":"1200Mi"}}
+  game-wm: | 
+   {"limits":{"cpu":"100m","memory":"1200Mi"},"requests":{"cpu":"100m","memory":"1200Mi"}}
+  global-api: | 
+   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+  lobby-21gen-landing: | 
+   {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
+  lobby-21gen-my: | 
+   {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
+  lobby-21gen-th: | 
+   {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
+  lobby-28bet: | 
+   {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
+  lobby-bin: | 
+   {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
+  lobby-bunny: | 
+   {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
+  lobby-crmyr: | 
+   {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
+  lobby-gp-test: | 
+   {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
+  lobby-gpi-hkd: | 
+   {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
+  lobby-gpi-myr: | 
+   {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
+  lobby-gpi-php: | 
+   {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
+  lobby-gpi-t1 : | 
+   {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
+  lobby-gpi-t2 : | 
+   {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
+  lobby-gpi-t3 : | 
+   {"limits":{"cpu":"150m","memory":"300Mi"},"requests":{"cpu":"150m","memory":"300Mi"}}
+  lobby-gpi-t4 : | 
+   {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
+  lobby-gpi-t5 : | 
+   {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
+  lobby-gpi-thb: | 
+   {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
+  lobby-gpi-vnd: | 
+   {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
+  lobby-gpi2: | 
+   {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
+  lobby-hk28: | 
+   {"limits":{"cpu":"750m","memory":"756Mi"},"requests":{"cpu":"200m","memory":"200Mi"}}
+  lobby-hkjp: | 
+   {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
+  lobby-landing: | 
+   {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
+  lobby-m9thb: | 
+   {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
+  lobby-mess8: | 
+   {"limits":{"cpu":"150m","memory":"300Mi"},"requests":{"cpu":"150m","memory":"300Mi"}}
+  lobby-mgm: | 
+   {"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"500m","memory":"1Gi"}}
+  lobby-piso: | 
+   {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
+  lobby-wlg: | 
+   {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
+  lobby-wlghk: | 
+   {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
+  lobby-wlgvn: | 
+   {"limits":{"cpu":"150m","memory":"300Mi"},"requests":{"cpu":"150m","memory":"300Mi"}}
+  log-api: | 
+   {"limits":{"cpu":"400m","memory":"1Gi"},"requests":{"cpu":"400m","memory":"1Gi"}}
+  notification-receiver-service: | 
+   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+  op-api-21gen : | 
+   {"limits":{"cpu":"900m","memory":"900Mi"},"requests":{"cpu":"250m","memory":"512Mi"}}
+  op-api-hkjp: | 
+   {"limits":{"cpu":"900m","memory":"900Mi"},"requests":{"cpu":"250m","memory":"512Mi"}}
+  op-api-mess8 : | 
+   {"limits":{"cpu":"900m","memory":"900Mi"},"requests":{"cpu":"250m","memory":"512Mi"}}
+  op-api-mgm: | 
+   {"limits":{"cpu":"1","memory":"1500Mi"},"requests":{"cpu":"1","memory":"1500Mi"}}
+  op-api-wlghk : | 
+   {"limits":{"cpu":"900m","memory":"900Mi"},"requests":{"cpu":"250m","memory":"512Mi"}}
+  operator-api : | 
+   {"limits":{"cpu":"1","memory":"1500Mi"},"requests":{"cpu":"1","memory":"1500Mi"}}
+  payment-api: | 
+   {"limits":{"cpu":"750m","memory":"1Gi"},"requests":{"cpu":"750m","memory":"1Gi"}}
+  payment-help2pay : | 
+   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+  payment-leepay: | 
+   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+  payment-manual: | 
+   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+  payment-maticpay : | 
+   {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
+  payment-primepay : | 
+   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+  payment-scheduler: | 
+   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+  payment-skypay: | 
+   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+  payment-umpay: | 
+   {"limits":{"cpu":"400m","memory":"1Gi"},"requests":{"cpu":"400m","memory":"1Gi"}}
+  pgpool: | 
+   {"limits":{"cpu":"1500m","memory":"2000Mi"},"requests":{"cpu":"50m","memory":"300Mi"}}
+  profit-rebate-service: | 
+   {"limits":{"cpu":"100m","memory":"200Mi"},"requests":{"cpu":"100m","memory":"200Mi"}}
+  promotion-api: | 
+   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+  report-api: | 
+   {"limits":{"cpu":"1","memory":"1200Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+  schedulers: | 
+   {"limits":{"cpu":"1","memory":"1000Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+  sms-plivo: | 
+   {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
+  sms-service: | 
+   {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
+  tgs-production: | 
+   {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
+  viplevel-aggregateserver : | 
+   {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  viplevel-databaseserver: | 
+   {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"128Mi"}}
+  viplevel-promotionserver : | 
+   {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  viplevel-queryserver : | 
+   {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"128Mi"}}
+  viplevel-snapshotserver: | 
+   {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  viplevel-upgradeserver: | 
+   {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"64Mi"}}
