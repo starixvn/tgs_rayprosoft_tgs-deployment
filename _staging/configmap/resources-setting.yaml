@@ -14,27 +14,27 @@ data:
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
   agent-hkjp: | 
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
-  agent-tgs689:|
+  agent-tgs689: |
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
   agent-wlghk: | 
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
   backoffice-api: |  
     {"limits":{"cpu":"2","memory":"2000Mi"},"requests":{"cpu":"1","memory":"1000Mi"}}
-  backoffice-site:|
+  backoffice-site: |
     {"limits":{"cpu":"100m","memory":"200Mi"},"requests":{"cpu":"20m","memory":"40Mi"}}
   brand-api: | 
     {"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
-  brand-cert-api:|
+  brand-cert-api: |
     {"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
-  cashservice-api:|
+  cashservice-api: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
-  domain-setting:|
+  domain-setting: |
     {"limits":{"cpu":"500m","memory":"200Mi"},"requests":{"cpu":"10m","memory":"50Mi"}}
-  file-service:|
+  file-service: |
     {"limits":{"cpu":"400m","memory":"1Gi"},"requests":{"cpu":"400m","memory":"1Gi"}}
   game-365: | 
     {"limits":{"cpu":"60m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
-  game-ab:|
+  game-ab: |
     {"limits":{"cpu":"60m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
   game-ag: |
     {"limits":{"cpu":"60m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
@@ -46,13 +46,13 @@ data:
     {"limits":{"cpu":"60m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
   game-evo: | 
     {"limits":{"cpu":"60m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
-  game-gameprovider-queryserver:|
+  game-gameprovider-queryserver: |
     {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"100Mi"}}
   game-gameproviders: | 
     {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
-  game-gamerecord-databaseserver:|
+  game-gamerecord-databaseserver: |
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
-  game-gamerecord-receiverserver:|
+  game-gamerecord-receiverserver: |
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamerecord-receiverserver-avia: | 
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
@@ -68,7 +68,7 @@ data:
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamerecord-receiverserver-wgfm: | 
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
-  game-gamerecord-receiverserver-wgvia:|
+  game-gamerecord-receiverserver-wgvia: |
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamerecord-scheduler: | 
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
@@ -80,47 +80,47 @@ data:
     {"limits":{"cpu":"60m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
   game-jili: | 
     {"limits":{"cpu":"60m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
-  game-kickplayer-receiverserver:|
+  game-kickplayer-receiverserver: |
     {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
-  game-kickplayer-server:|
+  game-kickplayer-server: |
     {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
-  game-ky:|
+  game-ky: |
     {"limits":{"cpu":"60m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
-  game-ly:|
+  game-ly: |
     {"limits":{"cpu":"60m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
-  game-pluggable-service:|
+  game-pluggable-service: |
     {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
-  game-pp:|
+  game-pp: |
     {"limits":{"cpu":"60m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
   game-saba: | 
     {"limits":{"cpu":"60m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
   game-sbo: | 
     {"limits":{"cpu":"60m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
-  game-sg:|
+  game-sg: |
     {"limits":{"cpu":"60m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
-  game-singlewalletserver:|
+  game-singlewalletserver: |
     {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"64Mi"}}
-  game-sw:|
+  game-sw: |
     {"limits":{"cpu":"60m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
   game-tcg: | 
     {"limits":{"cpu":"60m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
-  game-tcg-ftp:|
+  game-tcg-ftp: |
     {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
-  game-tf:|
+  game-tf: |
     {"limits":{"cpu":"60m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
-  game-vr:|
+  game-vr: |
     {"limits":{"cpu":"60m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
   game-wgfm: | 
     {"limits":{"cpu":"60m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
   game-wgvia: | 
     {"limits":{"cpu":"60m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
-  game-wm:|
+  game-wm: |
     {"limits":{"cpu":"60m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
   global-api: | 
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   lobby-21gen: | 
      {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
-  lobby-21gen-th:|
+  lobby-21gen-th: |
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
   lobby-28bet: | 
      {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
@@ -128,27 +128,27 @@ data:
      {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
   lobby-crmyr: | 
      {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
-  lobby-demo-t1:|
+  lobby-demo-t1: |
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
-  lobby-demo-t2:|
+  lobby-demo-t2: |
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
-  lobby-demo-t3:|
+  lobby-demo-t3: |
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
-  lobby-demo-t4:|
+  lobby-demo-t4: |
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
-  lobby-demo-t5:|
+  lobby-demo-t5: |
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
-  lobby-gp-test:|
+  lobby-gp-test: |
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
-  lobby-gpi-t1:|
+  lobby-gpi-t1: |
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
-  lobby-gpi-t2:|
+  lobby-gpi-t2: |
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
-  lobby-gpi-t3:|
+  lobby-gpi-t3: |
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
-  lobby-gpi-t4:|
+  lobby-gpi-t4: |
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
-  lobby-gpi-t5:|
+  lobby-gpi-t5: |
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
   lobby-hk28: | 
       {"limits":{"cpu":"750m","memory":"756Mi"},"requests":{"cpu":"200m","memory":"200Mi"}}
@@ -173,21 +173,21 @@ data:
   log-api {"limits":{"cpu":"400m","memory":"1Gi"},"requests":{"cpu":"400m","memory":"1Gi"}}
   mocksite: | 
         {"limits":{"cpu":"150m","memory":"300Mi"},"requests":{"cpu":"150m","memory":"300Mi"}}
-  mongodb:|
+  mongodb: |
     {}
-  mongodb-express-mongo-express:|
+  mongodb-express-mongo-express: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
-  notification-receiver-service:|
+  notification-receiver-service: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
-  operator-api:|
+  operator-api: |
     {"limits":{"cpu":"500m","memory":"400Mi"},"requests":{"cpu":"100m","memory":"100Mi"}}
   payment-api: | 
     {"limits":{"cpu":"750m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"50Mi"}}
   payment-help2pay: | 
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
-  payment-leepay:|
+  payment-leepay: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
-  payment-manual:|
+  payment-manual: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   payment-maticpay: | 
     {"limits":{"cpu":"400m","memory":"1Gi"},"requests":{"cpu":"400m","memory":"1Gi"}}
@@ -195,17 +195,17 @@ data:
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   payment-scheduler: | 
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
-  payment-skypay:|
+  payment-skypay: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
-  payment-umpay:|
+  payment-umpay: |
     {"limits":{"cpu":"400m","memory":"1Gi"},"requests":{"cpu":"400m","memory":"1Gi"}}
-  pgpool:|
+  pgpool: |
     {"limits":{"cpu":"900m","memory":"900Mi"},"requests":{"cpu":"500m","memory":"600Mi"}}
-  profit-rebate-service:|
+  profit-rebate-service: |
     {"limits":{"cpu":"100m","memory":"200Mi"},"requests":{"cpu":"100m","memory":"200Mi"}}
-  promotion-api:|
+  promotion-api: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
-  redisinsight-redisinsight-chart:| 
+  redisinsight-redisinsight-chart: | 
     {"limits":{"cpu":"400m","memory":"1Gi"},"requests":{"cpu":"400m","memory":"1Gi"}}
   report-api: | 
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
@@ -219,14 +219,14 @@ data:
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   viplevel-aggregateserver: | 
     {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"64Mi"}}
-  viplevel-databaseserver:|
+  viplevel-databaseserver: |
     {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   viplevel-promotionserver: | 
     {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   viplevel-queryserver: |
     {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"128Mi"}}
-  viplevel-snapshotserver:|
+  viplevel-snapshotserver: |
     {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"64Mi"}}
-  viplevel-upgradeserver:|
+  viplevel-upgradeserver: |
     {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"64Mi"}}
 
