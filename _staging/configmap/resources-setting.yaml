@@ -170,7 +170,8 @@ data:
      {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
   lobby-wlgvn: | 
      {"limits":{"cpu":"150m","memory":"300Mi"},"requests":{"cpu":"150m","memory":"300Mi"}}
-  log-api {"limits":{"cpu":"400m","memory":"1Gi"},"requests":{"cpu":"400m","memory":"1Gi"}}
+  log-api: |
+     {"limits":{"cpu":"400m","memory":"1Gi"},"requests":{"cpu":"400m","memory":"1Gi"}}
   mocksite: | 
         {"limits":{"cpu":"150m","memory":"300Mi"},"requests":{"cpu":"150m","memory":"300Mi"}}
   mongodb: |
