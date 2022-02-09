@@ -65,7 +65,6 @@ spec:
               name: appsettings
               readOnly: true
               subPath: appsettings.json
-        {{- if eq .Release.Namespace "dev" }}
         - name: {{ .Chart.Name }}-yarp
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
@@ -101,7 +100,6 @@ spec:
               name: appsettings
               readOnly: true
               subPath: yarp-settings.json
-        {{- end }}
       volumes:
         - name: appsettings
           configMap:
