@@ -230,4 +230,3 @@ data:
     {"limits":{"cpu":"200m","memory":"1Gi"},"requests":{"cpu":"20m","memory":"128Mi"}}
   viplevel-upgradeserver: |
     {"limits":{"cpu":"200m","memory":"1Gi"},"requests":{"cpu":"20m","memory":"128Mi"}}
-
