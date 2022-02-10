@@ -43,7 +43,7 @@ data:
   game-gamerecord-scheduler: | 
    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   game-jdb: | 
-   {"limits":{"cpu":"750m","memory":"756Mi"},"requests":{"cpu":"200m","memory":"200Mi"}}
+   {"limits":{"cpu":"200m","memory":"756Mi"},"requests":{"cpu":"10m","memory":"100Mi"}}
   game-jili: | 
    {"limits":{"cpu":"750m","memory":"756Mi"},"requests":{"cpu":"200m","memory":"200Mi"}}
   game-kickplayer-receiverserver: | 
