@@ -46,6 +46,8 @@ data:
    {"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   cashservice-api: | 
    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+  cashservice-worker: | 
+   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   domain-setting: | 
    {"limits":{"cpu":"500m","memory":"200Mi"},"requests":{"cpu":"10m","memory":"50Mi"}}
   game-365 : | 
