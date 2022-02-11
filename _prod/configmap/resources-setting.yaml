@@ -129,7 +129,7 @@ data:
   game-wgvia: | 
    {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-wm: | 
-   {"limits":{"cpu":"100m","memory":"1200Mi"},"requests":{"cpu":"100m","memory":"1200Mi"}}
+   {"limits":{"cpu":"100m","memory":"1200Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   global-api: | 
    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   lobby-21gen-landing: | 
