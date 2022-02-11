@@ -47,14 +47,7 @@ service:
   type: ClusterIP
   port: 80
 
-resources:
-  limits:
-    cpu: 200m
-    memory: 400Mi
-  requests:
-    cpu: 200m
-    memory: 400Mi
-
+resources: {}
 autoscaling:
   enabled: false
   minReplicas: 2
