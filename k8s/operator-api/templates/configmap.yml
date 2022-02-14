@@ -82,8 +82,14 @@ data:
     }
   yarp-settings.json: |
     {
+      "Logging": {
+        "LogLevel": {
+          "Microsoft.AspNetCore.HttpLogging": "Information"
+        }
+      },
       "HttpLogging": {
-        "LoggingFields": "Request"
+        "LoggingFields": "Request",
+        "RequestHeaders": ["cf-connecting-ip", "X-Forwarded-For", "X-Real-IP"]
       },
       "ReverseProxy": {
         "Routes": {

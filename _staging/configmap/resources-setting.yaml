@@ -28,6 +28,8 @@ data:
     {"limits":{"cpu":"100m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"100Mi"}}
   cashservice-api: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"100Mi"}}
+  cashservice-worker: |
+    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"100Mi"}}
   domain-setting: |
     {"limits":{"cpu":"500m","memory":"200Mi"},"requests":{"cpu":"10m","memory":"50Mi"}}
   file-service: |
