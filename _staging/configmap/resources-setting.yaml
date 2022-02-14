@@ -209,9 +209,9 @@ data:
   redisinsight-redisinsight-chart: | 
     {"limits":{"cpu":"400m","memory":"400Mi"},"requests":{"cpu":"20m","memory":"100Mi"}}
   report-api: | 
-    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"20m","memory":"200Mi"}}
+    {"limits":{"cpu":"200m","memory":"800Mi"},"requests":{"cpu":"10m","memory":"160Mi"}}
   schedulers: | 
-    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+    {"limits":{"cpu":"200m","memory":"800Mi"},"requests":{"cpu":"10m","memory":"160Mi"}}
   sms-plivo: | 
     {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"40Mi"}}
   sms-service: | 

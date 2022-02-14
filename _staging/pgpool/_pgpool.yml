@@ -35,11 +35,11 @@ spec:
           periodSeconds: 5
         resources:
           limits:
-            cpu: 900m
+            cpu: 300m
             memory: 900Mi
           requests:
-            cpu: 500m
-            memory: 600Mi
+            cpu: 10m
+            memory: 200Mi
         env:
         - name: POSTGRES_USERNAME
           valueFrom:
