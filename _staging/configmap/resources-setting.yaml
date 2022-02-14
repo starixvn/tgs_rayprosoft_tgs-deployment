@@ -119,7 +119,7 @@ data:
   game-wm: |
     {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
   global-api: | 
-    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"20m","memory":"100Mi"}}
+    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"50Mi"}}
   lobby-21gen: | 
      {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
   lobby-21gen-th: |
