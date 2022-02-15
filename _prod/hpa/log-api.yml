@@ -1,7 +1,7 @@
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: hpa-log-api
+  name: log-api
   namespace: prod
 spec:
   scaleTargetRef:
@@ -14,8 +14,8 @@ spec:
     - type: Resource
       resource:
         name: cpu
-        targetAverageUtilization: 60
+        targetAverageUtilization: 700
     - type: Resource
       resource:
         name: memory
-        targetAverageUtilization: 60
+        targetAverageUtilization: 250

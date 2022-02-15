@@ -40,4 +40,3 @@ https://artifacthub.io/packages/helm/elastic/kibana
 cluster.name: "docker-cluster"
 network.host: 0.0.0.0
 xpack.security.enabled: true
-
