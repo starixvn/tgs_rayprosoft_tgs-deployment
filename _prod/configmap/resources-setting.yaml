@@ -209,23 +209,23 @@ data:
   operator-api : | 
    {"limits":{"cpu":"1","memory":"1500Mi"},"requests":{"cpu":"1","memory":"1500Mi"}}
   payment-api: | 
-   {"limits":{"cpu":"750m","memory":"1Gi"},"requests":{"cpu":"750m","memory":"1Gi"}}
+   {"limits":{"cpu":"750m","memory":"1Gi"},"requests":{"cpu":"100m","memory":"300Mi"}}
   payment-help2pay : | 
-   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"20m","memory":"80Mi"}}
   payment-leepay: | 
-   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"20m","memory":"80Mi"}}
   payment-manual: | 
-   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+   {"limits":{"cpu":"200m","memory":"200Mi"},"requests":{"cpu":"20m","memory":"40Mi"}}
   payment-maticpay : | 
-   {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
+   {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"20m","memory":"80Mi"}}
   payment-primepay : | 
-   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"20m","memory":"80Mi"}}
   payment-scheduler: | 
-   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"20m","memory":"80Mi"}}
   payment-skypay: | 
-   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"20m","memory":"80Mi"}}
   payment-umpay: | 
-   {"limits":{"cpu":"400m","memory":"1Gi"},"requests":{"cpu":"400m","memory":"1Gi"}}
+   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"20m","memory":"80Mi"}}
   pgpool: | 
    {"limits":{"cpu":"1500m","memory":"2000Mi"},"requests":{"cpu":"50m","memory":"300Mi"}}
   profit-rebate-service: | 
