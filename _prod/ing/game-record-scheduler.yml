@@ -10,7 +10,7 @@ spec:
     http:
       paths:
       - pathType: Prefix
-        path: /api/brandcommunication
+        path: /
         backend:
           service:
             name: game-gamerecord-scheduler
