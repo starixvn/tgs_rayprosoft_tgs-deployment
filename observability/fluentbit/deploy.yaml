@@ -63,16 +63,15 @@ spec:
             limits:
               memory: "128Mi"
               cpu: "1"
-          readinessProbe:
-            tcpSocket:
-              port: 24224
-            initialDelaySeconds: 3
-            periodSeconds: 2
           livenessProbe:
             tcpSocket:
               port: 24224
-            initialDelaySeconds: 10
-            periodSeconds: 20
+            periodSeconds: 2
+          startupProbe:
+            tcpSocket:
+              port: 24224
+            periodSeconds: 5
+            failureThreshold: 30
       terminationGracePeriodSeconds: 10
       volumes:
         - name: fluent-bit-config
