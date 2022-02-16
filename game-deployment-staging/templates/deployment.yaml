@@ -56,11 +56,6 @@ spec:
               containerPort: 80
               protocol: TCP
           env:
-            - name: ConnectionStrings__Tgs
-              valueFrom:
-                secretKeyRef:
-                  key: tgs
-                  name: tgs-connections
             - name: aspnetcore_environment
               value: "{{ .Values.aspNetCoreEnvironment }}"
             - name: aspnetcore_https_port

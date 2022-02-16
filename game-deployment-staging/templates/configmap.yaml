@@ -27,6 +27,7 @@ data:
         "{{ .Values.gpCode }}": false,
       },
       "ConnectionStrings": {
+        "Tgs": "{{ .Values.connectionStrings.tgs }}",
         "RedisConfigurationString": "{{ .Values.connectionStrings.redis }}"
       },
       "NatsSetting": {
