@@ -4,7 +4,7 @@ metadata:
   name: lobby-hk28-${domain_}
   namespace: prod
   labels: 
-    tgs.invitation: ${invite_code}
+    tgs.info: ${domain}-${invite_code}
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/proxy-body-size: "50m"
