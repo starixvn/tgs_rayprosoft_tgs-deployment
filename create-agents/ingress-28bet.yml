@@ -3,6 +3,8 @@ kind: Ingress
 metadata:
   name: lobby-28bet-${domain_}
   namespace: prod
+  labels: 
+    tgs.brandcode: ${invite_code}
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/proxy-body-size: "50m"
