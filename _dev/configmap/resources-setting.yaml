@@ -7,7 +7,7 @@ data:
   agent-api: | 
    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   backoffice-api: | 
-   {"limits":{"cpu":"2","memory":"2000Mi"},"requests":{"cpu":"1","memory":"1000Mi"}}
+   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   brand-api: | 
    {"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   brand-cert-api: | 
