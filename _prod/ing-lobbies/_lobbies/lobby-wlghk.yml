@@ -40,7 +40,7 @@ spec:
         path: /api
         backend:
           service:
-            name: op-api-wlghk
+            name: operator-api
             port:
               number: 80
       - pathType: Prefix
@@ -71,7 +71,7 @@ spec:
         path: /api
         backend:
           service:
-            name: op-api-wlghk
+            name: operator-api
             port:
               number: 80
       - pathType: Prefix

@@ -40,14 +40,14 @@ spec:
         path: /api
         backend:
           service:
-            name: op-api-hkjp
+            name: operator-api
             port:
               number: 80
       - pathType: Prefix
         path: /
         backend:
           service:
-            name: op-api-hkjp
+            name: lobby-hkjp
             port:
               number: 80
   - host: www.hkjp168.com
@@ -71,13 +71,13 @@ spec:
         path: /api
         backend:
           service:
-            name: op-api-hkjp
+            name: operator-api
             port:
               number: 80
       - pathType: Prefix
         path: /
         backend:
           service:
-            name: op-api-hkjp
+            name: lobby-hkjp
             port:
               number: 80
