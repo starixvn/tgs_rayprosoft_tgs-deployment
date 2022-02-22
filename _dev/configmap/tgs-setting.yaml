@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: tgs-settings
-  namespace: staging
+  namespace: dev
 data:
   node-selector: | 
     {}
