@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tgs-settings
+  namespace: prod
+data:
+  node-selector: | 
+   { "dedicated": "prod" }
+  dedicated: | 
+   {"effect":"NoSchedule","key": "dedicated", "operator": "Equal", "value": "prod"}

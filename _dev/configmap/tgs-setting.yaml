@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: tgs-settings
+  namespace: staging
+data:
+  node-selector: | 
+    {}
+  dedicated: | 
+     
