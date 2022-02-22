@@ -7,7 +7,7 @@ data:
   agent-28bet: | 
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
   agent-api: | 
-    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+    {"limits":{"cpu":"600m","memory":"1024Mi"},"requests":{"cpu":"60m","memory":"150Mi"}}
   agent-gpi: | 
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
   agent-hk28: | 
@@ -35,19 +35,19 @@ data:
   file-service: |
     {"limits":{"cpu":"60m","memory":"1Gi"},"requests":{"cpu":"10m","memory":"50Mi"}}
   game-365: | 
-    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+    {"limits":{"cpu":"600m","memory":"1024Mi"},"requests":{"cpu":"60m","memory":"150Mi"}}
   game-ab: |
-    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+    {"limits":{"cpu":"600m","memory":"1024Mi"},"requests":{"cpu":"60m","memory":"150Mi"}}
   game-ag: |
-    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+    {"limits":{"cpu":"600m","memory":"1024Mi"},"requests":{"cpu":"60m","memory":"150Mi"}}
   game-avia: | 
-    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+    {"limits":{"cpu":"600m","memory":"1024Mi"},"requests":{"cpu":"60m","memory":"150Mi"}}
   game-bc: |
-    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+    {"limits":{"cpu":"600m","memory":"1024Mi"},"requests":{"cpu":"60m","memory":"150Mi"}}
   game-bg: |
-    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+    {"limits":{"cpu":"600m","memory":"1024Mi"},"requests":{"cpu":"60m","memory":"150Mi"}}
   game-evo: | 
-    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+    {"limits":{"cpu":"600m","memory":"1024Mi"},"requests":{"cpu":"60m","memory":"150Mi"}}
   game-gameprovider-queryserver: |
     {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"100Mi"}}
   game-gameproviders: | 
@@ -75,49 +75,49 @@ data:
   game-gamerecord-scheduler: | 
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"100Mi"}}
   game-haba: | 
-    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+    {"limits":{"cpu":"600m","memory":"1024Mi"},"requests":{"cpu":"60m","memory":"150Mi"}}
   game-imes: | 
-    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+    {"limits":{"cpu":"600m","memory":"1024Mi"},"requests":{"cpu":"60m","memory":"150Mi"}}
   game-jdb: | 
-    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+    {"limits":{"cpu":"600m","memory":"1024Mi"},"requests":{"cpu":"60m","memory":"150Mi"}}
   game-jili: | 
-    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+    {"limits":{"cpu":"600m","memory":"1024Mi"},"requests":{"cpu":"60m","memory":"150Mi"}}
   game-kickplayer-receiverserver: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-kickplayer-server: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-ky: |
-    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+    {"limits":{"cpu":"600m","memory":"1024Mi"},"requests":{"cpu":"60m","memory":"150Mi"}}
   game-ly: |
-    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+    {"limits":{"cpu":"600m","memory":"1024Mi"},"requests":{"cpu":"60m","memory":"150Mi"}}
   game-pluggable-service: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-pp: |
-    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+    {"limits":{"cpu":"600m","memory":"1024Mi"},"requests":{"cpu":"60m","memory":"150Mi"}}
   game-saba: | 
-    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+    {"limits":{"cpu":"600m","memory":"1024Mi"},"requests":{"cpu":"60m","memory":"150Mi"}}
   game-sbo: | 
-    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+    {"limits":{"cpu":"600m","memory":"1024Mi"},"requests":{"cpu":"60m","memory":"150Mi"}}
   game-sg: |
-    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+    {"limits":{"cpu":"600m","memory":"1024Mi"},"requests":{"cpu":"60m","memory":"150Mi"}}
   game-singlewalletserver: |
     {"limits":{"cpu":"60m", memory":"512Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-sw: |
-    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+    {"limits":{"cpu":"600m","memory":"1024Mi"},"requests":{"cpu":"60m","memory":"150Mi"}}
   game-tcg: | 
-    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+    {"limits":{"cpu":"600m","memory":"1024Mi"},"requests":{"cpu":"60m","memory":"150Mi"}}
   game-tcg-ftp: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}+
   game-tf: |
-    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+    {"limits":{"cpu":"600m","memory":"1024Mi"},"requests":{"cpu":"60m","memory":"150Mi"}}
   game-vr: |
-    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+    {"limits":{"cpu":"600m","memory":"1024Mi"},"requests":{"cpu":"60m","memory":"150Mi"}}
   game-wgfm: | 
-    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+    {"limits":{"cpu":"600m","memory":"1024Mi"},"requests":{"cpu":"60m","memory":"150Mi"}}
   game-wgvia: | 
-    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+    {"limits":{"cpu":"600m","memory":"1024Mi"},"requests":{"cpu":"60m","memory":"150Mi"}}
   game-wm: |
-    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+    {"limits":{"cpu":"600m","memory":"1024Mi"},"requests":{"cpu":"60m","memory":"150Mi"}}
   global-api: | 
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"50Mi"}}
   lobby-21gen: | 
