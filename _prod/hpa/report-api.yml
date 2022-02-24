@@ -1,21 +1,21 @@
 apiVersion: autoscaling/v2beta1
 kind: HorizontalPodAutoscaler
 metadata:
-  name: op-api-mess8
+  name: report-api
   namespace: prod
 spec:
   scaleTargetRef:
     apiVersion: apps/v1
     kind: Deployment
-    name: op-api-mess8
+    name: report-api
   minReplicas: 2
   maxReplicas: 10
   metrics: 
     - type: Resource
       resource:
         name: cpu
-        targetAverageUtilization: 60
+        targetAverageUtilization: 800
     - type: Resource
       resource:
         name: memory
-        targetAverageUtilization: 60
+        targetAverageUtilization: 300
