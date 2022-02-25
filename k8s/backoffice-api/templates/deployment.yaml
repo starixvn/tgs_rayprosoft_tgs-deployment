@@ -64,11 +64,6 @@ spec:
               valueFrom:
                 fieldRef:
                   fieldPath: status.hostIP
-            - name: ConnectionStrings__Tgs
-              valueFrom:
-                secretKeyRef:
-                  name: tgs-connections
-                  key: tgs-bo-connection
           volumeMounts:
             - mountPath: /config/appsettings.json
               name: appsettings
