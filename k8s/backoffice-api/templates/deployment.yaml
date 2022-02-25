@@ -68,7 +68,7 @@ spec:
               valueFrom:
                 secretKeyRef:
                   name: tgs-connections
-                  key: dev-bo-connection
+                  key: tgs-bo-connection
           volumeMounts:
             - mountPath: /config/appsettings.json
               name: appsettings
