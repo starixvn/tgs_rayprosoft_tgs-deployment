@@ -53,6 +53,7 @@ data:
           continue_if_exception: False
           disable_action: False
           ignore_empty_list: True
+          allow_ilm_indices: true
         filters:
         - filtertype: age
           source: name
