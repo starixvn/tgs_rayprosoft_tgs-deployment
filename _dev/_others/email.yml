@@ -57,10 +57,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - email.srvptt.com
-    secretName: secret-email-api
+    - email.rpgp.cc
+    secretName: rpgp.cc
   rules:
-  - host: email.srvptt.com
+  - host: email.rpgp.cc
     http:
       paths:
       - pathType: Prefix
