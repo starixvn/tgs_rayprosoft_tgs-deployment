@@ -56,10 +56,6 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   ingressClassName: nginx
-  tls:
-  - hosts:
-    - email.rpgp.cc
-    secretName: rpgp.cc
   rules:
   - host: email.rpgp.cc
     http:
