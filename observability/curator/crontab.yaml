@@ -55,9 +55,6 @@ data:
           ignore_empty_list: True
           allow_ilm_indices: true
         filters:
-        - filtertype: pattern
-          kind: prefix
-          value: *
         - filtertype: age
           source: name
           direction: older
