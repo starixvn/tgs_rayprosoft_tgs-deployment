@@ -13,10 +13,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - stg-gpi-usd.rpgp.cc
-    secretName: stg-gpi-usd.rpgp.cc
+    - stg-gpi-usd.srvptt.com
+    secretName: stg-gpi-usd.srvptt.com
   rules:
-  - host: stg-gpi-usd.rpgp.cc
+  - host: stg-gpi-usd.srvptt.com
     http:
       paths:
       - path: /api/brandcommunication
