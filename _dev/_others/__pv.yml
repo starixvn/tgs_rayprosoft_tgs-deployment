@@ -4,7 +4,7 @@ kind: PersistentVolume
 metadata:
   name: redis-data-master-0
 spec:
-  storageClassName: manual
+  storageClassName: managed-nfs-storage
   capacity:
     storage: 8Gi
   accessModes:
@@ -21,7 +21,7 @@ kind: PersistentVolume
 metadata:
   name: redis-data-slave-0
 spec:
-  storageClassName: manual
+  storageClassName: managed-nfs-storage
   capacity:
     storage: 8Gi
   accessModes:
@@ -38,7 +38,7 @@ kind: PersistentVolume
 metadata:
   name: redis-data-slave-2
 spec:
-  storageClassName: manual
+  storageClassName: managed-nfs-storage
   capacity:
     storage: 8Gi
   accessModes:
@@ -55,7 +55,7 @@ kind: PersistentVolume
 metadata:
   name: redis-data-slave-1
 spec:
-  storageClassName: manual
+  storageClassName: managed-nfs-storage
   capacity:
     storage: 8Gi
   accessModes:
@@ -96,7 +96,7 @@ metadata:
   labels:
     type: local
 spec:
-  storageClassName: mongodb-storage-class
+  storageClassName: managed-nfs-storage
   capacity:
     storage: 8Gi
   accessModes:
