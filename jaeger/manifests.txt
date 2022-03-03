@@ -28,6 +28,7 @@ kubectl edit statefulsets elasticsearch-master -n observability
               - key: elasticsearch
                 path: elasticsearch.yml
 
+
 kubectl edit daemonsets jaeger-agent  -n observability
 
 	  tolerations:
