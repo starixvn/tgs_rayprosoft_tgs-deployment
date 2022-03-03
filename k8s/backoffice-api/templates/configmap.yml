@@ -7,6 +7,7 @@ data:
   appsettings.json: |
     {
       "ConnectionStrings": {
+        "Tgs": "{{ .Values.connectionStrings.tgs }}",
         "RedisConfigurationString": "{{ .Values.connectionStrings.redis }}",
         "GameProvidersPluggable": "http://game-pluggable-service"
       },
