@@ -12,7 +12,7 @@ spec:
     http:
       paths:
       - pathType: Prefix
-        path: /api/brandcommunication
+        path: /
         backend:
           service:
             name: agent-dsite
