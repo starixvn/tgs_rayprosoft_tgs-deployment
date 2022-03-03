@@ -31,6 +31,8 @@ spec:
             value: "PGG"
           - name: DEFAULT_LANGUAGE
             value: "zh-CN"
+          - name: "WAPTEMPLATE"
+            value: "6"
           - name: THEME
             value: "red"
           - name: SOURCE_URL
