@@ -1,0 +1,13 @@
+apiVersion: jaegertracing.io/v1
+kind: Jaeger
+metadata:
+  name: jaeger
+  namespace: elastic-system
+spec:
+  strategy: production
+  storage:
+    type: elasticsearch # <1>
+    options:
+      es:
+        server-urls: http://elasticsearch-master.elastic-system:9200 # <2>
+        index-prefix: tgs
