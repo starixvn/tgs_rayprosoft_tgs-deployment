@@ -12,6 +12,9 @@ spec:
   - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   storageClassName: grafana
+  claimRef:
+    namespace: monitoring
+    name: prometheus-server
   nfs:
     server: 192.168.50.111
     path: /nfsshare/grafana
