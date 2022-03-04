@@ -65,7 +65,13 @@ helm upgrade --install kibana elastic/kibana -n observability
 helm uninstall kibana -n observability
 
 helm template  kibana elastic/kibana  --set imageTag=7.16.3 --set ingress.enabled=true --set ingress.hosts[0].host=kibana.rpgp.cc --set ingress.hosts[0].paths[0].path=/  --set ingress.pathtype=Prefix  -n observability
-helm instal kibana elastic/kibana  --set imageTag=7.16.3 --set ingress.enabled=true --set ingress.hosts[0].host=kibana.rpgp.cc --set ingress.hosts[0].paths[0].path=/  --set ingress.pathtype=Prefix  -n observability
+
+helm -n observability install kibana elastic/kibana  
+	--set imageTag=7.16.3 \
+	--set ingress.enabled=true \
+	--set ingress.hosts[0].host=kibana.rpgp.cc \
+	--set ingress.hosts[0].paths[0].path=/  \
+	--set ingress.pathtype=Prefix  
 
 參考 https://github.com/elastic/helm-charts/blob/main/kibana/templates/ingress.yaml
 

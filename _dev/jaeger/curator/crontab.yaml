@@ -1,3 +1,6 @@
+## https://medium.com/@hagaibarel/running-curator-as-a-kubernetes-cronjob-19eaab9afd3b
+## https://github.com/HagaiBarel/kube-charts/tree/master/curator/templates
+---
 apiVersion: batch/v1beta1 #for API server versions >= 1.8.0 use batch/v1beta1
 kind: CronJob
 metadata:
