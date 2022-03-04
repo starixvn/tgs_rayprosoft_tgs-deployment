@@ -13,10 +13,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - t1.srvptt.com
-    secretName: t1.srvptt.com
+    - t6.srvptt.com
+    secretName: t6.srvptt.com
   rules:
-  - host: t1.srvptt.com
+  - host: t6.srvptt.com
     http:
       paths:
       - pathType: Prefix
