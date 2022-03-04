@@ -5,12 +5,12 @@ metadata:
   labels:
     app: baget
 spec:
+  storageClassName: gp2
   accessModes:
     - ReadWriteOnce
   resources:
     requests:
       storage: 5Gi
-
 ---
 
 apiVersion: v1
@@ -50,10 +50,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - baget.rpgp.cc
-    secretName: baget.rpgp.cc
+    - baget.srvptt.com
+    secretName: baget.srvptt.com
   rules:
-  - host: baget.rpgp.cc
+  - host: baget.srvptt.com
     http:
       paths:
       - pathType: Prefix
