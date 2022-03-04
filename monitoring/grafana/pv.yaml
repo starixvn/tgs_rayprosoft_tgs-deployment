@@ -14,7 +14,7 @@ spec:
   storageClassName: grafana
   claimRef:
     namespace: monitoring
-    name: prometheus-server
+    name: grafana
   nfs:
     server: 192.168.50.111
     path: /nfsshare/grafana
