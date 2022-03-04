@@ -8,7 +8,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: agent-t1.pgdemo.online
+  - host: agent-dsite.pgdemo.online
     http:
       paths:
       - pathType: Prefix
