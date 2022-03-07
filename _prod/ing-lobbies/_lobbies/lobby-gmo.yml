@@ -1,0 +1,75 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: lobby-gmo
+  namespace: prod
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+        proxy_set_header Brand-Token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiMjFnZW4iLCJzdWIiOiIzODk3YWJhZi1kMjAzLTQwZDktOGUwNy02N2FkYzU1OWYyNzIiLCJuYmYiOjE2NDY2NDE4MzUsImV4cCI6MTY0NjY0NTQzNSwiaWF0IjoxNjQ2NjQxODM1LCJpc3MiOiJ0Z3MifQ.rtNW1kYD6G4Mjspp4GZx50qlUaMI1mCDK6Kf_1xc1eTULqGSrUTeAWDeAFKP1BFU-dAeTafemSthVIi_DhisoLjKukvMvxmpQpQlkFZGSHUeE0JYVDVFpCztWtknQQiVtiJiZckZduFIrvpuKBxbrejDn5DHXwVdB0MA3Td7H-4Kd4WF7ZtHnFOq3bvF-PCz8u0j9QVw9T9Mg5JgwCa8jz58r3LoQlGFBfKdI79jzYdQnLuY4k2csqQQKlWR-F489rzW8tZB8ItfE-UkCNtpCZWQcrSDsM85C1VaT4BC0zFmxYDhBZi-Flt2OJB6e9TvydUsiW1Q8tpYnnJhdzpv8A;
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: hkg28.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /api/brandcommunication
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api/brandlivechat
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api
+        backend:
+          service:
+            name: operator-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: lobby-gmo
+            port:
+              number: 80
+  - host: www.hkg28.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /api/brandcommunication
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api/brandlivechat
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api
+        backend:
+          service:
+            name: operator-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: lobby-gmo
+            port:
+              number: 80
+  
