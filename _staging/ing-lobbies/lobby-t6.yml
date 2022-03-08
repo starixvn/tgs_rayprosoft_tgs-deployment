@@ -13,10 +13,10 @@ metadata:
 spec:
   tls:
   - hosts:
-    - stg-t6.rpgp.cc
-    secretName: stg-t6.rpgp.cc
+    - stg-t8.rpgp.cc
+    secretName: stg-t8.rpgp.cc
   rules:
-  - host: stg-t6.rpgp.cc
+  - host: stg-t8.rpgp.cc
     http:
       paths:
       - path: /api/brandcommunication
