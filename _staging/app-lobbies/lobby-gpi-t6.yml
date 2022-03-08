@@ -40,7 +40,7 @@ spec:
           - name: DEFAULT_LANGUAGE
             value: "zh-CN"
           - name: THEME
-            value: "red"
+            value: "wapT8"
           - name: "WAPTEMPLATE"
             value: "6"
           - name: SOURCE_URL
