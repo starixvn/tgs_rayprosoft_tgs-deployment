@@ -41,7 +41,7 @@ spec:
           - name: THEME
             value: "red"
           - name: "WAPTEMPLATE"
-            value: "6"
+            value: "8"
           - name: SOURCE_URL
             value: "https://images.srvptt.com/"
           ports:
