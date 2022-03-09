@@ -1,7 +1,7 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ing-lobby-t6
+  name: ing-lobby-t8
   namespace: dev
   annotations:
     kubernetes.io/ingress.class: "nginx"
@@ -11,7 +11,7 @@ metadata:
       proxy_set_header Brand-Token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR1BJIiwic3ViIjoiNGU4NjcxOWYtMjQzZi00NmY2LWIwMTAtNWM3NThiNzI4NWFmIiwibmJmIjoxNjQ2Mjg0NDczLCJleHAiOjE2NDYyODgwNzMsImlhdCI6MTY0NjI4NDQ3MywiaXNzIjoidGdzIn0.8uJ9hyPVuXHsk5e5K6fQkzfoZvuYPCnzNJUDnI7NzamboaiBU2_Xayj0yoRpWfY2uBIXZuSL2fJagQvZQGeDxJ8U-ls2Zv0llEilpfXahfrIVGUKJSAKHMVdn3giG-CJweMmRFLgMFnB1-AqAJ-lnGO_Kkk0hI-vgZ-g9nyygqFZk-dn0jWdRdbxOznkv6pJe5jJvy8eZHERE-Ek4jMgtdRYc01-GP7arl94verSb1qa2EDM64FAzpXVd9xqw3Yu5Bn0rNHaBHHDvapi6mGZTJce0xalI6l2aluo_p0yyRFoGqeDtYt8EbnftqgF3QAcuwJZzwdBOhVJ7hk2WJdcRA;
 spec:
   rules:
-  - host: dev-t6.rpgp.cc
+  - host: dev-t8.rpgp.cc
     http:
       paths:
       - pathType: Prefix
@@ -32,7 +32,7 @@ spec:
         path: /
         backend:
           service:
-            name: lobby-t6
+            name: lobby-t8
             port:
               number: 80
       - pathType: Prefix

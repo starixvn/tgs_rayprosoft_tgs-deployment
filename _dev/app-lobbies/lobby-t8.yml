@@ -2,24 +2,24 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   namespace: dev
-  name: lobby-t6
+  name: lobby-t8
   labels:
-    app: lobby-t6
+    app: lobby-t8
 spec:
   replicas: 1
   revisionHistoryLimit: 3
   selector:
     matchLabels:
-      app: lobby-t6
+      app: lobby-t8
   template:
     metadata:
       labels:
-        app: lobby-t6
+        app: lobby-t8
     spec:
       imagePullSecrets:
         - name: registry-credentials
       containers:
-        - name: lobby-t6
+        - name: lobby-t8
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t6:dev
           imagePullPolicy: Always
           env:
@@ -31,8 +31,10 @@ spec:
             value: "PGG"
           - name: DEFAULT_LANGUAGE
             value: "zh-CN"
+          - name: THEME
+            value: "wapT8"
           - name: "WAPTEMPLATE"
-            value: "6"
+            value: "8"
           - name: THEME
             value: "red"
           - name: SOURCE_URL
@@ -63,7 +65,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: lobby-t6
+  name: lobby-t8
   namespace: dev
 spec:
   ports:
@@ -71,4 +73,4 @@ spec:
       port: 80
       name: web
   selector:
-    app: lobby-t6
+    app: lobby-t8
