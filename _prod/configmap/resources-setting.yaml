@@ -39,7 +39,7 @@ data:
   agent-wlghk: | 
    {"limits":{"cpu":"5m","memory":"20Mi"},"requests":{"cpu":"5m","memory":"20Mi"}}
   backoffice-api: | 
-   {"limits":{"cpu":"2","memory":"2000Mi"},"requests":{"cpu":"1","memory":"1000Mi"}}
+   {"limits":{"cpu":"2","memory":"2000Mi"},"requests":{"cpu":"200m","memory":"700Mi"}}
   brand-api: | 
    {"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   brand-cert-api: | 
@@ -201,7 +201,7 @@ data:
   op-api-mgm: | 
    {"limits":{"cpu":"300m","memory":"2000Mi"},"requests":{"cpu":"20m","memory":"1000Mi"}}
   operator-api : | 
-   {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
+   {"limits":{"cpu":"600m","memory":"2000Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   payment-api: | 
    {"limits":{"cpu":"750m","memory":"1Gi"},"requests":{"cpu":"100m","memory":"300Mi"}}
   payment-help2pay : | 
