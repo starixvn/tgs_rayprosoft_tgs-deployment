@@ -1,11 +1,10 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-game-saba
   namespace: prod
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
-    kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/server-snippet: |-
       allow 205.177.214.8/32;
       allow 203.133.35.156/32;
@@ -26,6 +25,7 @@ metadata:
       allow 220.132.206.70/32;
       deny all;
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
     - game-saba.yydsgo.xyz
