@@ -5,6 +5,12 @@ kubectl apply -f .
 cd dev 
 kubectl apply -f 01.pv.yml 
 
+helm repo add localstack-charts https://localstack.github.io/helm-charts
+
+https://github.com/localstack/helm-charts/blob/main/charts/localstack/README.md
+
+helm install localstack localstack-charts/localstack -n dev
+
 helm install localstack localstack-repo/localstack -n dev
 https://github.com/localstack/localstack
 
@@ -40,6 +46,8 @@ https://github.com/nats-io/k8s/tree/master/helm/charts/stan
 
 # redis, redis exporter and redisinsight
 helm install redis bitnami/redis --set password=1qaz2wsx,metrics.enabled=true,master.disableCommands=["FLUSHDB"] -n dev
+
+helm install redis bitnami/redis --set global.redis.password=1qaz2wsx,metrics.enabled=true -n dev
 
 helm install redis bitnami/redis --set global.redis.password=1qaz2wsx,metrics.enabled=true,global.storageClass=managed-nfs-storage -n dev
 

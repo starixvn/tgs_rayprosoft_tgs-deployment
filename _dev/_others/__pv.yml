@@ -89,24 +89,24 @@ spec:
     # path: "/nfsshare/postgres/dev"
 ---
 ## mongodb
-kind: PersistentVolume
-apiVersion: v1
-metadata:
-  name: pv-mongodb
-  labels:
-    type: local
-spec:
-  storageClassName: managed-nfs-storage
-  capacity:
-    storage: 8Gi
-  accessModes:
-    - ReadWriteOnce
-  claimRef:
-    namespace: dev
-    name: mongodb
-  nfs:
-    server: 192.168.50.111
-    path: "/nfsshare/mongodb/dev"
+# kind: PersistentVolume
+# apiVersion: v1
+# metadata:
+  # name: pv-mongodb
+  # labels:
+    # type: local
+# spec:
+  # storageClassName: managed-nfs-storage
+  # capacity:
+    # storage: 8Gi
+  # accessModes:
+    # - ReadWriteOnce
+  # claimRef:
+    # namespace: dev
+    # name: mongodb
+  # nfs:
+    # server: 192.168.50.111
+    # path: "/nfsshare/mongodb/dev"
 # ---
 # ## pgadmin
 # kind: PersistentVolume
