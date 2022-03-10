@@ -48,10 +48,6 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt
 spec:
   ingressClassName: nginx
-  tls:
-  - hosts:
-    - baget.srvptt.com
-    secretName: baget.srvptt.com
   rules:
   - host: baget.srvptt.com
     http:
