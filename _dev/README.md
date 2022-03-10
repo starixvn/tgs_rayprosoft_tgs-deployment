@@ -97,3 +97,10 @@ helm install consul bitnami/consul --set ingress.enabled=true,ingress.hostname=c
 
 # root helm url 
 https://github.com/bitnami/charts/tree/master/bitnami
+
+
+
+
+
+kubectl create secret generic brand-cert --from-literal=key.pem="$(openssl genrsa 2048)" -n dev
+ 
