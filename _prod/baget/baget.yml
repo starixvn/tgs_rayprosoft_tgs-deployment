@@ -91,6 +91,10 @@ spec:
             secretKeyRef:
               name: baget-apikey-secret
               key: apikey
+        - name: Mirror__Enabled
+          value: 'true'
+        - name: Mirror__PackageSource
+          value: https://baget.rpgp.cc/v3/index.json
         - name: Database__Type
           value: PostgreSql
         - name: Database__ConnectionString
