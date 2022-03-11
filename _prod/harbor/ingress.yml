@@ -14,10 +14,10 @@ spec:
   ingressClassName: nginx
   tls:
   - hosts:
-    - harbor.srvptt.com
-    secretName: harbor.srvptt.com
+    - harbor.rpgp.cc
+    secretName: harbor.rpgp.cc
   rules:
-  - host: harbor.srvptt.com
+  - host: harbor.rpgp.cc
     http:
       paths:
       - path: /

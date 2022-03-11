@@ -42,6 +42,10 @@ helm repo add elastic https://helm.elastic.co
 helm -n observability install kibana elastic/kibana --set imageTag=7.16.2 
 				
 
+
+### kubectl create ns logging
+ 
+
 helm uninstall jaeger -n observability
 
 kubectl delete pvc elasticsearch-master-elasticsearch-master-0 -n observability
@@ -155,3 +159,8 @@ xpack.security.enabled: false
             name: configmap-elasticsearch
 			
 
+
+
+
+
+irfiD6OzZTh8151NMyFDsujXLs7QfRhQ
