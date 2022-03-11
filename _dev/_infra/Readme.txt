@@ -43,3 +43,6 @@ helm upgrade --install localstack localstack-charts/localstack  \
 
 
 ### install pgpool && configmap && secrets
+
+### install jaeger && kibana && elasticsearch 
+
