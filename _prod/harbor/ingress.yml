@@ -5,6 +5,10 @@ metadata:
   namespace: harbor
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - harbor.srvptt.com
+    secretName: harbor.srvptt.com
   rules:
   - host: harbor.srvptt.com
     http:
@@ -15,4 +19,4 @@ spec:
           service:
             name: harbor-portal
             port: 
-              number: 80
+              number: 443
