@@ -8,7 +8,7 @@ metadata:
   annotations:
     configmap.reloader.stakater.com/reload: "fluent-bit-config,fluent-bit-center-config,fluent-bit-parsers-config"
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: fluent-bit-center
