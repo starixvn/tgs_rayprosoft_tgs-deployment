@@ -1,3 +1,10 @@
+### install reloader
+
+https://github.com/stakater/Reloader
+
+kubectl apply -f https://raw.githubusercontent.com/stakater/Reloader/master/deployments/kubernetes/reloader.yaml
+
+
 ### nats
 helm repo add nats https://nats-io.github.io/k8s/helm/charts/
 helm install nats nats/nats --set cluster.enabled=true,auth.enabled=false -n dev

@@ -43,6 +43,8 @@ kubectl delete pvc elasticsearch-master-elasticsearch-master-0 -n observability
 kubectl delete pvc elasticsearch-master-elasticsearch-master-1 -n observability
 kubectl delete pvc elasticsearch-master-elasticsearch-master-2 -n observability
 
+去50.111 /nfsshare 刪除檔案
+
 kubectl delete -f __pv-elasticsearch_30g.yml
 
 
