@@ -102,5 +102,23 @@ https://github.com/bitnami/charts/tree/master/bitnami
 
 
 
+install nats 
+install localstack 
+install redis  (可能要到 50.111 刪除資料 才能運作)
+install rabbitmq
+install configmap & secrets
+在jenkins 更新 k8s config 
+lobby 的 ingress  brand token 要重新設定
+
+
 kubectl create secret generic brand-cert --from-literal=key.pem="$(openssl genrsa 2048)" -n dev
  
+
+更新 jenkins, harbor ingress
+更新 baget 
+更新 email, notofy
+
+
+
+
+
