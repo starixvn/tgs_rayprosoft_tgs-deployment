@@ -1,7 +1,7 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: ingress-lobby-t6
+  name: ingress-lobby-t8
   namespace: staging
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
@@ -33,5 +33,5 @@ spec:
           servicePort: 80
       - path: /
         backend:
-          serviceName: lobby-gpi-t6
+          serviceName: lobby-gpi-t8
           servicePort: 80
