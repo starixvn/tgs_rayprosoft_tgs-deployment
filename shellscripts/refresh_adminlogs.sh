@@ -16,6 +16,7 @@ Execute() {
         if [ $result4 = "0" ]; then
                         for p in $(kubectl -n $2 get pods | grep backoffice-api | awk '{print $1}'); do kubectl delete pod $p -n $2 --grace-period=0 --force;done
                         echo "Staging Executed"
+						curl "https://api.telegram.org/bot1780137038:AAHDIVxs2somlHZ5QbZKq1X403NnWAPXVn4/sendMessage?chat_id=-1001114115188&text=$2%20adminlogs%20updated"
         fi
 }
 
