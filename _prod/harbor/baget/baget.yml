@@ -48,6 +48,10 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - baget.rpgp.cc
+    secretName: baget.rpgp.cc
   rules:
   - host: baget.rpgp.cc
     http:
