@@ -13,7 +13,9 @@ kubectl apply -f ingress.yml
 
 helm repo add jaegertracing https://jaegertracing.github.io/helm-charts
 
-helm upgrade --install jaeger jaegertracing/jaeger --set provisionDataStore.cassandra=false --set provisionDataStore.elasticsearch=true --set storage.type=elasticsearch -n observability
+helm -n observability upgrade --install jaeger jaegertracing/jaeger --set provisionDataStore.cassandra=false \
+	--set provisionDataStore.elasticsearch=true \
+	--set storage.type=elasticsearch 
 
 kubectl edit statefulsets elasticsearch-master -n observability
 

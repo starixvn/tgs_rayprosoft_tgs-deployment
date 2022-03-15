@@ -1,24 +1,21 @@
 ## https://unix.stackexchange.com/questions/298706/how-to-pass-parameters-to-function-in-a-bash-script
 #!/bin/bash
+## refresh_adminlogs.sh "tgsstaging" "staging" 20
+## refresh_adminlogs.sh "tgs" "prod" 720
 export PGPASSWORD='wXfrQBjK4XYFY3KH6D2D'
 export PGHOST='db-production.cglu874fh5rb.ap-east-1.rds.amazonaws.com'
 export PGPORT='5432'
 export PGUSER='postgres'
 
-Execute() {
-        result=$(psql -d $1 -c "select count(1) from log.admin_logs where recorded_on >= CURRENT_TIMESTAMP - interval '20 minutes'")
-        result2=${result//-/}
-        result3=${result2/count /}
-        result4=${result3/\(1 row\)/}
-        echo $result
-        echo $result4
+result=$(psql -d $1 -c "select count(1) from log.admin_logs where recorded_on >= CURRENT_TIMESTAMP - interval '20 minutes'")
+result2=${result//-/}
+result3=${result2/count /}
+result4=${result3/\(1 row\)/}
+echo $result
+echo $result4
 
-        if [ $result4 = "0" ]; then
-                        for p in $(kubectl -n $2 get pods | grep backoffice-api | awk '{print $1}'); do kubectl delete pod $p -n $2 --grace-period=0 --force;done
-                        echo "Staging Executed"
-						curl "https://api.telegram.org/bot1780137038:AAHDIVxs2somlHZ5QbZKq1X403NnWAPXVn4/sendMessage?chat_id=-1001114115188&text=$2%20adminlogs%20updated"
-        fi
-}
-
-Execute "tgsstaging" "staging"
-Execute "tgs" "prod"
+if [ $result4 = "0" ]; then
+				for p in $(kubectl -n $2 get pods | grep backoffice-api | awk '{print $1}'); do kubectl delete pod $p -n $2 --grace-period=0 --force;done
+				echo "Staging Executed"
+				curl "https://api.telegram.org/bot1780137038:AAHDIVxs2somlHZ5QbZKq1X403NnWAPXVn4/sendMessage?chat_id=-1001114115188&text=$2%20adminlogs%20updated"
+fi

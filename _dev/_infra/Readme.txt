@@ -1,3 +1,62 @@
+
+### Install bash-completion
+### https://kubernetes.io/docs/tasks/tools/included/optional-kubectl-configs-bash-linux/
+
+apt-get install bash-completion
+source /usr/share/bash-completion/bash_completion
+echo 'source <(kubectl completion bash)' >>~/.bashrc
+echo 'alias k=kubectl' >>~/.bashrc
+echo 'complete -F __start_kubectl k' >>~/.bashrc
+exec bash
+exit 登出再登入
+
+
+### calico
+https://projectcalico.docs.tigera.io/getting-started/kubernetes/quickstart
+
+kubectl apply -f https://projectcalico.docs.tigera.io/manifests/calico.yaml
+
+### ingress
+https://kubernetes.github.io/ingress-nginx/deploy/#bare-metal-clusters
+    
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.1.1/deploy/static/provider/baremetal/deploy.yaml
+
+*** 修改 nginx.conf 的 http, https port
+	
+### cert-manager
+https://cert-manager.io/docs/installation/
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.7.1/cert-manager.yaml
+
+
+### helm 
+https://helm.sh/docs/intro/install/
+
+### metric-server 
+https://github.com/kubernetes-sigs/metrics-server
+
+kubectl apply -f https://github.com/kubernetes-sigs/metrics-server/releases/latest/download/components.yaml
+kubectl edit deploy  metrics-server -n kube-system
+deploy args 要加上 - --kubelet-insecure-tls
+
+### reloader 
+https://github.com/stakater/Reloader
+
+kubectl apply -f https://raw.githubusercontent.com/stakater/Reloader/master/deployments/kubernetes/reloader.yaml
+
+
+### nfs provisioner
+helm repo add nfs-subdir-external-provisioner \
+      https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
+  
+helm repo update
+
+helm install nfs-provisioner \
+  nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \
+  --set nfs.server=192.168.50.111 \
+  --set nfs.path=/nfsshare \
+  --set storageClass.name=nfs-provisioner
+  
+
 ### install reloader
 
 https://github.com/stakater/Reloader
