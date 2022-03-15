@@ -8,7 +8,7 @@ metadata:
   annotations:
     configmap.reloader.stakater.com/reload: "fluent-bit-config,fluent-bit-center-config,fluent-bit-parsers-config"
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: fluent-bit-center
@@ -23,7 +23,7 @@ spec:
           image: fluent/fluent-bit:1.8.13
           env:
             - name: FLUENT_ELASTICSEARCH_HOST
-              value: "192.168.2.20"
+              value: "elasticsearch-master.observability"
             - name: FLUENT_ELASTICSEARCH_PORT
               value: "9200"
           ports:
@@ -58,21 +58,22 @@ spec:
               readOnly: true
           resources:
             requests:
-              memory: "32Mi"
+              memory: "64Mi"
               cpu: "100m"
             limits:
-              memory: "128Mi"
+              memory: "256Mi"
               cpu: "1"
-          readinessProbe:
+          startupProbe:
             tcpSocket:
               port: 24224
             initialDelaySeconds: 3
+            failureThreshold: 30
             periodSeconds: 2
           livenessProbe:
             tcpSocket:
               port: 24224
-            initialDelaySeconds: 10
             periodSeconds: 20
+            failureThreshold: 1
       terminationGracePeriodSeconds: 10
       volumes:
         - name: fluent-bit-config

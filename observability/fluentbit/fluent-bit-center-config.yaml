@@ -33,9 +33,9 @@ data:
         Logstash_Format On
         Logstash_Prefix kube
         Replace_Dots    On
-        Retry_Limit     False
         Type            log
-        
+        Buffer_Size     5M
+        Trace_Error     On
     [OUTPUT]
         Name            es
         Match           log.*
@@ -47,5 +47,6 @@ data:
         Logstash_Prefix_Key es_index
         Include_Tag_Key On
         Replace_Dots    On
-        Retry_Limit     False
         Suppress_Type_Name On
+        Buffer_Size     5M
+        Trace_Error     On
