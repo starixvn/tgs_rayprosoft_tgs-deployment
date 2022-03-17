@@ -5,6 +5,10 @@ metadata:
   namespace: staging
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - game-dg.rpgp.cc
+    secretName: game-dg.rpgp.cc
   rules: 
   - host: game-dg.rpgp.cc
     http:
