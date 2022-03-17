@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-game-dg
+  namespace: staging
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    nginx.ingress.kubernetes.io/server-snippet: |-
+      allow 43.245.200.161/32;
+      allow 96.9.75.219/32;
+      allow 47.57.244.198/32;
+      allow 47.57.240.252/32;
+      allow 52.77.182.223/32;
+      allow 13.251.76.169/32;
+      allow 18.166.169.112/32;
+      allow 220.132.206.70/32;
+      deny all;
+spec:
+  ingressClassName: nginx
+  tls:
+  - hosts:
+    - game-dg.yydsgo.xyz
+    secretName: game-dg.yydsgo.xyz
+  rules: 
+  - host: game-dg.yydsgo.xyz
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: game-dg
+            port: 
+              number: 80
