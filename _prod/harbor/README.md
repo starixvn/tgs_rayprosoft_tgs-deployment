@@ -36,21 +36,20 @@ helm -n harbor upgrade --install harbor bitnami/harbor --set nameOverride=harbor
 ///////////////////////////////////////////////
  
 helm repo add harbor https://helm.goharbor.io
-
 helm show all  harbor/harbor
 
 https://github.com/goharbor/harbor-helm
 
 
-helm -n harbor upgrade --install harbor harbor/harbor -f values.yaml \
+/// 下面是正確的安裝方式
+helm -n harbor upgrade --install harbor harbor/harbor \
   --set trivy.enabled=false \
   --set notary.enabled=false \
   --set chartmuseum.enabled=false \
-  --set harborAdminPassword=harbor123 \
-  --set registry.credentials.username=tgs \
-  --set registry.credentials.password=tgs123 \
-  --set internalTLS.enabled=false \
-  --set expose.ingress.hosts.core=harbor.srvptt.com \
+  --set registry.credentials.username=harbor \
+  --set registry.credentials.password=harbor123 \
+  --set internalTLS.enabled=true \
+  --set expose.ingress.hosts.core=harbor.rpgp.cc \
   --set database.type=external \
   --set database.external.host=db-production.cglu874fh5rb.ap-east-1.rds.amazonaws.com \
   --set database.external.username=harbor \
@@ -58,10 +57,12 @@ helm -n harbor upgrade --install harbor harbor/harbor -f values.yaml \
   --set postgresql.auth.postgresUsername=harbor \
   --set postgresql.auth.postgresPassword=harbor123 \
   --set redis.type=external \
-  --set redis.external.addr=redis-master.staging:6379
+  --set redis.external.addr=redis-master.staging:6379 \
+  --set externalURL=https://harbor.rpgp.cc \
+  --set expose.type=ingress
   
 
- 
+  
   
   
   --set externalURL=https://harbor.srvptt.com 

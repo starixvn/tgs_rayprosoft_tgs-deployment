@@ -1,0 +1,25 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-game-dg
+  namespace: staging
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/server-snippet: |-
+      allow 220.132.206.70/32;
+      deny all;
+spec:
+  tls:
+  - hosts:
+    - game-dg.rpgp.cc
+    secretName: game-dg.rpgp.cc
+  rules: 
+  - host: game-dg.rpgp.cc
+    http:
+      paths:
+      - path: /
+        backend:
+
+          serviceName: game-dg
+          servicePort: 80
