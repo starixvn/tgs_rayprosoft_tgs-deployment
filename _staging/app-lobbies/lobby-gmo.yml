@@ -28,7 +28,7 @@ spec:
         value: nonprod
       containers:
         - name: lobby-gmo
-          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t6:staging
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t8:staging
           imagePullPolicy: IfNotPresent
           env:
           - name: CLIENT
@@ -42,9 +42,7 @@ spec:
           - name: DEFAULT_LANGUAGE
             value: "zh-TW"
           - name: THEME
-            value: "red"
-          - name: THEME
-            value: "wapT8"
+            value: "GMO"
           - name: "WAPTEMPLATE"
             value: "8"
           - name: SOURCE_URL
