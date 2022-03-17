@@ -5,6 +5,8 @@ metadata:
   namespace: observability
   labels:
     otel: collector
+  annotations:
+    configmap.reloader.stakater.com/reload: "configmap-otel-collector"
 spec:
   selector:
     matchLabels:
