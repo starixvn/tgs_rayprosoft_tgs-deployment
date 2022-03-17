@@ -108,6 +108,8 @@ data:
    {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"200Mi"}}
   schedulers: | 
    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+  sign-in: | 
+   {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   sms-plivo: | 
    {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   sms-service: | 
