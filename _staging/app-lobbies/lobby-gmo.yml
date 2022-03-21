@@ -42,7 +42,7 @@ spec:
           - name: DEFAULT_LANGUAGE
             value: "zh-TW"
           - name: THEME
-            value: "wapT8"
+            value: "GMO"
           - name: "WAPTEMPLATE"
             value: "8"
           - name: SOURCE_URL

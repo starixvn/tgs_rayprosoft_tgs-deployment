@@ -1,20 +1,20 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  name: lobby-gpi-t6
+  name: lobby-gpi-t8
   namespace: prod
   labels:
     type: lobby
-    app: lobby-gpi-t6
+    app: lobby-gpi-t8
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: lobby-gpi-t6
+      app: lobby-gpi-t8
   template:
     metadata:
       labels:
-        app: lobby-gpi-t6
+        app: lobby-gpi-t8
     spec:
       imagePullSecrets:
         - name: registry-credentials
@@ -26,8 +26,8 @@ spec:
         operator: Equal
         value: prod
       containers:
-        - name: lobby-gpi-t6
-          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t6:prod
+        - name: lobby-gpi-t8
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t8:prod
           imagePullPolicy: IfNotPresent
           env:
           - name: CLIENT
@@ -39,7 +39,7 @@ spec:
           - name: DEFAULT_LANGUAGE
             value: "zh-CN"
           - name: THEME
-            value: "red"
+            value: "wapT8"
           - name: "WAPTEMPLATE"
             value: "8"
           - name: SOURCE_URL
@@ -77,7 +77,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: lobby-gpi-t6
+  name: lobby-gpi-t8
   namespace: prod
 spec:
   ports:
@@ -85,4 +85,4 @@ spec:
       port: 80
       name: web
   selector:
-    app: lobby-gpi-t6
+    app: lobby-gpi-t8

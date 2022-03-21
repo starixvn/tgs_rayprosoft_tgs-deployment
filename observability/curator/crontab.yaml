@@ -38,6 +38,7 @@ metadata:
 data:
   action_file.yml: |-
     ---
+    # REF : https://www.elastic.co/guide/en/elasticsearch/client/curator/current/filtertype_pattern.html
     # Remember, leave a key empty if there is no value.  None will be a string,
     # not a Python "NoneType"
     #
