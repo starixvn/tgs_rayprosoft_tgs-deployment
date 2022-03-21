@@ -15,7 +15,6 @@ imagePullSecrets:
   - name: secret-tgs-harbor
 nameOverride: "operator-api"
 fullnameOverride: "operator-api"
-namespace: dev
 
 validateCodeTestEnabled: false
 
