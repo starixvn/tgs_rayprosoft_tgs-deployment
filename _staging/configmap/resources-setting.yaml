@@ -48,6 +48,8 @@ data:
     {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
   game-evo: | 
     {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+  game-dg: | 
+    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
   game-gameprovider-queryserver: |
     {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"100Mi"}}
   game-gameproviders: | 

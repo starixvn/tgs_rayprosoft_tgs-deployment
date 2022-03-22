@@ -63,7 +63,9 @@ data:
   game-bg: | 
    {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-evo : | 
-   {"limits":{"cpu":"100m","memory":"1200Mi"},"requests":{"cpu":"100m","memory":"1200Mi"}}
+   {"limits":{"cpu":"100m","memory":"1200Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
+  game-dg : | 
+   {"limits":{"cpu":"100m","memory":"1200Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-gameprovider-queryserver: | 
    {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"100Mi"}}
   game-gameproviders: | 
