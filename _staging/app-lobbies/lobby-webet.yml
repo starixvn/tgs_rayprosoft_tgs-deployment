@@ -42,9 +42,19 @@ spec:
           - name: DEFAULT_LANGUAGE
             value: "th-TH"
           - name: THEME
-            value: "red"
+            value: "black"
+          - name: "WAPTEMPLATE"
+            value: "3"
           - name: SOURCE_URL
             value: "https://images.srvptt.com/"
+          - name: HOMEPAGE
+            value: "[\"t3-1\",\"t3-2\",\"t3-3\"]"
+          - name: "WAPTEMPLATE"
+            value: "3"
+          - name: SOURCE_URL
+            value: "https://images.srvptt.com/"
+          - name: HOMEPAGE
+            value: "[\"t3-1\",\"t3-2\",\"t3-3\"]"
           ports:
             - containerPort: 80
           volumeMounts:
