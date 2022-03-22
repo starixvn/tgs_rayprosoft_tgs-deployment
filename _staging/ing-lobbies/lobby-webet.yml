@@ -10,7 +10,8 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: ["webet.ac", "www.webet.ac"]
+  - host: webet.ac
+  - host: www.webet.ac
     http:
       paths:
       - pathType: Prefix
