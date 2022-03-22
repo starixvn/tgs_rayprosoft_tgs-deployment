@@ -1,0 +1,86 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: lobby-webet
+  namespace: prod
+  labels:
+    type: lobby
+    app: lobby-webet
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lobby-webet
+  template:
+    metadata:
+      labels:
+        app: lobby-webet
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      nodeSelector:
+        dedicated: prod
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: prod
+      containers:
+        - name: lobby-webet
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t3:prod
+          imagePullPolicy: IfNotPresent
+          env:
+          - name: CLIENT
+            value: "YuRFoIQPv7TUY2gB3QQLgFwHq1lyzn2SusDv6N9dlIkVrMbQ6wgJN6G"
+          - name: CURRENCY
+            value: "THB"
+          - name: BRAND
+            value: "WEBET"
+          - name: DEFAULT_LANGUAGE
+            value: "th-TH"
+          - name: THEME
+            value: "WEBET"
+          - name: SOURCE_URL
+            value: "https://images.srvptt.com/"
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: site-data
+              mountPath: /data
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          resources:
+            limits:
+              cpu: 5m
+              memory: 30Mi
+            requests:
+              cpu: 5m
+              memory: 30Mi
+      volumes:
+        - name: site-data
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lobby-webet
+  namespace: prod
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      name: web
+  selector:
+    app: lobby-webet

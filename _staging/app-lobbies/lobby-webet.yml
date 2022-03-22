@@ -32,7 +32,7 @@ spec:
           imagePullPolicy: IfNotPresent
           env:
           - name: CLIENT
-            value: "YuRFoIQPv7TUY2gB3QQLgFwHq1lyzn2SusDv6N9dlIkVrMbQ6wgJN6G"
+            value: "MJggQhy12jt1UB8c1IyQcZ6nnrGGBsEIAFzKuoGZVlFnaF4i1sEZED"
           - name: CURRENCY
             value: "THB"
           - name: BRAND
