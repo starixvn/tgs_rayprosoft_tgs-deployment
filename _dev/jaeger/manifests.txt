@@ -7,7 +7,7 @@ https://artifacthub.io/packages/helm/jaegertracing/jaeger
 
 helm repo add jaegertracing https://jaegertracing.github.io/helm-charts
 
-helm -n observability install jaeger jaegertracing/jaeger --set provisionDataStore.cassandra=false \
+helm -n observability upgrade --install jaeger jaegertracing/jaeger --set provisionDataStore.cassandra=false \
 	--set provisionDataStore.elasticsearch=true \
 	--set storage.type=elasticsearch \
 	--set storage.elasticsearch.user=tgs \
