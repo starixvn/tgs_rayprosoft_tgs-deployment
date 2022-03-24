@@ -23,6 +23,9 @@ data:
       "Promotion": {
         "Url": "http://promotion-api"
       },
+      "BrandCertificate": {
+        "Url": "http://brand-cert-api"
+      },
       "BackOffice": {
         "PaymentServiceBaseUrl": "http://payment-api",
         "CashBaseUrl": "http://cashservice-api",
