@@ -39,7 +39,9 @@ spec:
           - name: DEFAULT_LANGUAGE
             value: "zh-TW"
           - name: THEME
-            value: "red"
+            value: "wapT8"
+          - name: "WAPTEMPLATE"
+            value: "8"
           - name: SOURCE_URL
             value: "https://images.srvptt.com/"
           ports:
