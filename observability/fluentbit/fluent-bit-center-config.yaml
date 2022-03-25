@@ -33,7 +33,6 @@ data:
         Logstash_Format On
         Logstash_Prefix kube
         Replace_Dots    On
-        Type            log
         Buffer_Size     5M
         Trace_Error     On
     [OUTPUT]
@@ -41,7 +40,6 @@ data:
         Match           log.*
         Host            ${FLUENT_ELASTICSEARCH_HOST}
         Port            ${FLUENT_ELASTICSEARCH_PORT}
-        Type            log
         Logstash_Format On
         Logstash_Prefix log_unknown
         Logstash_Prefix_Key es_index
