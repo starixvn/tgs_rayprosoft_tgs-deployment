@@ -657,7 +657,7 @@ ingress:
 apiIngress:
   ## @param apiIngress.enabled Enable ingress controller resource
   ##
-  enabled: false
+  enabled: true
   ## @param apiIngress.apiVersion Force Ingress API version (automatically detected if not set)
   ##
   apiVersion: ""
@@ -665,16 +665,16 @@ apiIngress:
   ## This is supported in Kubernetes 1.18+ and required if you have more than one IngressClass marked as the default for your cluster.
   ## ref: https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/
   ##
-  ingressClassName: ""
+  ingressClassName: "nginx"
   ## @param apiIngress.hostname Default host for the ingress resource
   ##
-  hostname: minio.local
+  hostname: minio-api.rpgp.cc
   ## @param apiIngress.path The Path to MinIO&reg;. You may need to set this to '/*' in order to use this with ALB ingress controllers.
   ##
   path: /
   ## @param apiIngress.pathType Ingress path type
   ##
-  pathType: ImplementationSpecific
+  pathType: Prefix
   ## @param apiIngress.servicePort Service port to be used
   ## Default is http. Alternative is https.
   ##
