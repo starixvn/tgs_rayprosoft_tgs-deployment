@@ -36,7 +36,7 @@ spec:
           - name: CURRENCY
             value: "THB"
           - name: BRAND
-            value: "WEBET"
+            value: "stg_WEBET"
           - name: BRANDNAME
             value: "WEBET"
           - name: DEFAULT_LANGUAGE
