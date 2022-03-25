@@ -204,10 +204,10 @@ configuration:
     default:
     # Additional provider-specific configuration. See link above
     # for details of required/optional fields for your provider.
-    config: {}
-    #  region:
-    #  s3ForcePathStyle:
-    #  s3Url:
+    config:
+      region: "default"
+      s3ForcePathStyle: "true"
+      s3Url: "http://minio.minio:9000"
     #  kmsKeyId:
     #  resourceGroup:
     #  The ID of the subscription containing the storage account, if different from the cluster’s subscription. (Azure only)
@@ -313,7 +313,7 @@ credentials:
   name: cloud
   # Name of a pre-existing secret (if any) in the Velero namespace
   # that should be used to get IAM account credentials. Optional.
-  existingSecret:
+  existingSecret: cloud
   # Data to be stored in the Velero secret, if `useSecret` is true and `existingSecret` is empty.
   # As of the current Velero release, Velero only uses one secret key/value at a time.
   # The key must be named `cloud`, and the value corresponds to the entire content of your IAM credentials file.
@@ -322,11 +322,11 @@ credentials:
   # [AWS] https://github.com/vmware-tanzu/velero-plugin-for-aws/blob/main/README.md
   # [GCP] https://github.com/vmware-tanzu/velero-plugin-for-gcp/blob/main/README.md
   # [Azure] https://github.com/vmware-tanzu/velero-plugin-for-microsoft-azure/blob/main/README.md
-  secretContents: {}
-   cloud: |
-  #    [default]
-  #    aws_access_key_id=<REDACTED>
-  #    aws_secret_access_key=<REDACTED>
+  secretContents:
+   #cloud: |
+   #   [default]
+   #   aws_access_key_id=accessKey
+   #   aws_secret_access_key=secretKey
   # additional key/value pairs to be used as environment variables such as "DIGITALOCEAN_TOKEN: <your-key>". Values will be stored in the secret.
   extraEnvVars: {}
   # Name of a pre-existing secret (if any) in the Velero namespace
