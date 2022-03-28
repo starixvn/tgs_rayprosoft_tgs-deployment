@@ -1,0 +1,43 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: lobby-sky
+  namespace: staging
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+        proxy_set_header Brand-Token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiU2t5Iiwic3ViIjoiZDdmZjJmNTAtNjQ3OS00NTllLWJjM2ItMGI4ZTlhNGI0ZDQyIiwibmJmIjoxNjQ4NDU5MDYzLCJleHAiOjE2NDg0NjI2NjMsImlhdCI6MTY0ODQ1OTA2MywiaXNzIjoidGdzIn0.m_UMEQ9CPsVcQ6cOMelYNnGjTGg2GbVWY8Oau8tqKwxSk62wUqsWCe4uK9aeUNgfTO7tGbGggW3MrxjFi14d82r5K7C5BkBHhvBVzvyH4MeABZbtotsDDepJ80l0UZS-ff3QGSsiS3SJ5kKejDP7IplIa__vyMK3_I6MPhEoIStIg8R57xfhJFEzMSPFVsaHy5cXmD818JYKrlj0iWSsY_OT4jcv1fgYA9MHob9kLikNV_9avuIHW3PTtY1MSu8LTq5rH4SXLWMqWi9JoDDYPQht5IJSpRye_p9d5IhcdCOWF0tpipZ0gB6VZ_YIYn89YOugGVXzxyXpYetA5Hcr1g;
+spec:
+  ingrssClassName: nginx
+  rules:
+  - host: stg.twplus666.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /api/brandcommunication
+        backend:
+          service:
+            name: brand-api
+            port: 
+              number: 80
+      - pathType: Prefix
+        path: /api/brandlivechat
+        backend:
+          service:
+            name: brand-api
+            port: 
+              number: 80
+      - pathType: Prefix
+        path: /api
+        backend:
+          service:
+            name: operator-api
+            port: 
+              number: 80
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: lobby-sky
+            port: 
+              number: 80

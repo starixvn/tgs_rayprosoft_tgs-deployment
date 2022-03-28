@@ -1,0 +1,74 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: lobby-sky
+  namespace: prod
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+        proxy_set_header Brand-Token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiU2t5Iiwic3ViIjoiZjY1NmI1MzctYjdlOC00M2MzLTlmMjItYmI4NzEyNWE1YTM0IiwibmJmIjoxNjQ4NDU5NDUxLCJleHAiOjE2NDg0NjMwNTEsImlhdCI6MTY0ODQ1OTQ1MSwiaXNzIjoidGdzIn0.DOvzhbtBVbvbjmBz9QKVMnwUoJWFQKYqArqhRL2hSAuo9Mu7HolopYFRUm235qv0gstNLXCRB6ScvLE8RxU1ojy7WQXf8EeRhhemRG4bF6MhAQCPiu6AiCaGeZBj2gS8ORcicAgIMTLVXESCyTuV-4trvHE87uX2julTI0AZD6TnPwMk7sbBjRY8E_JTJ8wQsePbfMHB6ngcPEhmuwYEtxWHrWSx0r488EiWyZ91oSiNq84X9uVFGgofvOBn9zrMgRxvNoBAKaxX338xh7IEiRSvFzoLMJjCFYuB80N-wjakUIN3FvpKBxrC1PP4aebWAkUpfnokVhyGiKYLv3pQ-Q;
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: twplus666.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /api/brandcommunication
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api/brandlivechat
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api
+        backend:
+          service:
+            name: operator-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: lobby-sky
+            port:
+              number: 80
+  - host: www.twplus666.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /api/brandcommunication
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api/brandlivechat
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api
+        backend:
+          service:
+            name: operator-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: lobby-sky
+            port:
+              number: 80

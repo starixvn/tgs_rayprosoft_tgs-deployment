@@ -58,3 +58,6 @@ credentials:
   
 
 helm upgrade --install velero  vmware-tanzu/velero --namespace velero -f values.yaml
+
+
+velero backup-location get
