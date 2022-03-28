@@ -55,3 +55,6 @@ credentials:
       #aws_secret_access_key=aws_secret_access_key
   extraEnvVars: {}
   extraSecretRef: ""     
+  
+
+helm upgrade --install velero  vmware-tanzu/velero --namespace velero -f values.yaml
