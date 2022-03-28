@@ -202,7 +202,7 @@ statefulset:
 provisioning:
   ## @param provisioning.enabled Enable MinIO&reg; provisioning Job
   ##
-  enabled: false
+  enabled: true
   ## @param provisioning.schedulerName Name of the k8s scheduler (other than default) for MinIO&reg; provisioning
   ## ref: https://kubernetes.io/docs/tasks/administer-cluster/configure-multiple-schedulers/
   ##
@@ -573,7 +573,7 @@ ingress:
   ingressClassName: "nginx"
   ## @param ingress.hostname Default host for the ingress resource
   ##
-  hostname: minio.rpgp.cc
+  hostname: minio-velero.rpgp.cc
   ## @param ingress.path The Path to MinIO&reg;. You may need to set this to '/*' in order to use this with ALB ingress controllers.
   ##
   path: /
@@ -668,7 +668,7 @@ apiIngress:
   ingressClassName: "nginx"
   ## @param apiIngress.hostname Default host for the ingress resource
   ##
-  hostname: minio-api.rpgp.cc
+  hostname: minio-api-velero.rpgp.cc
   ## @param apiIngress.path The Path to MinIO&reg;. You may need to set this to '/*' in order to use this with ALB ingress controllers.
   ##
   path: /
