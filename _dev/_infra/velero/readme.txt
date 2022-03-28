@@ -1,6 +1,6 @@
 客戶端安裝
 
-先去github找最新的release，這邊環境使用centos8，所以下載velero-v1.8.1-linux-amd64.tar.gz
+先去github找最新的release，所以下載velero-v1.8.1-linux-amd64.tar.gz
 
 wget https://github.com/vmware-tanzu/velero/releases/download/v1.8.1/velero-v1.8.1-linux-amd64.tar.gz
 
