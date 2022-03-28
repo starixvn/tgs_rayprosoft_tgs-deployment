@@ -207,7 +207,7 @@ configuration:
     config:
       region: "us-west-1"
       s3ForcePathStyle: "true"
-      s3Url: "http://minio.minio:9000/k8s-backup"
+      s3Url: "http://minio.rpgp.cc"
     #  kmsKeyId:
     #  resourceGroup:
     #  The ID of the subscription containing the storage account, if different from the cluster’s subscription. (Azure only)
