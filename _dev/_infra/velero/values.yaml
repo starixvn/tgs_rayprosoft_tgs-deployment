@@ -205,7 +205,7 @@ configuration:
     # Additional provider-specific configuration. See link above
     # for details of required/optional fields for your provider.
     config:
-      region: "default"
+      region: "us-west-1"
       s3ForcePathStyle: "true"
       s3Url: "http://minio.minio:9000"
     #  kmsKeyId:
