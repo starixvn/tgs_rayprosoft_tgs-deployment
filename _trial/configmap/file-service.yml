@@ -18,7 +18,7 @@ data:
         "ConnectionString": "mongodb://root:1qaz2wsx@mongodb/filedb?retryWrites=true&w=majority&authSource=admin"
       },
       "NatsSetting": {
-        "Urls": "nats://nats-client:4222",
+        "Urls": "nats://nats:4222",
         "ConnectTimeoutMs": 2000,
         "PingInterval": 5000,
         "PingMaxOutStanding": 3,

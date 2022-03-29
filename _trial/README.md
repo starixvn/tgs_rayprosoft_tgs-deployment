@@ -39,7 +39,7 @@ helm install nats nats/nats --set cluster.enabled=true,auth.enabled=false -n tri
 https://github.com/nats-io/k8s/tree/master/helm/charts/stan
 
 # redis, redis exporter and redisinsight
-helm install redis bitnami/redis --set password=1qaz2wsx,metrics.enabled=true,master.disableCommands=["FLUSHDB"] -n trial
+helm install redis bitnami/redis --set password=1qaz2wsx,metrics.enabled=true,global.storageClass=nfs-provisioner -n trial
 redis-metrics:9121/metrics 
 https://github.com/bitnami/charts/tree/master/bitnami/redis/#installing-the-chart
 

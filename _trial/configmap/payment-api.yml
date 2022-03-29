@@ -8,6 +8,6 @@ data:
     {
       "ConnectionStrings": {
         "Tgs": "Server=pgpool;Port=9999;Database=tgsstaging;User Id=tgs_app;Password=VSr4DuVQEzfPC7Tcz",
-        "Nats": "nats://nats-client:4222"
+        "Nats": "nats://nats:4222"
       }
     }

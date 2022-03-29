@@ -11,22 +11,22 @@ data:
       },
       "LeePay": {
         "PaymentApiUrl": "https://api.leepay-wallet.com",
-        "NatsUrl": "nats://nats-client:4222",
+        "NatsUrl": "nats://nats:4222",
         "CallbackBaseUrl": "https://payment.tgsstg.gq/leepay"
       },
       "PrimePay": {
         "PaymentApiUrl": "http://api.primepayco.com/",
-        "NatsUrl": "nats://nats-client:4222",
+        "NatsUrl": "nats://nats:4222",
         "CallbackBaseUrl": "https://payment.tgsstg.gq/primepay"
       },
        "ApplePay": {
         "PaymentApiUrl": "https://mapay168.com",
-        "NatsUrl": "nats://nats-client:4222",
+        "NatsUrl": "nats://nats:4222",
         "CallbackBaseUrl": "https://payment.tgsstg.gq/applepay"
       },
        "UmPay": {
         "PaymentApiUrl": "https://hk-dev.um-pay.com/umpay",
-        "NatsUrl": "nats://nats-client:4222",
+        "NatsUrl": "nats://nats:4222",
         "CallbackBaseUrl": "https://payment.tgsstg.gq/umpay"
       },
       "Logging": {
