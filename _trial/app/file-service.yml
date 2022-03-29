@@ -49,7 +49,7 @@ spec:
       volumes:
         - name: appsettings
           configMap:
-            name: configmap-fileservice
+            name: fileservice
 ---
 apiVersion: v1
 kind: Service

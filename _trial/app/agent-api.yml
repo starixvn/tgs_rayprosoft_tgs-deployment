@@ -56,7 +56,7 @@ spec:
       volumes:
         - name: appsettings
           configMap:
-            name: configmap-agent-api
+            name: agent-api
 ---
 apiVersion: v1
 kind: Service

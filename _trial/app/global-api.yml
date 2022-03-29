@@ -56,7 +56,7 @@ spec:
       volumes:
         - name: appsettings
           configMap:
-            name: configmap-global-api
+            name: global-api
 ---
 apiVersion: v1
 kind: Service
