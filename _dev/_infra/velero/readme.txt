@@ -59,5 +59,10 @@ credentials:
 
 helm upgrade --install velero  vmware-tanzu/velero --namespace velero -f values.yaml
 
+helm template velero  vmware-tanzu/velero --namespace velero -f values.yaml
+
+
+
+kubectl get  BackupStorageLocation -n velero
 
 velero backup-location get

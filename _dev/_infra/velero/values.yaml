@@ -207,7 +207,8 @@ configuration:
     config:
       region: "us-west-1"
       s3ForcePathStyle: "true"
-      s3Url: "http://minio.rpgp.cc"
+      s3Url: "https://minio-api.rpgp.cc" ## 給還原用的
+    # s3Url: "http://minio.minio:9000"   ## 給備份用的
     #  kmsKeyId:
     #  resourceGroup:
     #  The ID of the subscription containing the storage account, if different from the cluster’s subscription. (Azure only)
