@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: agent-api
-  namespace: dev
+  namespace: trial
 data:
   appsettings.json: |
     {

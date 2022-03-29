@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: configmap-pgpool
-  namespace: dev
+  namespace: trial
   labels:
     app: configmap-pgpool
 data:

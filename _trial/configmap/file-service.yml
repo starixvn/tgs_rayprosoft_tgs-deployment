@@ -2,7 +2,7 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: fileservice
-  namespace: dev
+  namespace: trial
 data:
   appsettings.json: |
     {
