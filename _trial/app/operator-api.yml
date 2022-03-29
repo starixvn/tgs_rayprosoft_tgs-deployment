@@ -19,7 +19,7 @@ spec:
         - name: registry-credentials
       containers:
         - name: operator-api
-          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/operator-api:stag
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/operator-api:2021.0929.0801-prod
           imagePullPolicy: IfNotPresent
           securityContext:
             runAsUser: 0
