@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: file-service
-  namespace: dev
+  namespace: trial
   labels:
     app: file-service
 spec:

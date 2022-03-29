@@ -572,6 +572,6 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 
-
+helm repo add bitnami https://charts.bitnami.com/bitnami
 helm upgrade --install  minio bitnami/minio -f values.yaml  --set auth.rootPassword=B4pCvrXfaz  -n minio
 
