@@ -16,7 +16,7 @@ spec:
         app: schedulers
     spec:
       imagePullSecrets:
-        - name: secret-tgs-harbor
+        - name: registry-credentials
       containers:
         - name: schedulers
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/schedulers:stag

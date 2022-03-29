@@ -16,7 +16,7 @@ spec:
         app: agent-api
     spec:
       imagePullSecrets:
-        - name: secret-tgs-harbor
+        - name: registry-credentials
       containers:
         - name: agent-api
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-api:staging

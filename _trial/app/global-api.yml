@@ -16,7 +16,7 @@ spec:
         app: global-api
     spec:
       imagePullSecrets:
-        - name: secret-tgs-harbor
+        - name: registry-credentials
       containers:
         - name: global-api
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/global-api:staging

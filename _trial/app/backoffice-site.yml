@@ -16,7 +16,7 @@ spec:
         app: backoffice-site
     spec:
       imagePullSecrets:
-        - name: secret-tgs-harbor
+        - name: registry-credentials
       containers:
         - name: backoffice-site
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/backoffice-site:staging
