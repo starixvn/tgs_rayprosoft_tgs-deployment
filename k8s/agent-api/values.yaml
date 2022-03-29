@@ -27,8 +27,6 @@ nats:
 
 mail:
   url: https://email.srvptt.com
-  
-aspNetCoreEnvironment: Development
 
 podSecurityContext: {}
   # fsGroup: 2000
