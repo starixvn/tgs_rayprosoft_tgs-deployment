@@ -109,7 +109,7 @@ data:
   game-tcg: | 
     {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
   game-tcg-ftp: |
-    {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}+
+    {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-tf: |
     {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
   game-vr: |
