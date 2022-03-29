@@ -16,7 +16,7 @@ spec:
         app: validatecode-api
     spec:
       imagePullSecrets:
-        - name: registry-credentials
+        - name: secret-tgs-harbor
       containers:
         - name: validatecode-api
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/validatecode-api:staging

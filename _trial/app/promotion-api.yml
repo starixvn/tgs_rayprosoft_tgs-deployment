@@ -16,7 +16,7 @@ spec:
         app: promotion-api
     spec:
       imagePullSecrets:
-        - name: registry-credentials
+        - name: secret-tgs-harbor
       containers:
         - name: promotion-api
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/promotion-api:stag

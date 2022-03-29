@@ -16,7 +16,7 @@ spec:
         app: mocksite
     spec:
       imagePullSecrets:
-        - name: registry-credentials
+        - name: secret-tgs-harbor
       containers:
         - name: mocksite
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/mocksite:staging

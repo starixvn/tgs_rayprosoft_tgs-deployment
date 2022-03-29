@@ -16,7 +16,7 @@ spec:
         app: file-service
     spec:
       imagePullSecrets:
-        - name: registry-credentials
+        - name: secret-tgs-harbor
       containers:
         - name: file-service
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/file-service:staging

@@ -16,7 +16,7 @@ spec:
         app: operator-api
     spec:
       imagePullSecrets:
-        - name: registry-credentials
+        - name: secret-tgs-harbor
       containers:
         - name: operator-api
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/operator-api:stag
