@@ -230,6 +230,8 @@ data:
    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"20m","memory":"80Mi"}}
   payment-zeronineninepay: | 
    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"20m","memory":"80Mi"}}
+  payment-tupay: | 
+   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"20m","memory":"80Mi"}}
   pgpool: | 
    {"limits":{"cpu":"1500m","memory":"2000Mi"},"requests":{"cpu":"50m","memory":"300Mi"}}
   profit-rebate-service: | 
