@@ -17,13 +17,6 @@ spec:
     spec:
       imagePullSecrets:
         - name: registry-credentials
-      nodeSelector:
-        dedicated: nonprod
-      tolerations:
-      - effect: NoSchedule
-        key: dedicated
-        operator: Equal
-        value: nonprod
       containers:
         - name: backoffice-site
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/backoffice-site:staging

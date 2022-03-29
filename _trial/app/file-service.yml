@@ -17,13 +17,6 @@ spec:
     spec:
       imagePullSecrets:
         - name: registry-credentials
-      nodeSelector:
-        dedicated: nonprod
-      tolerations:
-      - effect: NoSchedule
-        key: dedicated
-        operator: Equal
-        value: nonprod
       containers:
         - name: file-service
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/file-service:staging
