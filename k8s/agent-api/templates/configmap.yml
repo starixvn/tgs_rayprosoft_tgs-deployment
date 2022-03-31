@@ -56,3 +56,17 @@ data:
         "SupportedUICultures": [ "en-US", "zh-CN", "zh-TW", "th-TH" ]
       }
     }
+  monitor.settings.json: |
+    {
+      "Logging":{
+        "Console": {
+          "FormatterName": "json"
+        },
+        "LogLevel": {
+          "Default": "Warning",
+          "Microsoft": "Warning",
+          "Microsoft.Diagnostics": "Warning",
+          "Microsoft.Hosting.Lifetime": "Information"
+        }
+      }
+    }
