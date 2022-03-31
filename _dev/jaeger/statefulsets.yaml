@@ -151,8 +151,8 @@ spec:
             cpu: "1"
             memory: 2Gi
           requests:
-            cpu: "1"
-            memory: 2Gi
+            cpu: "0.5"
+            memory: 1Gi
         securityContext:
           capabilities:
             drop:
