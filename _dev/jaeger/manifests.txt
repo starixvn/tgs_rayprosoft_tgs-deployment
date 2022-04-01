@@ -166,3 +166,6 @@ xpack.security.enabled: false
         - name: elasticsearch
           configMap:
             name: configmap-elasticsearch
+			
+			
+如果遇到因為資源起不來，可以先 drain 某個 node. 再 uncordon 回來
