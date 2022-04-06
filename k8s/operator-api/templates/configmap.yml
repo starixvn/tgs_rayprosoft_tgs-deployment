@@ -17,7 +17,8 @@ data:
         "PaymentServiceBaseUrl": "http://payment-api",
         "BrandCertificateBaseUrl": "http://brand-cert-api",
         "CashBaseUrl": "http://cashservice-api",
-        "GameProvidersPluggableBaseUrl": "http://game-pluggable-service"
+        "GameProvidersPluggableBaseUrl": "http://game-pluggable-service",
+        "PlayerServiceBaseUrl": "http://player-api"
       },
       "EmailSetting": {
         "FromMail": "verifyme@163.com",
