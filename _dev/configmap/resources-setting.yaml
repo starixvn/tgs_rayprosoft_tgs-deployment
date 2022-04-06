@@ -106,6 +106,8 @@ data:
    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   payment-tupay: | 
    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+  player-api: | 
+   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   pgpool: | 
    {"limits":{"cpu":"900m","memory":"900Mi"},"requests":{"cpu":"500m","memory":"600Mi"}}
   profit-rebate-service : | 
