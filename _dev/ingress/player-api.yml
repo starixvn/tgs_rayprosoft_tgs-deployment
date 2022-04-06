@@ -16,4 +16,5 @@ spec:
         backend:
           service:
             name: player-api
+            port: 
               number: 80
