@@ -36,7 +36,7 @@ spec:
           - name: CURRENCY
             value: "HKD"
           - name: BRAND
-            value: "SKY"
+            value: "stg_SKY"
           - name: DEFAULT_LANGUAGE
             value: "zh-TW"
           - name: THEME
