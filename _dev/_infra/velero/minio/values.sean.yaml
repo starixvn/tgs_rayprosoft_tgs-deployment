@@ -1035,6 +1035,6 @@ gateway:
     ## @param gateway.auth.s3.serviceEndpoint AWS S3 endpoint
     ##
     s3:
-      accessKey: ""
-      secretKey: ""
+      accessKey: "AKIAQ4KFUNHMWDQG7BVC"
+      secretKey: "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"
       serviceEndpoint: https://s3.amazonaws.com
