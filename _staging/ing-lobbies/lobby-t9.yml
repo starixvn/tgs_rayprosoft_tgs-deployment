@@ -11,7 +11,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: stg-t8.rpgp.cc
+  - host: stg-t9.rpgp.cc
     http:
       paths:
       - pathType: Prefix
