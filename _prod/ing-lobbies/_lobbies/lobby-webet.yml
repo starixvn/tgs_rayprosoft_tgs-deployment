@@ -41,37 +41,6 @@ spec:
             name: lobby-webet
             port:
               number: 80
-  - host: amg8.life
-    http:
-      paths:
-      - pathType: Prefix
-        path: /api/brandcommunication
-        backend:
-          service:
-            name: brand-api
-            port:
-              number: 80
-      - pathType: Prefix
-        path: /api/brandlivechat
-        backend:
-          service:
-            name: brand-api
-            port:
-              number: 80
-      - pathType: Prefix
-        path: /api
-        backend:
-          service:
-            name: operator-api
-            port:
-              number: 80
-      - pathType: Prefix
-        path: /
-        backend:
-          service:
-            name: lobby-webet
-            port:
-              number: 80
   - host: amg8.me
     http:
       paths:

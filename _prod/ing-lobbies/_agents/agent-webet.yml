@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: agent.webet.ac
+  - host: agent.amg8.life
     http:
       paths:
       - pathType: Prefix
