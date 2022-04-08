@@ -54,7 +54,7 @@ extraDeploy: []
 image:
   registry: docker.io
   repository: bitnami/minio
-  tag: 2022.3.8-debian-10-r0
+  tag: 2022.3.14-debian-10-r0
   ## Specify a imagePullPolicy
   ## Defaults to 'Always' if image tag is 'latest', else set to 'IfNotPresent'
   ## ref: https://kubernetes.io/docs/user-guide/images/#pre-pulling-images
@@ -80,7 +80,7 @@ image:
 clientImage:
   registry: docker.io
   repository: bitnami/minio-client
-  tag: 2022.3.3-debian-10-r5
+  tag: 2022.3.13-debian-10-r1
 ## @param mode MinIO&reg; server mode (`standalone` or `distributed`)
 ## ref: https://docs.minio.io/docs/distributed-minio-quickstart-guide
 ##
@@ -791,7 +791,7 @@ networkPolicy:
 persistence:
   ## @param persistence.enabled Enable MinIO&reg; data persistence using PVC. If false, use emptyDir
   ##
-  enabled: false
+  enabled: true
   ## @param persistence.storageClass PVC Storage Class for MinIO&reg; data volume
   ## If defined, storageClassName: <storageClass>
   ## If set to "-", storageClassName: "", which disables dynamic provisioning
@@ -799,7 +799,7 @@ persistence:
   ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
   ##   GKE, AWS & OpenStack)
   ##
-  storageClass: "nfs-provisioner"
+  storageClass: ""
   ## @param persistence.mountPath Data volume mount path
   ##
   mountPath: /data
