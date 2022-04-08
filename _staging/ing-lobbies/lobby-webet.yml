@@ -10,7 +10,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: stg.webet.ac
+  - host: stg.amg8.io
     http:
       paths:
       - pathType: Prefix
