@@ -195,7 +195,7 @@ configuration:
     # `configuration.provider` will be used instead.
     provider: aws
     # bucket is the name of the bucket to store backups in. Required.
-    bucket: k8s-backup
+    bucket: tgs-dev-backup
     # caCert defines a base64 encoded CA bundle to use when verifying TLS connections to the provider. Optional.
     caCert:
     # prefix is the directory under which all Velero data should be stored within the bucket. Optional.
@@ -205,9 +205,9 @@ configuration:
     # Additional provider-specific configuration. See link above
     # for details of required/optional fields for your provider.
     config:
-      region: "us-west-1"
+      region: "ap-east-1"
       s3ForcePathStyle: "true"
-      s3Url: "https://minio-api.rpgp.cc" ## 給還原用的
+      s3Url: "https://s3.amazonaws.com" ## 給還原用的
     # s3Url: "http://minio.minio:9000"   ## 給備份用的
     #  kmsKeyId:
     #  resourceGroup:
