@@ -30,7 +30,8 @@ data:
         "PaymentServiceBaseUrl": "http://payment-api",
         "CashBaseUrl": "http://cashservice-api",
         "GameProvidersPluggableBaseUrl": "http://game-pluggable-service",
-        "ReportAggregateUrl": "http://report-aggregate-service"
+        "ReportAggregateUrl": "http://report-aggregate-service",
+        "PlayerServiceBaseUrl": "http://player-api"
       },
       "TGSGameProvidersKickPlayerApi": {
         "BaseUrl": "http://game-kickplayer-server"
