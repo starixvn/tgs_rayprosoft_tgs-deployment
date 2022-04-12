@@ -37,7 +37,8 @@ spec:
   - host: game-bg.rpgp.cc
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
           service:
             name: game-bg
