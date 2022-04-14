@@ -129,8 +129,10 @@ data:
   game-gamecashs: | 
    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"10m","memory":"200Mi"}}
   game-betcalculator: | 
-   {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"200Mi"}}
+   {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"10m","memory":"200Mi"}}
   game-gameverifys: | 
+   {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"10m","memory":"200Mi"}}
+  game-gamesinglewallet: | 
    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"10m","memory":"200Mi"}}
   global-api: | 
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"50Mi"}}
