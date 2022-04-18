@@ -10,8 +10,6 @@ metadata:
     app: elasticsearch-master
   name: elasticsearch-master-elasticsearch-master-0
   namespace: observability
-  resourceVersion: "7641743"
-  uid: 7685b873-99b9-4ea5-868d-2f7422a893bc
 spec:
   accessModes:
   - ReadWriteOnce
@@ -32,8 +30,6 @@ metadata:
     app: elasticsearch-master
   name: elasticsearch-master-elasticsearch-master-1
   namespace: observability
-  resourceVersion: "7641743"
-  uid: 7685b873-99b9-4ea5-868d-2f7422a893bc
 spec:
   accessModes:
   - ReadWriteOnce
@@ -54,8 +50,6 @@ metadata:
     app: elasticsearch-master
   name: elasticsearch-master-elasticsearch-master-2
   namespace: observability
-  resourceVersion: "7641743"
-  uid: 7685b873-99b9-4ea5-868d-2f7422a893bc
 spec:
   accessModes:
   - ReadWriteOnce
