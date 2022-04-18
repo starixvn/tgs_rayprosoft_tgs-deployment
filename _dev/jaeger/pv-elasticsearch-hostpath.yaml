@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: elasticsearch-master-0
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 100Gi
+  accessModes:
+    - ReadWriteOnce
+  claimRef:
+    namespace: observability
+    name: elasticsearch-master-elasticsearch-master-0
+  persistentVolumeReclainPolicy: Retail
+  hostPath:
+    path: /elasticsearch
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: elasticsearch-master-1
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 100Gi
+  accessModes:
+    - ReadWriteOnce
+  claimRef:
+    namespace: observability
+    name: elasticsearch-master-elasticsearch-master-1
+  persistentVolumeReclainPolicy: Retail
+  hostPath:
+    path: /elasticsearch
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: elasticsearch-master-2
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 100Gi
+  accessModes:
+    - ReadWriteOnce
+  claimRef:
+    namespace: observability
+    name: elasticsearch-master-elasticsearch-master-2
+  persistentVolumeReclainPolicy: Retail
+  hostPath:
+    path: /elasticsearch
+---
