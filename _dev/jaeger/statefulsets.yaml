@@ -45,6 +45,13 @@ spec:
                 - elasticsearch-master
             topologyKey: kubernetes.io/hostname
       automountServiceAccountToken: true
+      nodeSelector:
+        type: elasticsearch
+      tolerations:
+      - key: "type"
+        operator: "Equal"
+        value: "elasticsearch"
+        effect: "NoSchedule"
       containers:
       - env:
         - name: node.name
