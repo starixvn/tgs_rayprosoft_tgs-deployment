@@ -11,7 +11,7 @@ spec:
   claimRef:
     namespace: observability
     name: elasticsearch-master-elasticsearch-master-0
-  persistentVolumeReclainPolicy: Retail
+  persistentVolumeReclainPolicy: Retain
   hostPath:
     path: /elasticsearch
 ---
@@ -28,7 +28,7 @@ spec:
   claimRef:
     namespace: observability
     name: elasticsearch-master-elasticsearch-master-1
-  persistentVolumeReclainPolicy: Retail
+  persistentVolumeReclainPolicy: Retain
   hostPath:
     path: /elasticsearch
 ---
@@ -45,7 +45,7 @@ spec:
   claimRef:
     namespace: observability
     name: elasticsearch-master-elasticsearch-master-2
-  persistentVolumeReclainPolicy: Retail
+  persistentVolumeReclainPolicy: Retain
   hostPath:
     path: /elasticsearch
 ---
