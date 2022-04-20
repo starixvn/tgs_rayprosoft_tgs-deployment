@@ -15,7 +15,8 @@ spec:
   - host: stg-record-receiver.rpgp.cc
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: / 
         backend:
           service:
             name: game-gamerecord-receiverserver 
