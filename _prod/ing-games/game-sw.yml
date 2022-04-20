@@ -1,4 +1,4 @@
-apiVersion: extensions/v1beta1
+apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-game-sw
@@ -32,9 +32,9 @@ metadata:
       allow 104.199.239.139/32;
       allow 104.199.172.197/32;
       allow 104.199.213.48/32;
-      allow 220.132.206.70/32;
       allow 84.247.89.2;
       allow 212.146.109.226;
+      allow 220.132.206.70/32;
       deny all;
 spec:
   tls:
