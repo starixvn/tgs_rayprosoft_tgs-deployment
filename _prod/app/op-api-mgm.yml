@@ -106,6 +106,10 @@ spec:
         - name: appsettings
           configMap:
             name: configmap-operator-api
+        - name: diagvol
+          emptyDir: {}
+        - name: dumpsvol
+          emptyDir: {}
 ---
 apiVersion: v1
 kind: Service
