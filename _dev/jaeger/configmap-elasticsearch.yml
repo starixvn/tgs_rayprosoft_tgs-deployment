@@ -10,3 +10,6 @@ data:
     xpack.security.enabled: false
     http.cors.enabled: true
     http.cors.allow-origin: "*"
+    ingest.geoip.downloader.enabled: false
+    indices.breaker.fielddata.limit: 40%
+    indices.breaker.request.limit: 40%
