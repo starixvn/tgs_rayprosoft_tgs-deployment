@@ -1,5 +1,5 @@
 # nats and its exporter
-helm install nats bitnami/nats --set metrics.enabled=true,auth.enabled=false
+helm upgrade --install nats bitnami/nats --set metrics.enabled=true,auth.enabled=false -n prod
 nats-metrics:7777/metrics 
 https://github.com/bitnami/charts/tree/master/bitnami/nats/#installing-the-chart
 
