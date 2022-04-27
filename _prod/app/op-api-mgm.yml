@@ -55,7 +55,7 @@ spec:
               memory: 1500Mi
           env:
             - name: OTEL_SERVICE_NAME
-              value: Operator-Api({{ .Release.Namespace }})
+              value: Operator-Api(prod)
             - name: NODE_IP
               valueFrom:
                 fieldRef:

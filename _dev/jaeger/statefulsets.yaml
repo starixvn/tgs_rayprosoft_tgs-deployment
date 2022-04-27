@@ -34,16 +34,6 @@ spec:
         release: jaeger
       name: elasticsearch-master
     spec:
-      affinity:
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: app
-                operator: In
-                values:
-                - elasticsearch-master
-            topologyKey: kubernetes.io/hostname
       automountServiceAccountToken: true
       nodeSelector:
         type: elasticsearch
