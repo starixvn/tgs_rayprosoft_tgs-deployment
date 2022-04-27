@@ -34,6 +34,13 @@ spec:
         release: jaeger
       name: elasticsearch-master
     spec:
+      nodeSelector:
+        type: elasticsearch
+      tolerations:
+      - effect: NoSchedule
+        key: type
+        operator: Equal
+        value: elasticsearch
       automountServiceAccountToken: true
       nodeSelector:
         type: elasticsearch
