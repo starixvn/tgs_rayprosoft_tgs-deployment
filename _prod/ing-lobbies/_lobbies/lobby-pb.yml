@@ -322,8 +322,8 @@ spec:
             name: lobby-pb
             port:
               number: 80
-   - host: pinasbet.co
-     http:
+  - host: pinasbet.co
+    http:
       paths:
       - pathType: Prefix
         path: /api/brandcommunication
