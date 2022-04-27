@@ -71,7 +71,7 @@ spec:
         path: /
         backend:
           service:
-            name: lobby-piso
+            name: lobby-pb
             port:
               number: 80
   - host: pbslots.org
