@@ -33,7 +33,7 @@ spec:
         path: /api
         backend:
           service:
-            name: op-api-mess8
+            name: operator-api
             port:
               number: 80
       - pathType: Prefix
@@ -64,7 +64,7 @@ spec:
         path: /api
         backend:
           service:
-            name: op-api-mess8
+            name: operator-api
             port:
               number: 80
       - pathType: Prefix
@@ -95,7 +95,7 @@ spec:
         path: /api
         backend:
           service:
-            name: op-api-mess8
+            name: operator-api
             port:
               number: 80
       - pathType: Prefix
@@ -126,7 +126,7 @@ spec:
         path: /api
         backend:
           service:
-            name: op-api-mess8
+            name: operator-api
             port:
               number: 80
       - pathType: Prefix
@@ -157,7 +157,7 @@ spec:
         path: /api
         backend:
           service:
-            name: op-api-mess8
+            name: operator-api
             port:
               number: 80
       - pathType: Prefix
@@ -188,7 +188,7 @@ spec:
         path: /api
         backend:
           service:
-            name: op-api-mess8
+            name: operator-api
             port:
               number: 80
       - pathType: Prefix
@@ -219,7 +219,7 @@ spec:
         path: /api
         backend:
           service:
-            name: op-api-mess8
+            name: operator-api
             port:
               number: 80
       - pathType: Prefix
@@ -250,7 +250,7 @@ spec:
         path: /api
         backend:
           service:
-            name: op-api-mess8
+            name: operator-api
             port:
               number: 80
       - pathType: Prefix
@@ -281,7 +281,7 @@ spec:
         path: /api
         backend:
           service:
-            name: op-api-mess8
+            name: operator-api
             port:
               number: 80
       - pathType: Prefix
@@ -312,7 +312,7 @@ spec:
         path: /api
         backend:
           service:
-            name: op-api-mess8
+            name: operator-api
             port:
               number: 80
       - pathType: Prefix
