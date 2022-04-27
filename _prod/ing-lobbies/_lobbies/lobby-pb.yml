@@ -415,3 +415,34 @@ spec:
             name: lobby-pb
             port:
               number: 80
+  - host: pinasbet.org
+    http:
+      paths:
+      - pathType: Prefix
+        path: /api/brandcommunication
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api/brandlivechat
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api
+        backend:
+          service:
+            name: operator-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: lobby-pb
+            port:
+              number: 80
