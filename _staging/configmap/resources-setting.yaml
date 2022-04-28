@@ -56,6 +56,8 @@ data:
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-databaseserver: |
     {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
+  game-gamerecord-joker-service: | 
+    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"64Mi"}} 
   game-gamerecord-receiverserver: |
     {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   game-gamerecord-receiverserver-avia: | 
