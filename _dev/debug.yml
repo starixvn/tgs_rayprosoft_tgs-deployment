@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: debug2
+  namespace: dev
+  labels:
+    app: debug2
+spec:
+  selector:
+    matchLabels:
+      app: debug2
+  template:
+    metadata:
+      labels:
+        app: debug2
+    spec:
+      tolerations:
+      - key: node-role.kubernetes.io/master
+        effect: NoSchedule
+      containers:
+      - name: debug-server
+        image: hwchiu/netutils
+      affinity:                                             # add
+        podAntiAffinity:                                    # add
+          requiredDuringSchedulingIgnoredDuringExecution:   # add
+          - labelSelector:                                  # add
+              matchExpressions:                             # add
+              - key: app                                    # add
+                operator: In                                # add
+                values:                                     # add
+                - debug2                                    # add
+            topologyKey: kubernetes.io/hostname
