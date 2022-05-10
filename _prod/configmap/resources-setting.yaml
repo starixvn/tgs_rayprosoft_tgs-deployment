@@ -11,7 +11,7 @@ data:
   agent-28bet: | 
    {"limits":{"cpu":"5m","memory":"20Mi"},"requests":{"cpu":"5m","memory":"20Mi"}}
   agent-api: | 
-   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+   {"limits":{"cpu":"200m","memory":"800Mi"},"requests":{"cpu":"200m","memory":"800Mi"}}
   agent-bin: | 
    {"limits":{"cpu":"5m","memory":"20Mi"},"requests":{"cpu":"5m","memory":"20Mi"}}
   agent-bunny: | 
@@ -39,7 +39,7 @@ data:
   agent-wlghk: | 
    {"limits":{"cpu":"5m","memory":"20Mi"},"requests":{"cpu":"5m","memory":"20Mi"}}
   backoffice-api: | 
-   {"limits":{"cpu":"2","memory":"2000Mi"},"requests":{"cpu":"200m","memory":"700Mi"}}
+   {"limits":{"cpu":"500m","memory":"1200Mi"},"requests":{"cpu":"500m","memory":"1200Mi"}}
   brand-api: | 
    {"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   brand-cert-api: | 
@@ -257,7 +257,7 @@ data:
   promotion-api: | 
    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   report-api: | 
-   {"limits":{"cpu":"1","memory":"1200Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+   {"limits":{"cpu":"300m","memory":"1200Mi"},"requests":{"cpu":"300m","memory":"1200Mi"}}
   schedulers: | 
    {"limits":{"cpu":"1","memory":"1000Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   sign-in: | 
