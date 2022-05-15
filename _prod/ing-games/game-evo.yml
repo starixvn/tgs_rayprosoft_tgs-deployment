@@ -5,12 +5,12 @@ metadata:
   namespace: prod
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
-    kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/server-snippet: |-
       allow 35.194.169.30/32;
-      allow 220.132.206.70/32;
+      allow 36.234.19.51/32;
       deny all;
 spec:
+  ingressClassName: nginx
   tls:
   - hosts:
     - game-evo.yydsgo.xyz
