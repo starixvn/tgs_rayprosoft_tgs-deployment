@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: dashboard
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: dashboard.srvptt.com
+    http:
+      paths:
+      - path: /
+        backend:
+          service: 
+            name: dashboard-kubernetes-dashboard
+            port: 
+              number: 443
