@@ -1,17 +1,27 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: dashboard
+  name: dashboard-kubernetes-dashboard
+  labels:
+    app.kubernetes.io/name: kubernetes-dashboard
+    helm.sh/chart: kubernetes-dashboard-5.4.1
+    app.kubernetes.io/instance: dashboard
+    app.kubernetes.io/version: "2.5.1"
+    app.kubernetes.io/managed-by: Helm
+  annotations:
+    # Add https backend protocol support for ingress-nginx
+    nginx.ingress.kubernetes.io/backend-protocol: "HTTPS"
+    # Add https backend protocol support for GKE
+    service.alpha.kubernetes.io/app-protocols: '{"https":"HTTPS"}'
 spec:
-  ingressClassName: nginx
   rules:
-  - host: dashboard.srvptt.com
-    http:
-      paths:
-      - pathType: Prefix
-        path: /
-        backend:
-          service: 
-            name: dashboard-kubernetes-dashboard
-            port: 
-              number: 443
+    - host: dashboard.srvptt.com
+      http:
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
+            backend:
+              service:
+                name: dashboard-kubernetes-dashboard
+                port:
+                  number: 443
