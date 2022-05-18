@@ -8,7 +8,8 @@ spec:
   - host: dashboard.srvptt.com
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
           service: 
             name: dashboard-kubernetes-dashboard
