@@ -63,13 +63,13 @@ data:
   game-bg: | 
    {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-evo : | 
-   {"limits":{"cpu":"100m","memory":"1200Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
+   {"limits":{"cpu":"1000m","memory":"1200Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-dg : | 
-   {"limits":{"cpu":"100m","memory":"1200Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
+   {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-gameprovider-queryserver: | 
    {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"100Mi"}}
   game-gameproviders: | 
-   {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+   {"limits":{"cpu":"500m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamerecord-databaseserver: | 
    {"limits":{"cpu":"1","memory":"768Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-gamerecord-joker-service: | 
@@ -93,7 +93,7 @@ data:
   game-gamerecord-receiverserver-wgvia : | 
    {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamerecord-scheduler: | 
-   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+   {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   game-haba: | 
    {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-imes: | 
@@ -123,9 +123,9 @@ data:
   game-sw: | 
    {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-tcg : | 
-   {"limits":{"cpu":"100m","memory":"1200Mi"},"requests":{"cpu":"100m","memory":"1200Mi"}}
+   {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"100m","memory":"1200Mi"}}
   game-tcg-ftp : | 
-   {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+   {"limits":{"cpu":"600m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-tf: | 
    {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-vr: | 
