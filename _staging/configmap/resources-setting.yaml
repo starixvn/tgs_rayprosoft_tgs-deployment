@@ -162,6 +162,8 @@ data:
    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"10m","memory":"200Mi"}}
   game-gamerecordschedules: | 
    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"10m","memory":"200Mi"}}
+  game-gamerecord-manual-service: | 
+   {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"10m","memory":"200Mi"}}
   global-api: | 
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"50Mi"}}
   lobby-21gen: | 
