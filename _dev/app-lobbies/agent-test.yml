@@ -1,0 +1,122 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  namespace: dev
+  name: agent-test
+  labels:
+    app: agent-test
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: agent-test
+  template:
+    metadata:
+      labels:
+        app: agent-test
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      containers:
+        - name: agent-test
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:test
+          imagePullPolicy: Always
+          env:
+          - name: CLIENT
+            value: "xdZYrxH3X8xXn2KlhWqB3VB4TjZrHfp4rM5xbHfa8cU3oz6CZDL3HqcuZ07pPQFV"
+          - name: CURRENCY
+            value: "CNY"
+          - name: BRAND
+            value: "TGSTest"
+          - name: LANGUAGES
+            value: "[{\"name\":\"zh-CN\",\"label\":\"简体\"},{\"name\":\"zh-TW\",\"label\":\"繁體\"},{\"name\":\"en-US\",\"label\":\"English\"},{\"name\":\"th-TH\",\"label\":\"Thai\"}]"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
+          - name: THEME
+            value: "red"
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: site-data
+              mountPath: /data
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+        - name: agent-689
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:689
+          imagePullPolicy: Always
+          env:
+          - name: CLIENT
+            value: "xdZYrxH3X8xXn2KlhWqB3VB4TjZrHfp4rM5xbHfa8cU3oz6CZDL3HqcuZ07pPQFV"
+          - name: CURRENCY
+            value: "CNY"
+          - name: BRAND
+            value: "TGS689"
+          - name: LANGUAGES
+            value: "[{\"name\":\"zh-CN\",\"label\":\"简体\"},{\"name\":\"zh-TW\",\"label\":\"繁體\"},{\"name\":\"en-US\",\"label\":\"English\"},{\"name\":\"th-TH\",\"label\":\"Thai\"}]"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
+          - name: THEME
+            value: "red"
+          ports:
+            - containerPort: 81
+          volumeMounts:
+            - name: site-data
+              mountPath: /data
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 81
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 81
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+      volumes:
+        - name: site-data
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: agent-test
+  namespace: dev
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      name: agent-test
+  selector:
+    app: agent-test
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: agent-689
+  namespace: dev
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 81
+      name: agent-689
+  selector:
+    app: agent-689
