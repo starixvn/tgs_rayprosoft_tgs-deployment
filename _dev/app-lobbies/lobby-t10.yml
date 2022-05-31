@@ -32,7 +32,9 @@ spec:
           - name: DEFAULT_LANGUAGE
             value: "zh-CN"
           - name: THEME
-            value: "red"
+            value: "wapT10"
+          - name: "WAPTEMPLATE"
+            value: "10"
           - name: SOURCE_URL
             value: "https://images.srvptt.com/"
           ports:
