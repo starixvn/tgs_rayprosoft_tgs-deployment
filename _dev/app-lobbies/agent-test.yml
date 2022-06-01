@@ -46,39 +46,6 @@ spec:
           volumeMounts:
             - name: site-data
               mountPath: /data
-        - name: agent-689
-          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:689
-          env:
-          - name: CLIENT
-            value: "xdZYrxH3X8xXn2KlhWqB3VB4TjZrHfp4rM5xbHfa8cU3oz6CZDL3HqcuZ07pPQFV"
-          - name: CURRENCY
-            value: "CNY"
-          - name: BRAND
-            value: "TGS689"
-          - name: LANGUAGES
-            value: "[{\"name\":\"zh-CN\",\"label\":\"简体\"},{\"name\":\"zh-TW\",\"label\":\"繁體\"},{\"name\":\"en-US\",\"label\":\"English\"},{\"name\":\"th-TH\",\"label\":\"Thai\"}]"
-          - name: DEFAULT_LANGUAGE
-            value: "zh-CN"
-          - name: THEME
-            value: "red"
-          - name: TCP_PORT
-            value: "2020"
-          - name: HPPT_PORT
-            value: "81"
-          - name: EXE_PATH
-            value: "agent-689"
-          ports:
-            - containerPort: 81
-          command:
-            - "/bin/sh"
-            - "-c"
-            - "cp -rf /usr/share/caddy /usr/share/agent-689"
-            - "envsubst < /etc/caddy/Caddyfile > /etc/caddy/Caddyfile-agent-689"
-            - "cat /etc/caddy/Caddyfile-agent-689"
-            - "caddy run --config /etc/caddy/Caddyfile-agent-689 --adapter caddyfile"
-          volumeMounts:
-            - name: site-data
-              mountPath: /data
       volumes:
         - name: site-data
           emptyDir: {}
