@@ -28,7 +28,7 @@ spec:
           - name: CURRENCY
             value: "CNY"
           - name: BRAND
-            value: "TGS689"
+            value: "TGSTEST"
           - name: LANGUAGES
             value: "[{\"name\":\"zh-CN\",\"label\":\"简体\"},{\"name\":\"zh-TW\",\"label\":\"繁體\"},{\"name\":\"en-US\",\"label\":\"English\"},{\"name\":\"th-TH\",\"label\":\"Thai\"}]"
           - name: DEFAULT_LANGUAGE
