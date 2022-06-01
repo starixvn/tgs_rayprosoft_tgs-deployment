@@ -44,7 +44,7 @@ spec:
           ports:
             - containerPort: 81
           command:
-            - "bin/sh"
+            - "/bin/sh"
             - "-c"
             - "cp -rf /usr/share/caddy /usr/share/agent-gpi"
             - "envsubst < /etc/caddy/Caddyfile > /etc/caddy/Caddyfile-agent-gpi"
@@ -78,7 +78,7 @@ spec:
           ports:
             - containerPort: 81
           command:
-            - "bin/sh"
+            - "/bin/sh"
             - "-c"
             - "cp -rf /usr/share/caddy /usr/share/agent-689"
             - "envsubst < /etc/caddy/Caddyfile > /etc/caddy/Caddyfile-agent-689"
