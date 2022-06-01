@@ -98,4 +98,4 @@ spec:
       targetPort: 81
       name: agent-689
   selector:
-    app: agent-689
+    app: agent-test
