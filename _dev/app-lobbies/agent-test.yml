@@ -59,7 +59,7 @@ spec:
           ports:
             - containerPort: 81
           command: ["/bin/sh"]
-          args: ["-c", "cp -rf /usr/share/caddy /usr/share/agent-689 && caddy run --config /etc/caddy/Caddyfile-689 --adapter caddyfile"]
+          args: ["-c", "cp -rf /usr/share/caddy /usr/share/agent-689 && cat /etc/caddy/Caddyfile-689 && caddy run --config /etc/caddy/Caddyfile-689 --adapter caddyfile"]
           volumeMounts:
             - mountPath: /etc/caddy/Caddyfile-689
               name: caddyfile-689
