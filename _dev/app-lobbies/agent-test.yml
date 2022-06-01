@@ -19,8 +19,8 @@ spec:
       imagePullSecrets:
         - name: registry-credentials
       containers:
-        - name: agent-test
-          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:test
+        - name: agent-api
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:dev
           imagePullPolicy: Always
           env:
           - name: CLIENT
@@ -35,13 +35,26 @@ spec:
             value: "zh-CN"
           - name: THEME
             value: "red"
+          - name: TCP_PORT
+            value: "2019"
+          - name: HPPT_PORT
+            value: "80"
+          - name: EXE_PATH
+            value: "agent-gpi"
           ports:
             - containerPort: 81
+          command:
+            - "bin/sh"
+            - "-c"
+            - "cp -rf /usr/share/caddy /usr/share/agent-gpi"
+            - "envsubst < /etc/caddy/Caddyfile > /etc/caddy/Caddyfile-agent-gpi"
+            - "cat /etc/caddy/Caddyfile-agent-gpi"
+            - "caddy run --config /etc/caddy/Caddyfile-agent-gpi --adapter caddyfile"
           volumeMounts:
             - name: site-data
               mountPath: /data
         - name: agent-689
-          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:689
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:dev
           imagePullPolicy: Always
           env:
           - name: CLIENT
@@ -56,21 +69,27 @@ spec:
             value: "zh-CN"
           - name: THEME
             value: "red"
+          - name: TCP_PORT
+            value: "2020"
+          - name: HPPT_PORT
+            value: "81"
+          - name: EXE_PATH
+            value: "agent-689"
           ports:
             - containerPort: 81
-          command: ["/bin/sh"]
-          args: ["-c", "cp -rf /usr/share/caddy /usr/share/agent-689 && cat /etc/caddy/Caddyfile-689 && caddy run --config /etc/caddy/Caddyfile-689 --adapter caddyfile"]
+          command:
+            - "bin/sh"
+            - "-c"
+            - "cp -rf /usr/share/caddy /usr/share/agent-689"
+            - "envsubst < /etc/caddy/Caddyfile > /etc/caddy/Caddyfile-agent-689"
+            - "cat /etc/caddy/Caddyfile-agent-689"
+            - "caddy run --config /etc/caddy/Caddyfile-agent-689 --adapter caddyfile"
           volumeMounts:
-            - mountPath: /etc/caddy/Caddyfile-689
-              name: caddyfile-689
-              readOnly: true
-              subPath: agent-689
+            - name: site-data
+              mountPath: /data
       volumes:
         - name: site-data
           emptyDir: {}
-        - name: caddyfile-689
-          configMap:
-            name: caddyfile-689
 ---
 apiVersion: v1
 kind: Service
@@ -79,23 +98,13 @@ metadata:
   namespace: dev
 spec:
   ports:
-    - protocol: TCP
+    - name: agent-gpi
+      protocol: TCP
       port: 80
       targetPort: 80
-      name: agent-test
-  selector:
-    app: agent-test
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: agent-689
-  namespace: dev
-spec:
-  ports:
-    - protocol: TCP
+    - name: agent-689
+      protocol: TCP
       port: 80
       targetPort: 81
-      name: agent-689
   selector:
     app: agent-test
