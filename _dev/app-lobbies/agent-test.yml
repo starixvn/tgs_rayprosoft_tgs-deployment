@@ -44,7 +44,7 @@ spec:
           command:
             - "/bin/sh"
             - "-c"
-            - "cat /usr/share/caddy"
+            - "cat /etc/caddy/Caddyfile"
             - "cp -rf /usr/share/caddy /usr/share/agent-gpi"
             - "envsubst < /etc/caddy/Caddyfile > /etc/caddy/Caddyfile-agent-gpi"
             - "cat /etc/caddy/Caddyfile-agent-gpi"
