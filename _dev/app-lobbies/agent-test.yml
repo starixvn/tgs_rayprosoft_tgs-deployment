@@ -59,11 +59,16 @@ spec:
           ports:
             - containerPort: 81
           volumeMounts:
-            - name: site-data
-              mountPath: /data
+            - mountPath: /etc/caddy/Caddyfile.689
+              name: caddyfile-689
+              readOnly: true
+              subPath: agent-689
       volumes:
         - name: site-data
           emptyDir: {}
+        - name: caddyfile-689
+          configMap:
+            name: caddyfile-689
 ---
 apiVersion: v1
 kind: Service
