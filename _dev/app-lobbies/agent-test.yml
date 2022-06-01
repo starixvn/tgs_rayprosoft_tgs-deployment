@@ -42,7 +42,7 @@ spec:
           - name: EXE_PATH
             value: "agent-gpi"
           ports:
-            - containerPort: 81
+            - containerPort: 80
           command:
             - "/bin/sh"
             - "-c"
