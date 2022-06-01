@@ -43,13 +43,6 @@ spec:
             value: "agent-gpi"
           ports:
             - containerPort: 80
-          command:
-            - "/bin/sh"
-            - "-c"
-            - "cp -rf /usr/share/caddy /usr/share/agent-gpi"
-            - "envsubst < /etc/caddy/Caddyfile > /etc/caddy/Caddyfile-agent-gpi"
-            - "cat /etc/caddy/Caddyfile-agent-gpi"
-            - "caddy run --config /etc/caddy/Caddyfile-agent-gpi --adapter caddyfile"
           volumeMounts:
             - name: site-data
               mountPath: /data
