@@ -19,7 +19,7 @@ spec:
       imagePullSecrets:
         - name: registry-credentials
       containers:
-        - name: agent-api
+        - name: agent-gpi
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:dev
           imagePullPolicy: Always
           env:
@@ -47,8 +47,7 @@ spec:
             - name: site-data
               mountPath: /data
         - name: agent-689
-          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:dev
-          imagePullPolicy: Always
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:689
           env:
           - name: CLIENT
             value: "xdZYrxH3X8xXn2KlhWqB3VB4TjZrHfp4rM5xbHfa8cU3oz6CZDL3HqcuZ07pPQFV"
