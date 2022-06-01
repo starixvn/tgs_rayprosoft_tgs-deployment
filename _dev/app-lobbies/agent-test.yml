@@ -41,6 +41,14 @@ spec:
             value: "80"
           - name: EXE_PATH
             value: "agent-gpi"
+          command:
+            - "/bin/sh"
+            - "-c"
+            - "cat /usr/share/caddy"
+            - "cp -rf /usr/share/caddy /usr/share/agent-gpi"
+            - "envsubst < /etc/caddy/Caddyfile > /etc/caddy/Caddyfile-agent-gpi"
+            - "cat /etc/caddy/Caddyfile-agent-gpi"
+            - "caddy run --config /etc/caddy/Caddyfile-agent-gpi --adapter caddyfile"
           ports:
             - containerPort: 80
           volumeMounts:
