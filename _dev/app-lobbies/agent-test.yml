@@ -45,9 +45,9 @@ spec:
             - "/bin/sh"
             - "-c"
             - "cat /etc/caddy/Caddyfile"
-            - "echo "HTTP_PORT=${HTTP_PORT}"
-            - "echo "TCP_PORT=${TCP_PORT}"
-            - "echo "EXE_PATH=${EXE_PATH}"
+            - 'echo "HTTP_PORT=${HTTP_PORT}"'
+            - 'echo "TCP_PORT=${TCP_PORT}"'
+            - 'echo "EXE_PATH=${EXE_PATH}"'
             - "envsubst < /etc/caddy/Caddyfile > /etc/caddy/Caddyfile-agent-gpi"
             - "cat /etc/caddy/Caddyfile-agent-gpi"
             - "cp -rf /usr/share/caddy /usr/share/agent-gpi"
