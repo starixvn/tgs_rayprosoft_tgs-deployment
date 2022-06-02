@@ -18,10 +18,21 @@ spec:
     spec:
       imagePullSecrets:
         - name: registry-credentials
+      volumes:
+        - name: bash-agent
+          configMap:
+            name: bash-agent
       containers:
         - name: agent-gpi
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:dev
           imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-agent.sh 80 2019 agent-gpi"]
+          volumeMounts:
+            - mountPath: /srv/bash-agent.sh
+              name: bash-agent
+              readOnly: true
+              subPath: bash-agent
           env:
           - name: CLIENT
             value: "xdZYrxH3X8xXn2KlhWqB3VB4TjZrHfp4rM5xbHfa8cU3oz6CZDL3HqcuZ07pPQFV"
@@ -35,22 +46,8 @@ spec:
             value: "zh-CN"
           - name: THEME
             value: "red"
-          - name: TCP_PORT
-            value: "2019"
-          - name: HTTP_PORT
-            value: "80"
-          - name: EXE_PATH
-            value: "agent-gpi"
-          command:
-            - "/bin/sh"
-            - "-c"
-            - | 
-              cp /etc/caddy/Caddyfile-Template /etc/caddy/Caddyfile-${EXE_PATH}
-              sed -i "s/{TCP_PORT}/${TCP_PORT}/g" /etc/caddy/Caddyfile-${EXE_PATH}
-              sed -i "s/{HTTP_PORT}/${HTTP_PORT}/g" /etc/caddy/Caddyfile-${EXE_PATH}
-              sed -i "s/{EXE_PATH}/${EXE_PATH}/g" /etc/caddy/Caddyfile-${EXE_PATH}              
-              cp -rf /usr/share/caddy /usr/share/${EXE_PATH}
-              caddy run --config /etc/caddy/Caddyfile-${EXE_PATH} --adapter caddyfile
+          ports:
+            - containerPort: 80
           livenessProbe:
             httpGet:
               path: /healthcheck
@@ -68,6 +65,13 @@ spec:
         - name: agent-689
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:dev
           imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-agent.sh 81 2020 agent-689"]
+          volumeMounts:
+            - mountPath: /srv/bash-agent.sh
+              name: bash-agent
+              readOnly: true
+              subPath: bash-agent
           env:
           - name: CLIENT
             value: "xdZYrxH3X8xXn2KlhWqB3VB4TjZrHfp4rM5xbHfa8cU3oz6CZDL3HqcuZ07pPQFV"
@@ -81,22 +85,6 @@ spec:
             value: "zh-CN"
           - name: THEME
             value: "red"
-          - name: TCP_PORT
-            value: "2020"
-          - name: HTTP_PORT
-            value: "81"
-          - name: EXE_PATH
-            value: "agent-689"
-          command:
-            - "/bin/sh"
-            - "-c"
-            - | 
-              cp /etc/caddy/Caddyfile-Template /etc/caddy/Caddyfile-${EXE_PATH}
-              sed -i "s/{TCP_PORT}/${TCP_PORT}/g" /etc/caddy/Caddyfile-${EXE_PATH}
-              sed -i "s/{HTTP_PORT}/${HTTP_PORT}/g" /etc/caddy/Caddyfile-${EXE_PATH}
-              sed -i "s/{EXE_PATH}/${EXE_PATH}/g" /etc/caddy/Caddyfile-${EXE_PATH}              
-              cp -rf /usr/share/caddy /usr/share/${EXE_PATH}
-              caddy run --config /etc/caddy/Caddyfile-${EXE_PATH} --adapter caddyfile
           ports:
             - containerPort: 81
           livenessProbe:

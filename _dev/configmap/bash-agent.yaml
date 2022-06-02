@@ -4,7 +4,7 @@ metadata:
   name: bash-agent
   namespace: dev
 data:
-  bash-agent.sh: | 
+  bash-agent: | 
     #!/bin/sh
     HTTP_PORT=$1
     TCP_PORT=$2
