@@ -46,7 +46,8 @@ spec:
             - "-c"
             - | 
               cat /etc/caddy/Caddyfile
-              source ~/.bashrc && envsubst < /etc/caddy/Caddyfile > /etc/caddy/Caddyfile-agent-gpi
+              pwd
+              envsubst < /etc/caddy/Caddyfile > /etc/caddy/Caddyfile-agent-gpi
               ls /etc/caddy/
               cat /etc/caddy/Caddyfile-agent-gpi
               cp -rf /usr/share/caddy /usr/share/agent-gpi
