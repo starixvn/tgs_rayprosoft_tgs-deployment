@@ -49,7 +49,10 @@ spec:
               echo "ls /etc/caddy/="
               ls /etc/caddy/
               
-              envsubst < /etc/caddy/Caddyfile-Template > /etc/caddy/Caddyfile-agent-gpi
+              cp /etc/caddy/Caddyfile-Template /etc/caddy/Caddyfile-agent-gpi
+              sed -i "s/{TCP_PORT}/${TCP_PORT}/g" /etc/caddy/Caddyfile-agent-gpi
+              sed -i "s/{HTTP_PORT}/${HTTP_PORT}/g" /etc/caddy/Caddyfile-agent-gpi
+              sed -i "s/{EXE_PATH}/${EXE_PATH}/g" /etc/caddy/Caddyfile-agent-gpi
               
               echo "ls /etc/caddy/=2"
               ls /etc/caddy/
