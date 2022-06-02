@@ -42,7 +42,7 @@ spec:
           - name: EXE_PATH
             value: "agent-gpi"
           command:
-            - "/bin/bash"
+            - "/bin/sh"
             - "-c"
             - | 
               cat /etc/caddy/Caddyfile
