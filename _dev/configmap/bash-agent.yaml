@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: bash-agent
+  namespace: dev
+data:
+  bash-agent.sh: | 
+    #!/bin/sh
+    HTTP_PORT=$1
+    TCP_PORT=$2
+    EXE_PATH=$3
+    cp /etc/caddy/Caddyfile-Template /etc/caddy/Caddyfile-${EXE_PATH}
+    sed -i "s/{TCP_PORT}/${TCP_PORT}/g" /etc/caddy/Caddyfile-${EXE_PATH}
+    sed -i "s/{HTTP_PORT}/${HTTP_PORT}/g" /etc/caddy/Caddyfile-${EXE_PATH}
+    sed -i "s/{EXE_PATH}/${EXE_PATH}/g" /etc/caddy/Caddyfile-${EXE_PATH}
+    cp -rf /usr/share/caddy /usr/share/${EXE_PATH}
+    caddy run --config /etc/caddy/Caddyfile-${EXE_PATH} --adapter caddyfile
