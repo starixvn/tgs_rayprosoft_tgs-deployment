@@ -46,8 +46,8 @@ spec:
             - "-c"
             - | 
               cat /etc/caddy/Caddyfile
-              apt-get install gettext-base git -y
-              envsubst < /etc/caddy/Caddyfile > /etc/caddy/Caddyfile-agent-gpi
+              source ~/.bashrc && envsubst < /etc/caddy/Caddyfile > /etc/caddy/Caddyfile-agent-gpi
+              ls /etc/caddy/
               cat /etc/caddy/Caddyfile-agent-gpi
               cp -rf /usr/share/caddy /usr/share/agent-gpi
               cat /etc/caddy/Caddyfile-agent-gpi
