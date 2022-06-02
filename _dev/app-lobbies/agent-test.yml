@@ -48,9 +48,12 @@ spec:
               cat /etc/caddy/Caddyfile
               pwd
               envsubst < /etc/caddy/Caddyfile > /etc/caddy/Caddyfile-agent-gpi
+              echo "ls /etc/caddy/="
               ls /etc/caddy/
+              echo "cat /etc/caddy/Caddyfile-agent-gpi"
               cat /etc/caddy/Caddyfile-agent-gpi
               cp -rf /usr/share/caddy /usr/share/agent-gpi
+              echo "ls /etc/caddy/"
               ls /etc/caddy/
               caddy run --config /etc/caddy/Caddyfile-agent-gpi --adapter caddyfile
           ports:
