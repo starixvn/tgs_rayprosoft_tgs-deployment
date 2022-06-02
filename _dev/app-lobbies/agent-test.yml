@@ -49,7 +49,7 @@ spec:
               echo "ls /etc/caddy/="
               ls /etc/caddy/
               
-              envsubst < /etc/caddy/Caddyfile > /etc/caddy/Caddyfile-agent-gpi
+              envsubst < /etc/caddy/Caddyfile-Template > /etc/caddy/Caddyfile-agent-gpi
               
               echo "ls /etc/caddy/=2"
               ls /etc/caddy/
@@ -62,7 +62,7 @@ spec:
               echo "/usr/share/agent-gpi="
               ls /usr/share/agent-gpi/
               
-              caddy run --config /etc/caddy/Caddyfile-agent-gpi --adapter caddyfile
+              caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
           ports:
             - containerPort: 80
           volumeMounts:
