@@ -51,7 +51,7 @@ spec:
               ls /etc/caddy/
               cat /etc/caddy/Caddyfile-agent-gpi
               cp -rf /usr/share/caddy /usr/share/agent-gpi
-              cat /etc/caddy/Caddyfile-agent-gpi
+              ls /etc/caddy/
               caddy run --config /etc/caddy/Caddyfile-agent-gpi --adapter caddyfile
           ports:
             - containerPort: 80
