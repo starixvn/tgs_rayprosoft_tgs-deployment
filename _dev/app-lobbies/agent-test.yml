@@ -49,10 +49,10 @@ spec:
               echo "ls /etc/caddy/="
               ls /etc/caddy/
               
-              cp /etc/caddy/Caddyfile-Template /etc/caddy/Caddyfile-agent-gpi
-              sed -i "s/{TCP_PORT}/${TCP_PORT}/g" /etc/caddy/Caddyfile-agent-gpi
-              sed -i "s/{HTTP_PORT}/${HTTP_PORT}/g" /etc/caddy/Caddyfile-agent-gpi
-              sed -i "s/{EXE_PATH}/${EXE_PATH}/g" /etc/caddy/Caddyfile-agent-gpi
+              cp /etc/caddy/Caddyfile-Template /etc/caddy/Caddyfile-${EXE_PATH}
+              sed -i "s/{TCP_PORT}/${TCP_PORT}/g" /etc/caddy/Caddyfile-${EXE_PATH}
+              sed -i "s/{HTTP_PORT}/${HTTP_PORT}/g" /etc/caddy/Caddyfile-${EXE_PATH}
+              sed -i "s/{EXE_PATH}/${EXE_PATH}/g" /etc/caddy/Caddyfile-${EXE_PATH}
               
               echo "ls /etc/caddy/=2"
               ls /etc/caddy/
@@ -65,7 +65,7 @@ spec:
               echo "/usr/share/agent-gpi="
               ls /usr/share/agent-gpi/
               
-              caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
+              caddy run --config /etc/caddy/Caddyfile-${EXE_PATH} --adapter caddyfile
           ports:
             - containerPort: 80
           volumeMounts:
