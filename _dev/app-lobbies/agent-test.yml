@@ -45,26 +45,43 @@ spec:
             - "/bin/sh"
             - "-c"
             - | 
-              cat /etc/caddy/Caddyfile
-              echo "ls /etc/caddy/="
-              ls /etc/caddy/
-              
               cp /etc/caddy/Caddyfile-Template /etc/caddy/Caddyfile-${EXE_PATH}
               sed -i "s/{TCP_PORT}/${TCP_PORT}/g" /etc/caddy/Caddyfile-${EXE_PATH}
               sed -i "s/{HTTP_PORT}/${HTTP_PORT}/g" /etc/caddy/Caddyfile-${EXE_PATH}
-              sed -i "s/{EXE_PATH}/${EXE_PATH}/g" /etc/caddy/Caddyfile-${EXE_PATH}
-              
-              echo "ls /etc/caddy/=2"
-              ls /etc/caddy/
-              
-              echo "cat /etc/caddy/Caddyfile-agent-gpi="
-              cat /etc/caddy/Caddyfile-agent-gpi
-              
-              cp -rf /usr/share/caddy /usr/share/agent-gpi
-              
-              echo "/usr/share/agent-gpi="
-              ls /usr/share/agent-gpi/
-              
+              sed -i "s/{EXE_PATH}/${EXE_PATH}/g" /etc/caddy/Caddyfile-${EXE_PATH}              
+              cp -rf /usr/share/caddy /usr/share/${EXE_PATH}
+              caddy run --config /etc/caddy/Caddyfile-${EXE_PATH} --adapter caddyfile
+        - name: agent-689
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:dev
+          imagePullPolicy: Always
+          env:
+          - name: CLIENT
+            value: "xdZYrxH3X8xXn2KlhWqB3VB4TjZrHfp4rM5xbHfa8cU3oz6CZDL3HqcuZ07pPQFV"
+          - name: CURRENCY
+            value: "CNY"
+          - name: BRAND
+            value: "TGS689"
+          - name: LANGUAGES
+            value: "[{\"name\":\"zh-CN\",\"label\":\"简体\"},{\"name\":\"zh-TW\",\"label\":\"繁體\"},{\"name\":\"en-US\",\"label\":\"English\"},{\"name\":\"th-TH\",\"label\":\"Thai\"}]"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
+          - name: THEME
+            value: "red"
+          - name: TCP_PORT
+            value: "2020"
+          - name: HTTP_PORT
+            value: "81"
+          - name: EXE_PATH
+            value: "agent-689"
+          command:
+            - "/bin/sh"
+            - "-c"
+            - | 
+              cp /etc/caddy/Caddyfile-Template /etc/caddy/Caddyfile-${EXE_PATH}
+              sed -i "s/{TCP_PORT}/${TCP_PORT}/g" /etc/caddy/Caddyfile-${EXE_PATH}
+              sed -i "s/{HTTP_PORT}/${HTTP_PORT}/g" /etc/caddy/Caddyfile-${EXE_PATH}
+              sed -i "s/{EXE_PATH}/${EXE_PATH}/g" /etc/caddy/Caddyfile-${EXE_PATH}              
+              cp -rf /usr/share/caddy /usr/share/${EXE_PATH}
               caddy run --config /etc/caddy/Caddyfile-${EXE_PATH} --adapter caddyfile
           ports:
             - containerPort: 80
