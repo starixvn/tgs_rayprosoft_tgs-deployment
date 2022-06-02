@@ -22,6 +22,7 @@ spec:
         - name: bash-agent
           configMap:
             name: bash-agent
+            defaultMode: 0777
       containers:
         - name: agent-gpi
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:dev
