@@ -37,12 +37,12 @@ spec:
             value: "red"
           - name: TCP_PORT
             value: "2019"
-          - name: HPPT_PORT
+          - name: HTTP_PORT
             value: "80"
           - name: EXE_PATH
             value: "agent-gpi"
           command:
-            - "/bin/sh"
+            - "/bin/bash"
             - "-c"
             - | 
               cat /etc/caddy/Caddyfile
