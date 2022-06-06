@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: bash-agent
+  name: bash-frontend
   namespace: dev
 data:
-  bash-agent: | 
+  bash-frontend: | 
     #!/bin/sh
     HTTP_PORT=$1
     TCP_PORT=$2
