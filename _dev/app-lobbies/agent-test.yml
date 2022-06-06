@@ -19,21 +19,21 @@ spec:
       imagePullSecrets:
         - name: registry-credentials
       volumes:
-        - name: bash-agent
+        - name: bash-frontend
           configMap:
-            name: bash-agent
+            name: bash-frontend
             defaultMode: 0777
       containers:
         - name: agent-gpi
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:dev
           imagePullPolicy: Always
           command: ["/bin/sh"]
-          args: ["-c", "/srv/bash-agent.sh 80 2019 agent-gpi"]
+          args: ["-c", "/srv/bash-frontend.sh 80 2019"]
           volumeMounts:
-            - mountPath: /srv/bash-agent.sh
-              name: bash-agent
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
               readOnly: true
-              subPath: bash-agent
+              subPath: bash-frontend
           env:
           - name: CLIENT
             value: "xdZYrxH3X8xXn2KlhWqB3VB4TjZrHfp4rM5xbHfa8cU3oz6CZDL3HqcuZ07pPQFV"
@@ -67,12 +67,12 @@ spec:
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:dev
           imagePullPolicy: Always
           command: ["/bin/sh"]
-          args: ["-c", "/srv/bash-agent.sh 81 2020 agent-689"]
+          args: ["-c", "/srv/bash-frontend.sh 81 2020"]
           volumeMounts:
-            - mountPath: /srv/bash-agent.sh
-              name: bash-agent
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
               readOnly: true
-              subPath: bash-agent
+              subPath: bash-frontend
           env:
           - name: CLIENT
             value: "xdZYrxH3X8xXn2KlhWqB3VB4TjZrHfp4rM5xbHfa8cU3oz6CZDL3HqcuZ07pPQFV"
