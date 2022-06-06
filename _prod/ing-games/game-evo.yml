@@ -5,6 +5,20 @@ metadata:
   namespace: prod
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
+    nginx.ingress.kubernetes.io/server-snippet: |-
+      allow 34.80.24.227/32;
+      allow 35.194.182.37/32;
+      allow 35.194.169.30/32;
+      allow 91.213.212.0/24
+      allow 3.68.129.62/32;
+      allow 13.49.182.71/32;
+      allow 87.246.163.64/32;
+      allow 185.103.30.127/32;
+      allow 52.29.167.211/32;
+      allow 3.120.57.172/32;
+      allow 18.159.27.247/32;
+      allow 220.132.206.70/32;
+      deny all;
 spec:
   ingressClassName: nginx
   tls:
