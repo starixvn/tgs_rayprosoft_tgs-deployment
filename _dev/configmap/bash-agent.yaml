@@ -8,7 +8,7 @@ data:
     #!/bin/sh
     HTTP_PORT=$1
     TCP_PORT=$2
-    cp /etc/caddy/Caddyfile-Template /etc/caddy/Caddyfile-${EXE_PATH}
-    sed -i "s/{TCP_PORT}/${TCP_PORT}/g" /etc/caddy/Caddyfile-${EXE_PATH}
-    sed -i "s/{HTTP_PORT}/${HTTP_PORT}/g" /etc/caddy/Caddyfile-${EXE_PATH}
-    caddy run --config /etc/caddy/Caddyfile-${EXE_PATH} --adapter caddyfile
+    cp -rf /etc/caddy/Caddyfile-Template /etc/caddy/Caddyfile
+    sed -i "s/{TCP_PORT}/${TCP_PORT}/g" /etc/caddy/Caddyfile
+    sed -i "s/{HTTP_PORT}/${HTTP_PORT}/g" /etc/caddy/Caddyfile
+    caddy run --config /etc/caddy/Caddyfile --adapter caddyfile
