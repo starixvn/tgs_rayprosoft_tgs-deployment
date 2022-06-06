@@ -21,7 +21,6 @@ metadata:
       allow 220.132.206.70/32;
       deny all;
 spec:
-  ingressClassName: nginx
   tls:
   - hosts:
     - game-evo.yydsgo.xyz
