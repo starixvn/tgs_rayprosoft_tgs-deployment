@@ -256,6 +256,8 @@ data:
    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"100Mi"}}
   payment-malakipay: | 
    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"100Mi"}}
+  payment-fixtool: | 
+   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"100Mi"}}
   pgpool: |
     {"limits":{"cpu":"400m","memory":"900Mi"},"requests":{"cpu":"10m","memory":"200Mi"}}
   player-api: | 
