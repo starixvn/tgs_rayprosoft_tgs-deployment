@@ -1,0 +1,45 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ing-lobby-t1-thb
+  namespace: dev
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      proxy_set_header Brand-Token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR1BJX1RIQiIsInN1YiI6IjRkNWQxZjU2LTI0NzEtNDgzYS05MzA5LWUyNmFhOTY4MDg5YSIsIm5iZiI6MTY1NDc2NTAwNiwiZXhwIjoxNjU0NzY4NjA2LCJpYXQiOjE2NTQ3NjUwMDYsImlzcyI6InRncyJ9.GTEQB6sGZzEM2g1OTUGHHIrVoibpg-40H4uV2Gvr_2ns2wo9wftrwjPy5aaE2O8CQUfhPYgBjYElc1n8EEZCumCo7U8peWSRmSYfKlp52zD88PCfaCa-9wB7lcAjFo2zc1W4jKY4BTSgvFFaUuRP8E0mK-pbL6_OufW50xHN2djdGUkUATSpRC7qLAx-4nLF1P-t3LPQPYyTMQ4Zy1bCjun1Igg1f1K60ErSWsS5bl6TU-RCPZlxgZjKcVwkNwKc_XFpjAHD0FRsJB8z5kK5IE1ozM14gUD72d3c7yGUGjQ-7FZP49Rmk-pGiiFx8qc4RnCbyEWLGeN1bkN8hzDCAQ;
+spec:
+  rules:
+  - host: dev-t1-thb.rpgp.cc
+    http:
+      paths:
+      paths:
+      - pathType: Prefix
+        path: /api/brandcommunication
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api/brandlivechat
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: lobby-gpi-thb
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api
+        backend:
+          service:
+            name: operator-api
+            port:
+              number: 80

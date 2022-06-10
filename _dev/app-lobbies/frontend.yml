@@ -25,7 +25,7 @@ spec:
             defaultMode: 0777
       containers:
         - name: lobby-t1
-          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t1:dev
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t1:merged
           imagePullPolicy: Always
           command: ["/bin/sh"]
           args: ["-c", "/srv/bash-frontend.sh 80 2019"]
@@ -64,7 +64,7 @@ spec:
             initialDelaySeconds: 5
             periodSeconds: 5
         - name: lobby-gpi-thb
-          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t1:dev
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t1:merged
           imagePullPolicy: Always
           command: ["/bin/sh"]
           args: ["-c", "/srv/bash-frontend.sh 90 2090"]
@@ -183,7 +183,7 @@ spec:
             initialDelaySeconds: 5
             periodSeconds: 5
         - name: lobby-t5
-          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t5:dev
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t5:merged
           imagePullPolicy: Always
           command: ["/bin/sh"]
           args: ["-c", "/srv/bash-frontend.sh 100 2100"]
@@ -222,7 +222,7 @@ spec:
             initialDelaySeconds: 5
             periodSeconds: 5
         - name: lobby-gpi-php
-          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t5:dev
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t5:merged
           imagePullPolicy: Always
           command: ["/bin/sh"]
           args: ["-c", "/srv/bash-frontend.sh 101 2101"]
