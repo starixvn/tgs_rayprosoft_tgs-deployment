@@ -28,7 +28,7 @@ spec:
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:dev
           imagePullPolicy: Always
           command: ["/bin/sh"]
-          args: ["-c", "/srv/bash-frontend.sh 80 2019"]
+          args: ["-c", "/srv/bash-frontend.sh 80 2080"]
           volumeMounts:
             - mountPath: /srv/bash-frontend.sh
               name: bash-frontend
@@ -67,7 +67,7 @@ spec:
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:dev
           imagePullPolicy: Always
           command: ["/bin/sh"]
-          args: ["-c", "/srv/bash-frontend.sh 81 2020"]
+          args: ["-c", "/srv/bash-frontend.sh 81 2081"]
           volumeMounts:
             - mountPath: /srv/bash-frontend.sh
               name: bash-frontend
@@ -106,7 +106,7 @@ spec:
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t1:merged
           imagePullPolicy: Always
           command: ["/bin/sh"]
-          args: ["-c", "/srv/bash-frontend.sh 80 2019"]
+          args: ["-c", "/srv/bash-frontend.sh 82 2082"]
           volumeMounts:
             - mountPath: /srv/bash-frontend.sh
               name: bash-frontend
@@ -126,18 +126,57 @@ spec:
           - name: SOURCE_URL
             value: "https://images.srvptt.com/"
           ports:
-            - containerPort: 80
+            - containerPort: 82
           livenessProbe:
             httpGet:
               path: /healthcheck
-              port: 80
+              port: 82
               scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 5
           readinessProbe:
             httpGet:
               path: /healthcheck
-              port: 80
+              port: 82
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+        - name: lobby-gpi-hkd
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t1:merged
+          imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-frontend.sh 83 2083"]
+          volumeMounts:
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
+              readOnly: true
+              subPath: bash-frontend
+          env:
+          - name: CLIENT
+            value: "muN0pUt3ZWP53mmRDQdn5TRtc8UxzbzQTXkEQJqaFZ5mb8N4pomQ0V"
+          - name: CURRENCY
+            value: "HKD"
+          - name: BRAND
+            value: "PGG"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-TW"
+          - name: THEME
+            value: "red"
+          - name: SOURCE_URL
+            value: "https://images.srvptt.com/"
+          ports:
+            - containerPort: 83
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 83
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 83
               scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 5
@@ -145,7 +184,7 @@ spec:
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t1:merged
           imagePullPolicy: Always
           command: ["/bin/sh"]
-          args: ["-c", "/srv/bash-frontend.sh 90 2090"]
+          args: ["-c", "/srv/bash-frontend.sh 84 2084"]
           volumeMounts:
             - mountPath: /srv/bash-frontend.sh
               name: bash-frontend
@@ -165,18 +204,18 @@ spec:
           - name: SOURCE_URL
             value: "https://images.srvptt.com/"
           ports:
-            - containerPort: 80
+            - containerPort: 84
           livenessProbe:
             httpGet:
               path: /healthcheck
-              port: 80
+              port: 84
               scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 5
           readinessProbe:
             httpGet:
               path: /healthcheck
-              port: 80
+              port: 84
               scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 5
@@ -184,7 +223,7 @@ spec:
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t2:merged
           imagePullPolicy: Always
           command: ["/bin/sh"]
-          args: ["-c", "/srv/bash-frontend.sh 81 2020"]
+          args: ["-c", "/srv/bash-frontend.sh 85 2085"]
           volumeMounts:
             - mountPath: /srv/bash-frontend.sh
               name: bash-frontend
@@ -204,18 +243,18 @@ spec:
           - name: SOURCE_URL
             value: "https://images.srvptt.com/"
           ports:
-            - containerPort: 81
+            - containerPort: 85
           livenessProbe:
             httpGet:
               path: /healthcheck
-              port: 81
+              port: 85
               scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 5
           readinessProbe:
             httpGet:
               path: /healthcheck
-              port: 81
+              port: 85
               scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 5
@@ -223,7 +262,7 @@ spec:
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t3:merged
           imagePullPolicy: Always
           command: ["/bin/sh"]
-          args: ["-c", "/srv/bash-frontend.sh 82 2021"]
+          args: ["-c", "/srv/bash-frontend.sh 86 2086"]
           volumeMounts:
             - mountPath: /srv/bash-frontend.sh
               name: bash-frontend
@@ -245,18 +284,59 @@ spec:
           - name: HOMEPAGE
             value: "[\"t3-1\",\"t3-2\",\"t3-3\"]"
           ports:
-            - containerPort: 82
+            - containerPort: 86
           livenessProbe:
             httpGet:
               path: /healthcheck
-              port: 82
+              port: 86
               scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 5
           readinessProbe:
             httpGet:
               path: /healthcheck
-              port: 82
+              port: 86
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+        - name: lobby-t4
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t3:merged
+          imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-frontend.sh 87 2087"]
+          volumeMounts:
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
+              readOnly: true
+              subPath: bash-frontend
+          env:
+          - name: CLIENT
+            value: "I7nKiimrZQOqnJ6ryjUw74c0Hi64KC6Myunhob4cHh8VOUIuZh4p63czefxyyzbZ"
+          - name: CURRENCY
+            value: "CNY"
+          - name: BRAND
+            value: "PGG"
+          - name: THEME
+            value: "black"
+          - name: "WAPTEMPLATE"
+            value: "4"
+          - name: SOURCE_URL
+            value: "https://images.srvptt.com/"
+          - name: HOMEPAGE
+            value: "[\"t4-1\",\"t4-2\",\"t4-3\",\"t4-4\"]"
+          ports:
+            - containerPort: 87
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 87
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 87
               scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 5
@@ -264,7 +344,7 @@ spec:
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t5:merged
           imagePullPolicy: Always
           command: ["/bin/sh"]
-          args: ["-c", "/srv/bash-frontend.sh 100 2100"]
+          args: ["-c", "/srv/bash-frontend.sh 88 2088"]
           volumeMounts:
             - mountPath: /srv/bash-frontend.sh
               name: bash-frontend
@@ -284,18 +364,18 @@ spec:
           - name: SOURCE_URL
             value: "https://images.srvptt.com/"
           ports:
-            - containerPort: 82
+            - containerPort: 88
           livenessProbe:
             httpGet:
               path: /healthcheck
-              port: 82
+              port: 88
               scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 5
           readinessProbe:
             httpGet:
               path: /healthcheck
-              port: 82
+              port: 88
               scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 5
@@ -303,7 +383,7 @@ spec:
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t5:merged
           imagePullPolicy: Always
           command: ["/bin/sh"]
-          args: ["-c", "/srv/bash-frontend.sh 101 2101"]
+          args: ["-c", "/srv/bash-frontend.sh 89 2089"]
           volumeMounts:
             - mountPath: /srv/bash-frontend.sh
               name: bash-frontend
@@ -323,18 +403,18 @@ spec:
           - name: SOURCE_URL
             value: "https://images.srvptt.com/"
           ports:
-            - containerPort: 80
+            - containerPort: 89
           livenessProbe:
             httpGet:
               path: /healthcheck
-              port: 80
+              port: 89
               scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 5
           readinessProbe:
             httpGet:
               path: /healthcheck
-              port: 80
+              port: 89
               scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 5
@@ -342,7 +422,7 @@ spec:
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t8:merged
           imagePullPolicy: Always
           command: ["/bin/sh"]
-          args: ["-c", "/srv/bash-frontend.sh 102 2102"]
+          args: ["-c", "/srv/bash-frontend.sh 90 2090"]
           volumeMounts:
             - mountPath: /srv/bash-frontend.sh
               name: bash-frontend
@@ -366,18 +446,18 @@ spec:
           - name: SOURCE_URL
             value: "https://images.srvptt.com/"
           ports:
-            - containerPort: 80
+            - containerPort: 90
           livenessProbe:
             httpGet:
               path: /healthcheck
-              port: 80
+              port: 90
               scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 5
           readinessProbe:
             httpGet:
               path: /healthcheck
-              port: 80
+              port: 90
               scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 5
@@ -385,7 +465,7 @@ spec:
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t10:merged
           imagePullPolicy: Always
           command: ["/bin/sh"]
-          args: ["-c", "/srv/bash-frontend.sh 103 2103"]
+          args: ["-c", "/srv/bash-frontend.sh 91 2091"]
           volumeMounts:
             - mountPath: /srv/bash-frontend.sh
               name: bash-frontend
@@ -407,18 +487,18 @@ spec:
           - name: SOURCE_URL
             value: "https://images.srvptt.com/"
           ports:
-            - containerPort: 80
+            - containerPort: 91
           livenessProbe:
             httpGet:
               path: /healthcheck
-              port: 80
+              port: 91
               scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 5
           readinessProbe:
             httpGet:
               path: /healthcheck
-              port: 80
+              port: 91
               scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 5
