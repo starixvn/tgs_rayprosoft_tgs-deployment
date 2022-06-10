@@ -102,45 +102,6 @@ spec:
               scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 5
-        - name: lobby-gpi-php
-          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t5:dev
-          imagePullPolicy: Always
-          command: ["/bin/sh"]
-          args: ["-c", "/srv/bash-frontend.sh 91 2091"]
-          volumeMounts:
-            - mountPath: /srv/bash-frontend.sh
-              name: bash-frontend
-              readOnly: true
-              subPath: bash-frontend
-          env:
-          - name: CLIENT
-            value: "usG1iwGDzONgOUFY5hgpX0LAwMQctJ4IQuqug0DEtgwp1DqgbrmaLpM"
-          - name: CURRENCY
-            value: "PHP"
-          - name: BRAND
-            value: "GPI-PHP"
-          - name: DEFAULT_LANGUAGE
-            value: "zh-CN"
-          - name: THEME
-            value: "red"
-          - name: SOURCE_URL
-            value: "https://images.srvptt.com/"
-          ports:
-            - containerPort: 80
-          livenessProbe:
-            httpGet:
-              path: /healthcheck
-              port: 80
-              scheme: HTTP
-            initialDelaySeconds: 5
-            periodSeconds: 5
-          readinessProbe:
-            httpGet:
-              path: /healthcheck
-              port: 80
-              scheme: HTTP
-            initialDelaySeconds: 5
-            periodSeconds: 5
         - name: lobby-t2
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t2:dev
           imagePullPolicy: Always
@@ -218,6 +179,84 @@ spec:
             httpGet:
               path: /healthcheck
               port: 82
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+        - name: lobby-t5
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t5:dev
+          imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-frontend.sh 100 2100"]
+          volumeMounts:
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
+              readOnly: true
+              subPath: bash-frontend
+          env:
+          - name: CLIENT
+            value: "I7nKiimrZQOqnJ6ryjUw74c0Hi64KC6Myunhob4cHh8VOUIuZh4p63czefxyyzbZ"
+          - name: CURRENCY
+            value: "CNY"
+          - name: BRAND
+            value: "PGG"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
+          - name: THEME
+            value: "red"
+          - name: SOURCE_URL
+            value: "https://images.srvptt.com/"
+          ports:
+            - containerPort: 82
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 82
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 82
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+        - name: lobby-gpi-php
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t5:dev
+          imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-frontend.sh 101 2101"]
+          volumeMounts:
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
+              readOnly: true
+              subPath: bash-frontend
+          env:
+          - name: CLIENT
+            value: "usG1iwGDzONgOUFY5hgpX0LAwMQctJ4IQuqug0DEtgwp1DqgbrmaLpM"
+          - name: CURRENCY
+            value: "PHP"
+          - name: BRAND
+            value: "GPI-PHP"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
+          - name: THEME
+            value: "red"
+          - name: SOURCE_URL
+            value: "https://images.srvptt.com/"
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
               scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 5
