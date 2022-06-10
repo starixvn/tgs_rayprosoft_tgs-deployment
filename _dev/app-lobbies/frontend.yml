@@ -103,7 +103,7 @@ spec:
             initialDelaySeconds: 5
             periodSeconds: 5
         - name: lobby-t2
-          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t2:dev
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t2:merged
           imagePullPolicy: Always
           command: ["/bin/sh"]
           args: ["-c", "/srv/bash-frontend.sh 81 2020"]
@@ -142,7 +142,7 @@ spec:
             initialDelaySeconds: 5
             periodSeconds: 5
         - name: lobby-t3
-          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t3:dev
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t3:merged
           imagePullPolicy: Always
           command: ["/bin/sh"]
           args: ["-c", "/srv/bash-frontend.sh 82 2021"]
