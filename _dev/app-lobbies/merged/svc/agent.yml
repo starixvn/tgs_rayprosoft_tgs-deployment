@@ -11,4 +11,4 @@ spec:
       targetPort: 80
       name: agent
   selector:
-    app: frontend
+    app: agent-merged

@@ -8,7 +8,7 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 85
+      targetPort: 80
       name: lobby-t5
   selector:
-    app: frontend
+    app: lobby-t5-merged

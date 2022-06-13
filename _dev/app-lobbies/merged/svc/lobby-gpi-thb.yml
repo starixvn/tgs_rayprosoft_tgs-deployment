@@ -8,7 +8,7 @@ spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 92
+      targetPort: 82
       name: lobby-gpi-thb
   selector:
-    app: frontend
+    app: lobby-t1-merged
