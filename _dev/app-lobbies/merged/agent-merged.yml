@@ -1,0 +1,65 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  namespace: dev
+  name: agent-merged
+  labels:
+    app: agent-merged
+spec:
+  replicas: 2
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: agent-merged
+  template:
+    metadata:
+      labels:
+        app: agent-merged
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      volumes:
+        - name: bash-frontend
+          configMap:
+            name: bash-frontend
+            defaultMode: 0777
+      containers:
+        - name: agent
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:dev
+          imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-frontend.sh 80 2080"]
+          volumeMounts:
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
+              readOnly: true
+              subPath: bash-frontend
+          env:
+          - name: CLIENT
+            value: "xdZYrxH3X8xXn2KlhWqB3VB4TjZrHfp4rM5xbHfa8cU3oz6CZDL3HqcuZ07pPQFV"
+          - name: CURRENCY
+            value: "CNY"
+          - name: BRAND
+            value: "TGSTEST"
+          - name: LANGUAGES
+            value: "[{\"name\":\"zh-CN\",\"label\":\"简体\"},{\"name\":\"zh-TW\",\"label\":\"繁體\"},{\"name\":\"en-US\",\"label\":\"English\"},{\"name\":\"th-TH\",\"label\":\"Thai\"}]"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
+          - name: THEME
+            value: "red"
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5

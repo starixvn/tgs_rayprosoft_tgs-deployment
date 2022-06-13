@@ -1,0 +1,463 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  namespace: dev
+  name: frontend
+  labels:
+    app: frontend
+spec:
+  replicas: 2
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: frontend
+  template:
+    metadata:
+      labels:
+        app: frontend
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      volumes:
+        - name: bash-frontend
+          configMap:
+            name: bash-frontend
+            defaultMode: 0777
+      containers:
+        - name: agent
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:dev
+          imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-frontend.sh 80 2080"]
+          volumeMounts:
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
+              readOnly: true
+              subPath: bash-frontend
+          env:
+          - name: CLIENT
+            value: "xdZYrxH3X8xXn2KlhWqB3VB4TjZrHfp4rM5xbHfa8cU3oz6CZDL3HqcuZ07pPQFV"
+          - name: CURRENCY
+            value: "CNY"
+          - name: BRAND
+            value: "TGSTEST"
+          - name: LANGUAGES
+            value: "[{\"name\":\"zh-CN\",\"label\":\"简体\"},{\"name\":\"zh-TW\",\"label\":\"繁體\"},{\"name\":\"en-US\",\"label\":\"English\"},{\"name\":\"th-TH\",\"label\":\"Thai\"}]"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
+          - name: THEME
+            value: "red"
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+        - name: lobby-t1
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t1:merged
+          imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-frontend.sh 81 2081"]
+          volumeMounts:
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
+              readOnly: true
+              subPath: bash-frontend
+          env:
+          - name: CLIENT
+            value: "I7nKiimrZQOqnJ6ryjUw74c0Hi64KC6Myunhob4cHh8VOUIuZh4p63czefxyyzbZ"
+          - name: CURRENCY
+            value: "CNY"
+          - name: BRAND
+            value: "PGG"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
+          - name: THEME
+            value: "red"
+          - name: SOURCE_URL
+            value: "https://images.srvptt.com/"
+          ports:
+            - containerPort: 81
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 81
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 81
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+        - name: lobby-t2
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t2:merged
+          imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-frontend.sh 82 2082"]
+          volumeMounts:
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
+              readOnly: true
+              subPath: bash-frontend
+          env:
+          - name: CLIENT
+            value: "I7nKiimrZQOqnJ6ryjUw74c0Hi64KC6Myunhob4cHh8VOUIuZh4p63czefxyyzbZ"
+          - name: CURRENCY
+            value: "CNY"
+          - name: BRAND
+            value: "PGG"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
+          - name: THEME
+            value: "red"
+          - name: SOURCE_URL
+            value: "https://images.srvptt.com/"
+          ports:
+            - containerPort: 82
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 82
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 82
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+        - name: lobby-t3
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t3:merged
+          imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-frontend.sh 83 2083"]
+          volumeMounts:
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
+              readOnly: true
+              subPath: bash-frontend
+          env:
+          - name: CLIENT
+            value: "I7nKiimrZQOqnJ6ryjUw74c0Hi64KC6Myunhob4cHh8VOUIuZh4p63czefxyyzbZ"
+          - name: CURRENCY
+            value: "CNY"
+          - name: BRAND
+            value: "PGG"
+          - name: THEME
+            value: "black"
+          - name: "WAPTEMPLATE"
+            value: "3"
+          - name: SOURCE_URL
+            value: "https://images.srvptt.com/"
+          - name: HOMEPAGE
+            value: "[\"t3-1\",\"t3-2\",\"t3-3\"]"
+          ports:
+            - containerPort: 83
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 83
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 83
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+        - name: lobby-t4
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t3:merged
+          imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-frontend.sh 84 2084"]
+          volumeMounts:
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
+              readOnly: true
+              subPath: bash-frontend
+          env:
+          - name: CLIENT
+            value: "I7nKiimrZQOqnJ6ryjUw74c0Hi64KC6Myunhob4cHh8VOUIuZh4p63czefxyyzbZ"
+          - name: CURRENCY
+            value: "CNY"
+          - name: BRAND
+            value: "PGG"
+          - name: THEME
+            value: "black"
+          - name: "WAPTEMPLATE"
+            value: "4"
+          - name: SOURCE_URL
+            value: "https://images.srvptt.com/"
+          - name: HOMEPAGE
+            value: "[\"t4-1\",\"t4-2\",\"t4-3\",\"t4-4\"]"
+          ports:
+            - containerPort: 84
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 84
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 84
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+        - name: lobby-t5
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t5:merged
+          imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-frontend.sh 85 2085"]
+          volumeMounts:
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
+              readOnly: true
+              subPath: bash-frontend
+          env:
+          - name: CLIENT
+            value: "I7nKiimrZQOqnJ6ryjUw74c0Hi64KC6Myunhob4cHh8VOUIuZh4p63czefxyyzbZ"
+          - name: CURRENCY
+            value: "CNY"
+          - name: BRAND
+            value: "PGG"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
+          - name: THEME
+            value: "red"
+          - name: SOURCE_URL
+            value: "https://images.srvptt.com/"
+          ports:
+            - containerPort: 85
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 85
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 85
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+        - name: lobby-t8
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t8:merged
+          imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-frontend.sh 88 2088"]
+          volumeMounts:
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
+              readOnly: true
+              subPath: bash-frontend
+          env:
+          - name: CLIENT
+            value: "I7nKiimrZQOqnJ6ryjUw74c0Hi64KC6Myunhob4cHh8VOUIuZh4p63czefxyyzbZ"
+          - name: CURRENCY
+            value: "CNY"
+          - name: BRAND
+            value: "PGG"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
+          - name: THEME
+            value: "wapT8"
+          - name: "WAPTEMPLATE"
+            value: "8"
+          - name: SOURCE_URL
+            value: "https://images.srvptt.com/"
+          ports:
+            - containerPort: 88
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 88
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 88
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+        - name: lobby-t10
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t10:merged
+          imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-frontend.sh 90 2090"]
+          volumeMounts:
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
+              readOnly: true
+              subPath: bash-frontend
+          env:
+          - name: CLIENT
+            value: "I7nKiimrZQOqnJ6ryjUw74c0Hi64KC6Myunhob4cHh8VOUIuZh4p63czefxyyzbZ"
+          - name: CURRENCY
+            value: "CNY"
+          - name: BRAND
+            value: "PGG"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
+          - name: THEME
+            value: "wapT10"
+          - name: "WAPTEMPLATE"
+            value: "10"
+          - name: SOURCE_URL
+            value: "https://images.srvptt.com/"
+          ports:
+            - containerPort: 90
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 90
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 90
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+        - name: lobby-gpi-hkd
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t1:merged
+          imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-frontend.sh 91 2091"]
+          volumeMounts:
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
+              readOnly: true
+              subPath: bash-frontend
+          env:
+          - name: CLIENT
+            value: "muN0pUt3ZWP53mmRDQdn5TRtc8UxzbzQTXkEQJqaFZ5mb8N4pomQ0V"
+          - name: CURRENCY
+            value: "HKD"
+          - name: BRAND
+            value: "PGG"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-TW"
+          - name: THEME
+            value: "red"
+          - name: SOURCE_URL
+            value: "https://images.srvptt.com/"
+          ports:
+            - containerPort: 91
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 91
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 91
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+        - name: lobby-gpi-thb
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t1:merged
+          imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-frontend.sh 92 2092"]
+          volumeMounts:
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
+              readOnly: true
+              subPath: bash-frontend
+          env:
+          - name: CLIENT
+            value: "0smy9rsQHh6BtzZDfRyfLw8mpBnG7mCfpFYMp4VnelxRZ8X3sZfKB2"
+          - name: CURRENCY
+            value: "THB"
+          - name: BRAND
+            value: "GPI-THB"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
+          - name: THEME
+            value: "red"
+          - name: SOURCE_URL
+            value: "https://images.srvptt.com/"
+          ports:
+            - containerPort: 92
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 92
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 92
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+        - name: lobby-gpi-php
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t5:merged
+          imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-frontend.sh 93 2093"]
+          volumeMounts:
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
+              readOnly: true
+              subPath: bash-frontend
+          env:
+          - name: CLIENT
+            value: "usG1iwGDzONgOUFY5hgpX0LAwMQctJ4IQuqug0DEtgwp1DqgbrmaLpM"
+          - name: CURRENCY
+            value: "PHP"
+          - name: BRAND
+            value: "GPI-PHP"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
+          - name: THEME
+            value: "red"
+          - name: SOURCE_URL
+            value: "https://images.srvptt.com/"
+          ports:
+            - containerPort: 93
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 93
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 93
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
