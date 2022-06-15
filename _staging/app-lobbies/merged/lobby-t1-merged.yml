@@ -1,7 +1,7 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  namespace: dev
+  namespace: staging
   name: lobby-t1-merged
   labels:
     app: lobby-t1-merged
