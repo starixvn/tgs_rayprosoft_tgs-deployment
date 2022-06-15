@@ -1,7 +1,7 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  namespace: staging
+  namespace: dev
   name: lobby-t5-merged
   labels:
     app: lobby-t5-merged
@@ -24,7 +24,7 @@ spec:
             name: bash-frontend
             defaultMode: 0777
       containers:
-        - name: lobby-gpi-t5
+        - name: lobby-t5
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t5:merged
           imagePullPolicy: Always
           command: ["/bin/sh"]
@@ -36,19 +36,17 @@ spec:
               subPath: bash-frontend
           env:
           - name: CLIENT
-            value: I7nKiimrZQOqnJ6ryjUw74c0Hi64KC6Myunhob4cHh8VOUIuZh4p63czefxyyzbZ
+            value: "I7nKiimrZQOqnJ6ryjUw74c0Hi64KC6Myunhob4cHh8VOUIuZh4p63czefxyyzbZ"
           - name: CURRENCY
-            value: CNY
+            value: "CNY"
           - name: BRAND
-            value: PGG
+            value: "PGG"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
           - name: THEME
-            value: red
-          - name: WAPTEMPLATE
-            value: "4"
+            value: "red"
           - name: SOURCE_URL
-            value: https://images.srvptt.com/
-          - name: HOMEPAGE
-            value: '["t4-1","t4-2","t4-3","t4-4"]'
+            value: "https://images.srvptt.com/"
           ports:
             - containerPort: 80
           livenessProbe:
@@ -65,7 +63,7 @@ spec:
               scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 5
-        - name: lobby-demo-t5
+        - name: lobby-gpi-php
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t5:merged
           imagePullPolicy: Always
           command: ["/bin/sh"]
@@ -77,19 +75,17 @@ spec:
               subPath: bash-frontend
           env:
           - name: CLIENT
-            value: D8lud4V5gN3RP9wCDpCIrgZEk09cfTKRJf8ghfZtGUaIiJJph3E4WM
+            value: "usG1iwGDzONgOUFY5hgpX0LAwMQctJ4IQuqug0DEtgwp1DqgbrmaLpM"
           - name: CURRENCY
-            value: CNY
+            value: "PHP"
           - name: BRAND
-            value: PGG
+            value: "GPI-PHP"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
           - name: THEME
-            value: red
-          - name: WAPTEMPLATE
-            value: "4"
+            value: "red"
           - name: SOURCE_URL
-            value: https://images.srvptt.com/
-          - name: HOMEPAGE
-            value: '["t4-1","t4-2","t4-3","t4-4"]'
+            value: "https://images.srvptt.com/"
           ports:
             - containerPort: 81
           livenessProbe:

@@ -1,7 +1,7 @@
 kind: Deployment
 apiVersion: apps/v1
 metadata:
-  namespace: staging
+  namespace: dev
   name: lobby-t10-merged
   labels:
     app: lobby-t10-merged
@@ -24,7 +24,7 @@ spec:
             name: bash-frontend
             defaultMode: 0777
       containers:
-        - name: lobby-gpi-t10
+        - name: lobby-t10
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t10:merged
           imagePullPolicy: Always
           command: ["/bin/sh"]
@@ -36,19 +36,19 @@ spec:
               subPath: bash-frontend
           env:
           - name: CLIENT
-            value: I7nKiimrZQOqnJ6ryjUw74c0Hi64KC6Myunhob4cHh8VOUIuZh4p63czefxyyzbZ
+            value: "I7nKiimrZQOqnJ6ryjUw74c0Hi64KC6Myunhob4cHh8VOUIuZh4p63czefxyyzbZ"
           - name: CURRENCY
-            value: CNY
+            value: "CNY"
           - name: BRAND
-            value: PGG
+            value: "PGG"
           - name: DEFAULT_LANGUAGE
-            value: zh-CN
+            value: "zh-CN"
           - name: THEME
-            value: wapT10
-          - name: WAPTEMPLATE
+            value: "wapT10"
+          - name: "WAPTEMPLATE"
             value: "10"
           - name: SOURCE_URL
-            value: https://images.srvptt.com/
+            value: "https://images.srvptt.com/"
           ports:
             - containerPort: 80
           livenessProbe:
