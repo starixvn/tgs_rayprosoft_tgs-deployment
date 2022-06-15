@@ -196,7 +196,7 @@ spec:
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t1:merged
           imagePullPolicy: Always
           command: ["/bin/sh"]
-          args: ["-c", "/srv/bash-frontend.sh 81 2081"]
+          args: ["-c", "/srv/bash-frontend.sh 90 2090"]
           volumeMounts:
             - mountPath: /srv/bash-frontend.sh
               name: bash-frontend
@@ -220,18 +220,18 @@ spec:
           - name: SOURCE_URL
             value: "https://images.srvptt.com/"
           ports:
-            - containerPort: 81
+            - containerPort: 90
           livenessProbe:
             httpGet:
               path: /healthcheck
-              port: 81
+              port: 90
               scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 5
           readinessProbe:
             httpGet:
               path: /healthcheck
-              port: 81
+              port: 90
               scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 5
