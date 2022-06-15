@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: agent-dsite
+  name: lobby-demo-t5
   namespace: staging
 spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 86
+      targetPort: 81
       name: web
   selector:
-    app: agent-dsite
+    app: lobby-t5-merged

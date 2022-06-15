@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: agent-wlghk
+  name: lobby-gpi-t5
   namespace: staging
 spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 84
-      name: web
+      targetPort: 80
+      name: lobby-gpi-t5
   selector:
-    app: agent-wlghk
+    app: lobby-t5-merged

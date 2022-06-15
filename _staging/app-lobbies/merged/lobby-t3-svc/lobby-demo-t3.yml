@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: agent-28bet
+  name: lobby-demo-t3
   namespace: staging
 spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 83
+      targetPort: 82
       name: web
   selector:
-    app: agent-28bet
+    app: lobby-t3-merged
