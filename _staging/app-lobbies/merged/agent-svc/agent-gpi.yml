@@ -1,14 +1,13 @@
----
 apiVersion: v1
 kind: Service
 metadata:
-  name: lobby-t4
-  namespace: dev
+  name: agent-gpi
+  namespace: staging
 spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 84
-      name: lobby-t4
+      targetPort: 80
+      name: web
   selector:
-    app: frontend
+    app: agent-gpi

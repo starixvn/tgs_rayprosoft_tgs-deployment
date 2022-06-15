@@ -1,14 +1,13 @@
----
 apiVersion: v1
 kind: Service
 metadata:
-  name: lobby-t5
-  namespace: dev
+  name: agent-28bet
+  namespace: staging
 spec:
   ports:
     - protocol: TCP
       port: 80
-      targetPort: 85
-      name: lobby-t5
+      targetPort: 83
+      name: web
   selector:
-    app: frontend
+    app: agent-28bet

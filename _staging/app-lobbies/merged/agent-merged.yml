@@ -1,0 +1,313 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  namespace: staging
+  name: agent-merged
+  labels:
+    app: agent-merged
+spec:
+  replicas: 2
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: agent-merged
+  template:
+    metadata:
+      labels:
+        app: agent-merged
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      volumes:
+        - name: bash-frontend
+          configMap:
+            name: bash-frontend
+            defaultMode: 0777
+      containers:
+        - name: agent-gpi
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:dev
+          imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-frontend.sh 80 2080"]
+          volumeMounts:
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
+              readOnly: true
+              subPath: bash-frontend
+          env:
+          - name: CLIENT
+            value: "I7nKiimrZQOqnJ6ryjUw74c0Hi64KC6Myunhob4cHh8VOUIuZh4p63czefxyyzbZ"
+          - name: CURRENCY
+            value: "CNY"
+          - name: BRAND
+            value: "PGG"
+          - name: SITE
+            value: "https://stg-t1.rpgp.cc/"
+          - name: LANGUAGES
+            value: "[{\"name\":\"zh-CN\",\"label\":\"简体\"},{\"name\":\"zh-TW\",\"label\":\"繁體\"},{\"name\":\"en-US\",\"label\":\"English\"},{\"name\":\"th-TH\",\"label\":\"Thai\"}]"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
+          - name: THEME
+            value: "red"
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+        - name: agent-hk28
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:dev
+          imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-frontend.sh 81 2081"]
+          volumeMounts:
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
+              readOnly: true
+              subPath: bash-frontend
+          env:
+          - name: CLIENT
+            value: "2DnSBf0xVDpUgmKhseXFixUyUYDzOJkTW5RfAFZ2z41Q7cgcUhhDJv"
+          - name: CURRENCY
+            value: "HKD"
+          - name: BRAND
+            value: "HK28"
+          - name: SITE
+            value: "https://stg.hkjp168.com/"
+          - name: LANGUAGES
+            value: "[{\"name\":\"zh-CN\",\"label\":\"简体\"},{\"name\":\"zh-TW\",\"label\":\"繁體\"},{\"name\":\"en-US\",\"label\":\"English\"}]"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-TW"
+          - name: THEME
+            value: "red"
+          ports:
+            - containerPort: 81
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 81
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 81
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+        - name: agent-hkjp
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:dev
+          imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-frontend.sh 82 2082"]
+          volumeMounts:
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
+              readOnly: true
+              subPath: bash-frontend
+          env:
+          - name: CLIENT
+            value: "Pt336ttlgrpnWASUn8wQPtXuZq0OFrJeNWCBXGywKi99kqq5HDYc6G"
+          - name: CURRENCY
+            value: "HKD"
+          - name: BRAND
+            value: "HKJP"
+          - name: SITE
+            value: "https://stg.hkjp168.com/"
+          - name: LANGUAGES
+            value: "[{\"name\":\"zh-CN\",\"label\":\"简体\"},{\"name\":\"zh-TW\",\"label\":\"繁體\"},{\"name\":\"en-US\",\"label\":\"English\"}]"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
+          - name: THEME
+            value: "red"
+          ports:
+            - containerPort: 82
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 82
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 82
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+        - name: agent-28bet
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:dev
+          imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-frontend.sh 83 2083"]
+          volumeMounts:
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
+              readOnly: true
+              subPath: bash-frontend
+          env:
+          - name: CLIENT
+            value: "IMX7qfYblTNdE5iRrLmos7VzpQsR11wpSoRp9y4Nn3GnMkQIjDCwhM"
+          - name: CURRENCY
+            value: "HKD"
+          - name: BRAND
+            value: "28bet"
+          - name: SITE
+            value: "https://stg.28bet.io/"
+          - name: LANGUAGES
+            value: "[{\"name\":\"zh-CN\",\"label\":\"简体\"},{\"name\":\"zh-TW\",\"label\":\"繁體\"},{\"name\":\"en-US\",\"label\":\"English\"}]"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-TW"
+          - name: THEME
+            value: "red"
+          ports:
+            - containerPort: 83
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 83
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 83
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+        - name: agent-wlghk
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:dev
+          imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-frontend.sh 84 2084"]
+          volumeMounts:
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
+              readOnly: true
+              subPath: bash-frontend
+          env:
+          - name: CLIENT
+            value: "bGmwv745t2RLGDVpxaavYHDCR7kCkrRvOSgs8QSAQbdMcaZVjbqORX"
+          - name: CURRENCY
+            value: "HKD"
+          - name: BRAND
+            value: "WLGHK"
+          - name: SITE
+            value: "https://stg.bobo1668.com/"
+          - name: LANGUAGES
+            value: "[{\"name\":\"zh-CN\",\"label\":\"简体\"},{\"name\":\"zh-TW\",\"label\":\"繁體\"},{\"name\":\"en-US\",\"label\":\"English\"}]"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
+          - name: THEME
+            value: "red"
+          ports:
+            - containerPort: 84
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 84
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 84
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+        - name: agent-tgs689
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:dev
+          imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-frontend.sh 85 2085"]
+          volumeMounts:
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
+              readOnly: true
+              subPath: bash-frontend
+          env:
+          - name: CLIENT
+            value: "CVgeg0GeB5fxXaNP8t6QRrYaNOIjLraa9bCWbJxyqtpDehHjXi4nR3"
+          - name: CURRENCY
+            value: "HKD"
+          - name: BRAND
+            value: "tgs689"
+          - name: SITE
+            value: "https://stg.bobo1668.com/"
+          - name: LANGUAGES
+            value: "[{\"name\":\"zh-CN\",\"label\":\"简体\"},{\"name\":\"zh-TW\",\"label\":\"繁體\"},{\"name\":\"en-US\",\"label\":\"English\"}]"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
+          - name: THEME
+            value: "red"
+          ports:
+            - containerPort: 85
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 85
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 85
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+        - name: agent-dsite
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-gpi:dev
+          imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-frontend.sh 86 2086"]
+          volumeMounts:
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
+              readOnly: true
+              subPath: bash-frontend
+          env:
+          - name: CLIENT
+            value: "D8lud4V5gN3RP9wCDpCIrgZEk09cfTKRJf8ghfZtGUaIiJJph3E4WM"
+          - name: CURRENCY
+            value: "CNY"
+          - name: BRAND
+            value: "DSITE"
+          - name: SITE
+            value: "https://t1.pgdemo.online/"
+          - name: LANGUAGES
+            value: "[{\"name\":\"zh-CN\",\"label\":\"简体\"},{\"name\":\"zh-TW\",\"label\":\"繁體\"},{\"name\":\"en-US\",\"label\":\"English\"}]"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
+          - name: THEME
+            value: "red"
+          ports:
+            - containerPort: 86
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 86
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 86
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
