@@ -142,6 +142,18 @@ data:
    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"10m","memory":"200Mi"}}
   game-gamerecord-awc-service: | 
    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"10m","memory":"200Mi"}}
+  game-gameinterface-jili-service: | 
+   {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"200Mi"}}
+  game-gamerecord-jili-scheduleservice: | 
+   {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"200Mi"}}
+  game-gamerecord-jili-service: | 
+   {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"200Mi"}}
+  game-gameinterface-wmcasino-service: | 
+   {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"200Mi"}}
+  game-gamerecord-wmcasino-scheduleservice: | 
+   {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"200Mi"}}
+  game-gamerecord-wmcasino-service: | 
+   {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   global-api: | 
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"50Mi"}}
   lobby-21gen: | 
