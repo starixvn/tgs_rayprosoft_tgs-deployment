@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: gamerecord-jili-scheduler
+  namespace: prod
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/server-snippet: |-
+      allow 220.132.206.70/32;
+      deny all;
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: gamerecord-jili-scheduler.srvptt.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: game-gamerecord-jili-scheduleservice
+            port: 
+              number: 80
