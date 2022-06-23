@@ -1,7 +1,7 @@
 persistence:
     size: "500Mi"
 
-version: "v3.0.2"
+version: "3.2.0"
 
 log:
     level: "info"
@@ -10,6 +10,8 @@ server:
     replicas: 3
     bootstrapExpected: 2
 
+ingress:
+    host: stg-dkron.rpgp.cc
 agent:
     replicas: 1
 
