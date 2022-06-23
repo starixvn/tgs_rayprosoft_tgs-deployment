@@ -12,6 +12,7 @@ server:
 
 agent:
     replicas: 1
-
+ingress:
+    host: dev-dkron.rpgp.cc
 nodeSelector: {}
 tolerations: []
