@@ -144,6 +144,8 @@ data:
    {"limits":{"cpu":"100m","memory":"200Mi"},"requests":{"cpu":"100m","memory":"200Mi"}}
   report-api: | 
    {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"200Mi"}}
+  marketing-report-daily-aggregate: | 
+   {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"200Mi"}}
   report-service: | 
    {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"200Mi"}}
   schedulers: | 
