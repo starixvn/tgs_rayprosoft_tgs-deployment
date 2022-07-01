@@ -272,6 +272,12 @@ data:
    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   report-api: | 
    {"limits":{"cpu":"300m","memory":"1200Mi"},"requests":{"cpu":"300m","memory":"1200Mi"}}
+  marketing-report-daily-aggregate: | 
+   {"limits":{"cpu":"300m","memory":"400Mi"},"requests":{"cpu":"300m","memory":"400Mi"}}
+  marketing-report-api: | 
+   {"limits":{"cpu":"300m","memory":"1200Mi"},"requests":{"cpu":"300m","memory":"400Mi"}}
+  marketing-report-scheduler: | 
+   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"100m","memory":"200Mi"}}
   schedulers: | 
    {"limits":{"cpu":"1","memory":"1000Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   sign-in: | 
