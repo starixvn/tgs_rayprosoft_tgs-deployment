@@ -5,7 +5,7 @@
 replicaCount: 1
 
 image:
-  repository: registry.gitlab.com/rayprosoft/turnkey-gaming-system/operator-api
+  repository: pgtgs/operator-api
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "dev"
@@ -13,6 +13,7 @@ image:
 imagePullSecrets:
   - name: registry-credentials
   - name: secret-tgs-harbor
+  - name: dockerhub
 nameOverride: "operator-api"
 fullnameOverride: "operator-api"
 
