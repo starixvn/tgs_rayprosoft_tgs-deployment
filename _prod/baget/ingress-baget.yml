@@ -43,7 +43,7 @@ metadata:
   name: baget-assets
 subsets:
 - addresses:
-  - ip: 16.162.59.58
+  - ip: 10.139.109.26
   ports:
   - name: app
     port: 5555
