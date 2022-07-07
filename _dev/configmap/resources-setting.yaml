@@ -13,9 +13,9 @@ data:
   brand-cert-api: | 
    {"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   cashservice-api: | 
-   {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"100m","memory":"100Mi"}}
+   {"limits":{"cpu":"1","memory":"300Mi"},"requests":{"cpu":"100m","memory":"100Mi"}}
   cashservice-worker: | 
-   {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"100m","memory":"100Mi"}}
+   {"limits":{"cpu":"1","memory":"300Mi"},"requests":{"cpu":"100m","memory":"100Mi"}}
   domain-setting: | 
    {"limits":{"cpu":"500m","memory":"200Mi"},"requests":{"cpu":"10m","memory":"50Mi"}}
   file-service : | 
