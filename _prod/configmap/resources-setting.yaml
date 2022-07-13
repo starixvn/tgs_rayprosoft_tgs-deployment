@@ -231,7 +231,7 @@ data:
   lobby-wlgvn: | 
    {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
   log-api: | 
-   {"limits":{"cpu":"400m","memory":"1Gi"},"requests":{"cpu":"40m","memory":"300Mi"}}
+   {"limits":{"cpu":"400m","memory":"1Gi"},"requests":{"cpu":"100m","memory":"500Mi"}}
   notification-receiver-service: | 
    {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   op-api-mgm: | 
