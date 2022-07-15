@@ -1,5 +1,8 @@
 # nats and its exporter
 helm upgrade --install nats bitnami/nats --set metrics.enabled=true,auth.enabled=false -n prod
+
+helm template nats bitnami/nats --set metrics.enabled=true,auth.enabled=false -n prod
+
 nats-metrics:7777/metrics 
 https://github.com/bitnami/charts/tree/master/bitnami/nats/#installing-the-chart
 
@@ -27,3 +30,17 @@ db.createUser(
 )
 
 db.filedb.insert({name: "test"})
+
+
+
+
+# nats official 
+helm repo add nats https://nats-io.github.io/k8s/helm/charts/
+
+helm upgrade --install nats nats/nats --set metrics.enabled=true,auth.enabled=false -n staging
+
+helm upgrade --install nats nats/nats --set metrics.enabled=true,auth.enabled=false,cluster.enabled=true,cluster.name=nats,cluster.replicas=3 -n prod
+
+helm template nats nats/nats --set metrics.enabled=true,auth.enabled=false,cluster.enabled=true,cluster.name=nats,cluster.replicas=3 -n staging
+
+
