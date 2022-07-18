@@ -786,8 +786,8 @@ server:
   ## Node labels for Prometheus server pod assignment
   ## Ref: https://kubernetes.io/docs/user-guide/node-selection/
   ##
-  nodeSelector:
-    kubernetes.io/hostname: master
+#  nodeSelector:
+#    kubernetes.io/hostname: master
 #    dedicated: master
 
   ## Pod affinity
