@@ -284,6 +284,8 @@ data:
    {"limits":{"cpu":"1","memory":"1000Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   sign-in: | 
    {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
+  sms-movider: | 
+   {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   sms-plivo: | 
    {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   sms-service: | 
