@@ -2,7 +2,7 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: game-gamerecord-wm-scheduleservice
-  namespace: staging
+  namespace: prod
 spec:
   ingressClassName: nginx
   rules:
