@@ -4,7 +4,7 @@ metadata:
   name: mq
   namespace: rabbitmq
 spec:
-  replicas: 1
+  replicas: 3
   rabbitmq:
     additionalConfig: |
       default_user=tgs
