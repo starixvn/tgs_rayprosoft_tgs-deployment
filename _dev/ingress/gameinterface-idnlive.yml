@@ -6,7 +6,7 @@ metadata:
 spec:
   ingressClassName: nginx
   rules:
-  - host: dev-game-external-idnlive.rpgp.cc
+  - host: game-idnlive.rpgp.cc
     http:
       paths:
       - pathType: Prefix
