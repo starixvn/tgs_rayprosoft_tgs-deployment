@@ -47,18 +47,18 @@ spec:
           - name: SOURCE_URL
             value: "https://images.srvptt.com/"
           ports:
-            - containerPort: 91
+            - containerPort: 80
           livenessProbe:
             httpGet:
               path: /healthcheck
-              port: 91
+              port: 80
               scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 5
           readinessProbe:
             httpGet:
               path: /healthcheck
-              port: 91
+              port: 80
               scheme: HTTP
             initialDelaySeconds: 5
             periodSeconds: 5
