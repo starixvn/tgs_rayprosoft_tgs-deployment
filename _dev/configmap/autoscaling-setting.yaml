@@ -1,0 +1,70 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: autoscaling-setting
+  namespace: dev
+data:
+  game-gamerounds: | 
+   {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gameverification: | 
+   {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gameverificationwork: | 
+   {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-avia-service: |
+   {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-bg-fishing-servicer: | 
+   {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-dg-service : |
+   {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-joker-service: | 
+   {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}  
+  game-gamerecord-ky-service: | 
+   {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-ly-service: | 
+   {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-pptf-service: | 
+   {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60} 
+  game-gamerecord-tcg-service: | 
+   {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-vr-service: | 
+   {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-wgfm-service: | 
+   {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-wgvia-service: | 
+   {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamerecordschedules: | 
+   {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-manual-service: | 
+   {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gameinterface-awc-service: | 
+   {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-awc-scheduleservice: | 
+   {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-awc-service: | 
+   {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gameinterface-jili-service: | 
+   {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-jili-scheduleservice: | 
+   {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-jili-service: | 
+   {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gameinterface-wmcasino-service: | 
+   {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-wmcasino-scheduleservice: | 
+   {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-wmcasino-service: | 
+   {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamefundtransfer: | 
+   {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  viplevel-aggregateserver: | 
+    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  viplevel-databaseserver: |
+    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  viplevel-promotionserver: | 
+    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  viplevel-queryserver: |
+    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  viplevel-snapshotserver: |
+    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  viplevel-upgradeserver: |
+    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
