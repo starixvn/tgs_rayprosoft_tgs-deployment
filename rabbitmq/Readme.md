@@ -1,3 +1,5 @@
+### install rabbitmq
+
 https://www.rabbitmq.com/kubernetes/operator/operator-overview.html
 
 kubectl apply -f "https://github.com/rabbitmq/cluster-operator/releases/latest/download/cluster-operator.yml"
@@ -34,3 +36,16 @@ rabbitmqctl set_user_tags tgs administrator
 
 https://rabbitmq.rpgp.cc/
 
+
+
+### changing node types 
+
+kubectl exec -it mq-server-0 /bin/bash -n rabbitmq
+
+rabbitmqctl cluster_status
+
+rabbitmqctl change_cluster_node_type disc
+
+rabbitmqctl change_cluster_node_type ram
+
+rabbitmqctl start_app
