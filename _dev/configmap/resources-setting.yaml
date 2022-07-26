@@ -66,6 +66,8 @@ data:
    {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerecord-pptf-service: | 
    {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"128Mi"}} 
+  game-gamerecord-pptf-workservice: | 
+   {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerecord-tcg-service: | 
    {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerecord-vr-service: | 
