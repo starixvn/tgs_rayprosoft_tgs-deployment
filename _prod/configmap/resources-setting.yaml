@@ -151,11 +151,13 @@ data:
   game-gamerecord-manual-service: | 
    {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gameinterface-awc-service: | 
-   {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"200Mi"}}
+   {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   game-gamerecord-awc-scheduleservice: | 
-   {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"200Mi"}}
+   {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   game-gamerecord-awc-service: | 
-   {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"200Mi"}}
+   {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"100m","memory":"256Mi"}}
+  game-gamerecord-awc-workservice: | 
+   {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   game-gameinterface-jili-service: | 
    {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-jili-scheduleservice: | 
