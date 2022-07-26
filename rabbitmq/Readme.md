@@ -49,3 +49,6 @@ rabbitmqctl change_cluster_node_type disc
 rabbitmqctl change_cluster_node_type ram
 
 rabbitmqctl start_app
+
+
+test
