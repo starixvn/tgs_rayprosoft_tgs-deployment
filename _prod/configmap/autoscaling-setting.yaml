@@ -63,7 +63,7 @@ data:
   game-gamerecord-awc-workservice: | 
    {"enabled":true,"minReplicas":5,"maxReplicas":10,"targetCPUUtilizationPercentage":70,"targetMemoryUtilizationPercentage":70}
   game-gamerecord-pptf-workservice: | 
-   {"enabled":true,"minReplicas":5,"maxReplicas":10,"targetCPUUtilizationPercentage":70,"targetMemoryUtilizationPercentage":70}
+   {"enabled":true,"minReplicas":15,"maxReplicas":30,"targetCPUUtilizationPercentage":70,"targetMemoryUtilizationPercentage":70}
   viplevel-aggregateserver: | 
     {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   viplevel-databaseserver: |
