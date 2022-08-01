@@ -48,6 +48,8 @@ rabbitmqctl change_cluster_node_type disc
 
 rabbitmqctl change_cluster_node_type ram
 
+rabbitmqctl stop_app
+
 rabbitmqctl start_app
 
 

@@ -9,13 +9,13 @@ spec:
     kind: Deployment
     name: report-api
   minReplicas: 2
-  maxReplicas: 10
+  maxReplicas: 6
   metrics: 
     - type: Resource
       resource:
         name: cpu
-        targetAverageUtilization: 75
+        targetAverageUtilization: 85
     - type: Resource
       resource:
         name: memory
-        targetAverageUtilization: 75
+        targetAverageUtilization: 85
