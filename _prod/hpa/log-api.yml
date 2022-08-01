@@ -1,4 +1,4 @@
-apiVersion: autoscaling/v2beta2
+apiVersion: autoscaling/v2
 kind: HorizontalPodAutoscaler
 metadata:
   name: log-api
@@ -14,8 +14,12 @@ spec:
     - type: Resource
       resource:
         name: cpu
-        targetAverageUtilization: 300
+        target:
+          type: Utilization
+          averageUtilization: 300
     - type: Resource
       resource:
         name: memory
-        targetAverageUtilization: 160
+        target:
+          type: Utilization
+          averageUtilization: 160
