@@ -39,7 +39,7 @@ data:
   agent-wlghk: | 
    {"limits":{"cpu":"5m","memory":"20Mi"},"requests":{"cpu":"5m","memory":"20Mi"}}
   backoffice-api: | 
-   {"limits":{"cpu":"500m","memory":"2000Mi"},"requests":{"cpu":"500m","memory":"2000Mi"}}
+   {"limits":{"cpu":"500m","memory":"1600Mi"},"requests":{"cpu":"500m","memory":"1600Mi"}}
   brand-api: | 
    {"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   brand-cert-api: | 
