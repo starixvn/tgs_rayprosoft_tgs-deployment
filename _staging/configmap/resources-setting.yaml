@@ -268,6 +268,8 @@ data:
     {"limits":{"cpu":"400m","memory":"400Mi"},"requests":{"cpu":"20m","memory":"100Mi"}}
   report-api: | 
     {"limits":{"cpu":"200m","memory":"800Mi"},"requests":{"cpu":"10m","memory":"160Mi"}}
+  report-aggregate-service: | 
+    {"limits":{"cpu":"100m","memory":"200Mi"},"requests":{"cpu":"100m","memory":"200Mi"}}
   marketing-report-daily-aggregate: | 
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"160Mi"}}
   marketing-report-api: | 
