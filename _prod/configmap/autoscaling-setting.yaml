@@ -49,7 +49,7 @@ data:
   game-gamerecord-jili-service: | 
    {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-jili-workservice: | 
-   {"enabled":true,"minReplicas":30,"maxReplicas":50,"targetCPUUtilizationPercentage":80,"targetMemoryUtilizationPercentage":80}
+   {"enabled":true,"minReplicas":50,"maxReplicas":75,"targetCPUUtilizationPercentage":80,"targetMemoryUtilizationPercentage":80}
   game-gameinterface-wmcasino-service: | 
    {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-wmcasino-scheduleservice: | 
