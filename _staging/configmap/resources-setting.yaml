@@ -120,10 +120,6 @@ data:
    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"10m","memory":"200Mi"}}
   game-gamerecord-ly-service: | 
    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"10m","memory":"200Mi"}}
-  game-gamerecord-pptf-service: | 
-   {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"10m","memory":"200Mi"}} 
-  game-gamerecord-pptf-workservice: | 
-   {"limits":{"cpu":"100m","memory":"500Mi"},"requests":{"cpu":"100m","memory":"500Mi"}}
   game-gamerecord-tcg-service: | 
    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"10m","memory":"200Mi"}}
   game-gamerecord-vr-service: | 
@@ -158,6 +154,12 @@ data:
    {"limits":{"cpu":"50m","memory":"100Mi"},"requests":{"cpu":"50m","memory":"100Mi"}}
   game-gamerecord-wmcasino-service: | 
    {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"200Mi"}}
+  game-gamerecord-pptf-scheduleservice: | 
+   {"limits":{"cpu":"50m","memory":"100Mi"},"requests":{"cpu":"50m","memory":"100Mi"}}
+  game-gamerecord-pptf-service: | 
+   {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"200Mi"}}
+  game-gamerecord-pptf-workservice: | 
+   {"limits":{"cpu":"100m","memory":"500Mi"},"requests":{"cpu":"100m","memory":"500Mi"}}
   game-gamefundtransfer: | 
    {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gameinterface-evolution-service: | 
