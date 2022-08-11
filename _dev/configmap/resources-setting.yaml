@@ -83,7 +83,7 @@ data:
   game-gameinterface-awc-service: | 
    {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerecord-awc-scheduleservice: | 
-   {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
+   {"limits":{"cpu":"50m","memory":"100Mi"},"requests":{"cpu":"50m","memory":"100Mi"}}
   game-gamerecord-awc-service: | 
    {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerecord-awc-workservice: | 
@@ -91,7 +91,7 @@ data:
   game-gameinterface-jili-service: | 
    {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerecord-jili-scheduleservice: | 
-   {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
+   {"limits":{"cpu":"50m","memory":"100Mi"},"requests":{"cpu":"50m","memory":"100Mi"}}
   game-gamerecord-jili-service: | 
    {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerecord-jili-workservice: | 
@@ -99,16 +99,18 @@ data:
   game-gameinterface-wmcasino-service: | 
    {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerecord-wmcasino-scheduleservice: | 
-   {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
+   {"limits":{"cpu":"50m","memory":"100Mi"},"requests":{"cpu":"50m","memory":"100Mi"}}
   game-gamerecord-wmcasino-service: | 
    {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamefundtransfer: | 
    {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
+  game-gamerecord-evolution-scheduleservice: | 
+   {"limits":{"cpu":"50m","memory":"100Mi"},"requests":{"cpu":"50m","memory":"100Mi"}}
   game-gameinterface-evolution-service: | 
    {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerecord-evolution-service: | 
    {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
-  game-gamerecord-evolution-scheduleservice: | 
+  game-gamerecord-evolution-workservice: | 
    {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamecurrency: | 
    {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}

@@ -37,33 +37,39 @@ data:
   game-gamerecord-manual-service: | 
    {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gameinterface-awc-service: | 
-   {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+   {"enabled":true,"minReplicas":2,"maxReplicas":5,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-awc-scheduleservice: | 
-   {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+   {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-awc-workservice: | 
+   {"enabled":true,"minReplicas":30,"maxReplicas":45,"targetCPUUtilizationPercentage":80,"targetMemoryUtilizationPercentage":80}
   game-gamerecord-awc-service: | 
    {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gameinterface-jili-service: | 
-   {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+   {"enabled":true,"minReplicas":2,"maxReplicas":5,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-jili-scheduleservice: | 
-   {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+   {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-jili-service: | 
-   {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+   {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-jili-workservice: | 
    {"enabled":true,"minReplicas":5,"maxReplicas":15,"targetCPUUtilizationPercentage":80,"targetMemoryUtilizationPercentage":80}
   game-gameinterface-wmcasino-service: | 
-   {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+   {"enabled":true,"minReplicas":2,"maxReplicas":5,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-wmcasino-scheduleservice: | 
-   {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+   {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-wmcasino-service: | 
-   {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+   {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamefundtransfer: | 
    {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-databaseserver: |
    {"enabled":true,"minReplicas":5,"maxReplicas":15,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gameinterface-evolution-service: | 
-   {"enabled":true,"minReplicas":2,"maxReplicas":5,"targetCPUUtilizationPercentage":70,"targetMemoryUtilizationPercentage":70}
-  game-gamerecord-awc-workservice: | 
-   {"enabled":true,"minReplicas":30,"maxReplicas":45,"targetCPUUtilizationPercentage":80,"targetMemoryUtilizationPercentage":80}
+   {"enabled":true,"minReplicas":2,"maxReplicas":5,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-evolution-scheduleservice: | 
+   {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-evolution-service: | 
+   {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-evolution-workservice: | 
+   {"enabled":true,"minReplicas":5,"maxReplicas":15,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-pptf-workservice: | 
    {"enabled":true,"minReplicas":5,"maxReplicas":15,"targetCPUUtilizationPercentage":80,"targetMemoryUtilizationPercentage":80}
   game-gamecurrency: | 
