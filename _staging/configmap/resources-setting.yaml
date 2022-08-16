@@ -51,7 +51,7 @@ data:
   game-dg: | 
     {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
   game-gameprovider-queryserver: |
-    {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"100Mi"}}
+    {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   game-gameproviders: | 
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-databaseserver: |
