@@ -255,7 +255,7 @@ data:
   op-api-mgm: | 
    {"limits":{"cpu":"300m","memory":"2000Mi"},"requests":{"cpu":"20m","memory":"1000Mi"}}
   operator-api : | 
-   {"limits":{"cpu":"600m","memory":"2000Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
+   {"limits":{"cpu":"1000m","memory":"2000Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   payment-api: | 
    {"limits":{"cpu":"750m","memory":"1Gi"},"requests":{"cpu":"100m","memory":"300Mi"}}
   payment-help2pay : | 
