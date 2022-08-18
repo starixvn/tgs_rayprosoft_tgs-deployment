@@ -66,9 +66,9 @@ spec:
         - name: POSTGRES_PASSWORD
           value: abcd1234
         - name: POSTGRES_DATABASE
-          value: "tgs"
+          value: "postgres"
         - name: PGPOOL_SERVICE
-          value: "pgpool2"
+          value: "localhost"
         - name: PGPOOL_SERVICE_PORT
           value: "9999"
       volumes:
