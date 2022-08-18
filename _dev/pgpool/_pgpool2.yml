@@ -66,7 +66,7 @@ spec:
         - name: POSTGRES_PASSWORD
           value: abcd1234
         - name: POSTGRES_DATABASE
-          value: "postgres"
+          value: "tgs"
         - name: PGPOOL_SERVICE
           value: "pgpool2"
         - name: PGPOOL_SERVICE_PORT
@@ -97,7 +97,7 @@ metadata:
   name: pgpool-stats2
   namespace: dev
   labels:
-    app: pgpool-stats
+    app: pgpool-stats2
   annotations:
     prometheus.io/path: /metrics
     prometheus.io/port: "9719"
