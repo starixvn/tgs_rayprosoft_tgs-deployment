@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-prometheus
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 15Gi
+  accessModes:
+    - ReadWriteOnce
+  claimRef:
+    namespace: monitoring
+    name: prometheus-server
+  local:
+    path: /prometheus
