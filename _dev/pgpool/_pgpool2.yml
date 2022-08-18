@@ -82,7 +82,7 @@ metadata:
   name: pgpool2
   namespace: dev
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: pgpool2
   ports:
@@ -90,7 +90,6 @@ spec:
     protocol: TCP
     port: 9999
     targetPort: 9999
-    nodePort: 30303
 ---
 apiVersion: v1
 kind: Service
