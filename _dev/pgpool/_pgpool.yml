@@ -42,7 +42,7 @@ spec:
         - name: volume-config
           mountPath: /config
       - name: pgpool-stats
-        image: pgpool/pgpool_exporter
+        image: pgpool/pgpool2_exporter
         livenessProbe:
           tcpSocket:
             port: 9719
