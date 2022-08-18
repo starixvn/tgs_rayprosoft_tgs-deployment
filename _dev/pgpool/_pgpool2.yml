@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
       - name: pgpool2
-        image: pgpool/pgpool:4.2.2
+        image: pgpool/pgpool
         livenessProbe:
           tcpSocket:
             port: 9999
@@ -35,14 +35,14 @@ spec:
             memory: 600Mi
         env:
         - name: POSTGRES_USERNAME
-          value: tgs_app
+          value: rpdev
         - name: POSTGRES_PASSWORD
           value: abcd1234
         volumeMounts:
         - name: volume-config
           mountPath: /config
       - name: pgpool-stats
-        image: pgpool/pgpool2_exporter:1.0
+        image: pgpool/pgpool2_exporter
         livenessProbe:
           tcpSocket:
             port: 9719
@@ -62,11 +62,15 @@ spec:
             memory: 256Mi
         env:
         - name: POSTGRES_USERNAME
-          value: tgs_app
+          value: rpdev
         - name: POSTGRES_PASSWORD
           value: abcd1234
+        - name: POSTGRES_DATABASE
+          value: "postgres"
         - name: PGPOOL_SERVICE
           value: "pgpool2"
+        - name: PGPOOL_SERVICE_PORT
+          value: "9999"
       volumes:
       - name: volume-config
         configMap:
