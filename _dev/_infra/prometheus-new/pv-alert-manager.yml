@@ -12,3 +12,16 @@ spec:
     name: prometheus-alertmanager
   local:
     path: /alert-manager
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+            - k8s-master-03
+        - matchFields:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+            - k8s-master-03

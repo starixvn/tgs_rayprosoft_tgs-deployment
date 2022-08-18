@@ -12,3 +12,16 @@ spec:
     name: prometheus-server
   local:
     path: /prometheus
+  nodeAffinity:
+    required:
+      nodeSelectorTerms:
+        - matchExpressions:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+            - k8s-master-03
+        - matchFields:
+          - key: kubernetes.io/hostname
+            operator: In
+            values:
+            - k8s-master-03
