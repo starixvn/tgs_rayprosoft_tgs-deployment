@@ -94,10 +94,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: pgpool-stats2
+  name: pgpool-stats
   namespace: dev
   labels:
-    app: pgpool-stats2
+    app: pgpool-stats
   annotations:
     prometheus.io/path: /metrics
     prometheus.io/port: "9719"
