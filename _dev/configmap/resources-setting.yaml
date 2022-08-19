@@ -185,14 +185,14 @@ data:
   validatecode-api : | 
    {"limits":{"cpu":"50m","memory":"500Mi"},"requests":{"cpu":"5m","memory":"100Mi"}}
   viplevel-aggregateserver : | 
-   {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
+   {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   viplevel-databaseserver: | 
-   {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
+   {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   viplevel-promotionserver : | 
-   {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
+   {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   viplevel-queryserver  : | 
-   {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
+   {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   viplevel-snapshotserver: | 
-   {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
+   {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   viplevel-upgradeserver: | 
-   {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}  
+   {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}  
