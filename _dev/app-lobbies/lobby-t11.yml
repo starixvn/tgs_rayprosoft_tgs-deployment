@@ -1,0 +1,124 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: lobby-t11
+  labels:
+    app: lobby-t11
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: lobby-t11
+  template:
+    metadata:
+      labels:
+        app: lobby-t11
+    spec:
+      imagePullSecrets:
+        - name: dockerhub
+      containers:
+        - name: lobby-t11
+          image: pgtgs/lobby-t11:dev
+          imagePullPolicy: Always
+          env:
+          - name: CLIENT
+            value: "I7nKiimrZQOqnJ6ryjUw74c0Hi64KC6Myunhob4cHh8VOUIuZh4p63czefxyyzbZ"
+          - name: CURRENCY
+            value: "CNY"
+          - name: BRAND
+            value: "PGG"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
+          - name: THEME
+            value: "wapT11"
+          - name: "WAPTEMPLATE"
+            value: "11"
+          - name: SOURCE_URL
+            value: "https://images.srvptt.com/"
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: site-data
+              mountPath: /data
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+      volumes:
+        - name: site-data
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lobby-t11
+  namespace: dev
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      name: web
+  selector:
+    app: lobby-t11
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ing-lobby-t11
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+      proxy_set_header Brand-Token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiR1BJIiwic3ViIjoiNGU4NjcxOWYtMjQzZi00NmY2LWIwMTAtNWM3NThiNzI4NWFmIiwibmJmIjoxNjQ2OTA2NTA3LCJleHAiOjE2NDY5MTAxMDcsImlhdCI6MTY0NjkwNjUwNywiaXNzIjoidGdzIn0.8g2Fb_MyHDkHB8wDVTNW4OrRESkE_X3q2ThAvFGzP7tnzL7c3ei6LWxXv_L7PoXRTWGEeH_K7P5LoC25uwTEPiPOsz8pg2jgxaNJxmldZqvZ147vDs5XGp_xU1PR_myP0bnFT6yqqi1ggGgrmpV2XDz8A_BQx5BXCf2XJik92JjKqE2NR-U06wE2R4N24dkZdAH5xCjwlQs7jreSpmL-7sodFw7DefTC-lo0iAy6jBCTTIjBQ7mmyOoSPndCZmyji9d8Kpc7QLmnblmHRvVnrJU3OkuNttSZWh-uDxLufS42j5fvPHPCESjbf8pFD870LhNd4BKec3DfkrMbBt3o6A;
+spec:
+  rules:
+  - host: dev-t11.rpgp.cc
+    http:
+      paths:
+      - pathType: Prefix
+        path: /api/brandcommunication
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api/brandlivechat
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api/brandlivechat
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: lobby-t11
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api
+        backend:
+          service:
+            name: operator-api
+            port:
+              number: 80
