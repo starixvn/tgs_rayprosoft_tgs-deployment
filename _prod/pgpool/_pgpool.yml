@@ -94,9 +94,6 @@ kind: Service
 metadata:
   name: pgpool
   namespace: prod
-  annotation:
-    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: tcp
-    service.beta.kubernetes.io/aws-load-balancer-internal: 0.0.0.0/0
 spec:
   selector:
     app: pgpool
