@@ -4,7 +4,7 @@ metadata:
   name: pgpool
   namespace: prod
 spec:
-  replicas: 3
+  replicas: 8
   selector:
     matchLabels:
       app: pgpool
@@ -75,9 +75,15 @@ spec:
             memory: 256Mi
         env:
         - name: POSTGRES_USERNAME
-          value: rpdev
+          valueFrom:
+            secretKeyRef:
+              name: secret-pgpool
+              key: username
         - name: POSTGRES_PASSWORD
-          value: abcd1234
+          valueFrom:
+            secretKeyRef:
+              name: secret-pgpool
+              key: password
         - name: POSTGRES_DATABASE
           value: "postgres"
         - name: PGPOOL_SERVICE
