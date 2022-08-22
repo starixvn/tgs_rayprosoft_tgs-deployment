@@ -7,7 +7,7 @@ data:
   agent-28bet: | 
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
   agent-api: | 
-    {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+    {"limits":{"cpu":"20m","memory":"512Mi"},"requests":{"cpu":"20m","memory":"512Mi"}}
   agent-gpi: | 
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
   agent-hk28: | 
