@@ -139,7 +139,7 @@ data:
   game-gamerecord-awc-service: | 
    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"200Mi"}}
   game-gamerecord-awc-workservice: | 
-   {"limits":{"cpu":"100m","memory":"500Mi"},"requests":{"cpu":"100m","memory":"500Mi"}}
+   {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"200Mi"}}
   game-gameinterface-jili-service: | 
    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-jili-scheduleservice: | 
@@ -147,7 +147,7 @@ data:
   game-gamerecord-jili-service: | 
    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-jili-workservice: | 
-   {"limits":{"cpu":"100m","memory":"500Mi"},"requests":{"cpu":"100m","memory":"500Mi"}}
+   {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   game-gameinterface-wmcasino-service: | 
    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-wmcasino-scheduleservice: | 
@@ -159,17 +159,17 @@ data:
   game-gamerecord-pptf-service: | 
    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-pptf-workservice: | 
-   {"limits":{"cpu":"100m","memory":"500Mi"},"requests":{"cpu":"100m","memory":"500Mi"}}
+   {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   game-gamefundtransfer: | 
    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gameinterface-evolution-service: | 
-   {"limits":{"cpu":"100m","memory":"500Mi"},"requests":{"cpu":"100m","memory":"500Mi"}}
+   {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   game-gamerecord-evolution-scheduleservice: | 
    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-gamerecord-evolution-service: | 
    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-evolution-workservice: | 
-   {"limits":{"cpu":"100m","memory":"500Mi"},"requests":{"cpu":"100m","memory":"500Mi"}}
+   {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"200Mi"}}
   game-gameinterface-idnlive-service: | 
    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   game-gamecurrency: | 
