@@ -7,7 +7,7 @@ data:
   agent-28bet: | 
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
   agent-api: | 
-    {"limits":{"cpu":"20m","memory":"512Mi"},"requests":{"cpu":"20m","memory":"512Mi"}}
+    {"limits":{"cpu":"50m","memory":"512Mi"},"requests":{"cpu":"20m","memory":"200Mi"}}
   agent-gpi: | 
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
   agent-hk28: | 
@@ -239,7 +239,7 @@ data:
   notification-receiver-service: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"64Mi"}}
   operator-api: |
-    {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"10m","memory":"512Mi"}}
+    {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"20m","memory":"256Mi"}}
   payment-api: | 
     {"limits":{"cpu":"750m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
   payment-help2pay: | 
