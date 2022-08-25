@@ -87,7 +87,7 @@ spec:
               number: 80
         path: /
         pathType: Prefix
-  - host: atingbet.org
+  - host: atinbet.org
     http:
       paths:
       - backend:
@@ -125,7 +125,7 @@ spec:
               number: 80
         path: /
         pathType: Prefix
-  - host: www.atingbet.org
+  - host: www.atinbet.org
     http:
       paths:
       - backend:
@@ -163,7 +163,7 @@ spec:
               number: 80
         path: /
         pathType: Prefix
-  - host: atingbet.net
+  - host: atinbet.net
     http:
       paths:
       - backend:
@@ -201,7 +201,7 @@ spec:
               number: 80
         path: /
         pathType: Prefix
-  - host: www.atingbet.net
+  - host: www.atinbet.net
     http:
       paths:
       - backend:
@@ -239,7 +239,7 @@ spec:
               number: 80
         path: /
         pathType: Prefix
-  - host: atingbet.app
+  - host: atinbet.app
     http:
       paths:
       - backend:
@@ -277,7 +277,7 @@ spec:
               number: 80
         path: /
         pathType: Prefix
-  - host: www.atingbet.app
+  - host: www.atinbet.app
     http:
       paths:
       - backend:
@@ -315,7 +315,7 @@ spec:
               number: 80
         path: /
         pathType: Prefix
-  - host: atingbet.club
+  - host: atinbet.club
     http:
       paths:
       - backend:
@@ -353,7 +353,7 @@ spec:
               number: 80
         path: /
         pathType: Prefix
-  - host: www.atingbet.club
+  - host: www.atinbet.club
     http:
       paths:
       - backend:
@@ -391,7 +391,7 @@ spec:
               number: 80
         path: /
         pathType: Prefix
-  - host: atingbet.vip
+  - host: atinbet.vip
     http:
       paths:
       - backend:
@@ -429,7 +429,7 @@ spec:
               number: 80
         path: /
         pathType: Prefix
-  - host: www.atingbet.vip
+  - host: www.atinbet.vip
     http:
       paths:
       - backend:
