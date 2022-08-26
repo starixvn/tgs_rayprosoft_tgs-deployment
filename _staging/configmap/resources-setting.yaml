@@ -172,6 +172,8 @@ data:
    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"200Mi"}}
   game-gameinterface-idnlive-service: | 
    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
+  game-gameinterface-sw-service: | 
+   {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   game-gamecurrency: | 
    {"limits":{"cpu":"100m","memory":"200Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   global-api: | 
