@@ -103,7 +103,7 @@ data:
   game-sw: | 
    {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-tcg : | 
-   {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
+   {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-tcg-ftp : | 
    {"limits":{"cpu":"600m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-tf: | 
