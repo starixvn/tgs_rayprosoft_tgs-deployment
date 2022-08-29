@@ -21,11 +21,11 @@ data:
   file-service : | 
    {"limits":{"cpu":"400m","memory":"1Gi"},"requests":{"cpu":"10m","memory":"100Mi"}}
   game-gameprovider-queryserver: | 
-   {"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+   {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   game-gameproviders: | 
-   {"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+   {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   game-pluggable-service: | 
-   {"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+   {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   game-gamerecord-databaseserver: | 
    {"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamerecord-scheduler: | 
