@@ -136,6 +136,8 @@ data:
    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   payment-api: | 
    {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"100Mi"}}
+  payment-background: | 
+   {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
   payment-help2pay: | 
    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"50m","memory":"100Mi"}}
   payment-leepay: | 
