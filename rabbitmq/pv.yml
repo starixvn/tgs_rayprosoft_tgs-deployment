@@ -13,4 +13,38 @@ spec:
     name: persistence-mq-server-0
   nfs:
     server: 192.168.50.111
-    path: /nfsshare/rabbitmq/dev
+    path: /nfsshare/rabbitmq/dev0
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-rabbitmq-dev1
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  claimRef:
+    namespace: rabbitmq
+    name: persistence-mq-server-1
+  nfs:
+    server: 192.168.50.111
+    path: /nfsshare/rabbitmq/dev1
+---
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: pv-rabbitmq-dev2
+spec:
+  storageClassName: manual
+  capacity:
+    storage: 10Gi
+  accessModes:
+    - ReadWriteOnce
+  claimRef:
+    namespace: rabbitmq
+    name: persistence-mq-server-2
+  nfs:
+    server: 192.168.50.111
+    path: /nfsshare/rabbitmq/dev1

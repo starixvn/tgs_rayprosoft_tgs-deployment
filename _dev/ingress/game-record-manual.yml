@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: game-record-manual-service
+  namespace: dev
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: dev-gamerecord-manual.rpgp.cc
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: game-gamerecord-manual-service
+            port: 
+              number: 80

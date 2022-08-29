@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: lobby-demo-t4
+  namespace: staging
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 83
+      name: web
+  selector:
+    app: lobby-t3-merged

@@ -1,0 +1,50 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: email-api
+  namespace: dev
+  labels:
+    app: email-api
+spec:
+  selector:
+    matchLabels:
+      app: email-api
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: email-api
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      containers:
+        - name: email-api
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/email-api:latest
+          imagePullPolicy: Always
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+          ports:
+            - containerPort: 80  
+          volumeMounts:
+            - mountPath: /app/appsettings.json
+              name: appsettings
+              readOnly: true
+              subPath: appsettings.json
+      volumes:
+        - name: appsettings
+          configMap:
+            name: email-api  
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: email-api
+  namespace: dev
+spec: 
+  ports:
+    - protocol: TCP
+      port: 80
+      name: api
+  selector:
+      app: email-api

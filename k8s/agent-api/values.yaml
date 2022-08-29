@@ -5,13 +5,13 @@
 replicaCount: 1
 
 image:
-  repository: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent-api
+  repository: pgtgs/agent-api
   pullPolicy: IfNotPresent
   # Overrides the image tag whose default is the chart appVersion.
   tag: "dev"
 
 imagePullSecrets:
-  - name: registry-credentials
+  - name: dockerhub
 nameOverride: "agent-api"
 fullnameOverride: "agent-api"
 namespace: dev

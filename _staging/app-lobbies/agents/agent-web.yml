@@ -1,0 +1,148 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: agent-web
+  namespace: staging
+  labels:
+    app: agent-web
+    type: agent
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: agent-web
+  template:
+    metadata:
+      labels:
+        app: agent-web
+        type: agent
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      nodeSelector:
+        dedicated: nonprod
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: nonprod
+      containers:
+        - name: agent-gpi
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent:staging
+          imagePullPolicy: IfNotPresent
+          env:
+          - name: CLIENT
+            value: "I7nKiimrZQOqnJ6ryjUw74c0Hi64KC6Myunhob4cHh8VOUIuZh4p63czefxyyzbZ"
+          - name: CURRENCY
+            value: "CNY"
+          - name: BRAND
+            value: "PGG"
+          - name: SITE
+            value: "https://stg-t1.rpgp.cc/"
+          - name: LANGUAGES
+            value: "[{\"name\":\"zh-CN\",\"label\":\"简体\"},{\"name\":\"zh-TW\",\"label\":\"繁體\"},{\"name\":\"en-US\",\"label\":\"English\"},{\"name\":\"th-TH\",\"label\":\"Thai\"}]"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
+          - name: THEME
+            value: "red"
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: site-data
+              mountPath: /data
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          resources:
+            limits:
+              cpu: 10m
+              memory: 60Mi
+            requests:
+              cpu: 2m
+              memory: 12Mi
+        - name: agent-tgs689
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent:staging
+          imagePullPolicy: IfNotPresent
+          env:
+          - name: CLIENT
+            value: "CVgeg0GeB5fxXaNP8t6QRrYaNOIjLraa9bCWbJxyqtpDehHjXi4nR3"
+          - name: CURRENCY
+            value: "HKD"
+          - name: BRAND
+            value: "tgs689"
+          - name: SITE
+            value: "https://stg.bobo1668.com/"
+          - name: LANGUAGES
+            value: "[{\"name\":\"zh-CN\",\"label\":\"简体\"},{\"name\":\"zh-TW\",\"label\":\"繁體\"},{\"name\":\"en-US\",\"label\":\"English\"}]"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
+          - name: THEME
+            value: "red"
+          ports:
+            - containerPort: 81
+          volumeMounts:
+            - name: site-data
+              mountPath: /data
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 81
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 81
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          resources:
+            limits:
+              cpu: 10m
+              memory: 60Mi
+            requests:
+              cpu: 2m
+              memory: 12Mi
+      volumes:
+        - name: site-data
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: agent-gpi
+  namespace: staging
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      name: agent-gpi
+  selector:
+    app: agent-web
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: agent-tgs689
+  namespace: staging
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 81
+      name: agent-tgs689
+  selector:
+    app: agent-web

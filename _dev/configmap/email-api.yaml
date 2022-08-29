@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: email-api
+  namespace: dev
+data:
+  appsettings.json: |
+    {
+      "EmailSetting": {
+        "FromMail": "verifyme@163.com",
+        "FromName": "TGS",
+        "SmtpServer": "smtp.163.com",
+        "Port": 25,
+        "Password": "IAUSMDLMDZWJECBP"
+      },
+      "Logging": {
+        "LogLevel": {
+          "Default": "Information",
+          "Microsoft": "Warning",
+          "Microsoft.Hosting.Lifetime": "Information"
+        }
+      },
+      "AllowedHosts": "*",
+    }

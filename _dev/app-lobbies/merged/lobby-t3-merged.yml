@@ -1,0 +1,108 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  namespace: dev
+  name: lobby-t3-merged
+  labels:
+    app: lobby-t3-merged
+spec:
+  replicas: 2
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: lobby-t3-merged
+  template:
+    metadata:
+      labels:
+        app: lobby-t3-merged
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      volumes:
+        - name: bash-frontend
+          configMap:
+            name: bash-frontend
+            defaultMode: 0777
+      containers:
+        - name: lobby-t3
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t3:merged
+          imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-frontend.sh 80 2083"]
+          volumeMounts:
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
+              readOnly: true
+              subPath: bash-frontend
+          env:
+          - name: CLIENT
+            value: "I7nKiimrZQOqnJ6ryjUw74c0Hi64KC6Myunhob4cHh8VOUIuZh4p63czefxyyzbZ"
+          - name: CURRENCY
+            value: "CNY"
+          - name: BRAND
+            value: "PGG"
+          - name: THEME
+            value: "black"
+          - name: "WAPTEMPLATE"
+            value: "3"
+          - name: SOURCE_URL
+            value: "https://images.srvptt.com/"
+          - name: HOMEPAGE
+            value: "[\"t3-1\",\"t3-2\",\"t3-3\"]"
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+        - name: lobby-t4
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t3:merged
+          imagePullPolicy: Always
+          command: ["/bin/sh"]
+          args: ["-c", "/srv/bash-frontend.sh 81 2081"]
+          volumeMounts:
+            - mountPath: /srv/bash-frontend.sh
+              name: bash-frontend
+              readOnly: true
+              subPath: bash-frontend
+          env:
+          - name: CLIENT
+            value: "I7nKiimrZQOqnJ6ryjUw74c0Hi64KC6Myunhob4cHh8VOUIuZh4p63czefxyyzbZ"
+          - name: CURRENCY
+            value: "CNY"
+          - name: BRAND
+            value: "PGG"
+          - name: THEME
+            value: "black"
+          - name: "WAPTEMPLATE"
+            value: "4"
+          - name: SOURCE_URL
+            value: "https://images.srvptt.com/"
+          - name: HOMEPAGE
+            value: "[\"t4-1\",\"t4-2\",\"t4-3\",\"t4-4\"]"
+          ports:
+            - containerPort: 81
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 81
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 81
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5

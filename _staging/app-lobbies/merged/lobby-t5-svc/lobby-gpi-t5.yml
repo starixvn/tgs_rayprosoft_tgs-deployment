@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: lobby-gpi-t5
+  namespace: staging
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      name: lobby-gpi-t5
+  selector:
+    app: lobby-t5-merged
