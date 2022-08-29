@@ -48,6 +48,12 @@ data:
    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   cashservice-worker: | 
    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+  deposit-accumulate-roulette: | 
+   {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"30m","memory":"64Mi"}}
+  deposit-accumulate-roulette-background: | 
+   {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"30m","memory":"64Mi"}}
+  deposit-accumulate-roulette-worker: | 
+   {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"30m","memory":"64Mi"}}  
   domain-setting: | 
    {"limits":{"cpu":"500m","memory":"200Mi"},"requests":{"cpu":"10m","memory":"50Mi"}}
   game-365 : | 
