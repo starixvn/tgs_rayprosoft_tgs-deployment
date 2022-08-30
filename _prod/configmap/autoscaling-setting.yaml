@@ -110,3 +110,5 @@ data:
    {"enabled":true,"minReplicas":2,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   viplevel-birthdayserver: |
    {"enabled":true,"minReplicas":2,"maxReplicas":10,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  promotion-deposit-service: |
+   {"enabled":true,"minReplicas":2,"maxReplicas":10,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
