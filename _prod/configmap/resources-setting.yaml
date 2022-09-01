@@ -77,7 +77,7 @@ data:
   game-gameproviders: | 
    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   game-pluggable-service: | 
-   {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"100m","memory":"512Mi"}}
+   {"limits":{"cpu":"1","memory":"768Mis"},"requests":{"cpu":"100m","memory":"768Mi"}}
   game-gamerecord-databaseserver: | 
    {"limits":{"cpu":"1","memory":"768Mi"},"requests":{"cpu":"100m","memory":"768Mi"}}
   game-gamerecord-scheduler: | 
@@ -207,7 +207,7 @@ data:
   game-gameinterface-wgfm-service: |
    {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   game-gamecurrency: | 
-   {"limits":{"cpu":"50m","memory":"200Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
+   {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   global-api: | 
    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   lobby-21gen-landing: | 
