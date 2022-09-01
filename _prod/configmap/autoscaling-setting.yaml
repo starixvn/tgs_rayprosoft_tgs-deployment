@@ -7,13 +7,13 @@ data:
   game-gameprovider-queryserver: | 
    {"enabled":true,"minReplicas":5,"maxReplicas":15,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gameproviders: | 
-   {"enabled":false,"minReplicas":5,"maxReplicas":15,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+   {"enabled":false,"minReplicas":5,"maxReplicas":15,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-pluggable-service: | 
    {"enabled":true,"minReplicas":5,"maxReplicas":15,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-token: | 
    {"enabled":true,"minReplicas":2,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerounds: | 
-   {"enabled":true,"minReplicas":5,"maxReplicas":15,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+   {"enabled":true,"minReplicas":5,"maxReplicas":15,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gameverification: | 
    {"enabled":true,"minReplicas":3,"maxReplicas":15,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gameverificationwork: | 
