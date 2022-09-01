@@ -31,9 +31,10 @@ spec:
       - path: /api
         pathType: Prefix
         backend:
-          name: operator-api
-          port: 
-            number: 80
+          service:
+            name: operator-api
+            port: 
+              number: 80
       - path: /
         pathType: Prefix
         backend:
