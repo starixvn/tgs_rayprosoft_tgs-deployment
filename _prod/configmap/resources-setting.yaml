@@ -311,7 +311,7 @@ data:
   promotion-api: | 
    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   report-api: | 
-   {"limits":{"cpu":"300m","memory":"1200Mi"},"requests":{"cpu":"300m","memory":"1200Mi"}}
+   {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"200m","memory":"512Mi"}}
   report-aggregate-service: | 
    {"limits":{"cpu":"100m","memory":"2000Mi"},"requests":{"cpu":"100m","memory":"2000Mi"}}
   marketing-report-daily-aggregate: | 

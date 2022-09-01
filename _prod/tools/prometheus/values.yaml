@@ -739,7 +739,7 @@ server:
     ## Must be provided if Ingress is enabled
     ##
     hosts:
-      - prometheus.tgsdev.gq
+      - prometheus.yydsgo.xyz
     #   - prometheus.domain.com
     #   - domain.com/prometheus
 
@@ -753,10 +753,10 @@ server:
     ## Prometheus server Ingress TLS configuration
     ## Secrets must be manually created in the namespace
     ##
-    tls:
-    - secretName: prometheus-tls
-      hosts:
-        - prometheus.tgsdev.gq
+    ##tls:
+    ##- secretName: prometheus-tls
+    ##  hosts:
+    ##    - prometheus.tgsdev.gq
     #   - secretName: prometheus-server-tls
     #     hosts:
     #       - prometheus.domain.com
@@ -810,7 +810,7 @@ server:
     ## If true, Prometheus server will create/use a Persistent Volume Claim
     ## If false, use emptyDir
     ##
-    enabled: false
+    enabled: true
 
     ## Prometheus server data Persistent Volume access modes
     ## Must match those of existing PV or dynamic provisioner
@@ -834,7 +834,7 @@ server:
 
     ## Prometheus server data Persistent Volume size
     ##
-    size: 8Gi
+    size: 50Gi
 
     ## Prometheus server data Persistent Volume Storage Class
     ## If defined, storageClassName: <storageClass>
@@ -1768,94 +1768,6 @@ serverFiles:
 # adds additional scrape configs to prometheus.yml
 # must be a string so you have to add a | after extraScrapeConfigs:
 # example adds prometheus-blackbox-exporter scrape config
-extraScrapeConfigs: |
-  - job_name: 'nats_exporter'
-    static_configs:
-      - targets: ['nats-metrics.dev:7777']
-
-  - job_name: 'redis_exporter'
-    static_configs:
-      - targets: ['redis-metrics.dev:9121']
-  
-  - job_name: 'bo-api-exporter'
-    static_configs:
-      - targets: ['backoffice-api.dev']
-    basic_auth:
-      username: 'admin.enables'
-      password: 'TgsP@ssw0rd'
-
-  - job_name: 'game-sbo-exporter'
-    static_configs:
-      - targets: ['game-sbo.dev']
-  
-  - job_name: 'game-haba-exporter'
-    static_configs:
-      - targets: ['game-haba.dev']
-
-  - job_name: 'game-pp-exporter'
-    static_configs:
-      - targets: ['game-pp.dev']
-
-  - job_name: 'game-saba-exporter'
-    static_configs:
-      - targets: ['game-saba.dev']
-  
-  - job_name: 'game-bg-exporter'
-    static_configs:
-      - targets: ['game-bg.dev']
-
-  - job_name: 'game-imes-exporter'
-    static_configs:
-      - targets: ['game-imes.dev']      
-  
-  - job_name: 'game-jdb-exporter'
-    static_configs:
-      - targets: ['game-jdb.dev']      
-  
-  - job_name: 'game-ky-exporter'
-    static_configs:
-      - targets: ['game-ky.dev']
-      
-  - job_name: 'game-ag-exporter'
-    static_configs:
-      - targets: ['game-ag.dev']
-      
-  - job_name: 'game-vr-exporter'
-    static_configs:
-      - targets: ['game-vr.dev']
-      
-  - job_name: 'op-api-exporter'
-    static_configs:
-      - targets: ['operator-api.dev']
-  
-  - job_name: 'report-exporter'
-    static_configs:
-      - targets: ['report-api.dev']
-  
-  - job_name: 'schedulers-exporter'
-    static_configs:
-      - targets: ['schedulers.dev']
-  
-  - job_name: 'promotion-api-exporter'
-    static_configs:
-      - targets: ['promotion-api.dev']
-  
-  - job_name: 'global-api-exporter'
-    static_configs:
-      - targets: ['global-api.dev']
-  
-  - job_name: 'agent-api-exporter'
-    static_configs:
-      - targets: ['agent-api.dev']
-      
-  - job_name: 'log-exporter'
-    static_configs:
-      - targets: ['log-api.dev']
-   
-  # - job_name: 'pgpool-exporter'
-    # static_configs:
-      # - targets: ['pgpool-stats.dev:9719']
-
 
 
 # Adds option to add alert_relabel_configs to avoid duplicate alerts in alertmanager
