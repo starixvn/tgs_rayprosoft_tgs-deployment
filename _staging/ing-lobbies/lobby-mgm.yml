@@ -4,13 +4,12 @@ metadata:
   name: lobby-mgm
   namespace: staging
   annotations:
-    cert-manager.io/cluster-issuer: letsencrypt
-    kubernetes.io/ingress.class: "nginx"
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
     nginx.ingress.kubernetes.io/proxy-body-size: "50m"
     nginx.ingress.kubernetes.io/configuration-snippet: |
         proxy_set_header Brand-Token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiTUdNIiwic3ViIjoiYzMwZDIzOTUtZDBiNi00OWVkLWFkYjEtNTgzZmY5ZTM4MGE0IiwibmJmIjoxNjQxMjYzNjg3LCJleHAiOjE2NDEyNjcyODcsImlhdCI6MTY0MTI2MzY4NywiaXNzIjoidGdzIn0.nmG1oJYOMMhdWCbfTGh_uBJ0OLbeDdP0TtGHc6rVFA_Ykte538r2_Vaypc8vRzhD-VbgP3jps3IpXTd7dsUnYl7XGV9DzuK8AkdSMZaMxc8VspNPDPzylgct2bX6Dac_pjI70P5HLA7v4STC9fLV-LHQNjk5EO3Mmt1BPLqXp9G7xxqmHkOPj-j4BWIp1sc6sCZn-WWhDEyfA2fj3galDdOvCZkn-dyJX47YvTdq3ZrADitVLXqmjUCkn55TwpcdUVeKkNdzP2d7VNOo2fWxtHpjVLIajBnBhuVkKnTmSt4wwR7DlFitlZxrg1cgjjp2R6hKBK-UNr2olbkTWHm3QA;
 spec:
+  ingressClassName: nginx
   rules:
   - host: stg.mgm22888.com
     http:
