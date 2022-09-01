@@ -8,14 +8,14 @@ spec:
     apiVersion: apps/v1
     kind: Deployment
     name: operator-api
-  minReplicas: 7
+  minReplicas: 5
   maxReplicas: 15
   metrics: 
     - type: Resource
       resource:
         name: cpu
-        targetAverageUtilization: 160
+        targetAverageUtilization: 500
     - type: Resource
       resource:
         name: memory
-        targetAverageUtilization: 160
+        targetAverageUtilization: 60
