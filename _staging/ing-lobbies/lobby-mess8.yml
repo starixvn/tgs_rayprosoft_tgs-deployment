@@ -15,25 +15,29 @@ spec:
     http:
       paths:
       - path: /api/brandcommunication
+        pathType: Prefix
         backend:
           service:
             name: brand-api
             port: 
               number: 80
       - path: /api/brandlivechat
+        pathType: Prefix
         backend:
           service:
             name: brand-api
             port: 
               number: 80
+      - path: /api
+        pathType: Prefix
+        backend:
+          name: operator-api
+          port: 
+            number: 80
       - path: /
+        pathType: Prefix
         backend:
           service: 
             name: lobby-mess8
             port: 
               number: 80
-      - path: /api
-        backend:
-          name: operator-api
-          port: 
-            number: 80
