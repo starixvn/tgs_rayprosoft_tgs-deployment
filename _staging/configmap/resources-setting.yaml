@@ -190,6 +190,8 @@ data:
    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gameinterface-wgfm-service: |
    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
+  game-gamerecord-wgfm-scheduleservice: |
+   {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gamecurrency: | 
    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   global-api: | 
