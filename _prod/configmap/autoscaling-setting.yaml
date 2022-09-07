@@ -34,8 +34,6 @@ data:
     {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-vr-service: |
     {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-wgfm-service: |
-    {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-wgvia-service: |
     {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-scheduler: |
@@ -99,6 +97,8 @@ data:
   game-gameinterface-wgfm-service: |
     {"enabled":true,"minReplicas":2,"maxReplicas":5,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-wgfm-scheduleservice: |
+    {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-wgfm-service: |
     {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamecurrency: |
     {"enabled":true,"minReplicas":3,"maxReplicas":10,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
