@@ -75,7 +75,7 @@ data:
   game-gamerecord-pptf-workservice: |
     {"enabled":true,"minReplicas":3,"maxReplicas":15,"targetCPUUtilizationPercentage":80,"targetMemoryUtilizationPercentage":80}
   game-gamefundtransfer: |
-    {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":2,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-databaseserver: |
     {"enabled":true,"minReplicas":3,"maxReplicas":15,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gameinterface-evolution-service: |
