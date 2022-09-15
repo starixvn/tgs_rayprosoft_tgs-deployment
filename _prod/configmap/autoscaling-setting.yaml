@@ -9,7 +9,7 @@ data:
   game-gameproviders: |
     {"enabled":true,"minReplicas":5,"maxReplicas":10,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-pluggable-service: |
-    {"enabled":true,"minReplicas":2,"maxReplicas":10,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":5,"maxReplicas":10,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-token: |
     {"enabled":true,"minReplicas":2,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-kickplayer-receiverserver: |
