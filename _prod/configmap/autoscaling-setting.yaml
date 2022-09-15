@@ -5,9 +5,9 @@ metadata:
   namespace: prod
 data:
   game-gameprovider-queryserver: |
-    {"enabled":true,"minReplicas":2,"maxReplicas":10,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":5,"maxReplicas":10,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gameproviders: |
-    {"enabled":true,"minReplicas":2,"maxReplicas":10,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":5,"maxReplicas":10,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-pluggable-service: |
     {"enabled":true,"minReplicas":2,"maxReplicas":10,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-token: |
@@ -17,7 +17,7 @@ data:
   game-kickplayer-server: |
     {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerounds: |
-    {"enabled":true,"minReplicas":2,"maxReplicas":10,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":5,"maxReplicas":10,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gameverification: |
     {"enabled":true,"minReplicas":2,"maxReplicas":5,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gameverificationwork: |
@@ -53,7 +53,7 @@ data:
   game-gamerecord-awc-service: |
     {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-awc-workservice: |
-    {"enabled":true,"minReplicas":2,"maxReplicas":10,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":5,"maxReplicas":10,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gameinterface-jili-service: |
     {"enabled":true,"minReplicas":2,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-jili-scheduleservice: |
@@ -77,7 +77,7 @@ data:
   game-gamefundtransfer: |
     {"enabled":true,"minReplicas":2,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-databaseserver: |
-    {"enabled":true,"minReplicas":2,"maxReplicas":10,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":5,"maxReplicas":10,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gameinterface-evolution-service: |
     {"enabled":true,"minReplicas":2,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-evolution-scheduleservice: |
