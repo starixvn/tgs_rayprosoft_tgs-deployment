@@ -53,9 +53,9 @@ data:
   game-gamerecord-awc-service: |
     {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-awc-workservice: |
-    {"enabled":true,"minReplicas":10,"maxReplicas":15,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":3,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-awc-slot-workservice: |
-    {"enabled":true,"minReplicas":10,"maxReplicas":15,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":3,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gameinterface-jili-service: |
     {"enabled":true,"minReplicas":2,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-jili-scheduleservice: |
@@ -63,7 +63,7 @@ data:
   game-gamerecord-jili-service: |
     {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-jili-workservice: |
-    {"enabled":true,"minReplicas":5,"maxReplicas":10,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":3,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gameinterface-wmcasino-service: |
     {"enabled":true,"minReplicas":2,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-wmcasino-scheduleservice: |
@@ -75,7 +75,7 @@ data:
   game-gamerecord-pptf-service: |
     {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-pptf-workservice: |
-    {"enabled":true,"minReplicas":15,"maxReplicas":30,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":3,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamefundtransfer: |
     {"enabled":true,"minReplicas":2,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-databaseserver: |
@@ -87,7 +87,7 @@ data:
   game-gamerecord-evolution-service: |
     {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-evolution-workservice: |
-    {"enabled":true,"minReplicas":2,"maxReplicas":10,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":3,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gameinterface-idnlive-service: |
     {"enabled":true,"minReplicas":2,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gameexternalinterface-sw-service: |
@@ -99,7 +99,7 @@ data:
   game-gamerecord-sw-service: |
     {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-sw-workservice: |
-    {"enabled":true,"minReplicas":2,"maxReplicas":5,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":3,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gameinterface-wgfm-service: |
     {"enabled":true,"minReplicas":2,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-wgfm-scheduleservice: |
@@ -113,7 +113,7 @@ data:
   game-gamerecord-jdb-service: |
     {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-jdb-workservice: |
-    {"enabled":true,"minReplicas":5,"maxReplicas":10,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":3,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamecurrency: |
     {"enabled":true,"minReplicas":3,"maxReplicas":10,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   viplevel-aggregateserver: |
