@@ -136,5 +136,5 @@ data:
     {"enabled":false}
   promotion-deposit-service: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  player-service: |
+  player-api: |
     {"enabled":false}
