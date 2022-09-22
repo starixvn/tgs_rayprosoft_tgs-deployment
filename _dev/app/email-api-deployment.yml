@@ -48,3 +48,27 @@ spec:
       name: api
   selector:
       app: email-api
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-email-api
+  namespace: dev
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  tls:
+  - hosts:
+    - email.srvptt.com
+    secretName: secret-email-api
+  rules:
+  - host: email.srvptt.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: email-api
+            port: 
+              number: 80          
