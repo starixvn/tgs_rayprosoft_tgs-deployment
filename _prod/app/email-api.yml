@@ -7,11 +7,11 @@ data:
   appsettings.json: |
     {
       "EmailSetting": {
-        "FromMail": "verifyme@163.com",
+        "FromMail": "rico.lin@rayprosoft.com",
         "FromName": "TGS",
-        "SmtpServer": "smtp.163.com",
-        "Port": 25,
-        "Password": "IAUSMDLMDZWJECBP"
+        "SmtpServer": "smtp.gmail.com",
+        "Port": 587,
+        "Password": "kvdmhupwchshexmv"
       },
       "Logging": {
         "LogLevel": {
