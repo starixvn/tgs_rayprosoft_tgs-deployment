@@ -41,7 +41,7 @@ service:
   port: 80
 
 ingress:
-  enabled: true
+  enabled: false
   annotations:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: "letsencrypt"
@@ -49,10 +49,7 @@ ingress:
   hosts:
     - host: stg-redisinsight.rpgp.cc
       paths: [ "Prefix"]
-  tls:
-  - secretName: stg-redisinsight.rpgp.cc
-    hosts:
-    - stg-redisinsight.rpgp.cc
+  tls: {}
 
 resources:
   # We usually recommend not to specify default resources and to leave this as a conscious

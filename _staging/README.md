@@ -12,7 +12,7 @@ https://github.com/bitnami/charts/tree/master/bitnami/redis/#installing-the-char
 
 helm install redisinsight . -f values.yaml -n staging
 https://docs.redislabs.com/latest/ri/installing/install-k8s/
-http://redisinsight.tgsdev.gq/
+https://stg-redisinsight.rpgp.cc/
 
 
 # mongodb, mpmgodb express and exporter
