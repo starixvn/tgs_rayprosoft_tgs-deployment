@@ -152,7 +152,11 @@ data:
     {"limits":{"cpu":"50m","memory":"128Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   game-gamerecord-sbo-service: |
     {"limits":{"cpu":"50m","memory":"128Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
+  game-gamerecord-sbo-manualservice: |
+    {"limits":{"cpu":"50m","memory":"128Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   game-gamerecord-sbo-workservice: |
+    {"limits":{"cpu":"50m","memory":"128Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
+  game-gamerecord-sbo-manualworkservice: |
     {"limits":{"cpu":"50m","memory":"128Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   game-gamecurrency: |
     {"limits":{"cpu":"50m","memory":"128Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
