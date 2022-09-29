@@ -3,6 +3,7 @@ kind: PersistentVolume
 metadata:
   name: pv-pushgateway
 spec:
+  storageClassName: nfs-provisioner
   capacity:
     storage: 2Gi
   accessModes:
@@ -10,14 +11,7 @@ spec:
   claimRef:
     namespace: monitoring
     name: prometheus-pushgateway
-  local:
-    path: /pushgateway
-  nodeAffinity:
-    required:
-      nodeSelectorTerms:
-        - matchExpressions:
-          - key: kubernetes.io/hostname
-            operator: In
-            values:
-            - k8s-master-03
+  nfs:
+    server: 192.168.50.111
+    path: /nfsshare/pushgateway
   
