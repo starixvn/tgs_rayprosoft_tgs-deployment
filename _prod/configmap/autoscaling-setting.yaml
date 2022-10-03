@@ -156,3 +156,5 @@ data:
     {"enabled":false}
   deposit-accumulate-roulette-worker: |
     {"enabled":false}
+  agent-api: |
+    {"enabled":false}
