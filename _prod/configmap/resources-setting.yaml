@@ -230,6 +230,8 @@ data:
     {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"500m","memory":"512Mi"}}
   game-gamerecord-sbo-manualworkservice: |
     {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"500m","memory":"512Mi"}}
+  game-gamerecord-bc-workservice: |
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   game-gamecurrency: |
     {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   global-api: |
