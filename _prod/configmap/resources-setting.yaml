@@ -141,7 +141,9 @@ data:
   game-gamerecord-dg-service: |
     {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-joker-service: |
-    {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
+    {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"100m","memory":"200Mi"}}
+  game-gamerecord-joker-manualservice: |
+    {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"100m","memory":"200Mi"}}
   game-gamerecord-ky-service: |
     {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-ly-service: |
