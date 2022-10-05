@@ -162,6 +162,8 @@ data:
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-gamerecord-awc-service: |
     {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"100m","memory":"256Mi"}}
+  game-gamerecord-awc-manualservice: |
+   {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   game-gamerecord-awc-workservice: |
     {"limits":{"cpu":"500m","memory":"1.5Gi"},"requests":{"cpu":"500m","memory":"1.5Gi"}}
   game-gamerecord-awc-slot-workservice: |
