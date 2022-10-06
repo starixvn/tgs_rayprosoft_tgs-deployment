@@ -1,9 +1,13 @@
-# nats and its exporter
-helm repo add bitnami https://charts.bitnami.com/bitnami
+# nats official 
+helm repo add nats https://nats-io.github.io/k8s/helm/charts/
 
-helm install nats bitnami/nats --set metrics.enabled=true,auth.enabled=false -n staging
-nats-metrics:7777/metrics 
-https://github.com/bitnami/charts/tree/master/bitnami/nats/#installing-the-chart
+helm upgrade --install nats nats/nats --set metrics.enabled=true,auth.enabled=false -n staging
+
+helm upgrade --install nats nats/nats --set metrics.enabled=true,auth.enabled=false,cluster.enabled=true,cluster.name=nats,cluster.replicas=3 -n staging
+
+helm template nats nats/nats --set metrics.enabled=true,auth.enabled=false,cluster.enabled=true,cluster.name=nats,cluster.replicas=3 -n staging
+
+
 
 # redis, redis exporter and redisinsight
 helm install redis bitnami/redis --set password=1qaz2wsx,auth.enabled=false,metrics.enabled=true -n staging
