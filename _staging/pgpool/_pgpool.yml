@@ -14,12 +14,12 @@ spec:
         app: pgpool
     spec:
       nodeSelector:
-        dedicated: nonprod
+        dedicated: staging
       tolerations:
       - effect: NoSchedule
         key: dedicated
         operator: Equal
-        value: nonprod
+        value: staging
       containers:
       - name: pgpool
         image: pgpool/pgpool:4.2.2
