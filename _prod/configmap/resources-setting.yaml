@@ -75,11 +75,11 @@ data:
   game-gameprovider-queryserver: |
     {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   game-gameproviders: |
-    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
+    {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"500m","memory":"1Gi"}}
   game-pluggable-service: |
     {"limits":{"cpu":"1","memory":"768Mi"},"requests":{"cpu":"100m","memory":"768Mi"}}
   game-gamerecord-databaseserver: |
-    {"limits":{"cpu":"1","memory":"768Mi"},"requests":{"cpu":"100m","memory":"768Mi"}}
+    {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"500m","memory":"1024Mi"}}
   game-gamerecord-scheduler: |
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-haba: |
@@ -125,7 +125,11 @@ data:
   game-token: |
     {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   game-gamerounds: |
-    {"limits":{"cpu":"1","memory":"1.5Gi"},"requests":{"cpu":"100m","memory":"1.5Gi"}}
+    {"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"500m","memory":"1Gi"}}
+  game-gamerecord-manualworkservice: |
+    {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"500m","memory":"1024Mi"}}
+  game-gamerecord-workservice: |
+    {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"500m","memory":"1024Mi"}}
   game-gameverification: |
     {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   game-gameverificationwork: |
@@ -137,7 +141,9 @@ data:
   game-gamerecord-dg-service: |
     {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-joker-service: |
-    {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
+    {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"100m","memory":"200Mi"}}
+  game-gamerecord-joker-manualservice: |
+    {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"100m","memory":"200Mi"}}
   game-gamerecord-ky-service: |
     {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-ly-service: |
@@ -158,10 +164,14 @@ data:
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-gamerecord-awc-service: |
     {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"100m","memory":"256Mi"}}
+  game-gamerecord-awc-manualservice: |
+   {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   game-gamerecord-awc-workservice: |
     {"limits":{"cpu":"500m","memory":"1.5Gi"},"requests":{"cpu":"500m","memory":"1.5Gi"}}
   game-gamerecord-awc-slot-workservice: |
     {"limits":{"cpu":"500m","memory":"1.5Gi"},"requests":{"cpu":"500m","memory":"1.5Gi"}}
+  game-gamerecord-awc-slot-manualworkservice: |
+    {"limits":{"cpu":"500m","memory":"500Mi"},"requests":{"cpu":"500m","memory":"500Mi"}}
   game-gameinterface-jili-service: |
     {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-jili-scheduleservice: |
@@ -181,7 +191,7 @@ data:
   game-gamerecord-pptf-service: |
     {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-pptf-workservice: |
-    {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"500m","memory":"512Mi"}}
+    {"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"500m","memory":"1Gi"}}
   game-gamefundtransfer: |
     {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gameinterface-evolution-service: |
