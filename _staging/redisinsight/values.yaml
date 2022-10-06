@@ -41,13 +41,13 @@ service:
   port: 80
 
 ingress:
-  enabled: false
+  enabled: true
   annotations:
     kubernetes.io/ingress.class: nginx
     cert-manager.io/cluster-issuer: "letsencrypt"
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: stg-redisinsight.rpgp.cc
+    - host: stg2-redisinsight.rpgp.cc
       paths: [ "Prefix"]
   tls: {}
 
