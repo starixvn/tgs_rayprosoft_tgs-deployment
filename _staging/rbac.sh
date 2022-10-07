@@ -1,10 +1,7 @@
 #!/bin/bash
-
 export account=staging-admin
 export namespace=staging
-
 kubectl -n $namespace create serviceaccount $account
-
 cat << EOF | kubectl apply -n $namespace -f -
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
