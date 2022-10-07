@@ -4,9 +4,14 @@ https://www.jaegertracing.io/docs/1.29/cli/#jaeger-all-in-one-elasticsearch
 kubectl apply -f 1.RoleBinding.yml
 kubectl apply -f configmap.yml
 
+
+helm uninstall jaeger -n observability
+
 helm upgrade --install jaeger jaegertracing/jaeger --set provisionDataStore.cassandra=false --set provisionDataStore.elasticsearch=true --set storage.type=elasticsearch -n observability
 
 	
+helm template jaeger jaegertracing/jaeger --set provisionDataStore.cassandra=false --set provisionDataStore.elasticsearch=true --set storage.type=elasticsearch -n observability
+
 
 helm template jaeger jaegertracing/jaeger \
 	--set provisionDataStore.cassandra=false \   
@@ -19,16 +24,16 @@ https://github.com/elastic/helm-charts/tree/main/kibana
 
 
 
-helm install kibana elastic/kibana
-	--set imageTag=7.16.2
+helm install kibana elastic/kibana \
+	--set imageTag=7.16.2 \
 	--set ingress.enabled=true \
-	--set ingress.hosts[0].host=kibana.srvptt.com \
-	--set ingress.hosts[0].paths[0]=/ 
+	--set ingress.hosts[0].host=stg-kibana.rpgp.cc \
+	--set ingress.hosts[0].paths[0]=/ \
 	-n observability
 	
 helm upgrade --install kibana elastic/kibana -n observability
 	
-helm upgrade --install kibana elastic/kibana --set imageTag=7.16.2 --set ingress.enabled=true --set ingress.hosts[0].host=kibana.srvptt.com --set ingress.hosts[0].path[0]=/ -n observability
+helm upgrade --install kibana elastic/kibana --set imageTag=7.16.2 --set ingress.enabled=true --set ingress.hosts[0].host=stg-kibana.rpgp.cc --set ingress.hosts[0].path[0]=/ -n observability
 
 https://artifacthub.io/packages/helm/elastic/kibana
 

@@ -11,6 +11,9 @@ helm template nats nats/nats --set metrics.enabled=true,auth.enabled=false,clust
 
 # redis, redis exporter and redisinsight
 helm install redis bitnami/redis --set password=1qaz2wsx,auth.enabled=false,metrics.enabled=true -n staging
+
+helm template redis bitnami/redis --set password=1qaz2wsx,auth.enabled=false,metrics.enabled=true -n staging
+
 redis-metrics:9121/metrics 
 https://github.com/bitnami/charts/tree/master/bitnami/redis/#installing-the-chart
 
