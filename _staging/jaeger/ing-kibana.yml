@@ -6,9 +6,9 @@ metadata:
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
- ingressClassName: nginx
+  ingressClassName: nginx
   rules: 
-  - host: kibana.srvptt.com
+  - host: stg-kibana.rpgp.cc
     http:
       paths:
       - path: /
