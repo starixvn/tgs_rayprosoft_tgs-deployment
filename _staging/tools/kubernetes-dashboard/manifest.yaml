@@ -1,0 +1,2 @@
+helm upgrade dashboard kubernetes-dashboard/kubernetes-dashboard -f values.yaml
+
