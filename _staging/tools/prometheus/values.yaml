@@ -834,7 +834,7 @@ server:
 
     ## Prometheus server data Persistent Volume size
     ##
-    size: 100Gi
+    size: 20Gi
 
     ## Prometheus server data Persistent Volume Storage Class
     ## If defined, storageClassName: <storageClass>
@@ -938,11 +938,11 @@ server:
   ##
   resources: 
     limits:
-      cpu: 2000m
-      memory: 6Gi
+      cpu: 1000m
+      memory: 2Gi
     requests:
-      cpu: 500m
-      memory: 3Gi
+      cpu: 300m
+      memory: 1Gi
 
   ## Vertical Pod Autoscaler config
   ## Ref: https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler
