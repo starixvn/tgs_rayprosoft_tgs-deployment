@@ -11,7 +11,8 @@ spec:
   - host: stg-kibana.rpgp.cc
     http:
       paths:
-      - path: /
+      - pathType: Prefix
+        path: /
         backend:
           service:
             name: kibana-kibana
