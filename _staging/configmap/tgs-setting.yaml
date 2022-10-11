@@ -5,6 +5,6 @@ metadata:
   namespace: staging
 data:
   node-selector: | 
-    { "dedicated": "nonprod" }
+    { "dedicated": "staging" }
   dedicated: | 
-    {"effect":"NoSchedule","key": "dedicated", "operator": "Equal", "value": "nonprod"}
+    {"effect":"NoSchedule","key": "dedicated", "operator": "Equal", "value": "staging"}
