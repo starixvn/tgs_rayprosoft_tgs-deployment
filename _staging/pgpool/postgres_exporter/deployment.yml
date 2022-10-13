@@ -29,12 +29,12 @@ spec:
           - name: DATA_SOURCE_USER
             valueFrom:
               secretKeyRef:
-                name: postgres
+                name: postgres-exporter
                 key: username
           - name: DATA_SOURCE_PASS
             valueFrom:
               secretKeyRef:
-                name: postgres
+                name: postgres-exporter
                 key: password
           - name: DATA_SOURCE_URI
             value: db-staging.cglu874fh5rb.ap-east-1.rds.amazonaws.com:5432/postgres?sslmode=disable"
