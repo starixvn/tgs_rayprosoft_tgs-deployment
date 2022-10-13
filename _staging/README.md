@@ -30,7 +30,6 @@ https://www.mongodb.com/docs/v6.0/release-notes/6.0-compatibility/#legacy-opcode
 helm install mongodb bitnami/mongodb --set auth.rootPassword=1qaz2wsx,auth.enabled=false,metrics.enabled=true -n staging
 
 改用版本 5.0.9-debian-11-r3 
-helm upgrade --install mongodb bitnami/mongodb --set auth.rootPassword=1qaz2wsx,auth.enabled=false,metrics.enabled=false,image.tag=5.0.9-debian-11-r3 -n staging
 
 helm uninstall mongodb  -n staging
 
@@ -38,11 +37,11 @@ helm uninstall mongodb  -n staging
 mongodb-metrics:9216/metrics 
 https://github.com/bitnami/charts/tree/master/bitnami/mongodb#installing-the-chart
 
-helm install mongodb-express cowboysysop/mongo-express  --set mongodbEnableAdmin=true,mongodbAdminPassword=1qaz2wsx,ingress.enabled=true,ingress.hosts[0].host=stg2-mongodb-express.rpgp.cc,ingress.hosts[0].paths[0]=/ -n staging
+helm install mongodb-express cowboysysop/mongo-express  --set mongodbEnableAdmin=true,mongodbAdminPassword=1qaz2wsx,ingress.enabled=true,ingress.hosts[0].host=stg-mongodb-express.rpgp.cc,ingress.hosts[0].paths[0]=/ -n staging
 http://mongodb-express.tgsstg.gq/
 https://artifacthub.io/packages/helm/cowboysysop/mongo-express
 
-helm install mongodb-express cowboysysop/mongo-express  --set mongodbEnableAdmin=true,mongodbAdminPassword=1qaz2wsx,ingress.enabled=true,ingress.hosts[0].host=stg2-mongodb-express.rpgp.cc,ingress.hosts[0].paths[0]=/ -n staging
+helm install mongodb-express cowboysysop/mongo-express  --set mongodbEnableAdmin=true,mongodbAdminPassword=1qaz2wsx,ingress.enabled=true,ingress.hosts[0].host=stg-mongodb-express.rpgp.cc,ingress.hosts[0].paths[0]=/ -n staging
 
 go to mongodb pods 
 mongosh

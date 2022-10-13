@@ -3,3 +3,7 @@ https://github.com/grafana/helm-charts
 helm repo add grafana https://grafana.github.io/helm-charts
 
 helm upgrade --install grafana grafana/grafana -f values.yaml -n monitoring
+
+
+kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+
