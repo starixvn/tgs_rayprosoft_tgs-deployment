@@ -138,7 +138,11 @@ data:
     {"limits":{"cpu":"50m","memory":"128Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   game-gamerecord-evolution-service: |
     {"limits":{"cpu":"50m","memory":"128Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
+  game-gamerecord-evolution-manualservice: |
+    {"limits":{"cpu":"50m","memory":"128Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   game-gamerecord-evolution-workservice: |
+    {"limits":{"cpu":"50m","memory":"128Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
+  game-gamerecord-evolution-manualworkservice: |
     {"limits":{"cpu":"50m","memory":"128Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   game-gameinterface-idnlive-service: |
     {"limits":{"cpu":"50m","memory":"128Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}

@@ -205,12 +205,16 @@ data:
   game-gamefundtransfer: |
     {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gameinterface-evolution-service: |
-    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
+    {"limits":{"cpu":"500m","memory":"1500Mi"},"requests":{"cpu":"200m","memory":"1Gi"}}
   game-gamerecord-evolution-scheduleservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-gamerecord-evolution-service: |
-    {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"100m","memory":"200Mi"}}
+    {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"200m","memory":"512Mi"}}
+  game-gamerecord-evolution-manualservice: |
+    {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"200m","memory":"512Mi"}}
   game-gamerecord-evolution-workservice: |
+    {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"500m","memory":"512Mi"}}
+  game-gamerecord-evolution-manualworkservice: |
     {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"500m","memory":"512Mi"}}
   game-gameinterface-idnlive-service: |
     {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"100m","memory":"256Mi"}}
