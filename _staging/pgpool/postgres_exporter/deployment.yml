@@ -49,5 +49,5 @@ metadata:
     namespace: monitoring
 type: Opaque
 stringData:
-    username: postgres
-    password: wXfrQBjK4XYFY3KH6D2D
+    username: tgs_monitor
+    password: 29HVdYXrXrVtGT3
