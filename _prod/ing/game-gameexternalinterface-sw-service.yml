@@ -7,6 +7,10 @@ metadata:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   ingressClassName: nginx
+  tls:
+  - hosts:
+    - game-swtf.yydsgo.xyz
+    secretName: game-swtf.yydsgo.xyz
   rules:
   - host: game-swtf.yydsgo.xyz
     http:
