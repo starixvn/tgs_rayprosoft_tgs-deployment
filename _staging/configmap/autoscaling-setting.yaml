@@ -206,3 +206,5 @@ data:
     {"enabled":false}
   payment-background: |
     {"enabled":false}
+  email-api: |
+    {"enabled":false}
