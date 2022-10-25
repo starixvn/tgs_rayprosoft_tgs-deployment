@@ -31,11 +31,11 @@ data:
   cashservice-worker: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"100Mi"}}
   deposit-accumulate-roulette: |
-    {"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"30m","memory":"64Mi"}}
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
   deposit-accumulate-roulette-background: |
-    {"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"30m","memory":"64Mi"}}
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
   deposit-accumulate-roulette-worker: |
-    {"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"30m","memory":"64Mi"}}
+    {"limits":{"cpu":"100m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
   domain-setting: |
     {"limits":{"cpu":"500m","memory":"200Mi"},"requests":{"cpu":"10m","memory":"50Mi"}}
   file-service: |
@@ -247,6 +247,18 @@ data:
   game-gamerecord-sbo-manualworkservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gamerecord-bc-workservice: |
+    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
+  game-gameinterface-bti-service: |
+    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
+  game-gamerecord-bti-scheduleservice: |
+    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
+  game-gamerecord-bti-service: |
+    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
+  game-gamerecord-bti-manualservice: |
+    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
+  game-gamerecord-bti-workservice: |
+    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
+  game-gamerecord-bti-manualworkservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gamecurrency: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
