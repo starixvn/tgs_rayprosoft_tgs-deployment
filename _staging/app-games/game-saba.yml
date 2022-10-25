@@ -18,12 +18,12 @@ spec:
       imagePullSecrets:
         - name: registry-credentials
       nodeSelector:
-        dedicated: nonprod
+        dedicated: game
       tolerations:
       - effect: NoSchedule
         key: dedicated
         operator: Equal
-        value: nonprod
+        value: game
       containers:
         - name: game-saba
           image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/tgs-api:staging

@@ -121,10 +121,9 @@ podPortName: grafana
 ## ref: http://kubernetes.io/docs/user-guide/services/
 ##
 service:
-  type: NodePort
+  type: ClusterIP
   port: 80
   targetPort: 3000
-  nodePort: 30022
     # targetPort: 4181 To be used with a proxy extraContainer
   annotations: {}
   labels: {}
@@ -157,29 +156,30 @@ hostAliases: []
   #     - "my.host.com"
 
 ingress:
-  enabled: false
+  enabled: true
   # For Kubernetes >= 1.18 you should specify the ingress-controller via the field ingressClassName
   # See https://kubernetes.io/blog/2020/04/02/improvements-to-the-ingress-api-in-kubernetes-1.18/#specifying-the-class-of-an-ingress
   # ingressClassName: nginx
   # Values can be templated
-  annotations:
-    kubernetes.io/ingress.class: nginx
-    cert-manager.io/cluster-issuer: "letsencrypt-prod"
+  annotations: {}
+    # kubernetes.io/ingress.class: nginx
+    # cert-manager.io/cluster-issuer: "letsencrypt-prod"
     # kubernetes.io/tls-acme: "true"
+  ingressClassName : nginx
   labels: {}
   path: /
   hosts:
-    - grafana.tgsdev.gq
+    - stg-grafana.rpgp.cc
   ## Extra paths to prepend to every host configuration. This is useful when working with annotation based services.
   extraPaths: []
   # - path: /*
   #   backend:
   #     serviceName: ssl-redirect
   #     servicePort: use-annotation
-  tls:
-  - secretName: grafana-tls
-    hosts:
-    - grafana.tgsdev.gq
+  tls: {}
+  #- secretName: grafana-tls
+  #  hosts:
+  #  - grafana.tgsdev.gq
 
 resources: {}
 #  limits:
@@ -236,7 +236,7 @@ extraContainerVolumes: []
 ##
 persistence:
   type: pvc
-  enabled: false
+  enabled: true
   # storageClassName: default
   accessModes:
     - ReadWriteOnce
@@ -246,7 +246,7 @@ persistence:
     - kubernetes.io/pvc-protection
   # selectorLabels: {}
   # subPath: ""
-  # existingClaim:
+  existingClaim: grafana
 
 initChownData:
   ## If false, data ownership will not be reset at startup
@@ -486,6 +486,8 @@ grafana.ini:
     logs: /var/log/grafana
     plugins: /var/lib/grafana/plugins
     provisioning: /etc/grafana/provisioning
+  server:
+    root_url: https://stg-grafana.rpgp.cc
   analytics:
     check_for_updates: true
   log:
