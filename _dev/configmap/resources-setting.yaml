@@ -198,6 +198,10 @@ data:
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
   player-api: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
+  playerbucket-worker: |
+    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
+  playerbucket-committer: |
+    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
   pgpool: |
     {"limits":{"cpu":"900m","memory":"900Mi"},"requests":{"cpu":"500m","memory":"600Mi"}}
   profit-rebate-service: |
