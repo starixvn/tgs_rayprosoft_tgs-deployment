@@ -150,6 +150,10 @@ data:
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   player-api: |
     {"enabled":false}
+  playerbucket-worker: |
+    {"enabled":false}
+  playerbucket-committer: |
+    {"enabled":false}
   deposit-accumulate-roulette: |
     {"enabled":false}
   deposit-accumulate-roulette-background: |
