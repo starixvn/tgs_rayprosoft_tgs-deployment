@@ -48,7 +48,7 @@ ingress:
     cert-manager.io/cluster-issuer: "letsencrypt"
     # kubernetes.io/tls-acme: "true"
   hosts:
-    - host: stg2-redisinsight.rpgp.cc
+    - host: stg-redisinsight.rpgp.cc
       paths: [ "Prefix"]
   tls: {}
 

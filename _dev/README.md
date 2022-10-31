@@ -56,7 +56,7 @@ https://github.com/bitnami/charts/tree/master/bitnami/redis/#installing-the-char
 
 helm install redisinsight . -f values.yaml -n dev
 https://docs.redislabs.com/latest/ri/installing/install-k8s/
-http://redisinsight.tgsdev.gq/
+http://dev-redisinsight.rpgp.cc/
 
 # mongodb, mpmgodb express and exporter
 helm install mongodb bitnami/mongodb --set auth.rootPassword=1qaz2wsx,auth.enabled=false,metrics.enabled=true -n dev
