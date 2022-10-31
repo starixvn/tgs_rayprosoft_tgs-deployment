@@ -71,8 +71,14 @@ autoscaling:
   targetCPUUtilizationPercentage: 80
   # targetMemoryUtilizationPercentage: 80
 
-nodeSelector: {}
+nodeSelector:
+  dedicated: staging
 
-tolerations: []
+tolerations:
+- effect: NoSchedule
+  key: dedicated
+  operator: Equal
+  value: staging
+
 
 affinity: {}
