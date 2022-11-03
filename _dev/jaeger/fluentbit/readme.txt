@@ -1,10 +1,19 @@
-建下面三個的主要目的是讓 fluentbit 可以把log 塞進elasticsearch
+改用helm upgrade -i 安裝
 
 kubectl create namespace logging
-kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-service-account.yaml
-kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-role-1.22.yaml
-kubectl create -f https://raw.githubusercontent.com/fluent/fluent-bit-kubernetes-logging/master/fluent-bit-role-binding-1.22.yaml
-
-
 
 REF: https://docs.fluentbit.io/manual/installation/kubernetes#installation
+
+先依照文件設定helm repo
+
+安裝daemonset的fluent-bit
+helm upgrade -i fluent-bit fluent/fluent-bit -f .\edge-values.yaml
+
+安裝center
+helm upgrade -i log-center fluent/fluent-bit -f .\center-values.yaml
+
+
+升級時，先執行
+helm repo update
+
+再重新執行helm upgrade指令
