@@ -232,6 +232,8 @@ data:
     {"enabled":false}
   agent-api: |
     {"enabled":false}
+  payment-alfapay: |
+    {"enabled":false}
   payment-background: |
     {"enabled":false}
   email-api: |
