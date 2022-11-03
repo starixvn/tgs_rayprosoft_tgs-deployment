@@ -354,6 +354,8 @@ data:
     {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"20m","memory":"256Mi"}}
   payment-api: |
     {"limits":{"cpu":"750m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
+  payment-alfapay: |
+    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"100Mi"}}
   payment-background: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"100Mi"}}
   payment-help2pay: |
