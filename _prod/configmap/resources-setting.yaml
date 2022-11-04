@@ -91,9 +91,9 @@ data:
   game-jili: |
     {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-kickplayer-receiverserver: |
-    {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   game-kickplayer-server: |
-    {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   game-ky: |
     {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-ly: |
@@ -185,7 +185,7 @@ data:
   game-gamerecord-jili-workservice: |
     {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"500m","memory":"512Mi"}}
   game-gamerecord-jili-manualworkservice: |
-    {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"500m","memory":"512Mi"}}
+    {"limits":{"cpu":"500m","memory":"768Mi"},"requests":{"cpu":"500m","memory":"768Mi"}}
   game-gameinterface-wmcasino-service: |
     {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-wmcasino-scheduleservice: |
@@ -301,7 +301,7 @@ data:
   game-gamerecord-saba-manualworkservice: |
     {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"500m","memory":"512Mi"}}
   game-gamecurrency: |
-    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
+    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   global-api: |
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   lobby-21gen-landing: |
@@ -372,6 +372,8 @@ data:
     {"limits":{"cpu":"1000m","memory":"1024Mi"},"requests":{"cpu":"100m","memory":"1024Mi"}}
   payment-api: |
     {"limits":{"cpu":"750m","memory":"1Gi"},"requests":{"cpu":"100m","memory":"300Mi"}}
+  payment-alfapay: |
+    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"20m","memory":"80Mi"}}
   payment-background: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"20m","memory":"80Mi"}}
   payment-help2pay: |
@@ -403,9 +405,9 @@ data:
   player-api: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   playerbucket-worker: |
-    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
+    {"limits":{"cpu":"1","memory":"500Mi"},"requests":{"cpu":"30m","memory":"500Mi"}}
   playerbucket-committer: |
-    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
+    {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"30m","memory":"400Mi"}}
   profit-rebate-service: |
     {"limits":{"cpu":"100m","memory":"1000Mi"},"requests":{"cpu":"100m","memory":"200Mi"}}
   promotion-api: |

@@ -197,7 +197,7 @@ data:
   game-gamerecord-saba-manualworkservice: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamecurrency: |
-    {"enabled":true,"minReplicas":3,"maxReplicas":10,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":2,"maxReplicas":5,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   viplevel-aggregateserver: |
     {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   viplevel-databaseserver: |
@@ -231,6 +231,8 @@ data:
   deposit-accumulate-roulette-worker: |
     {"enabled":false}
   agent-api: |
+    {"enabled":false}
+  payment-alfapay: |
     {"enabled":false}
   payment-background: |
     {"enabled":false}

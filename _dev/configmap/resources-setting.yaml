@@ -53,7 +53,7 @@ data:
   game-token: |
     {"limits":{"cpu":"50m","memory":"128Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   game-gamerounds: |
-    {"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   game-gamerecord-manualworkservice: |
     {"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamerecord-workservice: |
@@ -240,6 +240,8 @@ data:
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   payment-api: |
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"100Mi"}}
+  payment-alfapay: |
+    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
   payment-background: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
   payment-help2pay: |
