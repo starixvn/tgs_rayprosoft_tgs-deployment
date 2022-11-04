@@ -17,3 +17,5 @@ helm upgrade -i log-center fluent/fluent-bit -f .\center-values.yaml
 helm repo update
 
 再重新執行helm upgrade指令
+
+安裝完成後使用 kubectl edit ds fluent-bit 修改 forward port，增加hostPort: 24224

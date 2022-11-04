@@ -1,4 +1,9 @@
 ## https://docs.fluentbit.io/manual/administration/configuring-fluent-bit/configuration-file
+extraPorts:
+  - containerPort: 24224
+    protocol: TCP
+    name: forward
+
 config:
   service: |
     [SERVICE]
