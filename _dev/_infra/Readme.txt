@@ -76,7 +76,11 @@ helm repo add bitnami https://charts.bitnami.com/bitnami
 
 helm install redis bitnami/redis --set password=1qaz2wsx,metrics.enabled=true,master.disableCommands=["FLUSHDB"] -n dev
 
-helm install redis bitnami/redis --set global.redis.password=1qaz2wsx,metrics.enabled=true -n dev
+helm install redis bitnami/redis --set global.redis.password=1qaz2wsx,auth.enabled=false,metrics.enabled=true -n dev
+
+helm upgrade --install redis bitnami/redis --set global.redis.password=1qaz2wsx,auth.enabled=false,metrics.enabled=true -n dev
+
+helm uninstall redis -n dev
 
 redis-metrics:9121/metrics 
 https://github.com/bitnami/charts/tree/master/bitnami/redis/#installing-the-chart
