@@ -428,7 +428,7 @@ data:
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"150Mi"}}
   viplevel-queryserver: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"150Mi"}}
-  viplevel-snapshotserver: |
+  viplevel-snapshot: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"150Mi"}}
   viplevel-upgradeserver: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"150Mi"}}
