@@ -420,7 +420,7 @@ data:
     {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"40Mi"}}
   validatecode-api: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"20m","memory":"64Mi"}}
-  viplevel-aggregateserver: |
+  viplevel-aggregate: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"150Mi"}}
   viplevel-databaseserver: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"150Mi"}}

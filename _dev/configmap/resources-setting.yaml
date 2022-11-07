@@ -306,7 +306,7 @@ data:
     {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   validatecode-api: |
     {"limits":{"cpu":"50m","memory":"500Mi"},"requests":{"cpu":"5m","memory":"100Mi"}}
-  viplevel-aggregateserver: |
+  viplevel-aggregate: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   viplevel-databaseserver: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
