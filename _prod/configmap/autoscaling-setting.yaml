@@ -208,7 +208,7 @@ data:
     {"enabled":true,"minReplicas":2,"maxReplicas":5,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   viplevel-snapshot: |
     {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  viplevel-upgradeserver: |
+  viplevel-upgrade: |
     {"enabled":true,"minReplicas":2,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   viplevel-birthdayserver: |
     {"enabled":true,"minReplicas":2,"maxReplicas":10,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}

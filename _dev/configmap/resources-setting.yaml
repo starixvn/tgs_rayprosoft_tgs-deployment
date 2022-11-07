@@ -316,7 +316,7 @@ data:
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   viplevel-snapshot: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
-  viplevel-upgradeserver: |
+  viplevel-upgrade: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   viplevel-birthdayserver: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
