@@ -222,6 +222,8 @@ data:
     {"enabled":true,"minReplicas":2,"maxReplicas":10,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   player-api: |
     {"enabled":false}
+  playerbucket-service: |
+    {"enabled":false}
   playerbucket-worker: |
     {"enabled":false}
   playerbucket-committer: |
