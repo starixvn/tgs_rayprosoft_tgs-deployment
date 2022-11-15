@@ -77,7 +77,7 @@ data:
   game-gameproviders: |
     {"limits":{"cpu":"1","memory":"2Gi"},"requests":{"cpu":"1","memory":"1Gi"}}
   game-pluggable-service: |
-    {"limits":{"cpu":"1","memory":"768Mi"},"requests":{"cpu":"100m","memory":"768Mi"}}
+    {"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"500m","memory":"1Gi"}}
   game-gamerecord-databaseserver: |
     {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"500m","memory":"1024Mi"}}
   game-gamerecord-scheduler: |
