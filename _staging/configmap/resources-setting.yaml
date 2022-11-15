@@ -386,6 +386,8 @@ data:
     {"limits":{"cpu":"400m","memory":"900Mi"},"requests":{"cpu":"10m","memory":"200Mi"}}
   player-api: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+  playerbucket-service: |
+    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
   playerbucket-worker: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
   playerbucket-committer: |
