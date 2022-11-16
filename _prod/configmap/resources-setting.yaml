@@ -125,7 +125,7 @@ data:
   game-token: |
     {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   game-gamerounds: |
-    {"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"500m","memory":"1Gi"}}
+    {"limits":{"cpu":"1","memory":"1.5Gi"},"requests":{"cpu":"1","memory":"1.5Gi"}}
   game-gamerecord-manualworkservice: |
     {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"500m","memory":"1024Mi"}}
   game-gamerecord-workservice: |
