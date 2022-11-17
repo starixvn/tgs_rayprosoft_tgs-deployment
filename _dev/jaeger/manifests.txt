@@ -49,8 +49,8 @@ https://github.com/elastic/helm-charts/tree/main/kibana
 
 helm repo add elastic https://helm.elastic.co
 
-helm -n trial install kibana elastic/kibana --set imageTag=7.16.2 
-				
+helm -n observability install kibana elastic/kibana --set imageTag=7.16.2 
+helm -n observability uninstall kibana		
 
 
 ### kubectl create ns logging
