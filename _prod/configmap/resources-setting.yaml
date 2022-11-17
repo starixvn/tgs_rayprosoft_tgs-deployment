@@ -73,11 +73,11 @@ data:
   game-dg: |
     {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-gameprovider-queryserver: |
-    {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"100m","memory":"512Mi"}}
+    {"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"500m","memory":"1Gi"}}
   game-gameproviders: |
     {"limits":{"cpu":"1","memory":"2Gi"},"requests":{"cpu":"1","memory":"1Gi"}}
   game-pluggable-service: |
-    {"limits":{"cpu":"1","memory":"768Mi"},"requests":{"cpu":"100m","memory":"768Mi"}}
+    {"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"500m","memory":"1Gi"}}
   game-gamerecord-databaseserver: |
     {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"500m","memory":"1024Mi"}}
   game-gamerecord-scheduler: |
@@ -125,15 +125,15 @@ data:
   game-token: |
     {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   game-gamerounds: |
-    {"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"500m","memory":"1Gi"}}
+    {"limits":{"cpu":"1","memory":"1.5Gi"},"requests":{"cpu":"1","memory":"1.5Gi"}}
   game-gamerecord-manualworkservice: |
     {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"500m","memory":"1024Mi"}}
   game-gamerecord-workservice: |
     {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"500m","memory":"1024Mi"}}
   game-gameverification: |
-    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
+    {"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"500m","memory":"1Gi"}}
   game-gameverificationwork: |
-    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
+    {"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"500m","memory":"1Gi"}}
   game-gamerecord-avia-service: |
     {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-bg-fishing-servicer: |
@@ -213,7 +213,7 @@ data:
   game-gamerecord-evolution-manualservice: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"200m","memory":"512Mi"}}
   game-gamerecord-evolution-workservice: |
-    {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"500m","memory":"512Mi"}}
+    {"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"500m","memory":"1Gi"}}
   game-gamerecord-evolution-manualworkservice: |
     {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"500m","memory":"512Mi"}}
   game-gameinterface-idnlive-service: |
@@ -247,7 +247,7 @@ data:
   game-gamerecord-jdb-manualservice: |
     {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   game-gamerecord-jdb-workservice: |
-    {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"500m","memory":"512Mi"}}
+    {"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"500m","memory":"1Gi"}}
   game-gamerecord-jdb-manualworkservice: |
     {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"500m","memory":"512Mi"}}
   game-gameinterface-sbo-service: |
@@ -263,7 +263,7 @@ data:
   game-gamerecord-sbo-manualworkservice: |
     {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"500m","memory":"512Mi"}}
   game-gamerecord-bc-workservice: |
-    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
+    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   game-gameinterface-bti-service: |
     {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   game-gamerecord-bti-scheduleservice: |
@@ -404,6 +404,8 @@ data:
     {"limits":{"cpu":"1500m","memory":"2000Mi"},"requests":{"cpu":"50m","memory":"300Mi"}}
   player-api: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+  playerbucket-service: |
+    {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"30m","memory":"400Mi"}}
   playerbucket-worker: |
     {"limits":{"cpu":"1","memory":"500Mi"},"requests":{"cpu":"30m","memory":"500Mi"}}
   playerbucket-committer: |
@@ -436,7 +438,7 @@ data:
     {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   tgs-production: |
     {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
-  viplevel-aggregateserver: |
+  viplevel-aggregate: |
     {"limits":{"cpu":"100m","memory":"1Gi"},"requests":{"cpu":"100m","memory":"1Gi"}}
   viplevel-databaseserver: |
     {"limits":{"cpu":"100m","memory":"1Gi"},"requests":{"cpu":"100m","memory":"1Gi"}}
@@ -444,12 +446,14 @@ data:
     {"limits":{"cpu":"100m","memory":"1Gi"},"requests":{"cpu":"100m","memory":"1Gi"}}
   viplevel-queryserver: |
     {"limits":{"cpu":"100m","memory":"1Gi"},"requests":{"cpu":"100m","memory":"1Gi"}}
-  viplevel-snapshotserver: |
+  viplevel-snapshot: |
     {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
-  viplevel-upgradeserver: |
+  viplevel-upgrade: |
     {"limits":{"cpu":"100m","memory":"1Gi"},"requests":{"cpu":"100m","memory":"1Gi"}}
   viplevel-birthdayserver: |
     {"limits":{"cpu":"100m","memory":"1Gi"},"requests":{"cpu":"100m","memory":"1Gi"}}
+  viplevel-command: |
+    {"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"500m","memory":"1Gi"}}
   viplevel-api: |
     {"limits":{"cpu":"500m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   promotion-deposit-service: |

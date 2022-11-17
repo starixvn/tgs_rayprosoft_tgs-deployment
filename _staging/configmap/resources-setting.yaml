@@ -386,6 +386,8 @@ data:
     {"limits":{"cpu":"400m","memory":"900Mi"},"requests":{"cpu":"10m","memory":"200Mi"}}
   player-api: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+  playerbucket-service: |
+    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
   playerbucket-worker: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
   playerbucket-committer: |
@@ -420,7 +422,7 @@ data:
     {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"40Mi"}}
   validatecode-api: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"20m","memory":"64Mi"}}
-  viplevel-aggregateserver: |
+  viplevel-aggregate: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"150Mi"}}
   viplevel-databaseserver: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"150Mi"}}
@@ -428,11 +430,13 @@ data:
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"150Mi"}}
   viplevel-queryserver: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"150Mi"}}
-  viplevel-snapshotserver: |
+  viplevel-snapshot: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"150Mi"}}
-  viplevel-upgradeserver: |
+  viplevel-upgrade: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"150Mi"}}
   viplevel-birthdayserver: |
+    {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"150Mi"}}
+  viplevel-command: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"150Mi"}}
   viplevel-api: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"150Mi"}}
