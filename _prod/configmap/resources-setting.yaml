@@ -183,7 +183,7 @@ data:
   game-gamerecord-jili-manualservice: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"200m","memory":"512Mi"}}
   game-gamerecord-jili-workservice: |
-    {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"500m","memory":"512Mi"}}
+    {"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"500m","memory":"1Gi"}}
   game-gamerecord-jili-manualworkservice: |
     {"limits":{"cpu":"500m","memory":"768Mi"},"requests":{"cpu":"500m","memory":"768Mi"}}
   game-gameinterface-wmcasino-service: |
