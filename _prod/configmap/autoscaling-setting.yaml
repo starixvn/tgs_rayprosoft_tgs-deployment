@@ -135,7 +135,7 @@ data:
   game-gamerecord-wgfm-service: |
     {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gameinterface-jdb-service: |
-    {"enabled":true,"minReplicas":2,"maxReplicas":5,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":2,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-jdb-scheduleservice: |
     {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-jdb-service: |
