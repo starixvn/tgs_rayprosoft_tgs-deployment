@@ -230,6 +230,8 @@ data:
     {"enabled":false}
   payment-skypay: |
     {"enabled":false}
+  payment-wandapay: |
+    {"enabled":false}
   deposit-accumulate-roulette: |
     {"enabled":false}
   deposit-accumulate-roulette-background: |
