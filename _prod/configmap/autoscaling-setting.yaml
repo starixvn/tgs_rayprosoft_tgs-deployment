@@ -228,6 +228,8 @@ data:
     {"enabled":false}
   payment-skypay: |
     {"enabled":false}
+  payment-wandapay: |
+    {"enabled":false}
   playerbucket-committer: |
     {"enabled":false}
   deposit-accumulate-roulette: |
