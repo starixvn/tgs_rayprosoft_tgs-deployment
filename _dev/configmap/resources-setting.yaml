@@ -330,3 +330,5 @@ data:
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   promotion-deposit-service: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
+  promotion-relief-money-service: |
+    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
