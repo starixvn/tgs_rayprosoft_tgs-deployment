@@ -246,3 +246,5 @@ data:
     {"enabled":false}
   email-api: |
     {"enabled":false}
+  promotion-relief-money-service: |
+    {"enabled":false}
