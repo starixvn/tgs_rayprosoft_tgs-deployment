@@ -167,7 +167,7 @@ data:
   game-gamerecord-awc-manualservice: |
    {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   game-gamerecord-awc-workservice: |
-    {"limits":{"cpu":"500m","memory":"1.5Gi"},"requests":{"cpu":"500m","memory":"1.5Gi"}}
+    {"limits":{"cpu":"1","memory":"2Gi"},"requests":{"cpu":"1","memory":"2Gi"}}
   game-gamerecord-awc-manualworkservice: |
     {"limits":{"cpu":"500m","memory":"500Mi"},"requests":{"cpu":"500m","memory":"500Mi"}}
   game-gamerecord-awc-slot-workservice: |
@@ -183,7 +183,7 @@ data:
   game-gamerecord-jili-manualservice: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"200m","memory":"512Mi"}}
   game-gamerecord-jili-workservice: |
-    {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"500m","memory":"512Mi"}}
+    {"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"500m","memory":"1Gi"}}
   game-gamerecord-jili-manualworkservice: |
     {"limits":{"cpu":"500m","memory":"768Mi"},"requests":{"cpu":"500m","memory":"768Mi"}}
   game-gameinterface-wmcasino-service: |
@@ -199,7 +199,7 @@ data:
   game-gamerecord-pptf-manualservice: |
     {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-gamerecord-pptf-workservice: |
-    {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"500m","memory":"512Mi"}}
+    {"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"500m","memory":"1Gi"}}
   game-gamerecord-pptf-manualworkservice: |
     {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"500m","memory":"512Mi"}}
   game-gamefundtransfer: |
@@ -239,7 +239,7 @@ data:
   game-gamerecord-wgfm-service: |
     {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gameinterface-jdb-service: |
-    {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"100m","memory":"128Mi"}}
+    {"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"500m","memory":"1Gi"}}
   game-gamerecord-jdb-scheduleservice: |
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-gamerecord-jdb-service: |
@@ -398,6 +398,8 @@ data:
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"20m","memory":"80Mi"}}
   payment-malakipay: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"20m","memory":"80Mi"}}
+  payment-wandapay: |
+    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"20m","memory":"80Mi"}}
   payment-fixtool: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   pgpool: |
@@ -407,9 +409,9 @@ data:
   playerbucket-service: |
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"30m","memory":"400Mi"}}
   playerbucket-worker: |
-    {"limits":{"cpu":"1","memory":"500Mi"},"requests":{"cpu":"30m","memory":"500Mi"}}
+    {"limits":{"cpu":"1","memory":"500Mi"},"requests":{"cpu":"100m","memory":"500Mi"}}
   playerbucket-committer: |
-    {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"30m","memory":"400Mi"}}
+    {"limits":{"cpu":"1","memory":"1000Mi"},"requests":{"cpu":"100m","memory":"1000Mi"}}
   profit-rebate-service: |
     {"limits":{"cpu":"100m","memory":"1000Mi"},"requests":{"cpu":"100m","memory":"200Mi"}}
   promotion-api: |
@@ -441,9 +443,9 @@ data:
   viplevel-aggregate: |
     {"limits":{"cpu":"100m","memory":"1Gi"},"requests":{"cpu":"100m","memory":"1Gi"}}
   viplevel-databaseserver: |
-    {"limits":{"cpu":"100m","memory":"1Gi"},"requests":{"cpu":"100m","memory":"1Gi"}}
+    {"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"500m","memory":"1Gi"}}
   viplevel-promotionserver: |
-    {"limits":{"cpu":"100m","memory":"1Gi"},"requests":{"cpu":"100m","memory":"1Gi"}}
+    {"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"500m","memory":"1Gi"}}
   viplevel-queryserver: |
     {"limits":{"cpu":"100m","memory":"1Gi"},"requests":{"cpu":"100m","memory":"1Gi"}}
   viplevel-snapshot: |
@@ -458,3 +460,5 @@ data:
     {"limits":{"cpu":"500m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   promotion-deposit-service: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
+  promotion-relief-money-service: |
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"150Mi"}}
