@@ -284,6 +284,12 @@ data:
     {"limits":{"cpu":"100m","memory":"200Mi"},"requests":{"cpu":"100m","memory":"200Mi"}}
   promotion-api: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"50m","memory":"100Mi"}}
+  promotion-deposit-service: |
+    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
+  promotion-relief-money-service: |
+    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
+  promotion-rebate: |
+    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   report-aggregate-service: |
     {"limits":{"cpu":"100m","memory":"200Mi"},"requests":{"cpu":"100m","memory":"200Mi"}}
   report-api: |
@@ -327,8 +333,4 @@ data:
   viplevel-command: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"200m","memory":"512Mi"}}
   viplevel-api: |
-    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
-  promotion-deposit-service: |
-    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
-  promotion-relief-money-service: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
