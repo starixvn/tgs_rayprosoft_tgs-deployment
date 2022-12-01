@@ -218,6 +218,8 @@ data:
     {"enabled":false}
   operator-api: |
     {"enabled":false}
+  promotion-api: |
+    {"enabled":false}
   promotion-deposit-service: |
     {"enabled":true,"minReplicas":2,"maxReplicas":10,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   promotion-relief-money-service: |
