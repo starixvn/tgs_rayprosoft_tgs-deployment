@@ -220,6 +220,10 @@ data:
     {"enabled":false}
   promotion-deposit-service: |
     {"enabled":true,"minReplicas":2,"maxReplicas":10,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  promotion-relief-money-service: |
+    {"enabled":false}
+  promotion-rebate: |
+    {"enabled":false}
   player-api: |
     {"enabled":false}
   playerbucket-service: |
@@ -245,6 +249,4 @@ data:
   payment-background: |
     {"enabled":false}
   email-api: |
-    {"enabled":false}
-  promotion-relief-money-service: |
     {"enabled":false}
