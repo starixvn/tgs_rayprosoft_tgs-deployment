@@ -232,6 +232,8 @@ data:
     {"enabled":false}
   playerbucket-worker: |
     {"enabled":false}
+  payment-help2pay: |
+    {"enabled":false}
   payment-skypay: |
     {"enabled":false}
   payment-wandapay: |
