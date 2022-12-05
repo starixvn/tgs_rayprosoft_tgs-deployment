@@ -4,6 +4,8 @@ metadata:
   name: autoscaling-setting
   namespace: prod
 data:
+  backoffice-api: |
+    {"enabled":false}
   game-gameprovider-queryserver: |
     {"enabled":true,"minReplicas":3,"maxReplicas":5,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gameproviders: |
