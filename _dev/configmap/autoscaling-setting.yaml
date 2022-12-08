@@ -4,6 +4,8 @@ metadata:
   name: autoscaling-setting
   namespace: dev
 data:
+  backoffice-api: |
+    {"enabled":false}
   game-gameprovider-queryserver: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gameproviders: |
@@ -204,8 +206,6 @@ data:
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   viplevel-promotionserver: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  viplevel-queryserver: |
-    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   viplevel-snapshot: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   viplevel-upgrade: |
@@ -216,10 +216,18 @@ data:
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   viplevel-api: |
     {"enabled":false}
+  viplevel-web: |
+    {"enabled":false}
   operator-api: |
+    {"enabled":false}
+  promotion-api: |
     {"enabled":false}
   promotion-deposit-service: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  promotion-relief-money-service: |
+    {"enabled":false}
+  promotion-rebate: |
+    {"enabled":false}
   player-api: |
     {"enabled":false}
   playerbucket-service: |
@@ -227,6 +235,8 @@ data:
   playerbucket-worker: |
     {"enabled":false}
   playerbucket-committer: |
+    {"enabled":false}
+  payment-help2pay: |
     {"enabled":false}
   payment-skypay: |
     {"enabled":false}
@@ -245,6 +255,4 @@ data:
   payment-background: |
     {"enabled":false}
   email-api: |
-    {"enabled":false}
-  promotion-relief-money-service: |
     {"enabled":false}
