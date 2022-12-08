@@ -216,6 +216,8 @@ data:
     {"enabled":true,"minReplicas":2,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   viplevel-api: |
     {"enabled":false}
+  viplevel-web: |
+    {"enabled":false}
   operator-api: |
     {"enabled":false}
   promotion-api: |
