@@ -32,7 +32,7 @@ spec:
           imagePullPolicy: IfNotPresent
           env:
           - name: URLS
-            value: "https://stg.macau8.net,https://stg.hktiger888.com"
+            value: "https://macau8.net,https://mgm22888.com"
           ports:
             - containerPort: 80
           volumeMounts:
