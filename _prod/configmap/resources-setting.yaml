@@ -409,9 +409,9 @@ data:
   playerbucket-service: |
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"30m","memory":"400Mi"}}
   playerbucket-worker: |
-    {"limits":{"cpu":"1","memory":"500Mi"},"requests":{"cpu":"100m","memory":"500Mi"}}
+    {"limits":{"cpu":"1","memory":"600Mi"},"requests":{"cpu":"100m","memory":"600Mi"}}
   playerbucket-committer: |
-    {"limits":{"cpu":"1","memory":"1000Mi"},"requests":{"cpu":"100m","memory":"1000Mi"}}
+    {"limits":{"cpu":"1","memory":"600Mi"},"requests":{"cpu":"100m","memory":"600Mi"}}
   profit-rebate-service: |
     {"limits":{"cpu":"100m","memory":"1000Mi"},"requests":{"cpu":"100m","memory":"200Mi"}}
   promotion-api: |
