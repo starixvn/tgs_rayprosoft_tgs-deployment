@@ -284,6 +284,18 @@ data:
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gamerecord-saba-manualworkservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
+  game-gameinterface-sm01-service: |
+    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
+  game-gamerecord-sm01-scheduleservice: |
+    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
+  game-gamerecord-sm01-service: |
+    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
+  game-gamerecord-sm01-manualservice: |
+    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
+  game-gamerecord-sm01-workservice: |
+    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
+  game-gamerecord-sm01-manualworkservice: |
+    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gamecurrency: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   global-api: |
