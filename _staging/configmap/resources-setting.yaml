@@ -200,8 +200,6 @@ data:
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gamerecord-evolution-manualworkservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
-  game-gameinterface-idnlive-service: |
-    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gameexternalinterface-sw-service: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gameinterface-sw-service: |
