@@ -217,7 +217,7 @@ data:
   game-gamerecord-evolution-manualworkservice: |
     {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"500m","memory":"512Mi"}}
   game-gameexternalinterface-sw-service: |
-    {"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"200m","memory":"512Mi"}}
+    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   game-gameinterface-sw-service: |
     {"limits":{"cpu":"500m","memory":"1500Mi"},"requests":{"cpu":"500m","memory":"1Gi"}}
   game-gamerecord-sw-scheduleservice: |
