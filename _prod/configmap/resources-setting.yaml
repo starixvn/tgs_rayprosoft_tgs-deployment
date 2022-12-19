@@ -123,9 +123,9 @@ data:
   game-wm: |
     {"limits":{"cpu":"100m","memory":"1200Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   game-token: |
-    {"limits":{"cpu":"100m","memory":"1.5Gi"},"requests":{"cpu":"100m","memory":"1Gi"}}
+    {"limits":{"cpu":"100m","memory":"1500Mi"},"requests":{"cpu":"100m","memory":"1Gi"}}
   game-gamerounds: |
-    {"limits":{"cpu":"1","memory":"1.5Gi"},"requests":{"cpu":"1","memory":"1.5Gi"}}
+    {"limits":{"cpu":"500m","memory":"2048Mi"},"requests":{"cpu":"50m","memory":"1500Mi"}}
   game-gamerecord-manualworkservice: |
     {"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   game-gamerecord-workservice: |
@@ -171,7 +171,7 @@ data:
   game-gamerecord-awc-manualworkservice: |
     {"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   game-gamerecord-awc-slot-workservice: |
-    {"limits":{"cpu":"500m","memory":"1.5Gi"},"requests":{"cpu":"100m","memory":"1Gi"}}
+    {"limits":{"cpu":"500m","memory":"1500Mi"},"requests":{"cpu":"100m","memory":"1Gi"}}
   game-gamerecord-awc-slot-manualworkservice: |
     {"limits":{"cpu":"500m","memory":"1Gi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   game-gameinterface-jili-service: |
