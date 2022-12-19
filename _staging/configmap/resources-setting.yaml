@@ -118,6 +118,8 @@ data:
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gameverification-worker: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
+  game-gamerecord-avia-scheduleservice: |
+    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gamerecord-avia-service: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gamerecord-bg-fishing-servicer: |
