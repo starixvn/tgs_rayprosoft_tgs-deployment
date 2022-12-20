@@ -284,3 +284,7 @@ data:
     {"enabled":false}
   email-api: |
     {"enabled":false}
+  marketing-report-api: |
+    {"enabled":false}
+  marketing-report-daily-aggregate: |
+    {"enabled":false}
