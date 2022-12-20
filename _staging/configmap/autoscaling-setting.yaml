@@ -246,6 +246,10 @@ data:
     {"enabled":false }
   viplevel-web: |
     {"enabled":false }
+  marketing-report-daily-aggregate: |
+    {"enabled":false }
+  marketing-report-api: |
+    {"enabled":false }
   operator-api: |
     {"enabled":false}
   promotion-api: |
