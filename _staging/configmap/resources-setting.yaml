@@ -442,8 +442,6 @@ data:
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"160Mi"}}
   marketing-report-api: |
     {"limits":{"cpu":"200m","memory":"800Mi"},"requests":{"cpu":"10m","memory":"160Mi"}}
-  marketing-report-scheduler: |
-    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"200Mi"}}
   schedulers: |
     {"limits":{"cpu":"200m","memory":"800Mi"},"requests":{"cpu":"10m","memory":"160Mi"}}
   sign-in: |
