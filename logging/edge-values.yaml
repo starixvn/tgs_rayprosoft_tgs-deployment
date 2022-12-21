@@ -5,6 +5,15 @@ extraPorts:
     name: forward
     port: 24224
 
+nodeSelector:
+  dedicated: staging
+
+tolerations:
+- effect: NoSchedule
+  key: dedicated
+  operator: Equal
+  value: staging
+
 config:
   service: |
     [SERVICE]
