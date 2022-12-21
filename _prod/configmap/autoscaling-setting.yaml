@@ -246,6 +246,8 @@ data:
     {"enabled":false}
   operator-api: |
     {"enabled":false}
+  profit-rebate-service: |
+    {"enabled":false}
   promotion-api: |
     {"enabled":false}
   promotion-deposit-service: |
