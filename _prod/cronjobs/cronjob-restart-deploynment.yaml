@@ -1,45 +1,11 @@
-kind: ServiceAccount
-apiVersion: v1
-metadata:
-  name: deployment-restart
-  namespace: prod
----
-# allow getting status and patching only the one deployment you want
-# to restart
-apiVersion: rbac.authorization.k8s.io/v1
-kind: Role
-metadata:
-  name: deployment-restart
-  namespace: prod
-rules:
-  - apiGroups: ["apps", "v1"]
-    resources: ["deployments"]
-    verbs: ["get", "patch", "list", "watch"] # "list" and "watch" are only needed
-                                             # if you want to use `rollout status`
----
-# bind the role to the service account
-apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
-metadata:
-  name: deployment-restart
-  namespace: prod
-roleRef:
-  apiGroup: rbac.authorization.k8s.io
-  kind: Role
-  name: deployment-restart
-subjects:
-  - kind: ServiceAccount
-    name: deployment-restart
-    namespace: prod
----
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: deployment-restart
+  name: game-schedulers-restart
   namespace: prod
 spec:
   concurrencyPolicy: Forbid
-  schedule: '* * * * 1' # cron spec of time, here, 8 o'clock
+  schedule: '0 2 * * 1' # cron spec of time, here, 8 o'clock
   jobTemplate:
     spec:
       backoffLimit: 2 # this has very low chance of failing, as all this does
