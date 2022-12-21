@@ -439,7 +439,7 @@ data:
   playerbucket-committer: |
     {"limits":{"cpu":"1","memory":"600Mi"},"requests":{"cpu":"100m","memory":"600Mi"}}
   profit-rebate-service: |
-    {"limits":{"cpu":"100m","memory":"600Mi"},"requests":{"cpu":"100m","memory":"600Mi"}}
+    {"limits":{"cpu":"500m","memory":"600Mi"},"requests":{"cpu":"50m","memory":"600Mi"}}
   promotion-api: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   promotion-deposit-service: |
