@@ -39,14 +39,16 @@ metadata:
   namespace: staging
 spec:
   concurrencyPolicy: Forbid
-  schedule: '0 8 * * *' # cron spec of time, here, 8 o'clock
+  schedule: '0 2 * * *' # cron spec of time, here, 8 o'clock
   jobTemplate:
     spec:
+      ttlSecondsAfterFinished: 28800
       backoffLimit: 2 # this has very low chance of failing, as all this does
                       # is prompt kubernetes to schedule new replica set for
                       # the deployment
       activeDeadlineSeconds: 600 # timeout, makes most sense with 
                                  # "waiting for rollout" variant specified below
+      ttlSecondsAfterFinished: 600
       template:
         spec:
           serviceAccountName: deployment-restart # name of the service

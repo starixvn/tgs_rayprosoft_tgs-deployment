@@ -42,6 +42,7 @@ spec:
   schedule: '*/5 * * * *' # cron spec of time, here, 8 o'clock
   jobTemplate:
     spec:
+      ttlSecondsAfterFinished: 600
       backoffLimit: 2 # this has very low chance of failing, as all this does
                       # is prompt kubernetes to schedule new replica set for
                       # the deployment
