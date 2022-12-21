@@ -7,13 +7,7 @@ extraPorts:
 
 tolerations:
 - effect: NoSchedule
-  key: dedicated
-  operator: Equal
-  value: prod
-- effect: NoSchedule
-  key: dedicated
-  operator: Equal
-  value: game
+  operator: Exists
 
 config:
   service: |
