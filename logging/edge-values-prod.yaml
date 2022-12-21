@@ -5,14 +5,15 @@ extraPorts:
     name: forward
     port: 24224
 
-nodeSelector:
-  dedicated: prod
-
 tolerations:
 - effect: NoSchedule
   key: dedicated
   operator: Equal
   value: prod
+- effect: NoSchedule
+  key: dedicated
+  operator: Equal
+  value: game
 
 config:
   service: |
