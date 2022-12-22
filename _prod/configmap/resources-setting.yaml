@@ -183,11 +183,11 @@ data:
   game-gamerecord-awc-manualservice: |
     {"limits":{"cpu":"100m","memory":"384Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerecord-awc-workservice: |
-    {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
+    {"limits":{"cpu":"100","memory":"640Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gamerecord-awc-manualworkservice: |
     {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   game-gamerecord-awc-slot-workservice: |
-    {"limits":{"cpu":"500m","memory":"1500Mi"},"requests":{"cpu":"100m","memory":"1024Mi"}}
+    {"limits":{"cpu":"500m","memory":"640Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   game-gamerecord-awc-slot-manualworkservice: |
     {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   game-gameinterface-jili-service: |
