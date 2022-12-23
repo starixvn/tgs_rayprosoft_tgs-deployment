@@ -5,7 +5,7 @@ metadata:
   namespace: prod
 spec:
   concurrencyPolicy: Forbid
-  schedule: '0 2 * * *' # cron spec of time, here, 10 o'clock
+  schedule: '5 2 * * *' # cron spec of time, here, 10 o'clock
   jobTemplate:
     spec:
       ttlSecondsAfterFinished: 28800
