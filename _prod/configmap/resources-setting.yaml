@@ -75,7 +75,7 @@ data:
   game-gameprovider-queryserver: |
     {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gameproviders: |
-    {"limits":{"cpu":"1","memory":"2Gi"},"requests":{"cpu":"1","memory":"1024Mi"}}
+    {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"500m","memory":"1024Mi"}}
   game-pluggable-service: |
     {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"500m","memory":"1024Mi"}}
   game-gamerecord-databaseserver: |
