@@ -236,10 +236,6 @@ data:
     {"limits":{"cpu":"50m","memory":"128Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   game-gamerecord-saba-manualservice: |
     {"limits":{"cpu":"50m","memory":"128Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
-  game-gamerecord-saba-workservice: |
-    {"limits":{"cpu":"50m","memory":"128Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
-  game-gamerecord-saba-manualworkservice: |
-    {"limits":{"cpu":"50m","memory":"128Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   game-gameinterface-sm01-service: |
     {"limits":{"cpu":"50m","memory":"128Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerecord-sm01-scheduleservice: |
