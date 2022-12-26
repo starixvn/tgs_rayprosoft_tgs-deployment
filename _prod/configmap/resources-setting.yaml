@@ -77,9 +77,7 @@ data:
   game-gameproviders: |
     {"limits":{"cpu":"200m","memory":"1024Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   game-pluggable-service: |
-    {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"500m","memory":"1024Mi"}}
-  game-gamerecord-databaseserver: |
-    {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"500m","memory":"1024Mi"}}
+    {"limits":{"cpu":"200m","memory":"1536Mi"},"requests":{"cpu":"50m","memory":"1024Mi"}}
   game-haba: |
     {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-imes: |

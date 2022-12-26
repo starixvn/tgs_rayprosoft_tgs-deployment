@@ -32,8 +32,6 @@ data:
     {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   game-pluggable-service: |
     {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
-  game-gamerecord-databaseserver: |
-    {"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-jdb: |
     {"limits":{"cpu":"200m","memory":"756Mi"},"requests":{"cpu":"10m","memory":"100Mi"}}
   game-jili: |
