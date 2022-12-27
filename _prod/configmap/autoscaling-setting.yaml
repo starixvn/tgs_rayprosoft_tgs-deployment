@@ -266,6 +266,8 @@ data:
     {"enabled":false}
   payment-wandapay: |
     {"enabled":false}
+  payment-fixtool: |
+    {"enabled":false}
   playerbucket-committer: |
     {"enabled":false}
   deposit-accumulate-roulette: |
