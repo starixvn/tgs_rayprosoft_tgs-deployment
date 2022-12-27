@@ -307,9 +307,7 @@ data:
   game-gamerecord-tfgaming-manualservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gamerecord-tfgaming-workservice: |
-    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
-  game-gamerecord-tfgaming-manualworkservice: |
-    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
+    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}  
   game-gamecurrency: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   global-api: |
