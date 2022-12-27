@@ -242,6 +242,16 @@ data:
     {"limits":{"cpu":"50m","memory":"128Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   game-gamerecord-sm01-manualworkservice: |
     {"limits":{"cpu":"50m","memory":"128Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
+  game-gameinterface-tfgaming-service: |
+    {"limits":{"cpu":"50m","memory":"128Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
+  game-gamerecord-tfgaming-scheduleservice: |
+    {"limits":{"cpu":"50m","memory":"128Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
+  game-gamerecord-tfgaming-service: |
+    {"limits":{"cpu":"50m","memory":"128Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
+  game-gamerecord-tfgaming-manualservice: |
+    {"limits":{"cpu":"50m","memory":"128Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
+  game-gamerecord-tfgaming-workservice: |
+    {"limits":{"cpu":"50m","memory":"128Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   game-gamecurrency: |
     {"limits":{"cpu":"50m","memory":"128Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   global-api: |
