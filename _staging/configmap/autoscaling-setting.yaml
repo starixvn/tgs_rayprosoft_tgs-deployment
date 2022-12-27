@@ -270,6 +270,8 @@ data:
     {"enabled":false}
   payment-wandapay: |
     {"enabled":false}
+  payment-fixtool: |
+    {"enabled":false}
   deposit-accumulate-roulette: |
     {"enabled":false}
   deposit-accumulate-roulette-background: |
