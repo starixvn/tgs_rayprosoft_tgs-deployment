@@ -36,10 +36,6 @@ data:
     {"limits":{"cpu":"200m","memory":"756Mi"},"requests":{"cpu":"10m","memory":"100Mi"}}
   game-jili: |
     {"limits":{"cpu":"750m","memory":"756Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
-  game-kickplayer-receiverserver: |
-    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
-  game-kickplayer-server: |
-    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   game-saba: |
     {"limits":{"cpu":"750m","memory":"756Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-tcg-ftp: |
