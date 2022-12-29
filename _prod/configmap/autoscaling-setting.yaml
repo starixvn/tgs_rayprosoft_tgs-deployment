@@ -249,7 +249,7 @@ data:
   promotion-api: |
     {"enabled":false}
   promotion-deposit-service: |
-    {"enabled":true,"minReplicas":2,"maxReplicas":10,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":2,"maxReplicas":10,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":80}
   promotion-relief-money-service: |
     {"enabled":false}
   promotion-rebate: |
