@@ -11,7 +11,10 @@ kubectl krew install rabbitmq
 kubectl rabbitmq install-cluster-operator
 
 
+## only use pv in dev env 
 kubectl apply -f pv.yml
+
+
 kubectl create ns rabbitmq
 kubectl apply -f rabbitmq.yml
 kubectl apply -f ingress.yml

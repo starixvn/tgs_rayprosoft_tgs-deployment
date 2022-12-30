@@ -71,6 +71,15 @@ helm install kibana elastic/kibana
 	--set ingress.hosts[0].paths[0]=/ 
 	-n observability
 	
+
+helm install kibana elastic/kibana
+	--set imageTag=7.15.2
+	--set ingress.enabled=true \
+	--set ingress.hosts[0].host=kibana.srvptt.com \
+	--set ingress.hosts[0].paths[0]=/ \
+	-n observability
+	
+	
 helm upgrade --install kibana elastic/kibana -n observability
 	
 helm upgrade --install kibana elastic/kibana --set imageTag=7.15.2 --set ingress.enabled=true --set ingress.hosts[0].host=kibana.srvptt.com --set ingress.hosts[0].path[0]=/ -n observability
