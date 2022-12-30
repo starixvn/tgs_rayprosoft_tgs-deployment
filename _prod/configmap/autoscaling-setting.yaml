@@ -9,21 +9,17 @@ data:
   game-gameprovider-queryserver: |
     {"enabled":true,"minReplicas":3,"maxReplicas":5,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gameproviders: |
-    {"enabled":true,"minReplicas":5,"maxReplicas":10,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":2,"maxReplicas":5,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-pluggable-service: |
     {"enabled":true,"minReplicas":3,"maxReplicas":5,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-token: |
     {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
-  game-kickplayer-receiverserver: |
-    {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-kickplayer-server: |
-    {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerounds: |
     {"enabled":true,"minReplicas":5,"maxReplicas":10,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-manualworkservice: |
-    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":2,"maxReplicas":5,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-workservice: |
-    {"enabled":true,"minReplicas":5,"maxReplicas":10,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":3,"maxReplicas":5,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gameverification: |
     {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gameverification-worker: |
@@ -117,9 +113,7 @@ data:
   game-gamerecord-pptf-manualworkservice: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamefundtransfer: |
-    {"enabled":true,"minReplicas":2,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-databaseserver: |
-    {"enabled":true,"minReplicas":5,"maxReplicas":10,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gameinterface-evolution-service: |
     {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-evolution-scheduleservice: |
@@ -172,12 +166,8 @@ data:
     {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-sbo-manualservice: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-sbo-workservice: |
-    {"enabled":true,"minReplicas":2,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-sbo-manualworkservice: |
-    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-bc-workservice: |
-    {"enabled":true,"minReplicas":2,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gameinterface-bti-service: |
     {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-bti-scheduleservice: |
@@ -186,10 +176,6 @@ data:
     {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-bti-manualservice: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60} 
-  game-gamerecord-bti-workservice: |
-    {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-bti-manualworkservice: |
-    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gameinterface-habanero-service: |
     {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-habanero-scheduleservice: |
@@ -199,7 +185,7 @@ data:
   game-gamerecord-habanero-manualservice: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60} 
   game-gamerecord-habanero-workservice: |
-    {"enabled":true,"minReplicas":2,"maxReplicas":5,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-habanero-manualworkservice: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gameinterface-saba-service: |
@@ -210,10 +196,6 @@ data:
     {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-saba-manualservice: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60} 
-  game-gamerecord-saba-workservice: |
-    {"enabled":true,"minReplicas":3,"maxReplicas":5,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-saba-manualworkservice: |
-    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gameinterface-sm01-service: |
     {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-sm01-scheduleservice: |
@@ -226,7 +208,21 @@ data:
     {"enabled":true,"minReplicas":2,"maxReplicas":5,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-sm01-manualworkservice: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gameinterface-tfgaming-service: |
+    {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-tfgaming-scheduleservice: |
+    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-tfgaming-service: |
+    {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-tfgaming-manualservice: |
+    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60} 
+  game-gamerecord-tfgaming-workservice: |
+    {"enabled":true,"minReplicas":2,"maxReplicas":5,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}  
   game-gamecurrency: |
+    {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
+  game-gameplayerlogout: |
+    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60} 
+  game-gamecommand: |
     {"enabled":true,"minReplicas":2,"maxReplicas":5,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   viplevel-aggregate: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
@@ -253,7 +249,7 @@ data:
   promotion-api: |
     {"enabled":false}
   promotion-deposit-service: |
-    {"enabled":true,"minReplicas":2,"maxReplicas":10,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":2,"maxReplicas":10,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":80}
   promotion-relief-money-service: |
     {"enabled":false}
   promotion-rebate: |
@@ -269,6 +265,8 @@ data:
   payment-skypay: |
     {"enabled":false}
   payment-wandapay: |
+    {"enabled":false}
+  payment-fixtool: |
     {"enabled":false}
   playerbucket-committer: |
     {"enabled":false}
