@@ -4,6 +4,8 @@ metadata:
   name: autoscaling-setting
   namespace: dev
 data:
+  brand-cert-api: |
+    {"enabled":false}
   backoffice-api: |
     {"enabled":false}
   game-gameprovider-queryserver: |
