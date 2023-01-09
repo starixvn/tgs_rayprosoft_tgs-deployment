@@ -44,3 +44,14 @@ helm upgrade --install nats nats/nats --set metrics.enabled=true,auth.enabled=fa
 helm template nats nats/nats --set metrics.enabled=true,auth.enabled=false,cluster.enabled=true,cluster.name=nats,cluster.replicas=3 -n staging
 
 
+### brand-cert secrets
+原本是
+kubectl create secret generic brand-cert --from-literal=key.pem="$(openssl genrsa 2048)" -n dev
+
+
+kubectl exec -it brand-cert-api-76494879cd-8tsvw -n prod -- bash
+
+vi /config/certs/key.pem
+
+kubectl create secret generic brand-cert2 --from-file=key.pem=/home/ubuntu/key.pem -n prod
+

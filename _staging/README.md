@@ -10,6 +10,9 @@ helm template nats nats/nats --set metrics.enabled=true,auth.enabled=false,clust
 
 
 # redis, redis exporter and redisinsight
+
+helm repo add bitnami https://charts.bitnami.com/bitnami
+
 helm install redis bitnami/redis --set password=1qaz2wsx,auth.enabled=false,metrics.enabled=true -n staging
 
 helm template redis bitnami/redis --set password=1qaz2wsx,auth.enabled=false,metrics.enabled=true -n staging
@@ -27,7 +30,7 @@ https://stg-redisinsight.rpgp.cc/
 mongodb 6.0 版本 更新很大
 https://www.mongodb.com/docs/v6.0/release-notes/6.0-compatibility/#legacy-opcodes-removed
 
-helm install mongodb bitnami/mongodb --set auth.rootPassword=1qaz2wsx,auth.enabled=false,metrics.enabled=true -n staging
+helm install mongodb bitnami/mongodb --set auth.rootPassword=1qaz2wsx,auth.enabled=false,metrics.enabled=true,image.tag=5.0.9-debian-11-r3 -n staging
 
 改用版本 5.0.9-debian-11-r3 
 

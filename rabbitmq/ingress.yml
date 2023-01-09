@@ -1,14 +1,14 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: ingress-rabbitmq
+  name: rabbitmq
   namespace: rabbitmq
   annotations:
     nginx.ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   ingressClassName: nginx
   rules: 
-  - host: stg-rabbitmq.rpgp.cc
+  - host: stg2-rabbitmq.rpgp.cc
     http:
       paths:
       - pathType: Prefix
