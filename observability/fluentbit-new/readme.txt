@@ -5,6 +5,7 @@ kubectl create namespace logging
 REF: https://docs.fluentbit.io/manual/installation/kubernetes#installation
 
 先依照文件設定helm repo
+helm repo add fluent https://fluent.github.io/helm-charts
 
 升級時，先執行
 helm repo update
