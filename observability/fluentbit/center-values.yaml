@@ -82,3 +82,8 @@ luaScripts:
     end
 
 logLevel: warn
+
+tolerations:
+  - effect: NoSchedule
+    key: dedicated
+    operator: Exists
