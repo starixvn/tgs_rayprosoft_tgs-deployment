@@ -8,6 +8,10 @@ data:
     {"enabled":false}
   backoffice-api: |
     {"enabled":false}
+  cashservice-api: |
+    {"enabled":false}
+  cashservice-worker: |
+    {"enabled":false}
   game-gameprovider-queryserver: |
     {"enabled":true,"minReplicas":3,"maxReplicas":5,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gameproviders: |
