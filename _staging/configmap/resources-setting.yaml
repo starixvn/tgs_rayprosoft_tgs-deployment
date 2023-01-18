@@ -59,7 +59,7 @@ data:
   game-gameprovider-queryserver: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gameproviders: |
-    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+    {"limits":{"cpu":"100m","memory":"384Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-pluggable-service: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-haba: |
