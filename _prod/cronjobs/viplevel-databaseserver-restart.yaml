@@ -22,5 +22,5 @@ spec:
                 - bash
                 - -c
                 - >-
-                   kubectl -n prod rollout restart viplevel-command && 
-                   kubectl -n prod rollout restart viplevel-databaseserver
+                   kubectl -n prod rollout restart deployment viplevel-command && 
+                   kubectl -n prod rollout restart deployment viplevel-databaseserver

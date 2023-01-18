@@ -22,7 +22,7 @@ spec:
                 - bash
                 - -c
                 - >-
-                   kubectl -n prod rollout restart viplevel-aggregate && 
-                   kubectl -n prod rollout restart viplevel-birthdayserver &&
-                   kubectl -n prod rollout restart viplevel-promotionserver &&
-                   kubectl -n prod rollout restart viplevel-upgrade
+                   kubectl -n prod rollout restart deployment viplevel-aggregate && 
+                   kubectl -n prod rollout restart deployment viplevel-birthdayserver &&
+                   kubectl -n prod rollout restart deployment viplevel-promotionserver &&
+                   kubectl -n prod rollout restart deployment viplevel-upgrade

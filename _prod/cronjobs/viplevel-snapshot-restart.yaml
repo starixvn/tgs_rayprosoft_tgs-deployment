@@ -22,4 +22,4 @@ spec:
                 - bash
                 - -c
                 - >-
-                   kubectl -n prod rollout restart viplevel-snapshot
+                   kubectl -n prod rollout restart deployment viplevel-snapshot
