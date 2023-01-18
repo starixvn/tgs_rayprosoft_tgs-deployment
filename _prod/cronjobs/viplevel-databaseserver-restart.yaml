@@ -1,0 +1,26 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: viplevel-databaseserver-restart
+  namespace: prod
+spec:
+  concurrencyPolicy: Forbid
+  schedule: '40 2 * * *' # cron spec of time, here, 8 o'clock
+  jobTemplate:
+    spec:
+      ttlSecondsAfterFinished: 28800
+      backoffLimit: 2
+      activeDeadlineSeconds: 600
+      template:
+        spec:
+          serviceAccountName: deployment-restart
+          restartPolicy: Never
+          containers:
+            - name: kubectl
+              image: bitnami/kubectl
+              command:
+                - bash
+                - -c
+                - >-
+                   kubectl -n prod rollout restart viplevel-command && 
+                   kubectl -n prod rollout restart viplevel-databaseserver
