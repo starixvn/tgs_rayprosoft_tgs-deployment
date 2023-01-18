@@ -59,9 +59,9 @@ data:
   game-gameprovider-queryserver: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gameproviders: |
-    {"limits":{"cpu":"100m","memory":"384Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-pluggable-service: |
-    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-haba: |
     {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
   game-imes: |
@@ -199,7 +199,7 @@ data:
   game-gamerecord-pptf-manualworkservice: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamefundtransfer: |
-    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gameinterface-evolution-service: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamerecord-evolution-scheduleservice: |
@@ -311,11 +311,11 @@ data:
   game-gamerecord-dgtf-manualservice: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamecurrency: |
-    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gameplayerlogout: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamecommand: |
-    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   global-api: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"50Mi"}}
   lobby-21gen: |
