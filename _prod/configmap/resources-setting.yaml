@@ -129,15 +129,15 @@ data:
   game-gamerecord-avia-scheduleservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-avia-service: |
-    {"limits":{"cpu":"100m","memory":"384Mi"},"requests":{"cpu":"50m","memory":"384Mi"}}
+    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"384Mi"}}
   game-gamerecord-bg-fishing-scheduleservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-bg-fishing-service: |
-    {"limits":{"cpu":"100m","memory":"384Mi"},"requests":{"cpu":"50m","memory":"384Mi"}}
+    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"384Mi"}}
   game-gamerecord-dg-scheduleservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-dg-service: |
-    {"limits":{"cpu":"100m","memory":"384Mi"},"requests":{"cpu":"50m","memory":"384Mi"}}
+    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"384Mi"}}
   game-gamerecord-joker-scheduleservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-joker-service: |
@@ -147,23 +147,23 @@ data:
   game-gamerecord-ky-scheduleservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-ky-service: |
-    {"limits":{"cpu":"100m","memory":"384Mi"},"requests":{"cpu":"50m","memory":"384Mi"}}
+    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"384Mi"}}
   game-gamerecord-ly-scheduleservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-ly-service: |
-    {"limits":{"cpu":"100m","memory":"384Mi"},"requests":{"cpu":"50m","memory":"384Mi"}}
+    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"384Mi"}}
   game-gamerecord-tcg-scheduleservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-tcg-service: |
-    {"limits":{"cpu":"100m","memory":"384Mi"},"requests":{"cpu":"50m","memory":"384Mi"}}
+    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"384Mi"}}
   game-gamerecord-vr-scheduleservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-vr-service: |
-    {"limits":{"cpu":"100m","memory":"384Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
+    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"384Mi"}}
   game-gamerecord-wgvia-scheduleservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-wgvia-service: |
-    {"limits":{"cpu":"100m","memory":"384Mi"},"requests":{"cpu":"50m","memory":"384Mi"}}
+    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"384Mi"}}
   game-gamerecordschedules: |
     {"limits":{"cpu":"1","memory":"1024Mi"},"requests":{"cpu":"500m","memory":"512Mi"}}
   game-gamerecord-manual-service: |
@@ -185,7 +185,7 @@ data:
   game-gamerecord-awc-slot-manualworkservice: |
     {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   game-gameinterface-jili-service: |
-    {"limits":{"cpu":"200m","memory":"1024Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
+    {"limits":{"cpu":"100m","memory":"640Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gamerecord-jili-scheduleservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-jili-service: |
@@ -197,11 +197,11 @@ data:
   game-gamerecord-jili-manualworkservice: |
     {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   game-gameinterface-wmcasino-service: |
-    {"limits":{"cpu":"200m","memory":"1024Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
+    {"limits":{"cpu":"100m","memory":"640Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gamerecord-wmcasino-scheduleservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-wmcasino-service: |
-    {"limits":{"cpu":"1","memory":"1024Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
+    {"limits":{"cpu":"200m","memory":"640Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gamerecord-wmcasino-manualservice: |
     {"limits":{"cpu":"100m","memory":"384Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerecord-pptf-scheduleservice: |
@@ -217,11 +217,11 @@ data:
   game-gamefundtransfer: |
     {"limits":{"cpu":"100m","memory":"768Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gameinterface-evolution-service: |
-    {"limits":{"cpu":"200m","memory":"1024Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
+    {"limits":{"cpu":"100m","memory":"640Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gamerecord-evolution-scheduleservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-evolution-service: |
-    {"limits":{"cpu":"1","memory":"1024Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
+    {"limits":{"cpu":"200m","memory":"640Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gamerecord-evolution-manualservice: |
     {"limits":{"cpu":"100m","memory":"384Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerecord-evolution-workservice: |
@@ -231,11 +231,11 @@ data:
   game-gameexternalinterface-sw-service: |
     {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gameinterface-sw-service: |
-    {"limits":{"cpu":"200m","memory":"1024Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
+    {"limits":{"cpu":"100m","memory":"640Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gamerecord-sw-scheduleservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-sw-service: |
-    {"limits":{"cpu":"1","memory":"1024Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
+    {"limits":{"cpu":"200m","memory":"640Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gamerecord-sw-manualservice: |
     {"limits":{"cpu":"100m","memory":"384Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerecord-sw-workservice: |
@@ -243,13 +243,13 @@ data:
   game-gamerecord-sw-manualworkservice: |
     {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   game-gameinterface-wgfm-service: |
-    {"limits":{"cpu":"200m","memory":"1024Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
+    {"limits":{"cpu":"100m","memory":"640Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gamerecord-wgfm-scheduleservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-wgfm-service: |
-    {"limits":{"cpu":"100m","memory":"384Mi"},"requests":{"cpu":"50m","memory":"384Mi"}}
+    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"384Mi"}}
   game-gameinterface-jdb-service: |
-    {"limits":{"cpu":"200m","memory":"1024Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
+    {"limits":{"cpu":"100m","memory":"640Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gamerecord-jdb-scheduleservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-jdb-service: |
@@ -257,29 +257,29 @@ data:
   game-gamerecord-jdb-manualservice: |
     {"limits":{"cpu":"100m","memory":"384Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerecord-jdb-workservice: |
-    {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
+    {"limits":{"cpu":"100m","memory":"768Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   game-gamerecord-jdb-manualworkservice: |
     {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   game-gameinterface-sbo-service: |
-    {"limits":{"cpu":"200m","memory":"1024Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
+    {"limits":{"cpu":"100m","memory":"640Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gamerecord-sbo-scheduleservice: |
-    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
+    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"384Mi"}}
   game-gamerecord-sbo-service: |
-    {"limits":{"cpu":"200m","memory":"1024Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
+    {"limits":{"cpu":"200m","memory":"768Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gamerecord-sbo-manualservice: |
     {"limits":{"cpu":"100m","memory":"384Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerecord-bc-workservice: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"384Mi"}}
   game-gameinterface-bti-service: |
-    {"limits":{"cpu":"200m","memory":"1024Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
+    {"limits":{"cpu":"100m","memory":"640Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gamerecord-bti-scheduleservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-bti-service: |
-    {"limits":{"cpu":"200m","memory":"1024Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
+    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"384Mi"}}
   game-gamerecord-bti-manualservice: |
     {"limits":{"cpu":"100m","memory":"384Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gameinterface-habanero-service: |
-    {"limits":{"cpu":"200m","memory":"1024Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
+    {"limits":{"cpu":"100m","memory":"640Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gamerecord-habanero-scheduleservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-habanero-service: |
@@ -291,11 +291,11 @@ data:
   game-gamerecord-habanero-manualworkservice: |
     {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   game-gameinterface-saba-service: |
-    {"limits":{"cpu":"200m","memory":"1024Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
+    {"limits":{"cpu":"100m","memory":"640Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gamerecord-saba-scheduleservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-saba-service: |
-    {"limits":{"cpu":"200m","memory":"1024Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
+    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"384Mi"}}
   game-gamerecord-saba-manualservice: |
     {"limits":{"cpu":"100m","memory":"384Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gameinterface-sm01-service: |
@@ -303,7 +303,7 @@ data:
   game-gamerecord-sm01-scheduleservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-sm01-service: |
-    {"limits":{"cpu":"200m","memory":"1024Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
+    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"384Mi"}}
   game-gamerecord-sm01-manualservice: |
     {"limits":{"cpu":"100m","memory":"384Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerecord-sm01-workservice: |
@@ -311,15 +311,21 @@ data:
   game-gamerecord-sm01-manualworkservice: |
     {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   game-gameinterface-tfgaming-service: |
-    {"limits":{"cpu":"200m","memory":"1024Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
+    {"limits":{"cpu":"100m","memory":"640Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gamerecord-tfgaming-scheduleservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-tfgaming-service: |
-    {"limits":{"cpu":"200m","memory":"1024Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
+    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"384Mi"}}
   game-gamerecord-tfgaming-manualservice: |
     {"limits":{"cpu":"100m","memory":"384Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerecord-tfgaming-workservice: |
     {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}  
+  game-gameinterface-dg-service: |
+    {"limits":{"cpu":"200m","memory":"1024Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
+  game-gamerecord-dgtf-service: |
+    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"384Mi"}}
+  game-gamerecord-dgtf-manualservice: |
+    {"limits":{"cpu":"100m","memory":"384Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamecurrency: |
     {"limits":{"cpu":"100m","memory":"768Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gameplayerlogout: |
@@ -433,7 +439,7 @@ data:
   playerbucket-service: |
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"30m","memory":"400Mi"}}
   playerbucket-worker: |
-    {"limits":{"cpu":"1","memory":"600Mi"},"requests":{"cpu":"100m","memory":"600Mi"}}
+    {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"100m","memory":"400Mi"}}
   playerbucket-committer: |
     {"limits":{"cpu":"1","memory":"600Mi"},"requests":{"cpu":"100m","memory":"600Mi"}}
   profit-rebate-service: |
@@ -469,20 +475,20 @@ data:
   tgs-production: |
     {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
   viplevel-aggregate: |
-    {"limits":{"cpu":"100m","memory":"1024Mi"},"requests":{"cpu":"100m","memory":"1024Mi"}}
+    {"limits":{"cpu":"200m","memory":"768Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   viplevel-databaseserver: |
-    {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"500m","memory":"1024Mi"}}
+    {"limits":{"cpu":"200m","memory":"768Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   viplevel-promotionserver: |
-    {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"500m","memory":"1024Mi"}}
+    {"limits":{"cpu":"200m","memory":"768Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   viplevel-snapshot: |
-    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
+    {"limits":{"cpu":"100m","memory":"768Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   viplevel-upgrade: |
-    {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"500m","memory":"1024Mi"}}
+    {"limits":{"cpu":"200m","memory":"768Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   viplevel-birthdayserver: |
-    {"limits":{"cpu":"100m","memory":"1024Mi"},"requests":{"cpu":"100m","memory":"1024Mi"}}
+    {"limits":{"cpu":"200m","memory":"768Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   viplevel-command: |
-    {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"500m","memory":"1024Mi"}}
+    {"limits":{"cpu":"200m","memory":"768Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   viplevel-api: |
-    {"limits":{"cpu":"500m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   viplevel-web: |
-    {"limits":{"cpu":"500m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
+    {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
