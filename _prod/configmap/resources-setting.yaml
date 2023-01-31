@@ -332,6 +332,12 @@ data:
     {"limits":{"cpu":"100m","memory":"768Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gamecommand: |
     {"limits":{"cpu":"100m","memory":"1024Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
+  game-gamehealthchecks: |
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  game-gamehealthchecks-game: |
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  game-gamehealthchecks-gameinterface: |
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   global-api: |
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   lobby-21gen-landing: |
