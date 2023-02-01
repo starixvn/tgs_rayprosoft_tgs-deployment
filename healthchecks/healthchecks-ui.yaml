@@ -1,0 +1,9 @@
+apiVersion: "aspnetcore.ui/v1"
+kind: HealthCheck
+metadata:
+  name: healthchecks-ui
+spec:
+  name: healthchecks-ui
+  scope: Namespaced #The UI will be created at specified namespace (demo) and will watch healthchecks services in demo namespace only
+  #scope: Cluster The UI will be created at specified namespace (demo) but will watch healthcheck services across all namespaces
+  servicesLabel: healthCheck
