@@ -264,6 +264,8 @@ data:
     {"enabled":false}
   promotion-deposit-service: |
     {"enabled":false}
+  promotion-distribute-fixtool: |
+    {"enabled":false}
   promotion-relief-money-service: |
     {"enabled":false}
   promotion-rebate: |
