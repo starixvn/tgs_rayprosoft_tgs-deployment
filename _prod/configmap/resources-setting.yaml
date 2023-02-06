@@ -119,7 +119,7 @@ data:
   game-gamerounds: |
     {"limits":{"cpu":"500m","memory":"2048Mi"},"requests":{"cpu":"50m","memory":"1500Mi"}}
   game-gamerecord-manualworkservice: |
-    {"limits":{"cpu":"200m","memory":"1024Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
+    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"200m","memory":"256Mi"}}
   game-gamerecord-workservice: |
     {"limits":{"cpu":"200m","memory":"1536Mi"},"requests":{"cpu":"100m","memory":"1024Mi"}}
   game-gameverification: |
@@ -332,6 +332,14 @@ data:
     {"limits":{"cpu":"100m","memory":"768Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gamecommand: |
     {"limits":{"cpu":"100m","memory":"1024Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
+  game-gameplayerbalance: |
+    {"limits":{"cpu":"1","memory":"768Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
+  game-gamehealthchecks: |
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  game-gamehealthchecks-game: |
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  game-gamehealthchecks-gameinterface: |
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   global-api: |
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   lobby-21gen-landing: |
@@ -448,6 +456,8 @@ data:
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   promotion-deposit-service: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
+  promotion-distribute-fixtool: |
+    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   promotion-relief-money-service: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"150Mi"}}
   promotion-rebate: |
