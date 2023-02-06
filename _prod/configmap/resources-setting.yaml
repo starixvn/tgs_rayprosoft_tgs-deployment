@@ -332,6 +332,8 @@ data:
     {"limits":{"cpu":"100m","memory":"768Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gamecommand: |
     {"limits":{"cpu":"100m","memory":"1024Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
+  game-gameplayerbalance: |
+    {"limits":{"cpu":"1","memory":"768Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gamehealthchecks: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamehealthchecks-game: |
