@@ -40,6 +40,7 @@ helm uninstall mongodb  -n staging
 mongodb-metrics:9216/metrics 
 https://github.com/bitnami/charts/tree/master/bitnami/mongodb#installing-the-chart
 
+helm repo add cowboysysop https://cowboysysop.github.io/charts/
 helm install mongodb-express cowboysysop/mongo-express  --set mongodbEnableAdmin=true,mongodbAdminPassword=1qaz2wsx,ingress.enabled=true,ingress.hosts[0].host=stg-mongodb-express.rpgp.cc,ingress.hosts[0].paths[0]=/ -n staging
 http://mongodb-express.tgsstg.gq/
 https://artifacthub.io/packages/helm/cowboysysop/mongo-express

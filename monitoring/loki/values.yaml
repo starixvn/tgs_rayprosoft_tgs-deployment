@@ -39,7 +39,7 @@ annotations: {}
 
 # enable tracing for debug, need install jaeger and specify right jaeger_agent_host
 tracing:
-  jaegerAgentHost:
+  jaegerAgentHost: jaeger-agent.observability
 
 config:
   auth_enabled: false
@@ -104,7 +104,7 @@ config:
       local:
         directory: /rules
     rule_path: /tmp/scratch
-    alertmanager_url: http://prometheus-alertmanager
+    alertmanager_url: http://prometheus-alertmanager.monitoring
     ring:
       kvstore:
         store: inmemory
