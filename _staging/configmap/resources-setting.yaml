@@ -56,8 +56,6 @@ data:
     {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
   game-dg: |
     {"limits":{"cpu":"60m","memory":"512Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
-  game-gameprovider-queryserver: |
-    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gameproviders: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-pluggable-service: |

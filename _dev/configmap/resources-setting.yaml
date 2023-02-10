@@ -26,8 +26,6 @@ data:
     {"limits":{"cpu":"500m","memory":"200Mi"},"requests":{"cpu":"10m","memory":"50Mi"}}
   file-service: |
     {"limits":{"cpu":"400m","memory":"1Gi"},"requests":{"cpu":"10m","memory":"100Mi"}}
-  game-gameprovider-queryserver: |
-    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gameproviders: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-pluggable-service: |
