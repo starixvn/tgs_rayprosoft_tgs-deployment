@@ -8,6 +8,7 @@ cluster:
   name: nats
 
 nats:
+  gomemlimit: "50MiB"
   jetstream:
     enabled: true
     memStorage:
