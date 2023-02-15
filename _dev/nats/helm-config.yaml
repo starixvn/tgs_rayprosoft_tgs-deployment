@@ -1,0 +1,18 @@
+metrics:
+  enabled: true
+auth:
+  enabled: false
+
+cluster:
+  enabled: true
+  name: nats
+
+nats:
+  jetstream:
+    enabled: true
+    memStorage:
+      enabled: false
+    fileStorage:
+      enabled: true
+      size: 10Gi
+      storageClassName: nfs-provisioner
