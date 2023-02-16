@@ -20,6 +20,8 @@ data:
     {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerounds: |
     {"enabled":true,"minReplicas":5,"maxReplicas":10,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
+  game-gamerounds-workservice: | 
+    {"enabled":true,"minReplicas":5,"maxReplicas":10,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-tcg-ftp: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-manualworkservice: |
