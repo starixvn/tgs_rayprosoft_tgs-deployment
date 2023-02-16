@@ -306,3 +306,5 @@ data:
     {"enabled":false}
   marketing-report-daily-aggregate: |
     {"enabled":false}
+  payment-manual: |
+    {"enabled":false}
