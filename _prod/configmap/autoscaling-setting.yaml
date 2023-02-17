@@ -270,6 +270,8 @@ data:
     {"enabled":false}
   promotion-distribute-fixtool: |
     {"enabled":false}
+  promotion-offlineloginreward: |
+    {"enabled":false}
   promotion-relief-money-service: |
     {"enabled":false}
   promotion-rebate: |
