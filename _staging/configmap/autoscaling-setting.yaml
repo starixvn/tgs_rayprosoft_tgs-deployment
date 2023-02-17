@@ -272,6 +272,8 @@ data:
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   promotion-distribute-fixtool: |
     {"enabled":false}
+  promotion-offlineloginreward: |
+    {"enabled":false}
   promotion-relief-money-service: |
     {"enabled":false}
   promotion-rebate: |
