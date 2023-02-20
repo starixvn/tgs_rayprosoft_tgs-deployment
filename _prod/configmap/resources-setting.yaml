@@ -118,6 +118,8 @@ data:
     {"limits":{"cpu":"1","memory":"2048Mi"},"requests":{"cpu":"500m","memory":"1500Mi"}}
   game-gamerounds-workservice: |
     {"limits":{"cpu":"500m","memory":"1536Mi"},"requests":{"cpu":"500m","memory":"1536Mi"}}
+  game-gamerounds-schedule: |
+    {"limits":{"cpu":"1","memory":"1024Mi"},"requests":{"cpu":"500m","memory":"1024Mi"}}
   game-gamerecord-manualworkservice: |
     {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"200m","memory":"256Mi"}}
   game-gamerecord-workservice: |
