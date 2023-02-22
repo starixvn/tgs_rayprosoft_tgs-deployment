@@ -115,7 +115,7 @@ data:
   game-token: |
     {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-gamerounds: |
-    {"limits":{"cpu":"1","memory":"2048Mi"},"requests":{"cpu":"1","memory":"2048Mi"}}
+    {"limits":{"cpu":"1500m","memory":"2048Mi"},"requests":{"cpu":"1500m","memory":"2048Mi"}}
   game-gamerounds-workservice: |
     {"limits":{"cpu":"500m","memory":"1536Mi"},"requests":{"cpu":"500m","memory":"1536Mi"}}
   game-gamerounds-schedule: |
