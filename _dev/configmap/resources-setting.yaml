@@ -328,6 +328,8 @@ data:
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   promotion-relief-money-service: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  promotion-offline-deposit: |
+    {"limits":{"cpu":"500m","memory":"250Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   promotion-rebate: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   report-aggregate-service: |
