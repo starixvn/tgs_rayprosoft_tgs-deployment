@@ -442,6 +442,8 @@ data:
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"150Mi"}}
   promotion-relief-money-service: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"150Mi"}}
+  promotion-offline-deposit: |
+    {"limits":{"cpu":"500m","memory":"300Mi"},"requests":{"cpu":"50m","memory":"100Mi"}}
   promotion-rebate: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"150Mi"}}
   redisinsight-redisinsight-chart: |

@@ -276,6 +276,8 @@ data:
     {"enabled":false}
   promotion-relief-money-service: |
     {"enabled":false}
+  promotion-offline-deposit: |
+    {"enabled":false}
   promotion-rebate: |
     {"enabled":false}
   player-api: |
