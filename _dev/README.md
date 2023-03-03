@@ -42,6 +42,9 @@ https://github.com/bitnami/charts/tree/master/bitnami/nats/#installing-the-chart
 helm repo add nats https://nats-io.github.io/k8s/helm/charts/
 helm install nats nats/nats --set cluster.enabled=true,auth.enabled=false -n dev
 helm upgrade --install nats nats/nats --set metrics.enabled=true,auth.enabled=false,cluster.enabled=true,cluster.name=nats,cluster.replicas=3 -n dev
+
+helm upgrade --install nats nats/nats -f nats-values.yaml -n dev
+
 helm uninstall nats -n dev
 
 ### https://github.com/nats-io/k8s/tree/master/helm/charts/stan

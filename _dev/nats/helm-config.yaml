@@ -6,7 +6,7 @@ auth:
 cluster:
   enabled: true
   name: nats
-
+  replicas: 3
 nats:
   gomemlimit: "50MiB"
   jetstream:
