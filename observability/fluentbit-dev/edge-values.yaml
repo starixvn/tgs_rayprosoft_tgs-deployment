@@ -3,6 +3,7 @@ extraPorts:
   - containerPort: 24224
     protocol: TCP
     name: forward
+    port: 24224
 
 config:
   service: |

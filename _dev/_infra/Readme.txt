@@ -16,6 +16,19 @@ https://projectcalico.docs.tigera.io/getting-started/kubernetes/quickstart
 
 kubectl apply -f https://projectcalico.docs.tigera.io/manifests/calico.yaml
 
+
+2023/02/24 改用下面安裝
+https://docs.tigera.io/calico/3.25/getting-started/kubernetes/quickstart
+https://github.com/projectcalico/calico/tree/master/charts/tigera-operator
+
+helm repo add projectcalico https://projectcalico.docs.tigera.io/charts
+kubectl create namespace tigera-operator
+helm install calico projectcalico/tigera-operator --namespace tigera-operator
+
+helm uninstall calico --namespace tigera-operator
+
+
+
 ### ingress
 https://kubernetes.github.io/ingress-nginx/deploy/#bare-metal-clusters
     
@@ -56,7 +69,12 @@ helm install nfs-provisioner \
   --set nfs.path=/nfsshare \
   --set storageClass.name=nfs-provisioner
   
-
+helm template nfs-provisioner \
+  nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \
+  --set nfs.server=192.168.50.111 \
+  --set nfs.path=/nfsshare \
+  --set storageClass.name=nfs-provisioner
+  
 ### install reloader
 
 https://github.com/stakater/Reloader
