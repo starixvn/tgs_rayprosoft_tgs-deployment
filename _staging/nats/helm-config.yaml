@@ -1,0 +1,11 @@
+metrics:
+  enabled: true
+auth:
+  enabled: false
+
+cluster:
+  enabled: true
+  name: nats
+
+nats:
+  gomemlimit: "50MiB"
