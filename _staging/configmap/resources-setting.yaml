@@ -102,6 +102,8 @@ data:
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamerounds-work: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
+  game-gamerounds-work-manual: |
+    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerounds-manualwork: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerounds-schedule: |
