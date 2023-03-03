@@ -17,34 +17,19 @@ data:
       "AllowedHosts": "*",
       "ConnectionStrings": {
         "Tgs": "{{ .Values.connectionStrings.tgs }}",
-        "RedisConfigurationString": "{{ .Values.connectionStrings.redis }}"
+        "RedisConfigurationString": "{{ .Values.connectionStrings.redis }}",
+        "Nats": "{{ .Values.nats.urls }}"
       },
       "Hangfire": {
         "ConnectionString": "{{ .Values.connectionStrings.redis }}",
         "Prefix": "hangfire.postgres",
         "Schedule": { "SchedulePollingInterval": 15 }
       },
-      "GameProviders": {
-        "ConnectionString": "{{ .Values.connectionStrings.mongo }}"
-      },
-      "NatsSetting": {
-        "Urls": "{{ .Values.nats.urls }}",
-        "ConnectTimeoutMs": 2000,
-        "PingInterval": 5000,
-        "PingMaxOutStanding": 3,
-        "SubscriptionBatchSize": 128
-      },
-      "Report": {
-        "Url": "http://report-api"
-      },
-      "ReportAggregate": {
-        "Url": "http://report-aggregate-service"
-      },
-      "Promotion": {
-        "Url": "http://promotion-api"
-      },
-      "Email": {
-        "Url": "{{ .Values.mail.url }}"
+      "Schedule": {
+        "ReportAggregate": "http://report-aggregate-service",
+        "Promotion": "http://promotion-api",
+        "PromotionRebate": "https://promotion-rebate",
+        "Email": "{{ .Values.mail.url }}"
       },
       "ProfitRebate": {
         "Url": "http://profit-rebate-service"
