@@ -33,7 +33,7 @@ spec:
   - name: app
     port: 80
     protocol: TCP
-    targetPort: 81
+    targetPort: 8080
   clusterIP: None
   type: ClusterIP
 ---
@@ -43,8 +43,8 @@ metadata:
   name: jenkins-assets
 subsets:
 - addresses:
-  - ip: 192.168.50.115
+  - ip: 192.168.50.170
   ports:
   - name: app
-    port: 81
+    port: 8080
     protocol: TCP
