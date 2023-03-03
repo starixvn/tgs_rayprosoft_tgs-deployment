@@ -109,7 +109,7 @@ data:
   game-gamerounds-missing: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerounds-handle: |
-    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
+    {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-gamerecord-manualworkservice: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamerecord-workservice: |
