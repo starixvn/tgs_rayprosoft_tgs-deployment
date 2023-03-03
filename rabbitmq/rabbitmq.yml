@@ -5,7 +5,8 @@ metadata:
   namespace: rabbitmq
 spec:
   replicas: 1
-  rabbitmq:
+  storageClassName: nfs-provisioner
+  rabbitmq: 
     additionalConfig: |
       default_user=tgs
       default_pass=TgsP@ssw0rd

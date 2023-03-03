@@ -38,7 +38,7 @@ helm install nats bitnami/nats --set metrics.enabled=true,auth.enabled=false -n 
 nats-metrics:7777/metrics 
 https://github.com/bitnami/charts/tree/master/bitnami/nats/#installing-the-chart
 
-//Official
+# nats Official
 helm repo add nats https://nats-io.github.io/k8s/helm/charts/
 helm install nats nats/nats --set cluster.enabled=true,auth.enabled=false -n dev
 helm upgrade --install nats nats/nats --set metrics.enabled=true,auth.enabled=false,cluster.enabled=true,cluster.name=nats,cluster.replicas=3 -n dev
@@ -49,7 +49,7 @@ helm uninstall nats -n dev
 # redis, redis exporter and redisinsight
 helm install redis bitnami/redis --set password=1qaz2wsx,metrics.enabled=true,master.disableCommands=["FLUSHDB"] -n dev
 
-helm install redis bitnami/redis --set global.redis.password=1qaz2wsx,metrics.enabled=true -n dev
+helm install redis bitnami/redis --set global.storageClass=nfs-provisioner,global.redis.password=1qaz2wsx,metrics.enabled=true -n dev
 
 redis-metrics:9121/metrics 
 https://github.com/bitnami/charts/tree/master/bitnami/redis/#installing-the-chart
@@ -59,7 +59,7 @@ https://docs.redislabs.com/latest/ri/installing/install-k8s/
 http://dev-redisinsight.rpgp.cc/
 
 # mongodb, mpmgodb express and exporter
-helm install mongodb bitnami/mongodb --set auth.rootPassword=1qaz2wsx,auth.enabled=false,metrics.enabled=true -n dev
+helm install mongodb bitnami/mongodb --set global.storageClass=nfs-provisioner,auth.rootPassword=1qaz2wsx,auth.enabled=false,metrics.enabled=true -n dev
 mongodb-metrics:9216/metrics 
 https://github.com/bitnami/charts/tree/master/bitnami/mongodb#installing-the-chart
 
