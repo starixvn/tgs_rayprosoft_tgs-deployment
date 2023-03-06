@@ -86,6 +86,8 @@ kubectl apply -f https://raw.githubusercontent.com/stakater/Reloader/master/depl
 helm repo add nats https://nats-io.github.io/k8s/helm/charts/
 helm install nats nats/nats --set cluster.enabled=true,auth.enabled=false -n dev
 
+
+
 REF: https://github.com/nats-io/k8s/tree/master/helm/charts/stan
 
 ### redis, redis exporter and redisinsight
