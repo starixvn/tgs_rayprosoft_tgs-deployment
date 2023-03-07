@@ -93,6 +93,14 @@ helm template kibana elastic/kibana \
 	--set ingress.hosts[0].paths[0]=/ \
 	-n observability
 	
+cd _tgs-deployment\observability\kibana\helm-chart
+helm template kibana . \
+	--set imageTag=7.15.2 \
+	--set ingress.enabled=true \
+	--set ingress.hosts[0].host=kibana.rpgp.cc \
+	--set ingress.hosts[0].paths[0]=/ \
+	-n observability
+	
 	
 helm upgrade --install kibana elastic/kibana -n observability
 	
