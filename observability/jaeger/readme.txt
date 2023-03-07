@@ -17,6 +17,12 @@ helm -n observability upgrade --install jaeger jaegertracing/jaeger --set provis
 	--set provisionDataStore.elasticsearch=true \
 	--set storage.type=elasticsearch 
 
+helm -n observability template jaeger jaegertracing/jaeger --set provisionDataStore.cassandra=false \
+	--set provisionDataStore.elasticsearch=true \
+	--set storage.type=elasticsearch 
+
+
+
 kubectl edit statefulsets elasticsearch-master -n observability
 
 
@@ -62,26 +68,37 @@ kubectl delete -f https://github.com/jaegertracing/jaeger-operator/releases/down
 
 https://github.com/elastic/helm-charts/tree/main/kibana
 
+helm repo add elastic https://helm.elastic.co
 
 
-helm install kibana elastic/kibana
-	--set imageTag=7.15.2
+helm install kibana elastic/kibana \
+	--set imageTag=7.15.2 \
 	--set ingress.enabled=true \
 	--set ingress.hosts[0].host=kibana.srvptt.com \
 	--set ingress.hosts[0].paths[0]=/ 
 	-n observability
 	
 
-helm install kibana elastic/kibana
-	--set imageTag=7.15.2
+helm install kibana elastic/kibana \
+	--set imageTag=7.15.2 \
 	--set ingress.enabled=true \
-	--set ingress.hosts[0].host=kibana.srvptt.com \
+	--set ingress.hosts[0].host=kibana.rpgp.cc \
+	--set ingress.hosts[0].paths[0]=/ \
+	-n observability
+
+helm template kibana elastic/kibana \
+	--set imageTag=7.15.2 \
+	--set ingress.enabled=true \
+	--set ingress.hosts[0].host=kibana.rpgp.cc \
 	--set ingress.hosts[0].paths[0]=/ \
 	-n observability
 	
 	
 helm upgrade --install kibana elastic/kibana -n observability
 	
-helm upgrade --install kibana elastic/kibana --set imageTag=7.15.2 --set ingress.enabled=true --set ingress.hosts[0].host=kibana.srvptt.com --set ingress.hosts[0].path[0]=/ -n observability
+helm upgrade --install kibana elastic/kibana --set imageTag=7.15.2,ingress.enabled=true,ingress.hosts[0].host=kibana.rpgp.cc,ingress.hosts[0].path[0]=/ -n observability
+
+helm template kibana elastic/kibana --set imageTag=7.15.2,ingress.enabled=true,ingress.hosts[0].host=kibana.rpgp.cc,ingress.hosts[0].path[0]=/ -n observability
+
 
 https://artifacthub.io/packages/helm/elastic/kibana
