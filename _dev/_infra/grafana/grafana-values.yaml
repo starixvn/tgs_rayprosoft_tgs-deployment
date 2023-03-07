@@ -236,10 +236,10 @@ extraContainerVolumes: []
 persistence:
   type: pvc
   enabled: true
-  storageClassName: grafana
+  storageClassName: nfs-provisioner
   accessModes:
     - ReadWriteOnce
-  size: 20Gi
+  size: 10Gi
   # annotations: {}
   finalizers:
     - kubernetes.io/pvc-protection
