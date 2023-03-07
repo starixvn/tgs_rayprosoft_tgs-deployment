@@ -95,6 +95,7 @@ helm template kibana elastic/kibana \
 	
 cd observability/kibana/helm-chart
 helm template kibana . -f values.yaml -n observability
+helm upgrade --install kibana . -f values.yaml -n observability
 	
 	
 helm upgrade --install kibana elastic/kibana -n observability
