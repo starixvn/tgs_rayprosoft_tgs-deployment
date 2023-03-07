@@ -488,6 +488,8 @@ data:
     {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   sms-globalcall: |
     {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
+  sms-maiteng: |
+    {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   sms-movider: |
     {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   sms-plivo: |
