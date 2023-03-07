@@ -176,7 +176,7 @@ alertmanager:
   ## Ref: https://kubernetes.io/docs/user-guide/node-selection/
   ##
   nodeSelector:
-    kubernetes.io/hostname: k8s-master-03
+    kubernetes.io/hostname: k8s-master-3
 
   ## Pod affinity
   ##
