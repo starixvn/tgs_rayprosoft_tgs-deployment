@@ -165,7 +165,7 @@ data:
   game-gameinterface-awc-service: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamerecord-awc-scheduleservice: |
-    {"limits":{"cpu":"250m","memory":"384Mi"},"requests":{"cpu":"150m","memory":"256Mi"}}
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamerecord-awc-service: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamerecord-awc-manualservice: |
