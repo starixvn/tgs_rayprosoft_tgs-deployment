@@ -59,6 +59,7 @@ config:
         Logstash_Format On
         Logstash_Prefix node
         Retry_Limit False
+        Buffer_Size 5M
     
     [OUTPUT]
         Name            es
@@ -72,6 +73,7 @@ config:
         Suppress_Type_Name On
         Trace_Error     On
         Buffer_Size     5M
+        Retry_Limit False
 
 luaScripts:
   append_tag.lua: |
