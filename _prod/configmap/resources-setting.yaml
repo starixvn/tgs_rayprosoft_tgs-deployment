@@ -186,8 +186,6 @@ data:
     {"limits":{"cpu":"100m","memory":"384Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerecord-awc-workservice: |
     {"limits":{"cpu":"100","memory":"640Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
-  game-gamerecord-awc-manualworkservice: |
-    {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   game-gameinterface-jili-service: |
     {"limits":{"cpu":"100m","memory":"640Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gamerecord-jili-scheduleservice: |
