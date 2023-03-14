@@ -28,7 +28,7 @@ data:
       "Schedule": {
         "ReportAggregate": "http://report-aggregate-service",
         "Promotion": "http://promotion-api",
-        "PromotionRebate": "http://promotion-rebate",
+        "PromotionRebate": "http://tgs-promotion-rebate",
         "Email": "{{ .Values.mail.url }}"
       },
       "ProfitRebate": {
