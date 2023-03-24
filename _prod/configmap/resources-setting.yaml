@@ -113,7 +113,7 @@ data:
   game-wm: |
     {"limits":{"cpu":"100m","memory":"1200Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   game-token: |
-    {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
+    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   game-gamerounds: |
     {"limits":{"cpu":"1","memory":"1024Mi"},"requests":{"cpu":"1","memory":"1024Mi"}}
   game-gamerounds-work: |
