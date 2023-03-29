@@ -330,6 +330,8 @@ data:
     {"limits":{"cpu":"300m","memory":"1024Mi"},"requests":{"cpu":"200m","memory":"768Mi"}}
   game-gameplayerbalance: |
     {"limits":{"cpu":"1","memory":"768Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
+  game-server: |
+    {"limits":{"cpu":"1","memory":"300Mi"},"requests":{"cpu":"50m","memory":"300Mi"}}
   global-api: |
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   lobby-21gen-landing: |
