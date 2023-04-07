@@ -320,3 +320,5 @@ data:
     {"enabled":false}
   payment-manual: |
     {"enabled":false}
+  tst-memo: |
+    {"enabled:false"}
