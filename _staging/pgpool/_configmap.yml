@@ -455,9 +455,9 @@ data:
     # ONLINE RECOVERY
     #------------------------------------------------------------------------------
 
-    recovery_user = 'postgres'
+    recovery_user = 'tgsstagingsuprtadmin'
                                     # Online recovery user
-    recovery_password = 'wXfrQBjK4XYFY3KH6D2D'
+    recovery_password = 'U:BZYD^b]B!Au*j&\8;sf\/4*_3Z;yq`'
                                     # Online recovery password
     recovery_1st_stage_command = ''
                                     # Executes a command in first stage
@@ -784,22 +784,20 @@ data:
     # Lines beginning with '#' (pound) are comments and will
     # be ignored. Again, no spaces or tabs allowed before '#'.
     # USERID:MD5PASSWD
-    staging_app:md5e5fcc5bcfba09afd816fb7d0ff520cdb
-    staging_migration:md523bec46e6cd536530581babecb670cb8
     tgs_app:md50cfe4def966ced48e9d4b1b1b64399b9
     tgs_reader:md53019873e8c62073e5d11495ecfc081d8
     tgs_monitor:md58193dd83626265aeef9b6f9fae5e4ebc
     tgs_migration:md5d23090d01aa36588ecb7492d8dfccb41
     postgres:md554b17250afaa97f9502147f0d71771bb
+    tgsstagingsuprtadmin:SCRAM-SHA-256$4096:Rmar9UB8KxsXY1CdVMPLyQ==$ybHk2+tK66RYC9srkuqf90Z+n9c0NRYd9VDK6pWPvX0=:FK1EsPkZ8mYNFJCZW1ep0CgB1Q4zxU4hkBg0ARUq3RU=
 
   pool_passwd: |
-    staging_app:md5e5fcc5bcfba09afd816fb7d0ff520cdb
-    staging_migration:md523bec46e6cd536530581babecb670cb8
     tgs_app:md50cfe4def966ced48e9d4b1b1b64399b9
     tgs_reader:md53019873e8c62073e5d11495ecfc081d8
     tgs_monitor:md58193dd83626265aeef9b6f9fae5e4ebc
     tgs_migration:md5d23090d01aa36588ecb7492d8dfccb41
     postgres:md554b17250afaa97f9502147f0d71771bb
+    tgsstagingsuprtadmin:SCRAM-SHA-256$4096:Rmar9UB8KxsXY1CdVMPLyQ==$ybHk2+tK66RYC9srkuqf90Z+n9c0NRYd9VDK6pWPvX0=:FK1EsPkZ8mYNFJCZW1ep0CgB1Q4zxU4hkBg0ARUq3RU=
   pool_hba.conf: |
     # Allow any user on the local system to connect to any database with
     # any database user name using Unix-domain sockets (the default for local
@@ -812,3 +810,4 @@ data:
     # TYPE  DATABASE        USER            ADDRESS                 METHOD
     host    all             all             0.0.0.0/0               trust
     host    all             all             127.0.0.1/32            trust
+    host    all             all             ::1/128                 md
