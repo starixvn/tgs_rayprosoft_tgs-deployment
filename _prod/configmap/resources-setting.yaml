@@ -333,7 +333,7 @@ data:
   game-gamerecord-yeebet-schedule: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamecurrency: |
-    {"limits":{"cpu":"500m","memory":"768Mi"},"requests":{"cpu":"500m","memory":"512Mi"}}
+    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   game-gameplayerlogout: |
     {"limits":{"cpu":"100m","memory":"768Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gamecommand: |
