@@ -45,9 +45,9 @@ data:
   brand-cert-api: |
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"100m","memory":"400Mi"}}
   cashservice-api: |
-    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+    {"limits":{"cpu":"500m","memory":"400Mi"},"requests":{"cpu":"100m","memory":"400Mi"}}
   cashservice-worker: |
-    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
+    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   deposit-accumulate-roulette: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   deposit-accumulate-roulette-background: |
@@ -119,7 +119,7 @@ data:
   game-gamerounds-work: |
     {"limits":{"cpu":"1500m","memory":"2048Mi"},"requests":{"cpu":"1500m","memory":"2048Mi"}}
   game-gamerounds-work-manual: |
-    {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"500m","memory":"1024Mi"}}
+    {"limits":{"cpu":"1","memory":"1024Mi"},"requests":{"cpu":"100m","memory":"1024Mi"}}
   game-gamerounds-schedule: |
     {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"500m","memory":"768Mi"}}
   game-gamerounds-missing: |
@@ -215,7 +215,7 @@ data:
   game-gamerecord-pptf-manualworkservice: |
     {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   game-gamefundtransfer: |
-    {"limits":{"cpu":"100m","memory":"768Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
+    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   game-gameinterface-evolution-service: |
     {"limits":{"cpu":"100m","memory":"640Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gamerecord-evolution-scheduleservice: |
@@ -332,12 +332,14 @@ data:
     {"limits":{"cpu":"200m","memory":"1024Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gamerecord-yeebet-schedule: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
+  game-gamerecord-yeebet: |
+    {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"384Mi"}}
   game-gamecurrency: |
-    {"limits":{"cpu":"500m","memory":"768Mi"},"requests":{"cpu":"500m","memory":"512Mi"}}
+    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   game-gameplayerlogout: |
     {"limits":{"cpu":"100m","memory":"768Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gamecommand: |
-    {"limits":{"cpu":"300m","memory":"1024Mi"},"requests":{"cpu":"200m","memory":"768Mi"}}
+    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   game-gameplayerbalance: |
     {"limits":{"cpu":"1","memory":"768Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-server: |
@@ -467,7 +469,7 @@ data:
   promotion-offline-deposit: |
     {"limits":{"cpu":"1","memory":"300Mi"},"requests":{"cpu":"100m","memory":"300Mi"}}
   promotion-rebate: |
-    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"150Mi"}}
+    {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"200m","memory":"512Mi"}}
   report-api: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"200m","memory":"512Mi"}}
   report-aggregate-service: |
