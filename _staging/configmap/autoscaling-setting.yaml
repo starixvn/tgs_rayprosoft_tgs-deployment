@@ -321,4 +321,4 @@ data:
   payment-manual: |
     {"enabled":false}
   tst-memo: |
-    {"enabled:false"}
+    {"enabled":false}
