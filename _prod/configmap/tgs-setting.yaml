@@ -4,6 +4,10 @@ metadata:
   name: tgs-settings
   namespace: prod
 data:
+  node-selector_ondemand: | 
+    { "dedicated": "ondemand" }
+  dedicated_ondemand: |
+    {"effect":"NoSchedule","key": "dedicated", "operator": "Equal", "value": "ondemand"}
   node-selector_game: | 
     { "dedicated": "game" }
   dedicated_game: |
