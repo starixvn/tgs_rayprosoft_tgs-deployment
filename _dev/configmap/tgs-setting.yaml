@@ -4,6 +4,9 @@ metadata:
   name: tgs-settings
   namespace: dev
 data:
+  node-selector_ondemand: | 
+    {}
+  dedicated_ondemand: |
   node-selector_game: | 
     {}
   dedicated_game: |

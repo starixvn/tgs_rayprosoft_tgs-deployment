@@ -4,6 +4,10 @@ metadata:
   name: tgs-settings
   namespace: staging
 data:
+  node-selector_ondemand: | 
+    { "dedicated": "staging" }
+  dedicated_ondemand: |
+    {"effect":"NoSchedule","key": "dedicated", "operator": "Equal", "value": "staging"}
   node-selector_game: | 
     { "dedicated": "staging" }
   dedicated_game: |
