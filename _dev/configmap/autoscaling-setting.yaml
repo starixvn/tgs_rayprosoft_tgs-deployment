@@ -302,6 +302,8 @@ data:
     {"enabled":false}
   payment-wandapay: |
     {"enabled":false}
+  payment-phpgopay: |
+    {"enabled":false}
   payment-fixtool: |
     {"enabled":false}
   deposit-accumulate-roulette: |

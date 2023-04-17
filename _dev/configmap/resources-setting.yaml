@@ -310,6 +310,8 @@ data:
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
   payment-wandapay: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
+  payment-phpgopay: |
+    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
   payment-fixtool: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
   player-api: |
