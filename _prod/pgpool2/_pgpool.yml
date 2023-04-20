@@ -104,7 +104,7 @@ metadata:
   namespace: prod
 spec:
   selector:
-    app: pgpool
+    app: pgpool2
   ports:
   - name: pgpool-port
     protocol: TCP
@@ -124,7 +124,7 @@ metadata:
     prometheus.io/scrape: "true"
 spec:
   selector:
-    app: pgpool
+    app: pgpool2
   ports:
   - name: pgpool-stats-port
     protocol: TCP
