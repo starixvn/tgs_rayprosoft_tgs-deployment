@@ -788,14 +788,12 @@ data:
     tgs_reader:md53019873e8c62073e5d11495ecfc081d8
     tgs_monitor:md58193dd83626265aeef9b6f9fae5e4ebc
     tgs_migration:md5d23090d01aa36588ecb7492d8dfccb41
-    postgres:md554b17250afaa97f9502147f0d71771bb
 
   pool_passwd: |
     tgs_app:md50cfe4def966ced48e9d4b1b1b64399b9
     tgs_reader:md53019873e8c62073e5d11495ecfc081d8
     tgs_monitor:md58193dd83626265aeef9b6f9fae5e4ebc
     tgs_migration:md5d23090d01aa36588ecb7492d8dfccb41
-    postgres:md554b17250afaa97f9502147f0d71771bb
   pool_hba.conf: |
     # Allow any user on the local system to connect to any database with
     # any database user name using Unix-domain sockets (the default for local
@@ -808,4 +806,4 @@ data:
     # TYPE  DATABASE        USER            ADDRESS                 METHOD
     host    all             all             0.0.0.0/0               trust
     host    all             all             127.0.0.1/32            trust
-    host    all             all             ::1/128                 md
+    host    all             all             ::1/128                 md5
