@@ -11,10 +11,10 @@ helm repo add fluent https://fluent.github.io/helm-charts
 helm repo update
 
 安裝daemonset的fluent-bit
-helm upgrade -i fluent-bit fluent/fluent-bit -f .\edge-values.yaml
+helm upgrade -i fluent-bit fluent/fluent-bit -f edge-values.yaml -n logging
 
 安裝center
-helm upgrade -i log-center fluent/fluent-bit -f .\center-values.yaml
+helm upgrade -i log-center fluent/fluent-bit -f center-values.yaml --set replicaCount=1 -n logging
 
 再重新執行helm upgrade指令
 
