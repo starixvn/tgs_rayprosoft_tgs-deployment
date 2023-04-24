@@ -13,9 +13,9 @@ helm template nats nats/nats --set metrics.enabled=true,auth.enabled=false,clust
 
 helm repo add bitnami https://charts.bitnami.com/bitnami
 
-helm install redis bitnami/redis --set password=1qaz2wsx,auth.enabled=false,metrics.enabled=true -n staging
+helm upgrade --install redis bitnami/redis --set password=1qaz2wsx,auth.enabled=false,metrics.enabled=true,replica.replicaCount=0 -n staging
 
-helm template redis bitnami/redis --set password=1qaz2wsx,auth.enabled=false,metrics.enabled=true -n staging
+helm template redis bitnami/redis --set password=1qaz2wsx,auth.enabled=false,metrics.enabled=true,replica.replicaCount=0 -n staging
 
 redis-metrics:9121/metrics 
 https://github.com/bitnami/charts/tree/master/bitnami/redis/#installing-the-chart
