@@ -446,6 +446,8 @@ data:
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"20m","memory":"80Mi"}}
   payment-phpgopay: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"20m","memory":"400Mi"}}
+  payment-fivesevenpay: |
+    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"20m","memory":"400Mi"}}
   payment-fixtool: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
   pgpool: |
