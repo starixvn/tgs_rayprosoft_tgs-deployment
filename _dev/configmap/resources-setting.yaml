@@ -132,6 +132,8 @@ data:
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamerecord-wmcasino-manualservice: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  game-gameinterface-pp: |
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamerecord-pptf-scheduleservice: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamerecord-pptf-service: |
@@ -311,6 +313,8 @@ data:
   payment-wandapay: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
   payment-phpgopay: |
+    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
+  payment-fivesevenpay: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
   payment-fixtool: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}

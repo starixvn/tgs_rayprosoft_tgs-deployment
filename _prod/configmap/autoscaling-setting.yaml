@@ -110,6 +110,8 @@ data:
     {"enabled":true,"minReplicas":1,"maxReplicas":2,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-wmcasino-manualservice: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gameinterface-pp: |
+    {{"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-pptf-scheduleservice: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-pptf-service: |
@@ -301,6 +303,8 @@ data:
   payment-wandapay: |
     {"enabled":false}
   payment-phpgopay: |
+    {"enabled":false}
+  payment-fivesevenpay: |
     {"enabled":false}
   payment-fixtool: |
     {"enabled":false}
