@@ -127,9 +127,9 @@ data:
   game-gamerounds-handle: |
     {"limits":{"cpu":"1","memory":"2048Mi"},"requests":{"cpu":"1","memory":"2048Mi"}}
   game-gamerecord-manualworkservice: |
-    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
+    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   game-gamerecord-workservice: |
-    {"limits":{"cpu":"200m","memory":"1536Mi"},"requests":{"cpu":"100m","memory":"1024Mi"}}
+    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   game-gameverification: |
     {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"100m","memory":"1024Mi"}}
   game-gameverification-worker: |
