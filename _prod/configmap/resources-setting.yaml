@@ -234,8 +234,6 @@ data:
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-jdb-service: |
     {"limits":{"cpu":"200m","memory":"768Mi"},"requests":{"cpu":"200m","memory":"768Mi"}}
-  game-gamerecord-jdb-workservice: |
-    {"limits":{"cpu":"100m","memory":"768Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   game-gamerecord-jdb-manualworkservice: |
     {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   game-gameinterface-sbo-service: |
