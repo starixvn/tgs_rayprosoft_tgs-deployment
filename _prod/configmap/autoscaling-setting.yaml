@@ -290,6 +290,8 @@ data:
     {"enabled":false}
   playerbucket-committer: |
     {"enabled":false}
+  station-letter: |
+    {"enabled":false}
   deposit-accumulate-roulette: |
     {"enabled":false}
   deposit-accumulate-roulette-background: |
