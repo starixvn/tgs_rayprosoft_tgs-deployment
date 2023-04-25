@@ -195,7 +195,7 @@ data:
   game-gamerecord-wmcasino-service: |
     {"limits":{"cpu":"200m","memory":"640Mi"},"requests":{"cpu":"50m","memory":"512Mi"}}
   game-gameinterface-pp: |
-    {"limits":{"cpu":"1","memory":"768"},"requests":{"cpu":"100m","memory":"512Mi"}}
+    {"limits":{"cpu":"1","memory":"7680Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   game-gamerecord-pptf-scheduleservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-pptf-service: |
