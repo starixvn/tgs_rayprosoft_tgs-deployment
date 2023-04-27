@@ -50,7 +50,7 @@ config:
         Replace_Dots    On
         Trace_Error     On
         Buffer_Size     5M
-        Retry_Limit False
+        Suppress_Type_Name On
 
     [OUTPUT]
         Name es
@@ -60,7 +60,7 @@ config:
         Logstash_Format On
         Logstash_Prefix node
         Buffer_Size     5M
-        Retry_Limit False
+        Suppress_Type_Name On
     
     [OUTPUT]
         Name            es
