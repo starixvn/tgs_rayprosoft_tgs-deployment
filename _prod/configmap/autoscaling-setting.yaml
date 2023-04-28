@@ -222,6 +222,8 @@ data:
     {"enabled":false,"minReplicas":1,"maxReplicas":2,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-yeebet: |
     {"enabled":false,"minReplicas":1,"maxReplicas":2,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
+  game-gameinterface-im: |
+    {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gamecurrency: |
     {"enabled":true,"minReplicas":3,"maxReplicas":3,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-gameplayerlogout: |

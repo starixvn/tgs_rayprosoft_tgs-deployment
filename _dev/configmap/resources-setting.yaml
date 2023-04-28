@@ -244,6 +244,8 @@ data:
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamerecord-yeebet: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  game-gameinterface-im: |
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamecurrency: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gameplayerlogout: |
