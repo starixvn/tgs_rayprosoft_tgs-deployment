@@ -291,6 +291,8 @@ data:
   payment-phpgopay: |
     {"enabled":false}
   payment-fivesevenpay: |
+    {"enabled":false}
+  payment-metapay: |
     {"enabled":false}  
   payment-fixtool: |
     {"enabled":false}
