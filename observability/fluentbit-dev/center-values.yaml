@@ -49,6 +49,7 @@ config:
         Logstash_Prefix kube
         Replace_Dots    On
         Trace_Error     On
+        Suppress_Type_Name On
         Buffer_Size     5M
 
     [OUTPUT]
@@ -58,6 +59,7 @@ config:
         Port ${FLUENT_ELASTICSEARCH_PORT}
         Logstash_Format On
         Logstash_Prefix node
+        Suppress_Type_Name On
         Buffer_Size 5M
     
     [OUTPUT]
