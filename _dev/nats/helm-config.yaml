@@ -17,3 +17,14 @@ nats:
       enabled: true
       size: 10Gi
       storageClassName: nfs-provisioner
+
+affinity:
+  podAntiAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+            - key: app.kubernetes.io/name
+              operator: In
+              values:
+                - nats
+        topologyKey: "kubernetes.io/hostname"
