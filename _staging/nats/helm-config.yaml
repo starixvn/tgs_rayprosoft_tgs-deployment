@@ -9,3 +9,22 @@ cluster:
 
 nats:
   gomemlimit: "50MiB"
+  jetstream:
+    enabled: true
+    memStorage:
+      enabled: false
+    fileStorage:
+      enabled: true
+      size: 10Gi
+      storageClassName: gp2
+
+affinity:
+  podAntiAffinity:
+    requiredDuringSchedulingIgnoredDuringExecution:
+      - labelSelector:
+          matchExpressions:
+            - key: app.kubernetes.io/name
+              operator: In
+              values:
+                - nats
+        topologyKey: "kubernetes.io/hostname"
