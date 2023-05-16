@@ -1,0 +1,12 @@
+# config.yaml
+---
+config: |
+  logLevel: error
+  logFormat: json
+  route:
+    routes:
+      - match:
+          - receiver: "dump"
+  receivers:
+    - name: "dump"
+      stdout: {}

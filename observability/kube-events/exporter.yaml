@@ -1,0 +1,29 @@
+receivers:
+  k8sobjects:
+    objects:
+      - name: events
+        mode: watch
+        group: events.k8s.io
+
+exporters:
+  coralogix:
+    application_name: '${APP_NAME}'
+    application_name_attributes:
+      - '${APP_NAME}'
+    logs:
+      endpoint: '<endpoint>'
+    metrics:
+      endpoint: '<endpoint>'
+    private_key: ${CORALOGIX_PRIVATE_KEY}
+    subsystem_name: 'nodes'
+    subsystem_name_attributes:
+      - service.name
+    timeout: 1m
+    traces:
+      endpoint: '<endpoint>'
+
+  service:
+    pipelines:
+      logs:
+        receivers: [k8sobjects]
+        exporters: [coralogix]
