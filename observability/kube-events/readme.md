@@ -2,7 +2,10 @@
 
 
 helm repo add kubernetes-event-exporter https://resmoio.github.io/kubernetes-event-exporter
-helm update
+helm repo update
+
+
+helm install kubernetes-event-exporter -f config.yaml kubernetes-event-exporter/kubernetes-event-exporter -n dev
 
 # config.yaml
 ---
