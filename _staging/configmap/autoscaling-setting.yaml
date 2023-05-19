@@ -292,6 +292,8 @@ data:
     {"enabled":false}
   playerbucket-committer: |
     {"enabled":false}
+  payment-api: |
+    {"enabled":false}
   payment-help2pay: |
     {"enabled":false}
   payment-skypay: |
