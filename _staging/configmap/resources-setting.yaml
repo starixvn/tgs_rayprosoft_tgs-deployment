@@ -14,6 +14,8 @@ data:
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
   agent-hkjp: |
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
+  agent-service: |
+    {"limits":{"cpu":"50m","memory":"512Mi"},"requests":{"cpu":"20m","memory":"200Mi"}}
   agent-tgs689: |
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
   agent-wlghk: |

@@ -6,6 +6,8 @@ metadata:
 data:
   agent-api: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"50m","memory":"400Mi"}}
+  agent-service: |
+    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"50m","memory":"400Mi"}}
   backoffice-api: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"50m","memory":"400Mi"}}
   brand-api: |

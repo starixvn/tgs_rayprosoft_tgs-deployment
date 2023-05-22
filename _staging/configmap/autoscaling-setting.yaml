@@ -4,6 +4,8 @@ metadata:
   name: autoscaling-setting
   namespace: staging
 data:
+  agent-service: |
+    {"enabled":false}
   brand-cert-api: |
     {"enabled":false}
   backoffice-api: |
