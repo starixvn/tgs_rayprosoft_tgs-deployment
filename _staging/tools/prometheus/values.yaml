@@ -938,11 +938,11 @@ server:
   ##
   resources: 
     limits:
-      cpu: 1000m
-      memory: 2Gi
+      cpu: 2
+      memory: 4Gi
     requests:
-      cpu: 300m
-      memory: 1Gi
+      cpu: 2
+      memory: 2Gi
 
   ## Vertical Pod Autoscaler config
   ## Ref: https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler
