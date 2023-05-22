@@ -939,10 +939,10 @@ server:
   resources: 
     limits:
       cpu: 2
-      memory: 4Gi
+      memory: 6Gi
     requests:
-      cpu: 2
-      memory: 2Gi
+      cpu: 1
+      memory: 3Gi
 
   ## Vertical Pod Autoscaler config
   ## Ref: https://github.com/kubernetes/autoscaler/tree/master/vertical-pod-autoscaler
