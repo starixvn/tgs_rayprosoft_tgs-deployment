@@ -316,6 +316,10 @@ data:
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gameinterface-pinnacle : |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  game-gamerecord-pinnacle : |
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  game-gamerecord-pinnacle-schedule : |
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamecurrency: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gameplayerlogout: |
