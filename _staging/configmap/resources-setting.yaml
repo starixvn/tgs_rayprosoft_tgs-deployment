@@ -508,3 +508,6 @@ data:
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"150Mi"}}
   tst-memo: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
+  notification-center: |
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
+  
