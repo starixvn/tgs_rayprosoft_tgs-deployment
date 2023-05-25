@@ -338,3 +338,5 @@ data:
     {"enabled":false}
   tst-memo: |
     {"enabled":false}
+  notification-center: |
+    {"enabled":false}
