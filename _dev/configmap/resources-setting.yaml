@@ -273,7 +273,7 @@ data:
   game-gameplayerbalance: |
     {"limits":{"cpu":"500m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-server: |
-    {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
+    {"limits":{"cpu":"500m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   global-api: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   log-api: |
