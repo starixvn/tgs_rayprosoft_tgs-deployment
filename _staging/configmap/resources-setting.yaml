@@ -14,6 +14,8 @@ data:
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
   agent-hkjp: |
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
+  agent-service: |
+    {"limits":{"cpu":"50m","memory":"512Mi"},"requests":{"cpu":"20m","memory":"200Mi"}}
   agent-tgs689: |
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
   agent-wlghk: |
@@ -312,6 +314,12 @@ data:
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamerecord-cards365-schedule : |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  game-gameinterface-pinnacle : |
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  game-gamerecord-pinnacle : |
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
+  game-gamerecord-pinnacle-schedule : |
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamecurrency: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gameplayerlogout: |
@@ -500,3 +508,6 @@ data:
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"150Mi"}}
   tst-memo: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
+  notification-center: |
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
+  

@@ -4,6 +4,8 @@ metadata:
   name: autoscaling-setting
   namespace: dev
 data:
+  agent-service: |
+    {"enabled":false}
   brand-cert-api: |
     {"enabled":false}
   backoffice-api: |
@@ -228,11 +230,17 @@ data:
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-im-schedule: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gameinterface-cards365 : |
+  game-gameinterface-cards365: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-cards365 : |
+  game-gamerecord-cards365: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-cards365-schedule : |
+  game-gamerecord-cards365-schedule: |
+    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gameinterface-pinnacle: |
+    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-pinnacle: |
+    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-pinnacle-schedule: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamecurrency: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
@@ -305,7 +313,7 @@ data:
   payment-fivesevenpay: |
     {"enabled":false}
   payment-metapay: |
-    {"enabled":false}  
+    {"enabled":false}
   payment-fixtool: |
     {"enabled":false}
   station-letter: |
@@ -327,4 +335,6 @@ data:
   payment-manual: |
     {"enabled":false}
   tst-memo: |
+    {"enabled":false}
+  notification-center: |
     {"enabled":false}
