@@ -148,6 +148,8 @@ data:
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-dg-service: |
     {"limits":{"cpu":"100m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"384Mi"}}
+  game-gameinterface-joker-service: |
+    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   game-gamerecord-joker-scheduleservice: |
     {"limits":{"cpu":"50m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-joker-service: |
