@@ -80,6 +80,8 @@ data:
     {"limits":{"cpu":"500m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerecord-joker-scheduleservice: |
     {"limits":{"cpu":"500m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
+  game-gamerecord-joker-schedule: |
+    {"limits":{"cpu":"500m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerecord-joker-service: |
     {"limits":{"cpu":"500m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerecord-joker: |
