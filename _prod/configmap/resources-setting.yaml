@@ -50,6 +50,8 @@ data:
     {"limits":{"cpu":"500m","memory":"400Mi"},"requests":{"cpu":"300m","memory":"400Mi"}}
   cashservice-worker: |
     {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"300m","memory":"1Gi"}}
+  cash-query: |
+    {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"100m","memory":"400Mi"}}
   deposit-accumulate-roulette: |
     {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   deposit-accumulate-roulette-background: |

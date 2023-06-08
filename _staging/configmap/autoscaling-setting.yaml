@@ -14,6 +14,8 @@ data:
     {"enabled":false}
   cashservice-worker: |
     {"enabled":false}
+  cash-query: |
+    {"enabled":false}
   game-gameproviders: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-pluggable-service: |
