@@ -79,7 +79,7 @@ data:
   game-gameproviders: |
     {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"500m","memory":"1024Mi"}}
   game-pluggable-service: |
-    {"limits":{"cpu":"500m","memory":"1536Mi"},"requests":{"cpu":"500m","memory":"1536Mi"}}
+    {"limits":{"cpu":"1","memory":"2048Mi"},"requests":{"cpu":"1","memory":"2048Mi"}}
   game-haba: |
     {"limits":{"cpu":"600m","memory":"1200Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-imes: |
