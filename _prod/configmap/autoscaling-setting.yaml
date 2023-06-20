@@ -328,6 +328,8 @@ data:
     {"enabled":false}
   deposit-accumulate-roulette-worker: |
     {"enabled":false}
+  domain-setting: |
+    {"enabled":false}
   agent-api: |
     {"enabled":false}
   payment-alfapay: |
