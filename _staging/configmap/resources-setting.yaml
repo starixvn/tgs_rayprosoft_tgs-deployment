@@ -114,14 +114,6 @@ data:
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerounds-handle: |
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
-  game-gamerecord-manualworkservice: |
-    {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
-  game-gamerecord-workservice: |
-    {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
-  game-gameverification: |
-    {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
-  game-gameverification-worker: |
-    {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamerecord-avia-scheduleservice: |
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamerecord-avia-service: |
@@ -133,8 +125,6 @@ data:
   game-gameinterface-joker: |
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamerecord-joker-schedule: |
-    {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
-  game-gamerecord-joker-service: |
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   game-gamerecord-joker: |
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
