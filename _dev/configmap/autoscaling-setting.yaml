@@ -266,6 +266,8 @@ data:
     {"enabled":false}
   promotion-rebate: |
     {"enabled":false}
+  promote-deposit-channel: |
+    {"enabled":false}
   player-api: |
     {"enabled":false}
   playerbucket-service: |

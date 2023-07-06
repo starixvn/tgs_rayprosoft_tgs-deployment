@@ -436,6 +436,8 @@ data:
     {"limits":{"cpu":"500m","memory":"300Mi"},"requests":{"cpu":"50m","memory":"100Mi"}}
   promotion-rebate: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"50m","memory":"150Mi"}}
+  promote-deposit-channel: |
+    {"limits":{"cpu":"100m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"64Mi"}}
   redisinsight-redisinsight-chart: |
     {"limits":{"cpu":"400m","memory":"400Mi"},"requests":{"cpu":"20m","memory":"100Mi"}}
   report-api: |
