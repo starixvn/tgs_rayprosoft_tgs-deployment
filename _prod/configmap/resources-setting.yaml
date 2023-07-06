@@ -455,7 +455,7 @@ data:
   promotion-rebate: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"200m","memory":"512Mi"}}
   promote-deposit-channel: |
-    {"limits":{"cpu":"100m","memory":"400Mi"},"requests":{"cpu":"1","memory":"400Mi"}}
+    {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"100m","memory":"400Mi"}}
   report-api: |
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"200m","memory":"512Mi"}}
   report-aggregate-service: |
