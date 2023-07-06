@@ -149,13 +149,13 @@ data:
   game-gamerecord-habanero-service: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gameinterface-saba-service: |
-    {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":1,"maxReplicas":1,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-saba-scheduleservice: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-saba-service: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gameinterface-sm01-service: |
-    {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":1,"maxReplicas":1,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-sm01-scheduleservice: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-sm01-service: |

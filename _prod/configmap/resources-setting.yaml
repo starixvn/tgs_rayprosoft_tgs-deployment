@@ -243,13 +243,13 @@ data:
   game-gamerecord-habanero-service: |
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-gameinterface-saba-service: |
-    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
+    {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-saba-scheduleservice: |
     {"limits":{"cpu":"500m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-gamerecord-saba-service: |
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-gameinterface-sm01-service: |
-    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
+    {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-sm01-scheduleservice: |
     {"limits":{"cpu":"500m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-gamerecord-sm01-service: |
@@ -293,7 +293,7 @@ data:
   game-gamerecord-yeebet: |
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-gameinterface-im: |
-    {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
+    {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
   game-gamerecord-im: |
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-gamerecord-im-schedule: |
