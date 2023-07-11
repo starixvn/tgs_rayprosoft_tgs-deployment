@@ -90,6 +90,8 @@ data:
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerecord-vr-service: |
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
+  game-gameinterface-wgvia: |
+    {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerecord-wgvia-scheduleservice: |
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-gamerecord-wgvia-service: |
