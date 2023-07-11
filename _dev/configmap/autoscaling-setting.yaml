@@ -14,6 +14,8 @@ data:
     {"enabled":false}
   cashservice-worker: |
     {"enabled":false}
+  cash-query: |
+    {"enabled":false}
   game-gameproviders: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-pluggable-service: |
@@ -34,14 +36,6 @@ data:
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-tcg-ftp: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-manualworkservice: |
-    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-workservice: |
-    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gameverification: |
-    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gameverification-worker: |
-    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-avia-scheduleservice: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-avia-service: |
@@ -50,15 +44,11 @@ data:
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-bg-fishing-service: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-dg-scheduleservice: |
+  game-gameinterface-joker: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-dg-service: |
+  game-gamerecord-joker-schedule: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-joker-scheduleservice: |
-    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-joker-service: |
-    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-joker-manualservice: |
+  game-gamerecord-joker: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-ky-scheduleservice: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
@@ -70,7 +60,9 @@ data:
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-tcg-scheduleservice: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-tcg-service: |
+  game-gamerecord-tcg: |
+    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  game-gamerecord-tcg-work: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-vr-scheduleservice: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
@@ -90,7 +82,7 @@ data:
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-awc-service: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gameinterface-jili-service: |
+  game-gameinterface-jili: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-jili-scheduleservice: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
@@ -107,12 +99,6 @@ data:
   game-gamerecord-pptf-scheduleservice: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-pptf-service: |
-    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-pptf-manualservice: |
-    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-pptf-workservice: |
-    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-pptf-manualworkservice: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamefundtransfer: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
@@ -148,8 +134,6 @@ data:
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-sbo-service: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-sbo-manualservice: |
-    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-bc-workservice: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gameinterface-bti-service: |
@@ -157,8 +141,6 @@ data:
   game-gamerecord-bti-scheduleservice: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-bti-service: |
-    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-bti-manualservice: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gameinterface-habanero-service: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
@@ -172,15 +154,11 @@ data:
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-saba-service: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-saba-manualservice: |
-    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gameinterface-sm01-service: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-sm01-scheduleservice: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-sm01-service: |
-    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-sm01-manualservice: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gameinterface-tfgaming-service: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
@@ -188,15 +166,11 @@ data:
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerecord-tfgaming-service: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-tfgaming-manualservice: |
-    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-tfgaming-workservice: |
-    {"enabled":false,"minReplicas":2,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gameinterface-dg-service: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-dgtf-service: |
+  game-gamerecord-dg-scheduleservice: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
-  game-gamerecord-dgtf-manualservice: |
+  game-gamerecord-dg-service: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gameinterface-endor-service: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
@@ -292,6 +266,8 @@ data:
     {"enabled":false}
   promotion-rebate: |
     {"enabled":false}
+  promote-deposit-channel: |
+    {"enabled":false}
   player-api: |
     {"enabled":false}
   playerbucket-service: |
@@ -314,6 +290,8 @@ data:
     {"enabled":false}
   payment-metapay: |
     {"enabled":false}
+  payment-gcpay: |
+    {"enabled":false}
   payment-fixtool: |
     {"enabled":false}
   station-letter: |
@@ -323,6 +301,8 @@ data:
   deposit-accumulate-roulette-background: |
     {"enabled":false}
   deposit-accumulate-roulette-worker: |
+    {"enabled":false}
+  domain-setting: |
     {"enabled":false}
   agent-api: |
     {"enabled":false}
