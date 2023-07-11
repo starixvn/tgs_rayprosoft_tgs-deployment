@@ -1,11 +1,10 @@
-kind: Deployment
 apiVersion: apps/v1
+kind: Deployment
 metadata:
   name: agent-dsite
-  namespace: staging
   labels:
+    type: frontend
     app: agent-dsite
-    type: agent
 spec:
   replicas: 1
   selector:
@@ -14,76 +13,62 @@ spec:
   template:
     metadata:
       labels:
+        type: frontend
         app: agent-dsite
-        type: agent
     spec:
       imagePullSecrets:
         - name: registry-credentials
+        - name: dockerhub
+      securityContext:
+        {}
       nodeSelector:
-        dedicated: nonprod
+        dedicated: staging
       tolerations:
       - effect: NoSchedule
         key: dedicated
         operator: Equal
-        value: nonprod
+        value: staging
       containers:
         - name: agent-dsite
-          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent:staging
+          securityContext:
+            {}
+          image: "pgtgs/agent:2023.05.05.0849.staging"
           imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
           env:
           - name: CLIENT
-            value: "D8lud4V5gN3RP9wCDpCIrgZEk09cfTKRJf8ghfZtGUaIiJJph3E4WM"
+            value: "pB5v0g6NSbyHQxjZqdYF43LlJOXSoaoKM3SdymWlR4UT5bQyhgc5H2"
           - name: CURRENCY
-            value: "CNY"
+            value: "HKD"
           - name: BRAND
-            value: "DSITE"
+            value: "SKY8"
           - name: SITE
-            value: "https://t1.pgdemo.online/"
-          - name: LANGUAGES
-            value: "[{\"name\":\"zh-CN\",\"label\":\"简体\"},{\"name\":\"zh-TW\",\"label\":\"繁體\"},{\"name\":\"en-US\",\"label\":\"English\"}]"
-          - name: DEFAULT_LANGUAGE
-            value: "zh-CN"
+            value: "http://pcclub88.com/"
           - name: THEME
             value: "red"
-          ports:
-            - containerPort: 80
-          volumeMounts:
-            - name: site-data
-              mountPath: /data
+          - name: LANGUAGES
+            value: "[{\"name\":\"zh-CN\",\"label\":\"简体\"},{\"name\":\"zh-TW\",\"label\":\"繁體\"},{\"name\":\"en-US\",\"label\":\"English\"},{\"name\":\"th-TH\",\"label\":\"Thai\"}]"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-TW"
+          - name: SOURCE_URL
+            value: "https://images.srvptt.com/"
           livenessProbe:
-            httpGet:
-              path: /healthcheck
+            tcpSocket:
               port: 80
-              scheme: HTTP
-            initialDelaySeconds: 5
+            initialDelaySeconds: 30
             periodSeconds: 5
           readinessProbe:
-            httpGet:
-              path: /healthcheck
+            tcpSocket:
               port: 80
-              scheme: HTTP
-            initialDelaySeconds: 5
+            initialDelaySeconds: 30
             periodSeconds: 5
           resources:
             limits:
-              cpu: 10m
-              memory: 60Mi
+              cpu: 50m
+              memory: 100Mi
             requests:
-              cpu: 2m
-              memory: 12Mi
-      volumes:
-        - name: site-data
-          emptyDir: {}
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: agent-dsite
-  namespace: staging
-spec:
-  ports:
-    - protocol: TCP
-      port: 80
-      name: web
-  selector:
-    app: agent-dsite
+              cpu: 20m
+              memory: 30Mi

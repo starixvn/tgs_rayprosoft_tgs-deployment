@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: configmap-elasticsearch
+  namespace: observability
+data:
+  elasticsearch: |
+    cluster.name: "docker-cluster"
+    network.host: 0.0.0.0
+    xpack.security.enabled: false
+    http.cors.enabled: true
+    http.cors.allow-origin: "*"
