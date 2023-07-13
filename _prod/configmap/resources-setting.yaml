@@ -199,7 +199,7 @@ data:
   game-gamerecord-pptf-service: |
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-gamefundtransfer: |
-    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
+    {"limits":{"cpu":"1","memory":"384Mi"},"requests":{"cpu":"100m","memory":"384Mi"}}
   game-gameinterface-evolution-service: |
     {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   game-gamerecord-evolution-scheduleservice: |
