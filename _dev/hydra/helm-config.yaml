@@ -1,0 +1,21 @@
+hydra:
+  config:
+    dsn: memory
+    urls:
+      self:
+        issuer: https://dev-auth.rpgp.cc
+      login: https://localhost:7249/login
+      consent: https://localhost:7249/consent
+
+maester:
+  enabled: false
+
+ingress:
+  public:
+    enabled: true
+    className: nginx
+    hosts:
+      - host: dev-auth.rpgp.cc
+        paths:
+          - path: /
+            pathType: ImplementationSpecific
