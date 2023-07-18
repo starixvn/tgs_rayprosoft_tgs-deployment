@@ -254,6 +254,8 @@ data:
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   global-api: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
+  hydra-provider: |
+    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"50m","memory":"50Mi"}}
   log-api: |
     {"limits":{"cpu":"400m","memory":"1Gi"},"requests":{"cpu":"50m","memory":"100Mi"}}
   notification-receiver-service: |

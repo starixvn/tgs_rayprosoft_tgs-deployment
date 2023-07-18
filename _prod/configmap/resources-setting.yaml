@@ -326,6 +326,8 @@ data:
     {"limits":{"cpu":"1","memory":"300Mi"},"requests":{"cpu":"50m","memory":"300Mi"}}
   global-api: |
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+  hydra-provider: |
+    {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"100m","memory":"400Mi"}}
   lobby-21gen-landing: |
     {"limits":{"cpu":"5m","memory":"30Mi"},"requests":{"cpu":"5m","memory":"30Mi"}}
   lobby-21gen-my: |
