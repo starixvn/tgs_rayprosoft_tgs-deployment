@@ -4,8 +4,8 @@ hydra:
     urls:
       self:
         issuer: https://dev-auth.rpgp.cc
-      login: https://localhost:7249/login
-      consent: https://localhost:7249/consent
+      login: https://dev-session.rpgp.cc/login
+      consent: https://dev-session.rpgp.cc/consent
 
 maester:
   enabled: false
