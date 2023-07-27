@@ -134,10 +134,6 @@ data:
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"100m","memory":"400Mi"}}
   game-gamerecord-avia: |
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
-  game-gamerecord-avia-scheduleservice: |
-    {"limits":{"cpu":"500m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
-  game-gamerecord-avia-service: |
-    {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-gamerecord-bg-fishing-scheduleservice: |
     {"limits":{"cpu":"500m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-gamerecord-bg-fishing-service: |
@@ -151,10 +147,6 @@ data:
   game-gameinterface-ky: |
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"100m","memory":"400Mi"}}
   game-gamerecord-ky: |
-    {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
-  game-gamerecord-ky-scheduleservice: |
-    {"limits":{"cpu":"500m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
-  game-gamerecord-ky-service: |
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-gameinterface-ly: |
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"100m","memory":"400Mi"}}
