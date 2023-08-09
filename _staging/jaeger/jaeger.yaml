@@ -23,6 +23,8 @@ spec:
         version: 7
   collector:
     autoscale: false
+  query:
+    enabled: false
   resources:
     requests:
       memory: "64Mi"
