@@ -1,0 +1,35 @@
+apiVersion: jaegertracing.io/v1
+kind: Jaeger
+metadata:
+  name: jaeger
+  namespace: observability
+spec:
+  strategy: production
+  storage:
+    type: elasticsearch
+    dependencies:
+      enabled: false
+    esIndexCleaner:
+      enabled: false
+      numberOfDays: 15
+      schedule: "55 23 * * *"
+    options:
+      es:
+        server-urls: http://elasticsearch-master
+        index-prefix: staging
+        num-replicas: 0
+        num-shards: 1
+        create-index-templates: "false"
+        version: 7
+  collector:
+    autoscale: false
+  resources:
+    requests:
+      memory: "64Mi"
+      cpu: "250m"
+    limits:
+      memory: "512Mi"
+      cpu: "1"
+  serviceAccount: jaeger-operator
+  securityContext:
+    runAsUser: 1000
