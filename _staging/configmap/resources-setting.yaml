@@ -310,6 +310,8 @@ data:
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   game-server: |
     {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"50m","memory":"200Mi"}}
+  game-type-round-aggregate-service: |
+    {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"50m","memory":"128Mi"}}
   global-api: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"50Mi"}}
   hydra-provider: |
