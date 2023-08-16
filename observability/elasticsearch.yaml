@@ -10,6 +10,9 @@ spec:
   nodeSets:
   - name: default
     count: 1
+    config:
+      xpack.security.enabled: false
+      xpack.security.enrollment.enabled: false
     podTemplate:
       spec:
         containers:
