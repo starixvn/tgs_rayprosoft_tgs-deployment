@@ -16,10 +16,20 @@ spec:
         - name: elasticsearch
           env:
           - name: ES_JAVA_OPTS
-            value: -Xms2g -Xmx2g
+            value: -Xms1g -Xmx1g
           resources:
             requests:
-              memory: 4Gi
+              memory: 2Gi
               cpu: 2
             limits:
-              memory: 4Gi
+              memory: 2Gi
+    volumeClaimTemplates:
+    - metadata:
+        name: elasticsearch-data # Do not change this name unless you set up a volume mount for the data path.
+      spec:
+        accessModes:
+        - ReadWriteOnce
+        resources:
+          requests:
+            storage: 5Gi
+        storageClassName: nfs-provisioner
