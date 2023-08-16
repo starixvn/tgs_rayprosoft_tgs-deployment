@@ -232,6 +232,8 @@ data:
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-server: |
     {"enabled":false}
+  game-type-round-aggregate-service: |
+    {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   hydra-provider: |
     {"enabled":false}
   validatecode-api: |
