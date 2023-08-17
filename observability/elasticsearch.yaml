@@ -17,6 +17,9 @@ spec:
       xpack.security.transport.ssl.enabled: false
     podTemplate:
       spec:
+        tls:
+          selfSignedCertificate:
+            disabled: true
         initContainers:
         - name: sysctl
           securityContext:
