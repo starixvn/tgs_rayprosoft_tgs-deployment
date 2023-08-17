@@ -9,10 +9,12 @@ spec:
   version: 8.9.0
   nodeSets:
   - name: default
-    count: 1
+    count: 3
     config:
       xpack.security.enabled: false
       xpack.security.enrollment.enabled: false
+      xpack.security.http.ssl.enabled: false
+      xpack.security.transport.ssl.enabled: false
     podTemplate:
       spec:
         containers:
@@ -20,6 +22,8 @@ spec:
           env:
           - name: ES_JAVA_OPTS
             value: -Xms1g -Xmx1g
+          - name: READINESS_PROBE_TIMEOUT
+            value: "30"
           resources:
             requests:
               memory: 2Gi
