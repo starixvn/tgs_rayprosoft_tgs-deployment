@@ -23,9 +23,12 @@ spec:
         version: 7
   collector:
     autoscale: false
+    options:
+      es:
+        use-aliases: true
   query:
     options:
-      es: 
+      es:
         use-aliases: true
   ui:
     options:
@@ -50,4 +53,4 @@ spec:
     security: none
     ingressClassName: nginx
     hosts:
-      - "stg-jaeger.rpgp.cc"
+      - "jaeger.rpgp.cc"
