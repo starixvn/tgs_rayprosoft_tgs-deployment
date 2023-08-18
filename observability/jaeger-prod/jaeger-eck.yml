@@ -16,13 +16,15 @@ spec:
     options:
       es:
         server-urls: http://elasticsearch-es-default.eck:9200
-        #index-prefix: tracing
         num-replicas: 0
         num-shards: 1
         create-index-templates: "false"
         version: 7
   collector:
     autoscale: false
+    options:
+      es:
+        use-aliases: true
   query:
     options:
       es: 
