@@ -5,9 +5,10 @@ PUT _index_template/jaeger-service
     "settings": {
       "index": {
         "lifecycle": {
-          "name": "jaeger-ilm-policy"
+          "name": "jaeger-ilm-policy",
+          "rollover_alias": "jaeger-service-write"
         },
-        "number_of_shards": "3",
+        "number_of_shards": "1",
         "number_of_replicas": "0"
       }
     },
@@ -26,7 +27,8 @@ PUT _index_template/jaeger-service
     }
   },
   "index_patterns": [
-    "jaeger-service-*"
+    "jaeger-service-*",
+    "staging-jaeger-service-*"
   ],
   "composed_of": []
 }

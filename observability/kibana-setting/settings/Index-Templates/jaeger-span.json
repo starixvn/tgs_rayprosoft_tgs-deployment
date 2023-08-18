@@ -4,9 +4,10 @@ PUT _index_template/jaeger-span
     "settings": {
       "index": {
         "lifecycle": {
-          "name": "jaeger-ilm-policy"
+          "name": "jaeger-ilm-policy",
+          "rollover_alias": "jaeger-span-write"
         },
-        "number_of_shards": "6",
+        "number_of_shards": "7",
         "number_of_replicas": "0"
       }
     },
@@ -144,7 +145,8 @@ PUT _index_template/jaeger-span
     }
   },
   "index_patterns": [
-    "jaeger-span-*"
+    "jaeger-span-*",
+    "staging-jaeger-span-*"
   ],
   "composed_of": []
 }

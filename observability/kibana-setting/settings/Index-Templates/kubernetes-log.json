@@ -6,8 +6,8 @@ PUT _index_template/kubernetes-log
         "lifecycle": {
           "name": "kubernetes-log-ilm"
         },
-        "number_of_shards": "3",
-        "number_of_replicas": "1"
+        "number_of_shards": "5",
+        "number_of_replicas": "0"
       }
     },
     "aliases": {
