@@ -50,4 +50,4 @@ spec:
     security: none
     ingressClassName: nginx
     hosts:
-      - jaeger2.srvptt.com"
+      - jaeger.srvptt.com
