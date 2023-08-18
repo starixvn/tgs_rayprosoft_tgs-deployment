@@ -126,6 +126,8 @@ data:
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"100m","memory":"400Mi"}}
   game-gamerounds-handle: |
     {"limits":{"cpu":"2","memory":"2048Mi"},"requests":{"cpu":"2","memory":"2048Mi"}}
+  game-gamerounds-rapidtest: |
+    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   game-gamerecord-handle: |
     {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
   game-gameinterface-avia: |
