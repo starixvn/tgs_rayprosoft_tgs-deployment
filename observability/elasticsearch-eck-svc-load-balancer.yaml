@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: elasticsearch-svc-load-balancer
+  namespace: eck
+spec:
+  ports:
+    port: 80
+    protocol: TCP
+    targetPort: 9200
+  selector:
+    common.k8s.elastic.co/type: elasticsearch
+    elasticsearch.k8s.elastic.co/cluster-name: elasticsearch
+    elasticsearch.k8s.elastic.co/statefulset-name: elasticsearch-es-default
+  type: LoadBalancer
