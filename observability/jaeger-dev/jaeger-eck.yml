@@ -23,6 +23,9 @@ spec:
         version: 7
   collector:
     autoscale: false
+    options:
+      es: 
+        use-aliases: true
   query:
     options:
       es: 
@@ -50,4 +53,4 @@ spec:
     security: none
     ingressClassName: nginx
     hosts:
-      - "dev2-jaeger.rpgp.cc"
+      - "jaeger.rpgp.cc"
