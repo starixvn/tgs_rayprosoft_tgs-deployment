@@ -3,6 +3,8 @@ kind: Service
 metadata:
   name: elasticsearch-svc-load-balancer
   namespace: eck
+  annotations:
+    service.beta.kubernetes.io/aws-load-balancer-internal: "true"
 spec:
   ports:
   - port: 80
