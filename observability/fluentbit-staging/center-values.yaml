@@ -37,6 +37,16 @@ config:
         Match   log.*
         script  /fluent-bit/scripts/append_tag.lua
         call    append_tag
+        
+    [FILTER]
+        Name  modify
+        Match kube.*
+        Add cluster staging
+        
+    [FILTER]
+        Name  modify
+        Match node.*
+        Add cluster staging
 
   ## https://docs.fluentbit.io/manual/pipeline/outputs
   outputs: |
