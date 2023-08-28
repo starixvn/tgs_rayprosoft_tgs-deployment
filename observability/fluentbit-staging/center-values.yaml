@@ -56,7 +56,7 @@ config:
         Host            ${FLUENT_ELASTICSEARCH_HOST}
         Port            ${FLUENT_ELASTICSEARCH_PORT}
         Logstash_Format On
-        Logstash_Prefix kube
+        Logstash_Prefix kube-staging
         Replace_Dots    On
         Trace_Error     On
         Buffer_Size     5M
@@ -68,7 +68,7 @@ config:
         Host ${FLUENT_ELASTICSEARCH_HOST}
         Port ${FLUENT_ELASTICSEARCH_PORT}
         Logstash_Format On
-        Logstash_Prefix node
+        Logstash_Prefix node-staging
         Buffer_Size     5M
         Suppress_Type_Name On
     
