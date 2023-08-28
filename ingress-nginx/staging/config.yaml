@@ -16,5 +16,5 @@ controller:
         prometheus.io/port: "10254"
         prometheus.io/scrape: "true"
   ingressClassResource:
-    name: nginx-frontent
-  ingressClass: nginx-frontent
+    name: nginx-frontend
+  ingressClass: nginx-frontend
