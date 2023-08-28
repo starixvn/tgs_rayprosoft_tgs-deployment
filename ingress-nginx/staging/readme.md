@@ -4,6 +4,6 @@
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 kubectl create ns ingress-nginx
 
-helm -n ingress-nginx install nginx-ingress ingress-nginx/ingress-nginx -f config.yaml
+helm -n ingress-nginx upgrade -i nginx-ingress ingress-nginx/ingress-nginx -f config.yaml
 
 helm uninstall nginx-ingress  -n ingress-nginx

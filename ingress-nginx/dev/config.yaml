@@ -11,7 +11,7 @@ controller:
       http: 30486
       https: 30462
   metrics:
-    enabled: true
+    enabled: "true"
     service:
       annotations:
         prometheus.io/port: 10254
