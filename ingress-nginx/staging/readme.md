@@ -6,6 +6,6 @@ helm repo update
 
 kubectl create ns ingress-nginx
 
-helm -n ingress-nginx upgrade -i nginx-ingress ingress-nginx/ingress-nginx -f config.yaml
+helm -n ingress-nginx upgrade -i nginx-frontend ingress-nginx/ingress-nginx -f config.yaml
 
 helm uninstall nginx-ingress -n ingress-nginx
