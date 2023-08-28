@@ -3,6 +3,7 @@
 
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 kubectl create ns ingress-nginx
-helm -n ingress-nginx install nginx-ingress ingress-nginx/ingress-nginx -f config-dev.yaml
+
+helm -n ingress-nginx install nginx-ingress ingress-nginx/ingress-nginx -f config.yaml --set controller.replicaCount=3
 
 helm uninstall nginx-ingress  -n ingress-nginx
