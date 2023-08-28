@@ -10,11 +10,11 @@ controller:
   service:
     type: LoadBalancer
   metrics:
-    enabled: true
+    enabled: "true"
     service:
       annotations:
-        prometheus.io/port: 10254
-        prometheus.io/scrape: true
+        prometheus.io/port: "10254"
+        prometheus.io/scrape: "true"
   resources:
     requests:
       cpu: 2
