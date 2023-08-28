@@ -6,10 +6,7 @@ controller:
   opentelemetry: 
     enabled: true
   service: 
-    type: NodePort
-    nodePorts:
-      http: 30486
-      https: 30462
+    type: LoadBalancer
   metrics:
     service:
       annotations:
