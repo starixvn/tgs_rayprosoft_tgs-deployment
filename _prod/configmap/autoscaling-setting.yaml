@@ -16,6 +16,8 @@ data:
     {"enabled":false}
   cash-query: |
     {"enabled":false}
+  fill-in-player-bucket-service: |
+    {"enabled":false}
   game-gameproviders: |
     {"enabled":true,"minReplicas":3,"maxReplicas":5,"targetCPUUtilizationPercentage":600,"targetMemoryUtilizationPercentage":60}
   game-pluggable-service: |

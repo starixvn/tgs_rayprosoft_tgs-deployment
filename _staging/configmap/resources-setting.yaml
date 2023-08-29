@@ -42,6 +42,8 @@ data:
     {"limits":{"cpu":"100m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
   domain-setting: |
     {"limits":{"cpu":"500m","memory":"200Mi"},"requests":{"cpu":"10m","memory":"50Mi"}}
+  fill-in-player-bucket-service: |
+    {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"100m","memory":"100Mi"}}
   file-service: |
     {"limits":{"cpu":"60m","memory":"1Gi"},"requests":{"cpu":"10m","memory":"50Mi"}}
   game-365: |
