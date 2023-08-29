@@ -343,7 +343,7 @@ alertmanager:
     ## Hosts must be provided if Ingress is enabled.
     ##
     hosts:
-      - alertmanager2.srvptt.com
+      - stg2-alertmanager.rpgp.cc
 
     ## Paths to use for ingress rules - one path should match the alertmanagerSpec.routePrefix
     ##
@@ -672,7 +672,7 @@ alertmanager:
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:
-              storage: 10Gi
+              storage: 20Gi
     #     selector: {}
 
 
@@ -898,7 +898,7 @@ grafana:
     ## Must be provided if Ingress is enable.
     ##
     hosts:
-     - grafana2.srvptt.com
+     - stg2-grafana.rpgp.cc
     # hosts: []
 
     ## Path for grafana ingress
@@ -2668,7 +2668,7 @@ prometheus:
     ## Must be provided if Ingress is enabled.
     ##
     hosts:
-      - prometheus2.srvptt.com
+      - stg2-prometheus.rpgp.cc
     #hosts: []
 
     ## Paths to use for ingress rules - one path should match the prometheusSpec.routePrefix
