@@ -10,8 +10,16 @@ sudo pip install .
 cp examples/grafana-backup.example.json grafana-backup.json
 cp examples/grafana-backup.example.json grafana-restore.json
 
-sudo grafana-backup save --config=backup-dev.json
+sudo grafana-backup save --config=/root/tgs-deployment/monitoring/dev/grafana-backup-restore/backup-dev.json
 sudo grafana-backup restore --config=restore-dev.json   _OUTPUT_/202211250207.tar.gz
+
+
+# create token of grafana
+https://grafana.com/docs/grafana/latest/developers/http_api/create-api-tokens-for-org/
+
+on postman
+
+eyJrIjoiMEV2aHNEOUFKQm5RTjVzaEdKY25aYXNlQWdybzZoZGwiLCJuIjoiYXBpa2V5Y3VybCIsImlkIjoyfQ
 
 ### k8s grafana backup
 

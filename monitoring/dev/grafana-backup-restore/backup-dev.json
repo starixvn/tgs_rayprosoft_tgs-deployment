@@ -6,11 +6,11 @@
   },
   "grafana": {
     "url": "https://grafana.rpgp.cc",
-    "token": "eyJrIjoiUEVzWTgxT2tobGxBMUt3TE4wQUdpQ2NZaE5maTlEWHYiLCJuIjoiYmFja3VwIiwiaWQiOjF9",
+    "token": "eyJrIjoiMEV2aHNEOUFKQm5RTjVzaEdKY25aYXNlQWdybzZoZGwiLCJuIjoiYXBpa2V5Y3VybCIsImlkIjoyfQ",
     "search_api_limit": 5000,
     "default_password": "00000000",
     "admin_account": "admin",
-    "admin_password": "EvTZYjTJ0eIDrWsIuo9GqGiNdQflRtneQnStkICJ"
+    "admin_password": "prom-operator"
   },
   "aws": {
     "s3_bucket_name": "tgs-dev-backup",
