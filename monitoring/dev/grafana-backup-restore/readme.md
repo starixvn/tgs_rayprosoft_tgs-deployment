@@ -1,4 +1,10 @@
-### grafana backup/restore
+# install grafana
+## https://github.com/grafana/helm-charts/tree/main/charts/grafana
+helm repo add grafana https://grafana.github.io/helm-charts
+helm repo update
+helm install my-release grafana/grafana
+
+## grafana backup/restore
 sudo apt install -y python-pip
 sudo apt install -y python3-pip
 
@@ -17,9 +23,6 @@ sudo grafana-backup restore --config=restore-dev.json   _OUTPUT_/202211250207.ta
 # create token of grafana
 https://grafana.com/docs/grafana/latest/developers/http_api/create-api-tokens-for-org/
 
-on postman
-
-eyJrIjoiMEV2aHNEOUFKQm5RTjVzaEdKY25aYXNlQWdybzZoZGwiLCJuIjoiYXBpa2V5Y3VybCIsImlkIjoyfQ
 
 ### k8s grafana backup
 

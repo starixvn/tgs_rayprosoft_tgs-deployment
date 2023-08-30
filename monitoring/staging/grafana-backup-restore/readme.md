@@ -1,5 +1,5 @@
 https://hub.docker.com/r/grafana/grafana/tags
-https://github.com/grafana/helm-charts/blob/main/charts/grafana/README.md
+https://github.com/grafana/helm-charts/tree/main/charts/grafana
 
 helm repo add grafana https://grafana.github.io/helm-charts
 helm install grafana grafana/grafana -f values.yaml -n monitoring

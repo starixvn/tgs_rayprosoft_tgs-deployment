@@ -13,11 +13,11 @@ pg_restore -d tgs_2022_11_09 < mydb_2023_05_03.sql
 
 
 ## for restore
-export PGPASSWORD='abcd1234'
-export PGHOST='192.168.50.19'
+export PGPASSWORD='postgres'
+export PGHOST='localhost'
 export PGPORT='5432'
 export PGUSER='postgres'
-export database="tgs_2023_05_03_test"
+export database="tgs"
 
 psql -d postgres -c "create database $database"
 
