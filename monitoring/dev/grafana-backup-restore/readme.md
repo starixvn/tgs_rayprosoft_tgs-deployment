@@ -21,7 +21,7 @@ cp examples/grafana-backup.example.json grafana-backup.json
 cp examples/grafana-backup.example.json grafana-restore.json
 
 sudo grafana-backup save --config=/root/tgs-deployment/monitoring/dev/grafana-backup-restore/backup.json
-sudo grafana-backup restore --config=/root/tgs-deployment/monitoring/dev/grafana-backup-restore/restore.json   _OUTPUT_/202308290650.tar.gz
+sudo grafana-backup restore --config=/root/tgs-deployment/monitoring/dev/grafana-backup-restore/restore-test.json 202308290705.tar.gz
 
 
 # create token of grafana
