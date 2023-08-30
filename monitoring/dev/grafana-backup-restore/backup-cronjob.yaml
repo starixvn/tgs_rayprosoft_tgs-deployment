@@ -5,7 +5,7 @@ metadata:
   namespace: monitoring
 data:
   GRAFANA_URL: "https://grafana.rpgp.cc"
-  GRAFANA_TOKEN: "eyJrIjoiMEV2aHNEOUFKQm5RTjVzaEdKY25aYXNlQWdybzZoZGwiLCJuIjoiYXBpa2V5Y3VybCIsImlkIjoyfQ=="
+  GRAFANA_TOKEN: "eyJrIjoiTncyZ1JYbWlMSjg2TkpSb25ycXpwZ2hhVHIxNDI2Z0IiLCJuIjoiYXBpa2V5Y3VybCIsImlkIjozfQ=="
   GRAFANA_ADMIN_ACCOUNT: "admin"
   GRAFANA_ADMIN_PASSWORD: "{YOUR_GRAFANA_ADMIN_PASSWORD}"
   AWS_ENDPOINT_URL: "https://s3.ap-east-1.amazonaws.com"
@@ -25,7 +25,7 @@ metadata:
   labels:
     app: grafana-backup-tool
 spec:
-  schedule: "0 4 * * *"
+  schedule: "0 6 * * *"
   jobTemplate:
     metadata:
       labels:

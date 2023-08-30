@@ -6,6 +6,9 @@ helm repo update
 helm upgrade -i grafana grafana/grafana -f values.yaml -n monitoring 
 helm uninstall grafana -n monitoring 
 
+### get password
+kubectl get secret --namespace monitoring grafana2 -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+
 ## grafana backup/restore
 sudo apt install -y python3-pip
 
