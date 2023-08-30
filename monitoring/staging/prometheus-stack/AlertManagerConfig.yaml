@@ -11,18 +11,18 @@ spec:
    groupInterval: 1m
    groupWait: 30s
    repeatInterval: 30s
-   receiver: 'dev-telegram'
+   receiver: 'staging-telegram'
    routes:
    - continue: true
      matchers:
      - name: severity
        value: critical
      - alertname =~ "InfoInhibitor|Watchdog"
-     receiver: dev-telegram
+     receiver: staging-telegram
   receivers:
-  - name: 'dev-telegram'
+  - name: 'staging-telegram'
     telegram_configs:
     - bot_token: 6137223098:AAEeQiBaQ1G1Gj5pO7p9q_FVwvXViM1BMcg
       api_url: https://api.telegram.org
-      chat_id: -1001616967294
+      chat_id: -1001928893410
       parse_mode: ''

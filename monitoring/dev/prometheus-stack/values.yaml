@@ -16,6 +16,7 @@ alertmanager:
       parse_mode: ''
   ingress:
     enabled: true
+    ingressClassName: nginx
     hosts:
       - alertmanager.rpgp.cc
   alertmanagerSpec:
@@ -30,6 +31,7 @@ alertmanager:
 grafana: 
   ingress: 
     enabled: true
+    ingressClassName: nginx
     hosts:
     - grafana.rpgp.cc
 kubeetcd: 
@@ -41,6 +43,7 @@ prometheus:
     type: NodePort
   ingress: 
     enabled: true
+    ingressClassName: nginx
     hosts:
     - prometheus.rpgp.cc
   prometheusSpec:
