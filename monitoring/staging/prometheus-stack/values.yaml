@@ -3,6 +3,10 @@ alertmanager:
   enabled: true
   config:
     route:
+      group_by: ['namespace']
+      group_wait: 30s
+      group_interval: 5m
+      repeat_interval: 12h
       receiver: 'staging-telegram'
       routes:
       - receiver: 'staging-telegram'
@@ -14,7 +18,7 @@ alertmanager:
       - bot_token: 6137223098:AAEeQiBaQ1G1Gj5pO7p9q_FVwvXViM1BMcg
         api_url: https://api.telegram.org
         chat_id: -1001928893410
-      parse_mode: ''
+        parse_mode: ''
   ingress:
     enabled: true
     ingressClassName: nginx
