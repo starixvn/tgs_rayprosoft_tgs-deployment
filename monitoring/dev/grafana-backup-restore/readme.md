@@ -17,8 +17,8 @@ sudo pip install .
 cp examples/grafana-backup.example.json grafana-backup.json
 cp examples/grafana-backup.example.json grafana-restore.json
 
-sudo grafana-backup save --config=/root/tgs-deployment/monitoring/dev/grafana-backup-restore/backup-dev.json
-sudo grafana-backup restore --config=restore-dev.json   _OUTPUT_/202211250207.tar.gz
+sudo grafana-backup save --config=/root/tgs-deployment/monitoring/dev/grafana-backup-restore/backup.json
+sudo grafana-backup restore --config=/root/tgs-deployment/monitoring/dev/grafana-backup-restore/restore.json   _OUTPUT_/202308290650.tar.gz
 
 
 # create token of grafana
