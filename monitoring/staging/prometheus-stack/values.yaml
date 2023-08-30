@@ -16,6 +16,7 @@ alertmanager:
       parse_mode: ''
   ingress:
     enabled: true
+    ingressClassName: nginx
     hosts:
       - stg-alertmanager.rpgp.cc
   alertmanagerSpec:
@@ -28,11 +29,15 @@ alertmanager:
             requests:
               storage: 10Gi
 grafana: 
-  hosts:
-  - stg-grafana.rpgp.cc
+  ingress: 
+    enabled: true
+    hosts:
+    - stg-grafana.rpgp.cc
 prometheus:
-  service:
-    type: NodePort
+  ingress: 
+    enabled: true
+    hosts:
+    - stg-prometheus.rpgp.cc
   prometheusSpec:
     ruleSelectorNilUsesHelmValues: false
     serviceMonitorSelectorNilUsesHelmValues: false
@@ -47,6 +52,3 @@ prometheus:
           resources:
             requests:
               storage: 20Gi
-thanosRuler:
-  ruleSelectorNilUsesHelmValues: false
-    

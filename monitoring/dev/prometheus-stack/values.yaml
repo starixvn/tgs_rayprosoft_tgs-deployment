@@ -28,8 +28,10 @@ alertmanager:
             requests:
               storage: 10Gi
 grafana: 
-  hosts:
-  - grafana.rpgp.cc
+  ingress: 
+    enabled: true
+    hosts:
+    - grafana.rpgp.cc
 kubeetcd: 
   caFile: /etc/prometheus/secrets/etcd-certs/ca.crt
   certFile: /etc/prometheus/secrets/etcd-certs/healthcheck-client.crt
@@ -37,6 +39,10 @@ kubeetcd:
 prometheus:
   service:
     type: NodePort
+  ingress: 
+    enabled: true
+    hosts:
+    - prometheus.rpgp.cc
   prometheusSpec:
     secrets: ["etcd-certs"]
     ruleSelectorNilUsesHelmValues: false
