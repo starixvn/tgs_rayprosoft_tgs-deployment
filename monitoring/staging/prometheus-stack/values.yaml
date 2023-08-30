@@ -31,11 +31,13 @@ alertmanager:
 grafana: 
   ingress: 
     enabled: true
+    ingressClassName: nginx
     hosts:
     - stg-grafana.rpgp.cc
 prometheus:
   ingress: 
     enabled: true
+    ingressClassName: nginx
     hosts:
     - stg-prometheus.rpgp.cc
   prometheusSpec:
