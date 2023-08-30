@@ -2,7 +2,7 @@
 ## https://github.com/grafana/helm-charts/tree/main/charts/grafana
 helm repo add grafana https://grafana.github.io/helm-charts
 helm repo update
-helm install my-release grafana/grafana
+helm upgrade -i grafana grafana/grafana -f values.yaml -n monitoring 
 
 ## grafana backup/restore
 sudo apt install -y python-pip
