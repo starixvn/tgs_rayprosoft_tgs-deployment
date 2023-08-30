@@ -1,11 +1,12 @@
 # install grafana
 ## https://github.com/grafana/helm-charts/tree/main/charts/grafana
+
 helm repo add grafana https://grafana.github.io/helm-charts
 helm repo update
 helm upgrade -i grafana grafana/grafana -f values.yaml -n monitoring 
+helm uninstall grafana -n monitoring 
 
 ## grafana backup/restore
-sudo apt install -y python-pip
 sudo apt install -y python3-pip
 
 git clone https://github.com/ysde/grafana-backup-tool.git
