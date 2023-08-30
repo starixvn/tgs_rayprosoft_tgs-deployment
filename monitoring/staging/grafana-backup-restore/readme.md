@@ -2,18 +2,9 @@ https://hub.docker.com/r/grafana/grafana/tags
 https://github.com/grafana/helm-charts/tree/main/charts/grafana
 
 helm repo add grafana https://grafana.github.io/helm-charts
-helm install grafana grafana/grafana -f values.yaml -n monitoring
-
-
-helm upgrade --install grafana grafana/grafana -f values2-dev.yaml -n monitoring
-
-helm upgrade --install grafana2 grafana/grafana -f values2-staging.yaml -n monitoring
-
-helm upgrade --install grafana2 grafana/grafana -f values2-prod.yaml -n monitoring
-
-helm upgrade --install grafana grafana/grafana -f values-prod.yaml -n monitoring
-
-
+helm repo update
+helm upgrade --install grafana2 grafana/grafana -f grafana-config.yaml -n monitoring
+helm uninstall grafana2 -n monitoring
 
 ### grafana backup/restore
 
