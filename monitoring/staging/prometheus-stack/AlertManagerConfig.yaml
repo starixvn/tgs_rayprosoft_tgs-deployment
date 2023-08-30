@@ -17,7 +17,6 @@ spec:
      matchers:
      - name: severity
        value: critical
-     - alertname =~ "InfoInhibitor|Watchdog"
      receiver: staging-telegram
   receivers:
   - name: 'staging-telegram'
