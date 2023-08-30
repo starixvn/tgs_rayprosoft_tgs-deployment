@@ -3,8 +3,11 @@ https://github.com/grafana/helm-charts/tree/main/charts/grafana
 
 helm repo add grafana https://grafana.github.io/helm-charts
 helm repo update
-helm upgrade --install grafana2 grafana/grafana -f grafana-config.yaml -n monitoring
-helm uninstall grafana2 -n monitoring
+helm upgrade -i grafana grafana/grafana -f grafana-config.yaml -n monitoring
+helm uninstall grafana -n monitoring
+
+kubectl get secret --namespace monitoring grafana -o jsonpath="{.data.admin-password}" | base64 --decode ; echo
+
 
 ### grafana backup/restore
 
