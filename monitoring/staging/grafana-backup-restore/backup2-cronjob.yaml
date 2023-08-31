@@ -10,7 +10,7 @@ data:
   GRAFANA_ADMIN_PASSWORD: "EvTZYjTJ0eIDrWsIuo9GqGiNdQflRtneQnStkICJ"
   AWS_ENDPOINT_URL: "https://s3.ap-east-1.amazonaws.com"
   AWS_S3_BUCKET_NAME: "tgs-staging-backup"
-  AWS_S3_BUCKET_KEY: "grafana"
+  AWS_S3_BUCKET_KEY: "grafana2"
   AWS_DEFAULT_REGION: "ap-east-1"
   AWS_ACCESS_KEY_ID: "AKIAQ4KFUNHMUZU6QD2V"
   AWS_SECRET_ACCESS_KEY: "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"
