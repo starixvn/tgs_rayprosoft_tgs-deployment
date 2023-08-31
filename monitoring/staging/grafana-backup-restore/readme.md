@@ -20,7 +20,7 @@ cp examples/grafana-backup.example.json grafana-backup.json
 cp examples/grafana-backup.example.json grafana-restore.json
 
 sudo grafana-backup save --config=backup-staging.json
-sudo grafana-backup restore --config=restore-staging.json   _OUTPUT_/202211250207.tar.gz
+sudo grafana-backup restore --config=restore.json   202308300705.tar.gz
 
 ### k8s grafana backup
 
