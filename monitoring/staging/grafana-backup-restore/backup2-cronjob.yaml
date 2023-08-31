@@ -7,7 +7,7 @@ data:
   GRAFANA_URL: "http://stg-grafana2.rpgp.cc"
   GRAFANA_TOKEN: "eyJrIjoiY3VSZVBBcVpHTlBycW9HUFgyQWxPb2xaRFQ5MXFqSEMiLCJuIjoiYmFja3VwIiwiaWQiOjF9"
   GRAFANA_ADMIN_ACCOUNT: "admin"
-  GRAFANA_ADMIN_PASSWORD: "EvTZYjTJ0eIDrWsIuo9GqGiNdQflRtneQnStkICJ"
+  GRAFANA_ADMIN_PASSWORD: "7NVdAAkk33vqnZj6u4WisilXzvlMYqlFvDe8ZHKf"
   AWS_ENDPOINT_URL: "https://s3.ap-east-1.amazonaws.com"
   AWS_S3_BUCKET_NAME: "tgs-staging-backup"
   AWS_S3_BUCKET_KEY: "grafana2"
