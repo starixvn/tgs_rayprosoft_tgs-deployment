@@ -11,7 +11,7 @@ kubectl get secret --namespace monitoring grafana2 -o jsonpath="{.data.admin-pas
 
 ### grafana backup/restore
 
-sudo apt install -y python-pip
+sudo apt install -y pytho3-pip
 git clone https://github.com/ysde/grafana-backup-tool.git
 cd grafana-backup-tool
 sudo pip install .
@@ -19,8 +19,8 @@ sudo pip install .
 cp examples/grafana-backup.example.json grafana-backup.json
 cp examples/grafana-backup.example.json grafana-restore.json
 
-sudo grafana-backup save --config=backup-staging.json
-sudo grafana-backup restore --config=restore.json   202308300705.tar.gz
+sudo grafana-backup save --config=/home/ubuntu/tgs-deployment/monitoring/staging/grafana-backup-restore/backup.json
+sudo grafana-backup restore --config=/home/ubuntu/tgs-deployment/monitoring/staging/grafana-backup-restore/restore.json  202308300705.tar.gz
 
 ### k8s grafana backup
 
