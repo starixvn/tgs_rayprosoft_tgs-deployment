@@ -5,15 +5,15 @@
     "backup_dir": "_OUTPUT_"
   },
   "grafana": {
-    "url": "https://stg-grafana2.rpgp.cc",
+    "url": "https://stg-grafana.rpgp.cc",
     "token": "eyJrIjoiNFV3N0w1eTRDOGVFMHhWTnowZmVHaUd4eGNKRThLbVciLCJuIjoicmVzdG9yZSIsImlkIjoxfQ==",
     "search_api_limit": 5000,
     "default_password": "00000000",
     "admin_account": "admin",
-    "admin_password": "p184ycP4RU4VXpC8E0NxkXa5MntSsbnzkzg6PxI2"
+    "admin_password": "prom-operator"
   },
   "aws": {
-    "s3_bucket_name": "tgs-staging-backup",
+    "s3_bucket_name": "tgs-prod-backup",
     "s3_bucket_key": "grafana",
     "default_region": "ap-east-1",
     "access_key_id": "AKIAQ4KFUNHM5WIUBA4L",
