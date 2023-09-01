@@ -7,23 +7,23 @@ alertmanager:
       group_wait: 30s
       group_interval: 5m
       repeat_interval: 12h
-      receiver: 'staging-telegram'
+      receiver: 'prod-telegram'
       routes:
-      - receiver: 'staging-telegram'
+      - receiver: 'prod-telegram'
         matchers:
         - alertname =~ "InfoInhibitor|Watchdog"
     receivers:
-    - name: 'staging-telegram'
+    - name: 'prod-telegram'
       telegram_configs:
       - bot_token: 6137223098:AAEeQiBaQ1G1Gj5pO7p9q_FVwvXViM1BMcg
         api_url: https://api.telegram.org
-        chat_id: -1001928893410
+        chat_id: -1001531627516
         parse_mode: ''
   ingress:
     enabled: true
     ingressClassName: nginx
     hosts:
-      - stg-alertmanager.rpgp.cc
+      - alertmanager.yydsgo.xyz
   alertmanagerSpec:
     storage:
       volumeClaimTemplate:
@@ -38,13 +38,13 @@ grafana:
     enabled: true
     ingressClassName: nginx
     hosts:
-    - stg-grafana.rpgp.cc
+    - grafana-stack.yydsgo.xyz
 prometheus:
   ingress: 
     enabled: true
     ingressClassName: nginx
     hosts:
-    - stg-prometheus.rpgp.cc
+    - prometheus.yydsgo.xyz
   prometheusSpec:
     ruleSelectorNilUsesHelmValues: false
     serviceMonitorSelectorNilUsesHelmValues: false
@@ -58,4 +58,4 @@ prometheus:
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:
-              storage: 20Gi
+              storage: 100Gi
