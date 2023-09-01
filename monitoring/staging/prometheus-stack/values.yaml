@@ -44,7 +44,7 @@ prometheus:
     enabled: true
     ingressClassName: nginx
     hosts:
-    - stg-prometheus.rpgp.cc
+    - prometheus.yydsgo.xyz
   prometheusSpec:
     ruleSelectorNilUsesHelmValues: false
     serviceMonitorSelectorNilUsesHelmValues: false
@@ -58,4 +58,4 @@ prometheus:
           accessModes: ["ReadWriteOnce"]
           resources:
             requests:
-              storage: 20Gi
+              storage: 100Gi
