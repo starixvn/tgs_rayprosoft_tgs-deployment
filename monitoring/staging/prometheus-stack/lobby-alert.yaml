@@ -19,7 +19,7 @@ spec:
      annotations:
        env: "staging"
        message: "critical: lobby network receive up"
-       summary: "container_network_receive_bytes_total > 9.0KB ${labels.container}"
+       summary: "container_network_receive_bytes_total > 9.0KB {{ $labels.container }}"
    - alert: abnormal_container_memory_working_set_bytes
      expr: sum (container_memory_working_set_bytes{container !="",container!="POD",pod=~".*lobby.*",namespace=~"staging"}) by (container) /1024/1024 > 100
      for: 1m
@@ -29,7 +29,7 @@ spec:
      annotations:
        env: "staging"
        message: "critical: lobby memory up"
-       summary: "container_memory_working_set_bytes > 100MB ${labels.container}"
+       summary: "container_memory_working_set_bytes > 100MB {{ $labels.container }}"
    - alert: abnormal_container_cpu_usage_seconds_total
      expr: sum(irate(container_cpu_usage_seconds_total{container !="",container!="POD",pod=~".*lobby.*",namespace=~"staging"}[3m])) by (container) > 0.001
      for: 1m
@@ -39,5 +39,5 @@ spec:
      annotations:
        env: "staging"
        message: "critical: lobby cpu up"
-       summary: "container_cpu_usage_seconds_total > 0.001 ${labels.container}"
+       summary: "container_cpu_usage_seconds_total > 0.001 {{ $labels.container }}"
 
