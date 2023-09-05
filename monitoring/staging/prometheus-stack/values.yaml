@@ -31,7 +31,6 @@ alertmanager:
     hosts:
       - stg-alertmanager.rpgp.cc
   alertmanagerSpec:
-    logLevel: critical
     storage:
       volumeClaimTemplate:
         spec:
