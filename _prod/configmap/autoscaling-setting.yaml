@@ -308,6 +308,8 @@ data:
     {"enabled":false}
   playerbucket-committer: |
     {"enabled":false}
+  player-bucket-scheduler: |
+    {"enabled":true,"minReplicas":2,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   station-letter: |
     {"enabled":false}
   deposit-accumulate-roulette: |

@@ -436,6 +436,8 @@ data:
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
   playerbucket-committer: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
+  player-bucket-scheduler: |
+    {"limits":{"cpu":"200m","memory":"200Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
   profit-rebate-service: |
     {"limits":{"cpu":"100m","memory":"200Mi"},"requests":{"cpu":"10m","memory":"200Mi"}}
   promotion-api: |

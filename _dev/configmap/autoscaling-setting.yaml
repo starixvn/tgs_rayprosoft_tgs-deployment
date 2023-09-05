@@ -292,6 +292,8 @@ data:
     {"enabled":false}
   playerbucket-committer: |
     {"enabled":false}
+  player-bucket-scheduler: |
+    {"enabled":false}
   payment-api: |
     {"enabled":false}
   payment-help2pay: |
