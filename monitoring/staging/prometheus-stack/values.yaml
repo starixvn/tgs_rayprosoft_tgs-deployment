@@ -50,7 +50,7 @@ prometheus:
     enabled: true
     ingressClassName: nginx
     hosts:
-    - prometheus.yydsgo.xyz
+    - stg-prometheus.rpgp.cc
   prometheusSpec:
     ruleSelectorNilUsesHelmValues: false
     serviceMonitorSelectorNilUsesHelmValues: false
