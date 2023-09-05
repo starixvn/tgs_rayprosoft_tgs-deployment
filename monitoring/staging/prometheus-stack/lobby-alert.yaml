@@ -20,7 +20,7 @@ spec:
        env: "staging"
        message: "critical: lobby network receive up"
        summary: "container_network_receive_bytes_total > 9.0KB ${container}"
-   - alert: abnormal_container_network_receive_bytes_total
+   - alert: abnormal_container_memory_working_set_bytes
      expr: sum (container_memory_working_set_bytes{container !="",container!="POD",pod=~".*lobby.*",namespace=~"staging"}) by (container) /1024/1024 > 100
      for: 1m
      labels:
