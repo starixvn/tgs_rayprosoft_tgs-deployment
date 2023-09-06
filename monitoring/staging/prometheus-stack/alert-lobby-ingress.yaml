@@ -4,7 +4,7 @@ metadata:
  labels:
    app: kube-prometheus-stack
    release: prometheus-stack
- name: lobby-alert-rule-
+ name: lobby-alert-rule
  namespace: monitoring
 spec:
  groups:
