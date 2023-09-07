@@ -130,6 +130,8 @@ data:
     {"limits":{"cpu":"2","memory":"2048Mi"},"requests":{"cpu":"2","memory":"2048Mi"}}
   game-gamewagers-rapidtest: |
     {"limits":{"cpu":"1","memory":"1024Mi"},"requests":{"cpu":"1","memory":"1024Mi"}}
+  game-gamewagers-handle: |
+    {"limits":{"cpu":"1","memory":"1024Mi"},"requests":{"cpu":"1","memory":"1024Mi"}}
   game-gamewagers-wager: |
     {"limits":{"cpu":"1","memory":"1024Mi"},"requests":{"cpu":"1","memory":"1024Mi"}}
   game-gamerecord-handle: |
