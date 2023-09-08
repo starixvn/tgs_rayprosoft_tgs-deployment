@@ -135,7 +135,7 @@ data:
   game-gamewagers-wager: |
     {"limits":{"cpu":"1","memory":"1024Mi"},"requests":{"cpu":"1","memory":"1024Mi"}}
   game-gamewagers-stats: |
-    {"limits":{"cpu":"1","memory":"1024Mi"},"requests":{"cpu":"100m","memory":"1024Mi"}}
+    {"limits":{"cpu":"1","memory":"1024Mi"},"requests":{"cpu":"1","memory":"1024Mi"}}
   game-gamerecord-handle: |
     {"limits":{"cpu":"1","memory":"300Mi"},"requests":{"cpu":"100m","memory":"300Mi"}}
   game-gameinterface-avia: |
