@@ -128,12 +128,16 @@ data:
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"100m","memory":"400Mi"}}
   game-gamerounds-handle: |
     {"limits":{"cpu":"2","memory":"2048Mi"},"requests":{"cpu":"2","memory":"2048Mi"}}
+  game-gamewagers: |
+    {"limits":{"cpu":"1","memory":"300Mi"},"requests":{"cpu":"100m","memory":"300Mi"}}
   game-gamewagers-rapidtest: |
-    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"1","memory":"512Mi"}}
-  game-gamewagers-unsettle: |
-    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
+    {"limits":{"cpu":"1","memory":"1024Mi"},"requests":{"cpu":"1","memory":"1024Mi"}}
+  game-gamewagers-handle: |
+    {"limits":{"cpu":"1","memory":"1024Mi"},"requests":{"cpu":"1","memory":"1024Mi"}}
   game-gamewagers-wager: |
-    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"100m","memory":"512Mi"}}
+    {"limits":{"cpu":"1","memory":"1024Mi"},"requests":{"cpu":"1","memory":"1024Mi"}}
+  game-gamewagers-stats: |
+    {"limits":{"cpu":"1","memory":"1024Mi"},"requests":{"cpu":"1","memory":"1024Mi"}}
   game-gamerecord-handle: |
     {"limits":{"cpu":"1","memory":"300Mi"},"requests":{"cpu":"100m","memory":"300Mi"}}
   game-gameinterface-avia: |
@@ -441,7 +445,9 @@ data:
   payment-gcpay: |
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"20m","memory":"400Mi"}}
   payment-fixtool: |
-    {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"200m","memory":"400Mi"}}
+    {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"50m","memory":"400Mi"}}
+  payment-withdraw-limit: |
+    {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"100m","memory":"400Mi"}}
   pgpool: |
     {"limits":{"cpu":"1500m","memory":"2000Mi"},"requests":{"cpu":"50m","memory":"300Mi"}}
   player-api: |
