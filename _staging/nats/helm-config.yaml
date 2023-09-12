@@ -2,7 +2,9 @@ metrics:
   enabled: true
 auth:
   enabled: false
-
+global:
+  labels: 
+    velero.io/exclude-from-backup: "true"
 cluster:
   enabled: true
   name: nats
