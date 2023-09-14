@@ -5,6 +5,7 @@ for p in $(kubectl get ing -n $namespace | grep none | awk '{print $1}'); do
     kubectl -n $namespace get ing $p -o yaml >  ${p}.yaml;
   
     sed -i '/kubectl.kubernetes.io\/last-applied-configuration/d' ${p}.yaml
+    sed -i '/extensions\/v1beta1/d' ${p}.yaml
      
     ## 刪除 nginx.ingress.kubernetes.io 該行
     sed -i '/nginx.ingress.kubernetes.io/d' ${p}.yaml
