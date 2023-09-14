@@ -18,4 +18,4 @@ controller:
   ingressClassResource:
     name: nginx
     controllerValue: "k8s.io/ingress-nginx"
-  ingressClass: nginx-test
+  ingressClass: nginx
