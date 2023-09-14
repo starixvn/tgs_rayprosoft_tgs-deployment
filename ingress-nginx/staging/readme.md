@@ -8,6 +8,6 @@ kubectl create ns ingress-nginx
 
 helm upgrade -i nginx-frontend ingress-nginx/ingress-nginx -f config.yaml -n ingress-nginx
 
-helm upgrade -i nginx ingress-nginx/ingress-nginx -f config.yaml
+helm upgrade -i nginx-tgs ingress-nginx/ingress-nginx -f config-tgs.yaml -n ingress-nginx
 
 helm uninstall nginx-ingress -n ingress-nginx
