@@ -4,7 +4,7 @@ controller:
     otlp-collector-host: otel-svc.observability
     enable-opentelemetry: "true"
     opentelemetry-operation-name: "HTTP $request_method $uri"
-    otel-service-name: nginx-frontend-ingress-nginx-controller
+    otel-service-name: ingress-nginx-controller
   opentelemetry:
     enabled: true
   service:
@@ -16,6 +16,6 @@ controller:
         prometheus.io/port: "10254"
         prometheus.io/scrape: "true"
   ingressClassResource:
-    name: nginx-frontend
-    controllerValue: "k8s.io/ingress-nginx-frontend"
-  ingressClass: nginx-frontend
+    name: nginx
+    controllerValue: "k8s.io/ingress-nginx"
+  ingressClass: nginx
