@@ -13,4 +13,7 @@ for p in $(kubectl get ing -n $namespace | grep none | awk '{print $1}'); do
     ## 刪除 tls
     sed -i '/tls/,/status/{/tls/!{/status/!d}}' ${p}.yaml
     sed -i '/tls:/d' ${p}.yaml
+    
+    kubectl apply -f ${p}.yaml
+    rm ${p}.yaml
 done;
