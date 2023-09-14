@@ -16,6 +16,6 @@ controller:
         prometheus.io/port: "10254"
         prometheus.io/scrape: "true"
   ingressClassResource:
-    name: nginx
+    name: nginx-test
     controllerValue: "k8s.io/ingress-nginx"
   ingressClass: nginx-test
