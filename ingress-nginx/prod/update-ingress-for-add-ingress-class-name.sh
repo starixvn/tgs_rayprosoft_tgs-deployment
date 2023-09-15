@@ -5,10 +5,12 @@ namespace="prod"
     # kubectl delete certificate $p -n $namespace
 # done;
 
+declare -i count=0
+
 for p in $(kubectl get ing -n $namespace | grep -v goal3388.com | awk '{print $1}'); do
     kubectl -n $namespace get ing $p -o yaml >  ${p}.yaml;
     
-    echo "====== 修改 $p ======"
+    echo "====== $count 修改 $p ======"
     ## optional
     # sed -i '/kubectl.kubernetes.io\/last-applied-configuration/d' ${p}.yaml
     # sed -i '/extensions\/v1beta1/d' ${p}.yaml
@@ -47,5 +49,7 @@ for p in $(kubectl get ing -n $namespace | grep -v goal3388.com | awk '{print $1
     
     kubectl apply -f ${p}.yaml
     rm ${p}.yaml
+    
+    count=$((count+1))
     
 done;
