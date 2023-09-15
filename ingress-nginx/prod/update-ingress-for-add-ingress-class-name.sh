@@ -14,7 +14,11 @@ for p in $(kubectl get ing -n $namespace | grep -v goal3388.com | awk '{print $1
     # sed -i '/extensions\/v1beta1/d' ${p}.yaml
      
     ## 刪除 nginx.ingress.kubernetes.io 該行
-    sed -i '/nginx.ingress.kubernetes.io/d' ${p}.yaml
+    ## sed -i '/nginx.ingress.kubernetes.io/d' ${p}.yaml
+    
+     ## 刪除 kubernetes.io/ingress.class 該行
+    sed -i '/kubernetes.io\/ingress.class/d' ${p}.yaml
+    
     ## 刪除 cert-manager.io/cluster-issuer 該行
     sed -i '/cert-manager.io\/cluster-issuer/d' ${p}.yaml
     
