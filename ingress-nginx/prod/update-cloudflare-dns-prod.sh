@@ -1,7 +1,7 @@
 #!/bin/bash
 export token="0urb613nnL1aiyuKO_shCaCyfIPVhhXQhh3RKEaH"
 
-response=$(curl -X GET "https://api.cloudflare.com/client/v4/zones?per_page=1000" \
+response=$(curl -X GET "https://api.cloudflare.com/client/v4/zones?per_page=1000&name=srvptt.com" \
     -H "Authorization: Bearer $token" \
     -H "Content-Type: application/json") 
 
@@ -10,7 +10,7 @@ declare -i dns_index=0
 declare -i count=0
 
 old_content="ac14ad4ad050b4a71b144385e51a20f5-1241810226.ap-east-1.elb.amazonaws.com"
-new_content="ac14ad4ad050b4a71b144385e51a20f5-1241810226.ap-east-1.elb.amazonaws.com"
+new_content="entry.srvptt.com"
 
 for zoneid in $(echo ${response} | jq '.result' | jq -r '.[].id'); do
 
