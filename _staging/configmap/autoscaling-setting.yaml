@@ -320,6 +320,8 @@ data:
     {"enabled":false}
   station-letter: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  sms-service: |
+    {"enabled":false}
   sms-chuan-xin: |
     {"enabled":false}
   deposit-accumulate-roulette: |
