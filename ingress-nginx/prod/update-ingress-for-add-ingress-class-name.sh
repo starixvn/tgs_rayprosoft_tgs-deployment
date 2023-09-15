@@ -6,15 +6,18 @@ namespace="prod"
 # done;
 
 startTime=`date +%Y%m%d-%H:%M:%S`
+startTime_s=`date +%s`
+
 declare -i count=0
 
 for p in $(kubectl get ing -n $namespace | grep -v goal3388.com | awk '{print $1}'); do
     kubectl -n $namespace get ing $p -o yaml >  ${p}.yaml;
     
     endTime=`date +%Y%m%d-%H:%M:%S`
+    endTime_s=`date +%s`
     sumTime=$[ $endTime_s - $startTime_s ]
     
-    echo "====== $count 修改 $p ==== Total:$sumTime seconds ======"
+    echo "====== $count 修改 $p ==== $startTime ---> $endTime   Total:$sumTime seconds ======"
    
     ## 刪除 kubernetes.io/ingress.class 該行
     sed -i '/kubernetes.io\/ingress.class/d' ${p}.yaml
