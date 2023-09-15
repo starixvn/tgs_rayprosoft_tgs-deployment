@@ -17,5 +17,4 @@ controller:
         prometheus.io/scrape: "true"
   ingressClassResource:
     name: nginx
-    controllerValue: "k8s.io/ingress-nginx"
   ingressClass: nginx
