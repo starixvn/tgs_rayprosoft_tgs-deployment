@@ -1,7 +1,11 @@
 #!/bin/bash
 namespace="prod"
 
-for p in $(kubectl get ing -n $namespace | grep 443 | awk '{print $1}'); do
+for p in $(kubectl get certificate -n prod | grep -v goal3388.com | awk '{print $1}'); do
+    kubectl delete certificate $p -n $namespace
+done;
+
+for p in $(kubectl get ing -n $namespace | grep 443 | grep -v goal3388.com | awk '{print $1}'); do
     kubectl -n $namespace get ing $p -o yaml >  ${p}.yaml;
    
     ## sed -i '/last-applied-configuration/,+1d' ${p}.yaml
