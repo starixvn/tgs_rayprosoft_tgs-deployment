@@ -1,9 +1,9 @@
 #!/bin/bash
 namespace="prod"
 
-for p in $(kubectl get certificate -n prod | grep -v goal3388.com | awk '{print $1}'); do
-    kubectl delete certificate $p -n $namespace
-done;
+# for p in $(kubectl get certificate -n prod | grep -v goal3388.com | awk '{print $1}'); do
+    # kubectl delete certificate $p -n $namespace
+# done;
 
 for p in $(kubectl get ing -n $namespace | grep -v goal3388.com | awk '{print $1}'); do
     kubectl -n $namespace get ing $p -o yaml >  ${p}.yaml;
@@ -21,7 +21,7 @@ for p in $(kubectl get ing -n $namespace | grep -v goal3388.com | awk '{print $1
     
     if grep -Fxq "ingressClassName" ${p}.yaml
     then 
-       #sed -i 's/ingressClassName: nginx/ingressClassName: nginx-tgs/g' ${p}.yaml
+       sed -i 's/ingressClassName: nginx/ingressClassName: nginx-tgs/g' ${p}.yaml
        echo "ingressClassName modified"
     else 
        ## 新增 ingressClassName: nginx
