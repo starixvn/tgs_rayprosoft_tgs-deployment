@@ -1,4 +1,4 @@
-:q!#!/bin/bash
+#!/bin/bash
 namespace="prod"
 
 for p in $(kubectl get ing -n $namespace | grep 443 | awk '{print $1}'); do
