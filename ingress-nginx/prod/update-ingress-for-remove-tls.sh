@@ -1,5 +1,5 @@
 :q!#!/bin/bash
-namespace="staging"
+namespace="prod"
 
 for p in $(kubectl get ing -n $namespace | grep 443 | awk '{print $1}'); do
     kubectl -n $namespace get ing $p -o yaml >  ${p}.yaml;
