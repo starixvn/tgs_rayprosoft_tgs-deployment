@@ -318,6 +318,8 @@ data:
     {"enabled":true,"minReplicas":2,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   station-letter: |
     {"enabled":false}
+  sms-service: |
+    {"enabled":false}
   sms-chuan-xin: |
     {"enabled":false}
   deposit-accumulate-roulette: |
