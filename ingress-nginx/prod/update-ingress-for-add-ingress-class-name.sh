@@ -27,7 +27,6 @@ for p in $(kubectl get ing -n $namespace | grep -v goal3388.com | awk '{print $1
     ## 刪除 cert-manager.io/cluster-issuer 該行
     sed -i '/cert-manager.io\/cluster-issuer/d' ${p}.yaml
     
-    
     if grep -q "ingressClassName" ${p}.yaml
     then 
        ingressClassLine=$(grep -n "ingressClassName:" ${p}.yaml | awk -F':' '{print $1}')
