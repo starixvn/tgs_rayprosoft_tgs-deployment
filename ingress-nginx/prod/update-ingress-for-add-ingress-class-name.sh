@@ -5,20 +5,18 @@ namespace="prod"
     # kubectl delete certificate $p -n $namespace
 # done;
 
+startTime=`date +%Y%m%d-%H:%M:%S`
 declare -i count=0
 
 for p in $(kubectl get ing -n $namespace | grep -v goal3388.com | awk '{print $1}'); do
     kubectl -n $namespace get ing $p -o yaml >  ${p}.yaml;
     
-    echo "====== $count 修改 $p ======"
-    ## optional
-    # sed -i '/kubectl.kubernetes.io\/last-applied-configuration/d' ${p}.yaml
-    # sed -i '/extensions\/v1beta1/d' ${p}.yaml
-     
-    ## 刪除 nginx.ingress.kubernetes.io 該行
-    ## sed -i '/nginx.ingress.kubernetes.io/d' ${p}.yaml
+    endTime=`date +%Y%m%d-%H:%M:%S`
+    sumTime=$[ $endTime_s - $startTime_s ]
     
-     ## 刪除 kubernetes.io/ingress.class 該行
+    echo "====== $count 修改 $p ==== Total:$sumTime seconds ======"
+   
+    ## 刪除 kubernetes.io/ingress.class 該行
     sed -i '/kubernetes.io\/ingress.class/d' ${p}.yaml
     
     ## 刪除 cert-manager.io/cluster-issuer 該行
@@ -50,6 +48,5 @@ for p in $(kubectl get ing -n $namespace | grep -v goal3388.com | awk '{print $1
     kubectl apply -f ${p}.yaml
     rm ${p}.yaml
     
-    count=$((count+1))
-    
+    count=$((count+1))  
 done;
