@@ -25,7 +25,7 @@ for p in $(kubectl get ing -n $namespace | grep -v goal3388.com | awk '{print $1
        echo "ingressClassName modified"
     else 
        ## 新增 ingressClassName: nginx
-       sed -i '/spec:/a \ \ ingressClassName: nginx' ${p}.yaml
+       sed -i '/spec:/a \ \ ingressClassName: nginx-tgs' ${p}.yaml
        echo "ingressClassName added"
     fi
     
