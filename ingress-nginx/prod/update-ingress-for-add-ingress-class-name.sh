@@ -10,6 +10,8 @@ startTime_s=`date +%s`
 
 declare -i count=0
 
+replaceIngressClass="\ \ ingressClassName: nginx-tgs"
+
 for p in $(kubectl get ing -n $namespace | grep -v goal3388.com | awk '{print $1}'); do
     kubectl -n $namespace get ing $p -o yaml >  ${p}.yaml;
     
@@ -28,11 +30,12 @@ for p in $(kubectl get ing -n $namespace | grep -v goal3388.com | awk '{print $1
     
     if grep -q "ingressClassName" ${p}.yaml
     then 
-       sed -i 's/ingressClassName: nginx/ingressClassName: nginx-tgs/g' ${p}.yaml
+       ingressClassLine=$(grep -n "ingressClassName:" ${p}.yaml | awk -F':' '{print $1}')
+       sed -i "$[ ingressClassLine ]c $replaceIngressClass" ing-agent-pb-hu01.yaml
        echo "ingressClassName modified"
     else 
        ## 新增 ingressClassName: nginx
-       sed -i '/spec:/a \ \ ingressClassName: nginx-tgs' ${p}.yaml
+       sed -i "/spec:/a $replaceIngressClass" ${p}.yaml
        echo "ingressClassName added"
     fi
     
