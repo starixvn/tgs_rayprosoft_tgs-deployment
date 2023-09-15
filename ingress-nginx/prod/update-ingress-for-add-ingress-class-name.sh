@@ -19,7 +19,7 @@ for p in $(kubectl get ing -n $namespace | grep -v goal3388.com | awk '{print $1
     sed -i '/cert-manager.io\/cluster-issuer/d' ${p}.yaml
     
     
-    if grep -Fxq "ingressClassName" ${p}.yaml
+    if grep -q "ingressClassName" ${p}.yaml
     then 
        sed -i 's/ingressClassName: nginx/ingressClassName: nginx-tgs/g' ${p}.yaml
        echo "ingressClassName modified"
@@ -29,7 +29,7 @@ for p in $(kubectl get ing -n $namespace | grep -v goal3388.com | awk '{print $1
        echo "ingressClassName added"
     fi
     
-    if grep -Fxq "tls" ${p}.yaml
+    if grep -q "tls" ${p}.yaml
     then
         ## code if found
         ## 刪除 tls
@@ -40,6 +40,7 @@ for p in $(kubectl get ing -n $namespace | grep -v goal3388.com | awk '{print $1
         # code if not found
         echo "without tls"
     fi
+    
     kubectl apply -f ${p}.yaml
     rm ${p}.yaml
     
