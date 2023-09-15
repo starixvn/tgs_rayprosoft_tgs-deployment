@@ -1,7 +1,7 @@
 #!/bin/bash
 namespace="prod"
 
-for p in $(kubectl get ing -n $namespace | grep none | awk '{print $1}'); do
+for p in $(kubectl get ing -n $namespace | grep -v goal3388.com | awk '{print $1}'); do
     kubectl -n $namespace get ing $p -o yaml >  ${p}.yaml;
     
     echo "====== 修改 $p ======"
