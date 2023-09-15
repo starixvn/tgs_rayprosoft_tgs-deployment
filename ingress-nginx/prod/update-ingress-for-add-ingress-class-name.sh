@@ -31,7 +31,7 @@ for p in $(kubectl get ing -n $namespace | grep -v goal3388.com | awk '{print $1
     if grep -q "ingressClassName" ${p}.yaml
     then 
        ingressClassLine=$(grep -n "ingressClassName:" ${p}.yaml | awk -F':' '{print $1}')
-       sed -i "$[ ingressClassLine ]c $replaceIngressClass" ing-agent-pb-hu01.yaml
+       sed -i "$[ ingressClassLine ]c $replaceIngressClass" ${p}.yaml
        echo "ingressClassName modified"
     else 
        ## 新增 ingressClassName: nginx
