@@ -502,6 +502,8 @@ data:
     {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   sms-service: |
     {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
+  sms-chuan-xin: |
+    {"limits":{"cpu":"500m","memory":"300Mi"},"requests":{"cpu":"100m","memory":"300Mi"}}
   station-letter: |
     {"limits":{"cpu":"1","memory":"300Mi"},"requests":{"cpu":"100m","memory":"300Mi"}}
   tgs-production: |
