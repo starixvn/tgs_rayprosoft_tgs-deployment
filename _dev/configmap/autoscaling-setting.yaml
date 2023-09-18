@@ -320,6 +320,10 @@ data:
     {"enabled":false}
   station-letter: |
     {"enabled":false}
+  sms-service: |
+    {"enabled":false}
+  sms-chuan-xin: |
+    {"enabled":false}
   deposit-accumulate-roulette: |
     {"enabled":false}
   deposit-accumulate-roulette-background: |
