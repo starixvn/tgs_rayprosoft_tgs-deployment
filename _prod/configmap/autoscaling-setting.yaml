@@ -8,6 +8,8 @@ data:
     {"enabled":false}
   brand-cert-api: |
     {"enabled":false}
+  brand-game-provider-service: |
+    {"enabled":false}
   backoffice-api: |
     {"enabled":false}
   cashservice-api: |
@@ -308,6 +310,8 @@ data:
     {"enabled":false}
   player-bucket-scheduler: |
     {"enabled":true,"minReplicas":2,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  schedule-service: |
+    {"enabled":false}
   station-letter: |
     {"enabled":false}
   sms-service: |
