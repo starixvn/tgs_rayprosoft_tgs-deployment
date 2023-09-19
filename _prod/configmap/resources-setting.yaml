@@ -46,6 +46,8 @@ data:
     {"limits":{"cpu":"100m","memory":"128Mi"},"requests":{"cpu":"100m","memory":"128Mi"}}
   brand-cert-api: |
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"100m","memory":"400Mi"}}
+  brand-game-provider-service: |
+    {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   cashservice-api: |
     {"limits":{"cpu":"500m","memory":"400Mi"},"requests":{"cpu":"300m","memory":"400Mi"}}
   cashservice-worker: |
@@ -482,6 +484,8 @@ data:
     {"limits":{"cpu":"300m","memory":"1200Mi"},"requests":{"cpu":"300m","memory":"400Mi"}}
   schedulers: |
     {"limits":{"cpu":"1","memory":"2Gi"},"requests":{"cpu":"200m","memory":"2Gi"}}
+  schedule-service: |
+    {"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"200m","memory":"256Mi"}}
   sign-in: |
     {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   sms-globalcall: |

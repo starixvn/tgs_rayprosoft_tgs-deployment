@@ -8,6 +8,8 @@ data:
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   brand-cert-api: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  brand-game-provider-service: |
+    {"enabled":false}
   backoffice-api: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   cashservice-api: |
@@ -309,6 +311,8 @@ data:
   payment-fixtool: |
     {"enabled":false}
   payment-withdraw-limit: |
+    {"enabled":false}
+  schedule-service: |
     {"enabled":false}
   station-letter: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}

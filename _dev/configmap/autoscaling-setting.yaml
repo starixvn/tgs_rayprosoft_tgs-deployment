@@ -8,6 +8,8 @@ data:
     {"enabled":false}
   brand-cert-api: |
     {"enabled":false}
+  brand-game-provider-service: |
+    {"enabled":false}
   backoffice-api: |
     {"enabled":false}
   cashservice-api: |
@@ -311,6 +313,8 @@ data:
   payment-withdraw-limit: |
     {"enabled":false}
   station-letter: |
+    {"enabled":false}
+  schedule-service: |
     {"enabled":false}
   sms-service: |
     {"enabled":false}

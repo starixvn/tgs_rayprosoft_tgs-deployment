@@ -28,6 +28,8 @@ data:
     {"limits":{"cpu":"100m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"100Mi"}}
   brand-cert-api: |
     {"limits":{"cpu":"100m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"100Mi"}}
+  brand-game-provider-service: |
+    {"limits":{"cpu":"100m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"100Mi"}}
   cashservice-api: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"100Mi"}}
   cashservice-worker: |
@@ -465,6 +467,8 @@ data:
   marketing-report-api: |
     {"limits":{"cpu":"200m","memory":"800Mi"},"requests":{"cpu":"10m","memory":"160Mi"}}
   schedulers: |
+    {"limits":{"cpu":"200m","memory":"800Mi"},"requests":{"cpu":"10m","memory":"160Mi"}}
+  schedule-service: |
     {"limits":{"cpu":"200m","memory":"800Mi"},"requests":{"cpu":"10m","memory":"160Mi"}}
   sign-in: |
     {"limits":{"cpu":"200m","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
