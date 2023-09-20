@@ -244,6 +244,8 @@ data:
     {"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"100m","memory":"384Mi"}}
   game-gameinterface-bti-service: |
     {"limits":{"cpu":"1","memory":"300Mi"},"requests":{"cpu":"50m","memory":"300Mi"}}
+  game-gamerecord-bti: |
+    {"limits":{"cpu":"1","memory":"300Mi"},"requests":{"cpu":"50m","memory":"300Mi"}}
   game-gamerecord-bti-scheduleservice: |
     {"limits":{"cpu":"500m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"256Mi"}}
   game-gamerecord-bti-service: |
