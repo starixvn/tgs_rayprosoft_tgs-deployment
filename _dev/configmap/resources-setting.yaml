@@ -220,13 +220,9 @@ data:
     {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gameinterface-obet: |
     {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
-  game-gamerecord-obet-schedule: |
-    {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gamerecord-obet: |
     {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gameinterface-yeebet: |
-    {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
-  game-gamerecord-yeebet-schedule: |
     {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gamerecord-yeebet: |
     {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
