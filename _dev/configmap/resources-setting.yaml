@@ -202,10 +202,6 @@ data:
     {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gamerecord-dg: |
     {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
-  game-gamerecord-dg-scheduleservice: |
-    {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
-  game-gamerecord-dg-service: |
-    {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gameinterface-endor-service: |
     {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gamerecord-endorphina-session: |
