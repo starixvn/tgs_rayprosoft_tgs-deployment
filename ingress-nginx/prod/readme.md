@@ -10,4 +10,9 @@ helm -n ingress-nginx upgrade -i nginx-ingress ingress-nginx/ingress-nginx -f ng
 
 helm -n ingress-nginx upgrade -i nginx-tgs ingress-nginx/ingress-nginx -f nginx-tgs.yaml --set controller.replicaCount=3
 
+helm -n ingress-nginx upgrade -i nginx ingress-nginx/ingress-nginx -f nginx.yaml 
+
+helm uninstall nginx-ingress
+
+
 helm uninstall nginx-ingress  -n ingress-nginx

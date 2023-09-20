@@ -1,6 +1,6 @@
 #!/bin/bash
 export token="0urb613nnL1aiyuKO_shCaCyfIPVhhXQhh3RKEaH"
-export old_content="ae8e197bdf6b94b7b815ed951973817e-741969300.ap-east-1.elb.amazonaws.com"
+export old_content="ac93c3550b9974b7b932661583bf9912-2029401609.ap-east-1.elb.amazonaws.com"
 new_content=$1
 
 domains=("rpgp.cc" "pgdemo.site")
