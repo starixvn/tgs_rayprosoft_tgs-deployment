@@ -222,10 +222,6 @@ data:
     {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gamerecord-sbo: |
     {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
-  game-gamerecord-sbo-scheduleservice: |
-    {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
-  game-gamerecord-sbo-service: |
-    {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gamerecord-bc-workservice: |
     {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gameinterface-bti-service: |
