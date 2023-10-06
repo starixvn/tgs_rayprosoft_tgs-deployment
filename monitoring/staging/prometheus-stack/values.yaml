@@ -80,6 +80,13 @@ prometheus:
     podMonitorSelectorNilUsesHelmValues: false
     probeSelectorNilUsesHelmValues: false
     scrapeConfigSelectorNilUsesHelmValues: false
+    nodeSelector:
+      dedicated: staging
+    tolerations:
+    - effect: NoSchedule
+      key: dedicated
+      operator: Equal
+      value: staging  
     storageSpec: 
       volumeClaimTemplate:
         spec:
