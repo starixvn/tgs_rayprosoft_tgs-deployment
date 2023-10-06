@@ -54,6 +54,13 @@ alertmanager:
     hosts:
       - stg-alertmanager.rpgp.cc
   alertmanagerSpec:
+    nodeSelector:
+      dedicated: staging
+    tolerations:
+    - effect: NoSchedule
+      key: dedicated
+      operator: Equal
+      value: staging  
     storage:
       volumeClaimTemplate:
         spec:
