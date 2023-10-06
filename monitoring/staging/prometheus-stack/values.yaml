@@ -63,6 +63,13 @@ alertmanager:
             requests:
               storage: 10Gi
 grafana: 
+  nodeSelector:
+    dedicated: staging
+  tolerations:
+  - effect: NoSchedule
+    key: dedicated
+    operator: Equal
+    value: staging  
   ingress: 
     enabled: true
     ingressClassName: nginx
