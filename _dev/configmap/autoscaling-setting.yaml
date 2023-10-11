@@ -290,6 +290,8 @@ data:
     {"enabled":false}
   payment-withdraw-limit: |
     {"enabled":false}
+  report-api: |
+    {"enabled":false}
   station-letter: |
     {"enabled":false}
   schedule-service: |
