@@ -288,6 +288,8 @@ data:
     {"enabled":false}
   player-bucket-scheduler: |
     {"enabled":true,"minReplicas":2,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  report-api: |
+    {"enabled":true,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   schedule-service: |
     {"enabled":false}
   station-letter: |
