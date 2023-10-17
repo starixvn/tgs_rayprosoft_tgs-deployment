@@ -1,7 +1,7 @@
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: game-gamerounds-restart
+  name: game-gamerounds-handle-restart
   namespace: prod
 spec:
   concurrencyPolicy: Forbid
@@ -30,4 +30,4 @@ spec:
                 - bash
                 - -c
                 - >-
-                   kubectl -n prod rollout restart deployment -l app=game-gamerounds
+                   kubectl -n prod rollout restart deployment game-gamerounds-handle 
