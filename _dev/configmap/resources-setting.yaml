@@ -52,8 +52,6 @@ data:
     {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gamerounds: |
     {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
-  game-gamerounds-work: | 
-    {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gamerounds-schedule: |
     {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gamerounds-handle: |
@@ -229,6 +227,10 @@ data:
   game-gameinterface-gkx: |
     {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gamerecord-gkx: |
+    {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
+  game-gameinterface-v8: |
+    {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
+  game-gamerecord-v8: |
     {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
   game-gamecurrency: |
     {"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"10m","memory":"128Mi"}}
