@@ -6,6 +6,8 @@ metadata:
 data:
   agent-service: |
     {"enabled":false}
+  article-management: |
+    {"enabled":false}
   brand-cert-api: |
     {"enabled":false}
   brand-game-provider-service: |
