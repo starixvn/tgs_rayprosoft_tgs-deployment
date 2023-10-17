@@ -101,6 +101,13 @@ prometheus:
       key: dedicated
       operator: Equal
       value: staging  
+    resources:
+      limits:
+        cpu: 1000m
+        memory: 1000Mi
+      requests:
+        cpu: 500m
+        memory: 500Mi
     storageSpec: 
       volumeClaimTemplate:
         spec:
