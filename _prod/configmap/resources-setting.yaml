@@ -40,6 +40,8 @@ data:
     {"limits":{"cpu":"5m","memory":"20Mi"},"requests":{"cpu":"5m","memory":"20Mi"}}
   agent-wlghk: |
     {"limits":{"cpu":"5m","memory":"20Mi"},"requests":{"cpu":"5m","memory":"20Mi"}}
+  article-management: |
+    {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"100m","memory":"400Mi"}}
   backoffice-api: |
     {"limits":{"cpu":"500m","memory":"1600Mi"},"requests":{"cpu":"500m","memory":"1600Mi"}}
   brand-api: |
@@ -127,7 +129,7 @@ data:
   game-gamerounds-schedule: |
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"100m","memory":"400Mi"}}
   game-gamerounds-handle: |
-    {"limits":{"cpu":"1","memory":"1024Mi"},"requests":{"cpu":"1","memory":"1024Mi"}}
+    {"limits":{"cpu":"1","memory":"1536Mi"},"requests":{"cpu":"1","memory":"1536Mi"}}
   game-gamewagers: |
     {"limits":{"cpu":"1","memory":"300Mi"},"requests":{"cpu":"100m","memory":"300Mi"}}
   game-gamewagers-rapidtest: |

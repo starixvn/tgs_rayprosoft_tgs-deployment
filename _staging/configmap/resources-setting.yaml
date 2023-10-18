@@ -20,6 +20,8 @@ data:
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
   agent-wlghk: |
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
+  article-management: |
+    {"limits":{"cpu":"1","memory":"300Mi"},"requests":{"cpu":"10m","memory":"100Mi"}}
   backoffice-api: |
     {"limits":{"cpu":"200m","memory":"1000Mi"},"requests":{"cpu":"10m","memory":"300Mi"}}
   backoffice-site: |

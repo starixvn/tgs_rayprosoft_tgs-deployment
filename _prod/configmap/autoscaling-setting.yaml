@@ -6,6 +6,8 @@ metadata:
 data:
   agent-service: |
     {"enabled":false}
+  article-management: |
+    {"enabled":false}
   brand-cert-api: |
     {"enabled":false}
   brand-game-provider-service: |
@@ -31,7 +33,7 @@ data:
   game-gamerounds-schedule: |
     {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerounds-handle: |
-    {"enabled":true,"minReplicas":3,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamewagers: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamewagers-rapidtest: |

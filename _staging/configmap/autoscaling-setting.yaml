@@ -6,6 +6,8 @@ metadata:
 data:
   agent-service: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+  article-management: |
+    {"enabled":false}
   brand-cert-api: |
     {"enabled":false,"minReplicas":1,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   brand-game-provider-service: |
