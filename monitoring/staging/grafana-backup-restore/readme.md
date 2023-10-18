@@ -31,7 +31,10 @@ kubectl apply -f backup-cronjob-staging.yaml
 grafana 
 password: EvTZYjTJ0eIDrWsIuo9GqGiNdQflRtneQnStkICJ
 backup 
-export token=eyJrIjoiSXkzMUFWdDBveGllMWdEUDRzMmdxM0ZBVmJHSG0xcXIiLCJuIjoiYmFja3VwIiwiaWQiOjF9
+產生token
+Home > Administration > Service accounts >> Add service account >>  Add service account token
+
+export token=glsa_ZTaL9SLaJowuY8tRZbp1ryzGJOC4Y3I2_aa54307b
 curl -H "Authorization: Bearer $token" https://stg-grafana.rpgp.cc/api/dashboards/home
 
 ### Notification Settings
