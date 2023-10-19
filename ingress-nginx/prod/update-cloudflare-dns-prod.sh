@@ -14,7 +14,9 @@ new_content="entry.srvptt.com"
 
 for zoneid in $(echo ${response} | jq '.result' | jq -r '.[].id'); do
 
-	echo ${response} | jq '.result' | jq -r ".[${index}].name"
+  domain=${response} | jq '.result' | jq -r ".[${index}].name"
+  echo $domain
+	#echo ${response} | jq '.result' | jq -r ".[${index}].name"
 	index=$((index+1))
 	dns_index=$((0))
 	echo "======ZONE_ID=${zoneid}====="
@@ -36,11 +38,11 @@ for zoneid in $(echo ${response} | jq '.result' | jq -r '.[].id'); do
 		echo "dnsid: ${dnsid}"
 		echo "content: ${content}"
 
-		result=$(curl -X PUT "https://api.cloudflare.com/client/v4/zones/${zoneid}/dns_records/${dnsid}" \
-			-H "Authorization: Bearer $token" \
-			-H "Content-Type: application/json" \
-		  --data "{\"type\":\"CNAME\",\"name\":\"${dnsname}\",\"content\":\"${new_content}\",\"proxied\":${proxied}}")
-		echo ${result} | jq 
+		# result=$(curl -X PUT "https://api.cloudflare.com/client/v4/zones/${zoneid}/dns_records/${dnsid}" \
+			# -H "Authorization: Bearer $token" \
+			# -H "Content-Type: application/json" \
+		  # --data "{\"type\":\"CNAME\",\"name\":\"${dnsname}\",\"content\":\"${new_content}\",\"proxied\":${proxied}}")
+		# echo ${result} | jq 
     echo "#####################" 
 	done 
   echo "===========================" 
