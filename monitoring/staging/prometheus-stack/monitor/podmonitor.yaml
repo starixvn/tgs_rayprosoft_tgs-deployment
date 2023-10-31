@@ -1,12 +1,12 @@
 apiVersion: monitoring.coreos.com/v1
 kind: PodMonitor
 metadata:
-  name: pod-monitor-dev
+  name: pod-monitor-stging
   namespace: monitoring
 spec:
   namespaceSelector:
     matchNames:
-      - dev
+      - staging
   selector:
     matchLabels:
       app.kubernetes.io/instance: tgs
