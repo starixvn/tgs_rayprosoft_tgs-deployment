@@ -5,6 +5,9 @@ controller:
     enable-opentelemetry: "true"
     opentelemetry-operation-name: "HTTP $request_method $uri"
     otel-service-name: nginx-tgs-nginx-ingress-controller
+    enable-real-ip: "true"
+    server-snippet: |
+      real_ip_header CF-Connecting-IP;
   opentelemetry:
     enabled: true
   service:
