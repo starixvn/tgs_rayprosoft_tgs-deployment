@@ -1,16 +1,16 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: grafana-backup-tool
+  name: grafana-stack-backup
   namespace: monitoring
 data:
-  GRAFANA_URL: "http://stg-grafana.rpgp.cc"
-  GRAFANA_TOKEN: "glsa_ZTaL9SLaJowuY8tRZbp1ryzGJOC4Y3I2_aa54307b"
+  GRAFANA_URL: "http://stg-grafana-stack.rpgp.cc"
+  GRAFANA_TOKEN: "glsa_OL2rAUIwZFi9StJ9QHai2XJH9dfjW4Np_4709eff2"
   GRAFANA_ADMIN_ACCOUNT: "admin"
   GRAFANA_ADMIN_PASSWORD: "prom-operator"
   AWS_ENDPOINT_URL: "https://s3.ap-east-1.amazonaws.com"
   AWS_S3_BUCKET_NAME: "tgs-staging-backup"
-  AWS_S3_BUCKET_KEY: "grafana"
+  AWS_S3_BUCKET_KEY: "grafana-stack"
   AWS_DEFAULT_REGION: "ap-east-1"
   AWS_ACCESS_KEY_ID: "AKIAQ4KFUNHMUZU6QD2V"
   AWS_SECRET_ACCESS_KEY: "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"
@@ -20,24 +20,24 @@ data:
 apiVersion: batch/v1
 kind: CronJob
 metadata:
-  name: grafana-backup-tool
+  name: grafana-stack-backup
   namespace: monitoring
   labels:
-    app: grafana-backup-tool
+    app: grafana-stack-backup
 spec:
   schedule: "1 7 * * *"
   jobTemplate:
     metadata:
       labels:
-        app: grafana-backup-tool
+        app: grafana-stack-backup
     spec:
       template:
         spec:
           restartPolicy: "Never"
           containers:
-            - name: grafana-backup-tool
+            - name: grafana-stack-backup
               image: "ysde/docker-grafana-backup-tool:1.2.4"
               imagePullPolicy: Always
               envFrom:
                 - configMapRef:
-                    name: grafana-backup-tool
+                    name: grafana-stack-backup

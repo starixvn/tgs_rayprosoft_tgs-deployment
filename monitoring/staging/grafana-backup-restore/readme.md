@@ -19,6 +19,8 @@ sudo pip install .
 cp examples/grafana-backup.example.json grafana-backup.json
 cp examples/grafana-backup.example.json grafana-restore.json
 
+sudo grafana-backup save --config=backup.json
+
 sudo grafana-backup save --config=/home/ubuntu/tgs-deployment/monitoring/staging/grafana-backup-restore/backup.json
 sudo grafana-backup restore --config=/home/ubuntu/tgs-deployment/monitoring/staging/grafana-backup-restore/restore.json  202308300705.tar.gz
 
@@ -34,7 +36,7 @@ backup
 產生token
 Home > Administration > Service accounts >> Add service account >>  Add service account token
 
-export token=glsa_ZTaL9SLaJowuY8tRZbp1ryzGJOC4Y3I2_aa54307b
+export token=glsa_zRVyqFQpNP1ZTYELs73heL8yaHiH6qtS_94a9b844
 curl -H "Authorization: Bearer $token" https://stg-grafana.rpgp.cc/api/dashboards/home
 
 ### Notification Settings
