@@ -214,9 +214,9 @@ data:
     {"enabled":false}
   game-gamerecord-v8: |
     {"enabled":false}
-  game-gameinterface-crpati: |
+  game-gameinterface-cp: |
     {"enabled":false}
-  game-gamerecord-crpati: |
+  game-gamerecord-cp: |
     {"enabled":false}
   game-gamecurrency: |
     {"enabled":false}

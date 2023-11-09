@@ -250,9 +250,9 @@ data:
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   game-gamerecord-v8: |
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
-  game-gameinterface-crpati: |
+  game-gameinterface-cp: |
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
-  game-gamerecord-crpati: |
+  game-gamerecord-cp: |
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   game-gamecurrency: |
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
