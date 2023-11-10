@@ -47,7 +47,7 @@ data:
   game-gamewagers-stats: |
     {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamewagers-wager: |
-    {"enabled":true,"minReplicas":3,"maxReplicas":3,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
+    {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamewagers-expire: |
     {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-tcg-ftp: |
