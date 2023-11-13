@@ -104,6 +104,8 @@ data:
     {"limits":{"cpu":"1","memory":"1024Mi"},"requests":{"cpu":"1","memory":"1024Mi"}}
   game-gamewagers-expire: |
     {"limits":{"cpu":"1","memory":"300Mi"},"requests":{"cpu":"100m","memory":"300Mi"}}
+  game-gamewagers-checking: |
+    {"limits":{"cpu":"1","memory":"300Mi"},"requests":{"cpu":"100m","memory":"300Mi"}}
   game-gameinterface-avia: |
     {"limits":{"cpu":"1","memory":"300Mi"},"requests":{"cpu":"50m","memory":"300Mi"}}
   game-gamerecord-avia: |

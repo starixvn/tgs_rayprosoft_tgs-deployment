@@ -50,6 +50,8 @@ data:
     {"enabled":false}
   game-gamewagers-expire: |
     {"enabled":false}
+  game-gamewagers-checking: |
+    {"enabled":false}
   game-tcg-ftp: |
     {"enabled":false}
   game-gameinterface-avia: |
