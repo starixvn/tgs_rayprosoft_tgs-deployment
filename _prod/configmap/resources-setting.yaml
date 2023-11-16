@@ -392,6 +392,8 @@ data:
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"20m","memory":"400Mi"}}
   payment-gcpay: |
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"20m","memory":"400Mi"}}
+  payment-sbpay: |
+    {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"20m","memory":"400Mi"}}
   payment-fixtool: |
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"50m","memory":"400Mi"}}
   payment-withdraw-limit: |
