@@ -52,6 +52,8 @@ data:
     {"enabled":false}
   game-gamewagers-checking: |
     {"enabled":false}
+  game-gamewagers-brands: |
+    {"enabled":false}
   game-tcg-ftp: |
     {"enabled":false}
   game-gameinterface-avia: |
