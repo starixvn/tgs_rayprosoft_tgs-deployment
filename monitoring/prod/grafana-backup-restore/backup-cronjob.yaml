@@ -5,9 +5,9 @@ metadata:
   namespace: monitoring
 data:
   GRAFANA_URL: "http://grafana"
-  GRAFANA_TOKEN: "eyJrIjoiU1ZKcGFXUXh3NTVETFBockxGbndoNXprdDAwNjVJVkQiLCJuIjoiYXBpa2V5Y3VybCIsImlkIjozfQ=="
+  GRAFANA_TOKEN: "eyJrIjoiUXJhMkxzcXRTUjRlMUw0R1gzb3lWcGFxamkxOG95MG4iLCJuIjoiYWRtaW4iLCJpZCI6MX0="
   GRAFANA_ADMIN_ACCOUNT: "admin"
-  GRAFANA_ADMIN_PASSWORD: "EvTZYjTJ0eIDrWsIuo9GqGiNdQflRtneQnStkICJ"
+  GRAFANA_ADMIN_PASSWORD: "AmvoY2nXh0MO6iTEOZA3DMTW8SS1Sux2U7X1RaR3"
   AWS_ENDPOINT_URL: "https://s3.ap-east-1.amazonaws.com"
   AWS_S3_BUCKET_NAME: "tgs-prod-backup"
   AWS_S3_BUCKET_KEY: "grafana"

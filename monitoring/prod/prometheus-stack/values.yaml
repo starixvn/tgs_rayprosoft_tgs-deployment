@@ -39,6 +39,7 @@ grafana:
     ingressClassName: nginx
     hosts:
     - grafana-stack.yydsgo.xyz
+    - prod-grafana-stack.rpgp.cc
 prometheus:
   ingress: 
     enabled: true
