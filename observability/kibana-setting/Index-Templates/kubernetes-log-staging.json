@@ -1,0 +1,24 @@
+PUT _index_template/kubernetes-log-staging
+{
+  "priority": 200,
+  "template": {
+    "settings": {
+      "index": {
+        "lifecycle": {
+          "name": "kubernetes-log-staging-ilm"
+        },
+        "number_of_shards": "5",
+        "number_of_replicas": "0"
+      }
+    },
+    "aliases": {
+      "kubernetes-log": {}
+    }
+  },
+  "index_patterns": [
+    "kube-staging-*"
+  ],
+  "composed_of": [
+    "kubernetes-component"
+  ]
+}

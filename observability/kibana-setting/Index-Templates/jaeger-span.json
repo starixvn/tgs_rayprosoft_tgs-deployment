@@ -7,7 +7,7 @@ PUT _index_template/jaeger-span
           "name": "jaeger-ilm-policy",
           "rollover_alias": "jaeger-span-write"
         },
-        "number_of_shards": "7",
+        "number_of_shards": "3",
         "number_of_replicas": "0"
       }
     },
@@ -145,8 +145,7 @@ PUT _index_template/jaeger-span
     }
   },
   "index_patterns": [
-    "jaeger-span-*",
-    "staging-jaeger-span-*"
+    "jaeger-span-*"
   ],
   "composed_of": []
 }

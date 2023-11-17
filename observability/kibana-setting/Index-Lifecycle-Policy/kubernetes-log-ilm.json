@@ -14,7 +14,8 @@ PUT _ilm/policy/kubernetes-log-ilm
         "min_age": "1d",
         "actions": {
           "forcemerge": {
-            "max_num_segments": 1
+            "max_num_segments": 1,
+            "index_codec": "best_compression"
           },
           "readonly": {},
           "set_priority": {
@@ -26,7 +27,7 @@ PUT _ilm/policy/kubernetes-log-ilm
         }
       },
       "delete": {
-        "min_age": "5d",
+        "min_age": "8d",
         "actions": {
           "delete": {
             "delete_searchable_snapshot": true

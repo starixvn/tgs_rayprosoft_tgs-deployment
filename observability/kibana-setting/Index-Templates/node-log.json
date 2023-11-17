@@ -4,7 +4,7 @@ PUT _index_template/node-log
     "settings": {
       "index": {
         "lifecycle": {
-          "name": "tgs-log-ilm"
+          "name": "kubernetes-log-ilm"
         },
         "number_of_replicas": "0"
       }

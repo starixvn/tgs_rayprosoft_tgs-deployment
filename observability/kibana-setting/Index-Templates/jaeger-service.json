@@ -27,8 +27,7 @@ PUT _index_template/jaeger-service
     }
   },
   "index_patterns": [
-    "jaeger-service-*",
-    "staging-jaeger-service-*"
+    "jaeger-service-*"
   ],
   "composed_of": []
 }
