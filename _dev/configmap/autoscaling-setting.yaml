@@ -50,6 +50,8 @@ data:
     {"enabled":false}
   game-gamewagers-expire: |
     {"enabled":false}
+  game-gamewagers-checking: |
+    {"enabled":false}
   game-tcg-ftp: |
     {"enabled":false}
   game-gameinterface-avia: |
@@ -214,6 +216,10 @@ data:
     {"enabled":false}
   game-gamerecord-v8: |
     {"enabled":false}
+  game-gameinterface-cp: |
+    {"enabled":false}
+  game-gamerecord-cp: |
+    {"enabled":false}
   game-gamecurrency: |
     {"enabled":false}
   game-gameplayerlogout: |
@@ -297,6 +303,8 @@ data:
   payment-metapay: |
     {"enabled":false}
   payment-gcpay: |
+    {"enabled":false}
+  payment-sbpay: |
     {"enabled":false}
   payment-fixtool: |
     {"enabled":false}
