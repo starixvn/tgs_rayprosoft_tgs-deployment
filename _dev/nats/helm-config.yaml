@@ -3,14 +3,14 @@ metrics:
 auth:
   enabled: false
 global:
-  labels: 
+  labels:
     velero.io/exclude-from-backup: "true"
-cluster:
-  enabled: true
-  name: nats
-  replicas: 3
-nats:
-  gomemlimit: "50MiB"
+config:
+  cluster:
+    enabled: true
+    name: nats
+    replicas: 3
+
   jetstream:
     enabled: true
     memStorage:
@@ -20,13 +20,19 @@ nats:
       size: 10Gi
       storageClassName: nfs-provisioner
 
-affinity:
-  podAntiAffinity:
-    requiredDuringSchedulingIgnoredDuringExecution:
-      - labelSelector:
-          matchExpressions:
-            - key: app.kubernetes.io/name
-              operator: In
-              values:
-                - nats
-        topologyKey: "kubernetes.io/hostname"
+  nats:
+    gomemlimit: "50MiB"
+  
+podTemplate:
+  merge:
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            - labelSelector:
+                matchExpressions:
+                  - key: app.kubernetes.io/name
+                    operator: In
+                    values:
+                      - nats
+              topologyKey: "kubernetes.io/hostname"
