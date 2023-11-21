@@ -13,9 +13,9 @@ config:
 
   jetstream:
     enabled: true
-    memStorage:
+    memoryStore:
       enabled: false
-    fileStorage:
+    fileStore:
       enabled: true
       size: 10Gi
       storageClassName: nfs-provisioner
