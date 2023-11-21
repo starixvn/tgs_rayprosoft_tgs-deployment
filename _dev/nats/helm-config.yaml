@@ -1,3 +1,4 @@
+# https://github.com/nats-io/k8s/blob/main/helm/charts/nats/values.yaml
 metrics:
   enabled: true
 auth:
@@ -16,9 +17,10 @@ config:
     memoryStore:
       enabled: false
     fileStore:
-      enabled: true
-      size: 10Gi
-      storageClassName: nfs-provisioner
+      pvc:
+        enabled: true
+        size: 10Gi
+        storageClassName: nfs-provisioner
 
   nats:
     gomemlimit: "50MiB"
