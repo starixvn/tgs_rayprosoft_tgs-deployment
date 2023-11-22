@@ -6,9 +6,9 @@ metadata:
 spec:
   namespaceSelector:
     matchNames:
-    - default
+    - ingress-nginx
   selector:
     matchLabels:
-      app.kubernetes.io/instance: nginx-ingress
+      app.kubernetes.io/instance: nginx
   podMetricsEndpoints:
   - targetPort: 10254

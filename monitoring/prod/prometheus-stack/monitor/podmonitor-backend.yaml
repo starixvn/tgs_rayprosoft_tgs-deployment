@@ -6,7 +6,7 @@ metadata:
 spec:
   namespaceSelector:
     matchNames:
-      - dev
+      - prod
   selector:
     matchLabels:
       type: backend
