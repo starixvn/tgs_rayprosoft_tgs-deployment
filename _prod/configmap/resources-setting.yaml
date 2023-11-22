@@ -102,11 +102,13 @@ data:
     {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"500m","memory":"1024Mi"}}
   game-gamewagers-wager: |
     {"limits":{"cpu":"1","memory":"1024Mi"},"requests":{"cpu":"1","memory":"1024Mi"}}
-  game-gamewagers-expire: |
+  game-gamewagers-firsts: |
     {"limits":{"cpu":"1","memory":"300Mi"},"requests":{"cpu":"100m","memory":"300Mi"}}
   game-gamewagers-checking: |
     {"limits":{"cpu":"1","memory":"300Mi"},"requests":{"cpu":"100m","memory":"300Mi"}}
   game-gamewagers-brands: |
+    {"limits":{"cpu":"1","memory":"300Mi"},"requests":{"cpu":"100m","memory":"300Mi"}}
+  tgs-gamewagers-firsts: |
     {"limits":{"cpu":"1","memory":"300Mi"},"requests":{"cpu":"100m","memory":"300Mi"}}
   game-gameinterface-avia: |
     {"limits":{"cpu":"1","memory":"300Mi"},"requests":{"cpu":"50m","memory":"300Mi"}}
