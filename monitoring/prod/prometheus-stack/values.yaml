@@ -1,4 +1,5 @@
 # https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/values.yaml
+# helm -n monitoring upgrade --reuse-values -f values.yaml prometheus-stack prometheus-community/kube-prometheus-stack 
 alertmanager:
   enabled: true
   config:
@@ -53,6 +54,10 @@ prometheus:
     probeSelectorNilUsesHelmValues: false
     scrapeConfigSelectorNilUsesHelmValues: false
     retention: 30d
+    resources: 
+      requests:
+        cpu: 2
+        memory: 14Gi
     additionalScrapeConfigs:
       - job_name: 'kubernetes-pods'
         honor_labels: true
