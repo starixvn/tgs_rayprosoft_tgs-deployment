@@ -54,6 +54,8 @@ data:
     {"enabled":false}
   game-gamewagers-brands: |
     {"enabled":false}
+  game-gamewagers-firsts: |
+    {"enabled":false}
   game-tcg-ftp: |
     {"enabled":false}
   game-gameinterface-avia: |
