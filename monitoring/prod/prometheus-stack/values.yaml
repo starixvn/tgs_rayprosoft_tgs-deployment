@@ -54,6 +54,13 @@ prometheus:
     probeSelectorNilUsesHelmValues: false
     scrapeConfigSelectorNilUsesHelmValues: false
     retention: 30d
+    nodeSelector: 
+      dedicated: prometheus
+    tolerations:
+    - effect: NoSchedule
+      key: dedicated
+      operator: Equal
+      value: prometheus
     resources: 
       requests:
         cpu: 2
