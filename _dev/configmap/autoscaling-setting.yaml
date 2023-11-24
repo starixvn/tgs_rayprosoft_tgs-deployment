@@ -50,8 +50,6 @@ data:
     {"enabled":false}
   game-gamewagers-expire: |
     {"enabled":false}
-  game-gamewagers-checking: |
-    {"enabled":false}
   game-gamewagers-brands: |
     {"enabled":false}
   game-gamewagers-firsts: |
