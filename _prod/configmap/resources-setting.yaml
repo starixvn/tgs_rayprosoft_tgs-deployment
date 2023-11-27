@@ -4,6 +4,8 @@ metadata:
   name: resources-setting
   namespace: prod
 data:
+  default: |
+    {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"100m","memory":"400Mi"}}
   agent-21gen-my: |
     {"limits":{"cpu":"5m","memory":"20Mi"},"requests":{"cpu":"5m","memory":"20Mi"}}
   agent-21gen-th: |

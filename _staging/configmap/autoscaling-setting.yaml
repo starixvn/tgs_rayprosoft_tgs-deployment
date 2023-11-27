@@ -4,6 +4,8 @@ metadata:
   name: autoscaling-setting
   namespace: staging
 data:
+  default: |
+    {"enabled":false}
   agent-service: |
     {"enabled":false}
   article-management: |

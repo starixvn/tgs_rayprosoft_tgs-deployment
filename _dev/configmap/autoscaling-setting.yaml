@@ -4,6 +4,8 @@ metadata:
   name: autoscaling-setting
   namespace: dev
 data:
+  default: |
+    {"enabled":false}
   agent-service: |
     {"enabled":false}
   article-management: |
