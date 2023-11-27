@@ -4,6 +4,8 @@ metadata:
   name: resources-setting
   namespace: staging
 data:
+  default: |
+    {"limits":{"cpu":"1","memory":"250Mi"},"requests":{"cpu":"50m","memory":"100Mi"}}
   agent-28bet: |
     {"limits":{"cpu":"10m","memory":"60Mi"},"requests":{"cpu":"2m","memory":"12Mi"}}
   agent-api: |
