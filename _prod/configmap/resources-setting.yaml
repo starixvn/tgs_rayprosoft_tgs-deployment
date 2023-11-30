@@ -89,7 +89,7 @@ data:
   game-gamerounds-schedule: |
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"100m","memory":"400Mi"}}
   game-gamerecord-handle: |
-    {"limits":{"cpu":"1","memory":"1024Mi"},"requests":{"cpu":"1","memory":"1024Mi"}}
+    {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"500m","memory":"512Mi"}}
   game-gamerounds-handle: |
     {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"500m","memory":"1024Mi"}}
   game-gamewagers: |
