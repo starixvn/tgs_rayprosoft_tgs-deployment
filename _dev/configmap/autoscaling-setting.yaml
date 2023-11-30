@@ -4,6 +4,8 @@ metadata:
   name: autoscaling-setting
   namespace: dev
 data:
+  default: |
+    {"enabled":false}
   agent-service: |
     {"enabled":false}
   article-management: |
@@ -307,6 +309,8 @@ data:
   payment-gcpay: |
     {"enabled":false}
   payment-sbpay: |
+    {"enabled":false}
+  payment-ganyopay: |
     {"enabled":false}
   payment-fixtool: |
     {"enabled":false}

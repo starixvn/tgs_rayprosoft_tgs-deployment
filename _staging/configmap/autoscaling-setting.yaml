@@ -4,6 +4,8 @@ metadata:
   name: autoscaling-setting
   namespace: staging
 data:
+  default: |
+    {"enabled":false}
   agent-service: |
     {"enabled":false}
   article-management: |
@@ -33,7 +35,7 @@ data:
   game-gamerounds-schedule: |
     {"enabled":false}
   game-gamerecord-handle: |
-    {"enabled":false}
+    {"enabled":true,"minReplicas":2,"maxReplicas":2,"targetCPUUtilizationPercentage":60,"targetMemoryUtilizationPercentage":60}
   game-gamerounds-handle: |
     {"enabled":false}
   game-gamewagers: |
@@ -307,6 +309,8 @@ data:
   payment-gcpay: |
     {"enabled":false}
   payment-sbpay: |
+    {"enabled":false}
+  payment-ganyopay: |
     {"enabled":false}
   payment-fixtool: |
     {"enabled":false}

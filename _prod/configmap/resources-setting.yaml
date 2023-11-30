@@ -4,6 +4,8 @@ metadata:
   name: resources-setting
   namespace: prod
 data:
+  default: |
+    {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"100m","memory":"400Mi"}}
   agent-21gen-my: |
     {"limits":{"cpu":"5m","memory":"20Mi"},"requests":{"cpu":"5m","memory":"20Mi"}}
   agent-21gen-th: |
@@ -87,7 +89,7 @@ data:
   game-gamerounds-schedule: |
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"100m","memory":"400Mi"}}
   game-gamerecord-handle: |
-    {"limits":{"cpu":"1","memory":"1024Mi"},"requests":{"cpu":"1","memory":"1024Mi"}}
+    {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"500m","memory":"512Mi"}}
   game-gamerounds-handle: |
     {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"500m","memory":"1024Mi"}}
   game-gamewagers: |
@@ -95,7 +97,7 @@ data:
   game-gamewagers-handle: |
     {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"500m","memory":"512Mi"}}
   game-gamewagers-rapidtest: |
-    {"limits":{"cpu":"500m","memory":"1024Mi"},"requests":{"cpu":"500m","memory":"1024Mi"}}
+    {"limits":{"cpu":"500m","memory":"512Mi"},"requests":{"cpu":"500m","memory":"512Mi"}}
   game-gamewagers-reset: |
     {"limits":{"cpu":"1","memory":"300Mi"},"requests":{"cpu":"100m","memory":"300Mi"}}
   game-gamewagers-stats: |
@@ -395,6 +397,8 @@ data:
   payment-gcpay: |
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"20m","memory":"400Mi"}}
   payment-sbpay: |
+    {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"20m","memory":"400Mi"}}
+  payment-ganyopay: |
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"20m","memory":"400Mi"}}
   payment-fixtool: |
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"50m","memory":"400Mi"}}

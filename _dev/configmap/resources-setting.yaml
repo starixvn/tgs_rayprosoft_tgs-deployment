@@ -4,6 +4,8 @@ metadata:
   name: resources-setting
   namespace: dev
 data:
+  default: |
+    {"limits":{"cpu":"1","memory":"250Mi"},"requests":{"cpu":"50m","memory":"100Mi"}}
   agent-api: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"50m","memory":"400Mi"}}
   agent-service: |
@@ -303,6 +305,8 @@ data:
   payment-gcpay: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
   payment-sbpay: |
+    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
+  payment-ganyopay: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
   payment-fixtool: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
