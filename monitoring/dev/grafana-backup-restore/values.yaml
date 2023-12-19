@@ -1,0 +1,12 @@
+# https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
+persistence:
+  enabled: true
+  storageClassName: nfs-provisioner
+  size: 10Gi
+imageRenderer:
+  enabled: true
+ingress: 
+  enabled: true
+  ingressClassName: nginx
+  hosts:
+    - grafana2.rpgp.cc

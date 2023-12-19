@@ -29,6 +29,9 @@ data:
         "ReportAggregate": "http://report-aggregate-service",
         "Promotion": "http://promotion-api",
         "PromotionRebate": "http://tgs-promotion-rebate",
+        "PromotionRelief": "http://promotion-relief-money-service",
+        "GameTypeRoundAggregate": "http://game-type-round-aggregate-service",
+        "FillInPlayerBucket": "http://fill-in-player-bucket-service",
         "Email": "{{ .Values.mail.url }}"
       },
       "ProfitRebate": {
