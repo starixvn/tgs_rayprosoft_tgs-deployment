@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: pod-monitor-stging
+  namespace: monitoring
+spec:
+  namespaceSelector:
+    matchNames:
+      - staging
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: tgs
+  podMetricsEndpoints:
+  - targetPort: 8889

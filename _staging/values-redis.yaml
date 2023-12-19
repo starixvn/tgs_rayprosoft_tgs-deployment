@@ -1,0 +1,29 @@
+## helm repo add bitnami https://charts.bitnami.com/bitnami
+## helm upgrade -i redis bitnami/redis -f values-redis.yaml -n staging
+global:
+  storageClass: gp2
+  redis:
+    password: 1qaz2wsx
+image:
+  tag: 7.0.7
+metrics:
+  enabled: true
+auth:
+  enabled: false
+master:
+  nodeSelector: 
+    dedicated: staging
+  tolerations: 
+  - effect: NoSchedule
+    key: dedicated
+    operator: Equal
+    value: staging
+replica: 
+  replicaCount: 0
+  nodeSelector: 
+    dedicated: staging
+  tolerations: 
+  - effect: NoSchedule
+    key: dedicated
+    operator: Equal
+    value: staging

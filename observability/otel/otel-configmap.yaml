@@ -21,7 +21,7 @@ data:
       logging:
         loglevel: debug
       jaeger:
-        endpoint: "jaeger-collector:14250"
+        endpoint: "jaeger-eck-collector:14250"
         tls:
           insecure: true
     extensions:

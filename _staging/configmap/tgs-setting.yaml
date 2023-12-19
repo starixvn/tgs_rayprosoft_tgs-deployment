@@ -12,6 +12,10 @@ data:
     { "dedicated": "staging" }
   dedicated_game: |
     {"effect":"NoSchedule","key": "dedicated", "operator": "Equal", "value": "staging"}
+  node-selector_gamewagers: | 
+    { "dedicated": "staging" }
+  dedicated_gamewagers: |
+    {"effect":"NoSchedule","key": "dedicated", "operator": "Equal", "value": "staging"}
   node-selector: | 
     { "dedicated": "staging" }
   dedicated: | 
