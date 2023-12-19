@@ -10,9 +10,6 @@ data:
   node-selector_game: | 
     {}
   dedicated_game: |
-  node-selector_gamewagers: | 
-    {}
-  dedicated_gamewagers: |
   node-selector: | 
     {}
   dedicated: | 

@@ -14,7 +14,7 @@ helm repo update
 helm upgrade -i fluent-bit fluent/fluent-bit -f edge-values.yaml -n logging
 
 安裝center
-helm upgrade -i log-center fluent/fluent-bit -f center-values.yaml --set replicaCount=3 -n logging
+helm upgrade -i log-center fluent/fluent-bit -f center-values.yaml --set replicaCount=1 -n logging
 
 再重新執行helm upgrade指令
 

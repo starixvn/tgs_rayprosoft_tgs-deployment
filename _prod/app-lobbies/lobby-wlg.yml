@@ -1,0 +1,86 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: lobby-wlg
+  namespace: prod
+  labels:
+    type: lobby
+    app: lobby-wlg
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lobby-wlg
+  template:
+    metadata:
+      labels:
+        app: lobby-wlg
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      nodeSelector:
+        dedicated: prod
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: prod
+      containers:
+        - name: lobby-wlg
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t1:prod
+          imagePullPolicy: IfNotPresent
+          env:
+          - name: CLIENT
+            value: "Sb5G45kyG0QRDmZTL9WctlQJnWz2QZVdDAdrtgDK3xX0KIvnSRrDMf"
+          - name: CURRENCY
+            value: "CNY"
+          - name: BRAND
+            value: "WLG"
+          - name: DEFAULT_LANGUAGE
+            value: "zh-CN"
+          - name: THEME
+            value: "red"
+          - name: SOURCE_URL
+            value: "https://images.srvptt.com/"
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: site-data
+              mountPath: /data
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          resources:
+            limits:
+              cpu: 5m
+              memory: 30Mi
+            requests:
+              cpu: 5m
+              memory: 30Mi
+      volumes:
+        - name: site-data
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lobby-wlg
+  namespace: prod
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      name: web
+  selector:
+    app: lobby-wlg

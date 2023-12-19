@@ -1,0 +1,79 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backoffice-api
+  namespace: staging
+  labels:
+    app: backoffice-api
+spec:
+  selector:
+    matchLabels:
+      app: backoffice-api
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: backoffice-api
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      nodeSelector:
+        dedicated: nonprod
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: nonprod
+      containers:
+        - name: backoffice-api
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/backoffice-api:staging
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 5
+          readinessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 5
+          resources:
+            limits:
+              cpu: 400m
+              memory: 1Gi
+            requests:
+              cpu: 400m
+              memory: 1Gi
+          env:
+            - name: aspnetcore_environment
+              value: "Staging"
+            - name: aspnetcore_https_port
+              value: "443"
+          volumeMounts:
+            - mountPath: /config/appsettings.json
+              name: appsettings
+              readOnly: true
+              subPath: appsettings.json
+      volumes:
+        - name: appsettings
+          configMap:
+            name: configmap-backoffice-api
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: backoffice-api
+  namespace: staging
+spec: 
+  ports:
+    - protocol: TCP
+      port: 80
+      name: api
+  selector:
+      app: backoffice-api

@@ -1,0 +1,1 @@
+kubectl create secret generic brand-cert --from-literal=key.pem="$(openssl genrsa 2048)" -n dev

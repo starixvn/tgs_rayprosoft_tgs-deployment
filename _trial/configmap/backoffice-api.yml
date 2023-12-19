@@ -1,0 +1,40 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backoffice-api
+  namespace: trial
+data:
+  appsettings.json: |
+    {
+      "ConnectionStrings": {
+        "Tgs": "Server=pgpool;Port=9999;Database=tgsstaging;User Id=tgs_app;Password=VSr4DuVQEzfPC7Tcz",
+        "RedisConfigurationString": "redis-master,abortConnect=false,connectTimeout=3000"
+      },
+      "NatsSetting": {
+        "Urls": "nats://nats:4222",
+        "ConnectTimeoutMs": 2000,
+        "PingInterval": 5000,
+        "PingMaxOutStanding": 3,
+        "SubscriptionBatchSize": 128
+      },
+      "File": {
+        "FileServiceBaseUrl": "http://file-service"
+      },
+      "Report": {
+        "Url": "http://report-api"
+      },
+      "Promotion": {
+        "Url": "http://promotion-api"
+      },
+      "BackOffice": {
+        "PaymentServiceBaseUrl": "http://payment-api"
+      },
+      "Logging": {
+        "LogLevel": {
+          "Default": "Information",
+          "Microsoft": "Warning",
+          "Microsoft.Hosting.Lifetime": "Information"
+        }
+      },
+      "AllowedHosts": "*",
+    }

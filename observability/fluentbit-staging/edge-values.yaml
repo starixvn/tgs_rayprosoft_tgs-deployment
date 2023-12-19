@@ -24,13 +24,13 @@ config:
         Name tail
         Path /var/log/containers/*.log
         multiline.parser docker, cri
-        Tag kube.*
+        Tag kube.staging.*
         Mem_Buf_Limit 5MB
         Skip_Long_Lines On
 
     [INPUT]
         Name systemd
-        Tag host.*
+        Tag host.staging.*
         Systemd_Filter _SYSTEMD_UNIT=kubelet.service
         Read_From_Tail On
 
@@ -42,7 +42,7 @@ config:
   filters: |
     [FILTER]
         Name kubernetes
-        Match kube.*
+        Match kube.staging.*
         Merge_Log On
         Keep_Log Off
         K8S-Logging.Parser On
@@ -71,15 +71,9 @@ luaScripts:
         new_record = record
         sourceKey = string.char(123).."source"..string.char(125)
         
-        if(record["StateValues"] == nil) then
-          new_record["AdminLog"] = record["Attributes"][1][sourceKey]
-          new_record["Attributes"][1][sourceKey] = nil
-          new_record["AdminLog"]["trackingid"] = nil
-        else
-          new_record["AdminLog"] = record["StateValues"][1][sourceKey]
-          new_record["StateValues"][1][sourceKey] = nil
-          new_record["AdminLog"]["trackingid"] = nil
-        end
+        new_record["AdminLog"] = record["StateValues"][1][sourceKey]
+        new_record["StateValues"][1][sourceKey] = nil
+        new_record["AdminLog"]["trackingid"] = nil
 
         return 1, timestamp, new_record
     end

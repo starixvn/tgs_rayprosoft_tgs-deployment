@@ -1,0 +1,82 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: backoffice-site
+  namespace: trial
+  labels:
+    app: backoffice-site
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backoffice-site
+  template:
+    metadata:
+      labels:
+        app: backoffice-site
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      containers:
+        - name: backoffice-site
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/backoffice-site:staging
+          imagePullPolicy: IfNotPresent
+          env:
+          - name: MODE
+            value: "Staging"
+          - name: LOGIN_BUTTON_COLOR
+            value: "#ffffff"
+          - name: LOGIN_BUTTON_BACKGROUND
+            value: "#f8bb54"
+          - name: HEADER_BACKGROUND
+            value: "#f8bb54"
+          - name: HEADER_BUTTON_COLOR
+            value: "#ffffff"
+          - name: HEADER_BUTTON_BACKGROUND
+            value: "transparent"
+          - name: LOGIN_IMAGE_URL
+            value: "//images.srvptt.com/GMS%20Logo/GMS.png"
+          - name: HEADER_IMAGE_URL
+            value: "//images.srvptt.com/GMS%20Logo/GMS.png"
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: site-data
+              mountPath: /data
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          resources:
+            limits:
+              cpu: 200m
+              memory: 400Mi
+            requests:
+              cpu: 200m
+              memory: 400Mi
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+      volumes:
+        - name: site-data
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backoffice-site
+  namespace: trial
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      name: web
+  selector:
+    app: backoffice-site

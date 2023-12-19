@@ -1,0 +1,88 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: agent-pisobet
+  namespace: prod
+  labels:
+    type: agent
+    app: agent-pisobet
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: agent-pisobet
+  template:
+    metadata:
+      labels:
+        app: agent-pisobet
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      nodeSelector:
+        dedicated: prod
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: prod
+      containers:
+        - name: agent-pisobet
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/agent:prod
+          imagePullPolicy: IfNotPresent
+          env:
+          - name: CLIENT
+            value: "BkL6wSH33QONCtgHd3sF0MQnQbHR7KdhOcAdfSnLoSOWV74C3NF8Ua"
+          - name: CURRENCY
+            value: "PHP"
+          - name: SITE
+            value: https://pisobet.com/
+          - name: BRAND
+            value: "PISO"
+          - name: LANGUAGES
+            value: "[{\"name\":\"zh-CN\",\"label\":\"简体\"},{\"name\":\"zh-TW\",\"label\":\"繁體\"},{\"name\":\"en-US\",\"label\":\"English\"},{\"name\":\"th-TH\",\"label\":\"Thai\"}]"
+          - name: DEFAULT_LANGUAGE
+            value: "en-US"
+          - name: THEME
+            value: "red"
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: site-data
+              mountPath: /data
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          resources:
+            limits:
+              cpu: 5m
+              memory: 20Mi
+            requests:
+              cpu: 5m
+              memory: 20Mi
+      volumes:
+        - name: site-data
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: agent-pisobet
+  namespace: prod
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      name: web
+  selector:
+    app: agent-pisobet

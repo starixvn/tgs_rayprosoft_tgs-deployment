@@ -1,0 +1,181 @@
+https://www.jaegertracing.io/docs/1.31/operator/
+
+kubectl create namespace observability # <1>
+kubectl create -f https://github.com/jaegertracing/jaeger-operator/releases/download/v1.31.0/jaeger-operator.yaml -n observability # <2>
+
+https://artifacthub.io/packages/helm/jaegertracing/jaeger
+
+helm repo add jaegertracing https://jaegertracing.github.io/helm-charts
+
+helm -n observability upgrade --install jaeger jaegertracing/jaeger --set provisionDataStore.cassandra=false \
+	--set provisionDataStore.elasticsearch=true \
+	--set storage.type=elasticsearch \
+	--set storage.elasticsearch.user=tgs \
+	--set storage.elasticsearch.password=tgs123
+	
+helm -n observability template jaeger jaegertracing/jaeger --set provisionDataStore.cassandra=false \
+	--set provisionDataStore.elasticsearch=true \
+	--set storage.type=elasticsearch \
+	--set storage.elasticsearch.user=tgs \
+	--set storage.elasticsearch.password=tgs123
+
+helm -n observability uninstall jaeger
+
+helm show values jaegertracing/jaeger
+
+https://www.jaegertracing.io/docs/1.29/cli/#jaeger-all-in-one-elasticsearch
+
+
+修改 statefulsets 
+
+kubectl edit  statefulsets elasticsearch-master   -n observability
+
+		//volumeMounts:
+            - mountPath: /usr/share/elasticsearch/config/elasticsearch.yml
+              name: elasticsearch
+              readOnly: true
+              subPath: elasticsearch.yml
+      volumes:
+        - name: elasticsearch
+          configMap:
+            name: configmap-elasticsearch
+            items:
+              - key: elasticsearch
+                path: elasticsearch.yml
+				
+### kibana 
+https://github.com/elastic/helm-charts
+https://github.com/elastic/helm-charts/tree/main/kibana
+
+helm repo add elastic https://helm.elastic.co
+
+helm -n observability install kibana elastic/kibana --set imageTag=7.16.2 
+helm -n observability uninstall kibana		
+
+
+### kubectl create ns logging
+ 
+
+helm uninstall jaeger -n observability
+
+kubectl delete pvc elasticsearch-master-elasticsearch-master-0 -n observability
+kubectl delete pvc elasticsearch-master-elasticsearch-master-1 -n observability
+kubectl delete pvc elasticsearch-master-elasticsearch-master-2 -n observability
+
+去50.111 /nfsshare 刪除檔案
+
+kubectl delete -f pv-elasticsearch.yml
+
+
+	
+
+helm template jaeger jaegertracing/jaeger \
+	--set provisionDataStore.cassandra=false \   
+	--set provisionDataStore.elasticsearch=true \
+	--set storage.type=elasticsearch \
+	-n elastic-system
+	
+
+https://github.com/elastic/helm-charts/tree/main/kibana
+
+
+
+helm repo add elastic https://helm.elastic.co
+
+helm install kibana elastic/kibana \
+	--set imageTag=7.16.2 \
+	--set ingress.enabled=true \
+	--set ingress.hosts[0].host=kibana-test.rpgp.cc \
+	--set ingress.hosts[0].paths[0]=/ \
+	-n trial
+	
+helm upgrade --install kibana elastic/kibana -n observability
+
+helm uninstall kibana -n observability
+
+helm template  kibana elastic/kibana  --set imageTag=7.16.3 --set ingress.enabled=true --set ingress.hosts[0].host=kibana.rpgp.cc --set ingress.hosts[0].paths[0].path=/  --set ingress.pathtype=Prefix  -n observability
+
+helm -n observability install kibana elastic/kibana  
+	--set imageTag=7.16.3 \
+	--set ingress.enabled=true \
+	--set ingress.hosts[0].host=kibana.rpgp.cc \
+	--set ingress.hosts[0].paths[0].path=/  \
+	--set ingress.pathtype=Prefix  
+
+參考 https://github.com/elastic/helm-charts/blob/main/kibana/templates/ingress.yaml
+
+https://artifacthub.io/packages/helm/elastic/kibana
+
+
+
+
+
+/usr/share/elasticsearch/config/elasticsearch.yml
+cluster.name: "docker-cluster"
+network.host: 0.0.0.0
+xpack.security.enabled: true
+
+
+
+## install elasticsearch
+
+helm uninstall elasticsearch -n observability
+helm install elasticsearch bitnami/elasticsearch -n observability
+
+
+## install jaeger
+helm uninstall jaeger -n observability
+
+helm install jaeger jaegertracing/jaeger \
+	--set provisionDataStore.cassandra=false \
+	--set provisionDataStore.elasticsearch=true \
+	--set storage.type=elasticsearch \
+	--set storage.elasticsearch.user=tgs \
+	--set storage.elasticsearch.password=tgs123 \
+	-n observability
+
+
+helm template jaeger jaegertracing/jaeger \
+	--set provisionDataStore.cassandra=false \
+	--set provisionDataStore.elasticsearch=true \
+	--set storage.type=elasticsearch \
+	--set storage.elasticsearch.user=tgs \
+	--set storage.elasticsearch.password=tgs123 \
+	-n observability
+
+helm show values jaegertracing/jaeger 
+
+
+https://stackoverflow.com/questions/67993633/how-to-fix-this-in-error-rails-warning-299-elasticsearch-built-in-security-fea
+
+kubectl -n observability  edit statefulsets elasticsearch-master
+
+echo "xpack.security.enabled: false" >> /usr/share/elasticsearch/config/elasticsearch.yml
+echo "http.cors.enabled: true" >> /usr/share/elasticsearch/config/elasticsearch.yml
+echo "http.cors.allow-origin: \"*\"" >> /usr/share/elasticsearch/config/elasticsearch.yml
+
+
+
+https://www.its404.com/article/nxw_tsp/120075844
+
+
+cat /usr/share/elasticsearch/config/elasticsearch.yml
+
+
+cluster.name: "docker-cluster"
+network.host: 0.0.0.0
+xpack.security.enabled: false
+
+
+			volumeMounts:
+            - mountPath: //usr/share/elasticsearch/config/elasticsearch.yml
+              name: elasticsearch
+              readOnly: true
+              subPath: elasticsearch.yml
+      volumes:
+        - name: elasticsearch
+          configMap:
+            name: configmap-elasticsearch
+			
+			
+如果遇到因為資源起不來，可以先 drain 某個 node. 再 uncordon 回來

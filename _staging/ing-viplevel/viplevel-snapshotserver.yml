@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: stg-viplevel-snapshotserver
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: stg-viplevel-snapshotserver.rpgp.cc
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: viplevel-snapshotserver
+            port:
+              number: 80

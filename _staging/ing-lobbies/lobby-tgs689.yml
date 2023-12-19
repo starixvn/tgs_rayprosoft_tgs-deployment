@@ -1,0 +1,43 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ingress-lobby-tgs689
+  namespace: staging
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+        proxy_set_header Brand-Token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVEdTNjg5Iiwic3ViIjoiMzkyZWJlN2MtYmY3My00NDk0LWFmMzMtMDA0YzljNzFiOTA5IiwibmJmIjoxNjQ4MTcyMDgzLCJleHAiOjE2NDgxNzU2ODMsImlhdCI6MTY0ODE3MjA4MywiaXNzIjoidGdzIn0.UaEmLktlekx7Zhj0ahUkrJsx__kLRrrVvOh-1a3XuayEhubnIlZz3FgrSyFS94dkNsEzPjTGTCJvk8jV-AJtUbbjVlKWPQSS_BiDiYYuBXNkqMFjpYhpckDC28IPJEzngxdC2ch_4V911RuDZ6RZJ_J5Fi3RmC7DgWqGE_3ZDHTDv8-L1bhWknKSNU4UO4B7q94cTDMWQ0uTV5LMYXagn-5RvPoFhqraz55uXiRAWFylnNUy8NJify98Sd-E1A3lRIm04FVInbe9HVSb-lgRnizR9lsw1p23hzEy-uD8YyoLz6_6SmiY3jQKuYlGqGmb7aGQzabJM6yNjf90NhNmpg;
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: stg-tgs689.rpgp.cc
+    http:
+      paths:
+      - pathType: Prefix
+        path: /api/brandcommunication
+        backend:
+          service:
+            name: brand-api
+            port: 
+              number: 80
+      - pathType: Prefix
+        path: /api/brandlivechat
+        backend:
+          service:
+            name: brand-api
+            port: 
+              number: 80
+      - pathType: Prefix
+        path: /api
+        backend:
+          service:
+            name: operator-api
+            port: 
+              number: 80
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: lobby-tgs689
+            port: 
+              number: 80

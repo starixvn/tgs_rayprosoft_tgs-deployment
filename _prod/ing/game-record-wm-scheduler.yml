@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: game-gamerecord-wm-scheduleservice
+  namespace: prod
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: gamerecord-wm-scheduler.srvptt.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: game-gamerecord-wmcasino-scheduleservice
+            port: 
+              number: 80

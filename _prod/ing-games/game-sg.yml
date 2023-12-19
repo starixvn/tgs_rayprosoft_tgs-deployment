@@ -1,0 +1,32 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-game-sg
+  namespace: prod
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/server-snippet: |-
+      allow 1.32.210.126/32;
+      allow 103.4.104.63/32;
+      allow 202.153.89.250/32;
+      allow 205.252.17.83/32;
+      allow 218.32.214.9/32;
+      allow 220.132.206.70/32;
+      deny all;
+spec:
+  tls:
+  - hosts:
+    - game-sg.yydsgo.xyz
+    secretName: game-sg.yydsgo.xyz
+  rules: 
+  - host: game-sg.yydsgo.xyz
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: game-sg
+            port:
+              number: 80

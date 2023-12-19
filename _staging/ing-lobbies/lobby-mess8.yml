@@ -1,0 +1,44 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: lobby-mess8
+  namespace: staging
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+        proxy_set_header Brand-Token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibWVzczgiLCJzdWIiOiI3MmI4YjZlMS0yMGI4LTQ4MTgtYjVlOS1iM2EyYTUzYjFhMTMiLCJuYmYiOjE2Mzc2MzU2MjEsImV4cCI6MTYzNzYzOTIyMSwiaWF0IjoxNjM3NjM1NjIxLCJpc3MiOiJ0Z3MifQ.yNo_68QfrtV4SNuLgWgiewvYroe-nNWrvwD3HNnRfc5YGH_jB7Z-TDcQLZnbv9Hc4WegtDWFfdFD-8W9Zc4dqbGomGUmjxgoZ-CrYWQpTyoYAJf6E6GMBwlE-yOO3XpSujBeLLBW3goB6abztgdJWUsfjzsFkLW1NglanDxKWmMvUEYwLRTc9W323Bfe4Bo_GG1FBowQhQTRzNFfvkR821OwXltysBjoX9rELe-bL7q97MjBYKvvgoEmP7XxPMaCp4DEmWwS0rFwJIZcAb7J2-zD8Vd8Gnd0dM7JpiDulJ7xedMlm1RZ8dSjZseDBxXNMBN_kxI_NzHq_jD2RpiPQQ;
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: stg.mess888.com
+    http:
+      paths:
+      - path: /api/brandcommunication
+        pathType: Prefix
+        backend:
+          service:
+            name: brand-api
+            port: 
+              number: 80
+      - path: /api/brandlivechat
+        pathType: Prefix
+        backend:
+          service:
+            name: brand-api
+            port: 
+              number: 80
+      - path: /api
+        pathType: Prefix
+        backend:
+          service:
+            name: operator-api
+            port: 
+              number: 80
+      - path: /
+        pathType: Prefix
+        backend:
+          service: 
+            name: lobby-mess8
+            port: 
+              number: 80

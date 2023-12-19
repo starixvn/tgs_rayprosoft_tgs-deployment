@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lobby-t8
+  namespace: dev
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+      name: lobby-t8
+  selector:
+    app: lobby-t8-merged

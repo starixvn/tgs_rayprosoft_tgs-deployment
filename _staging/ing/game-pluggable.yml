@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: game-pluggable-service
+  namespace: staging
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: stg-game-pluggable.rpgp.cc
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: game-pluggable-service
+          servicePort: 80

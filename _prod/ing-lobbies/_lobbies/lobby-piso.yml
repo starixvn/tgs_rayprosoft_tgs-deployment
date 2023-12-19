@@ -1,0 +1,83 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: lobby-piso
+  namespace: prod
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+        proxy_set_header Brand-Token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoicGlzbyIsInN1YiI6IjJjNTZlMDMxLWY0NzAtNGE0YS05ZjdkLTllNjFkN2QxZDg5ZiIsIm5iZiI6MTYzODMyOTM5OSwiZXhwIjoxNjM4MzMyOTk5LCJpYXQiOjE2MzgzMjkzOTksImlzcyI6InRncyJ9.ipZHfGI3X0X6WSH0iogbN7KsclgeJ-v9gURQHc5Oc2AS2cQynRlbEiYi84sNhbPywuxCiL7TSv2ycdArYxaESGYdWLooIpIrrX6ATnZakil-auAoDEEqh7ihiLor-p45gYCqhkCuwIDa4CHcoXXhOxPUbq7phBwGJi6JHrCui8ExMnXB38T_lBMqn-y6hhNEPsb_HgjO-gwaRpl2-X8AQC5Ff5yPElOupy_8noQeLX7T6p3BykkRKUZGmTpR9_rm-AaZWxe_-k8TQOOjVFTfAZFAwXci6_-AqUNWjZ85MN99m0mZktSQHjsckrkUgGnfNKlEHFJzYfZh11G2QSehgw;
+spec:
+  tls:
+  - hosts:
+    - pisobet.com
+    secretName: pisobet.com
+  - hosts:
+    - www.pisobet.com
+    secretName: www.pisobet.com
+  rules:
+  - host: pisobet.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /api/brandcommunication
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api/brandlivechat
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api
+        backend:
+          service:
+            name: op-api-mess8
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: lobby-piso
+            port:
+              number: 80
+  - host: www.pisobet.com
+    http:
+      paths:
+      - pathType: Prefix
+        path: /api/brandcommunication
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api/brandlivechat
+        backend:
+          service:
+            name: brand-api
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /api
+        backend:
+          service:
+            name: op-api-mess8
+            port:
+              number: 80
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: lobby-piso
+            port:
+              number: 80

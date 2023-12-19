@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: elasticsearch
+  namespace: observability
+data:
+  elasticsearch.yml: |
+    cluster.name: "docker-cluster"
+    network.host: 0.0.0.0
+    xpack.security.enabled: true
+    
+
+          //volumeMounts:
+            - mountPath: /usr/share/elasticsearch/config/elasticsearch.yml
+              name: elasticsearch
+              readOnly: true
+              subPath: elasticsearch.yml
+      volumes:
+        - name: elasticsearch
+          configMap:
+            name: configmap-elasticsearch
+            items:
+              - key: elasticsearch
+                path: elasticsearch.yml

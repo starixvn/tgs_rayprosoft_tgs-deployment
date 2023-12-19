@@ -1,0 +1,18 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: game-kickplayer-receiver
+  namespace: prod
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: game-kickplayer-receiver.yydsgo.xyz
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: game-kickplayer-receiverserver
+            port: 
+              number: 80

@@ -1,0 +1,84 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: game-haba
+  namespace: staging
+  labels:
+    app: game-haba
+spec:
+  selector:
+    matchLabels:
+      app: game-haba
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: game-haba
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      nodeSelector:
+        dedicated: game
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: game
+      containers:
+        - name: game-haba
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/tgs-api:staging
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+          ports:
+            - containerPort: 80
+          resources:
+            limits:
+              cpu: 500m
+              memory: 1Gi
+            requests:
+              cpu: 250m
+              memory: 500Mi
+          livenessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 5
+          readinessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 5
+          env:
+            - name: aspnetcore_environment
+              value: "Staging"
+            - name: aspnetcore_https_port
+              value: "443"
+            - name: GameProviderCode
+              value: "HABA"
+          volumeMounts:
+            - mountPath: /app/appsettings.json
+              name: appsettings
+              readOnly: true
+              subPath: appsettings.json 
+      volumes:
+        - name: appsettings
+          configMap:
+            name: configmap-game-haba
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: game-haba
+  namespace: staging
+  annotations: 
+    service.beta.kubernetes.io/aws-load-balancer-backend-protocol: tcp
+    service.beta.kubernetes.io/aws-load-balancer-internal: 0.0.0.0/0
+spec: 
+  ports:
+    - protocol: TCP
+      port: 80
+      name: api
+  selector:
+      app: game-haba

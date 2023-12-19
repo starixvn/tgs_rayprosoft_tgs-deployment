@@ -1,0 +1,73 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: game-sbo
+  namespace: dev
+  labels:
+    app: game-sbo
+spec:
+  selector:
+    matchLabels:
+      app: game-sbo
+  replicas: 1
+  minReadySeconds: 8 #狀態為可以最小秒數
+  strategy:
+    type: RollingUpdate #使用RollingUpdate類型, 可以保證佈署期間服務不中斷
+    rollingUpdate:
+      maxUnavailable: 1 #佈署期間允許最大停止pod數量(replicas)
+      maxSurge: 2 #佈署期間允許最大建立pod數量(replicas)
+  template:
+    metadata:
+      labels:
+        app: game-sbo
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      containers:
+        - name: game-sbo
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/tgs-api:dev
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+          ports:
+            - containerPort: 80
+          env:
+            - name: aspnetcore_environment
+              value: "Docker"
+            - name: aspnetcore_https_port
+              value: "443"
+            - name: GameProviderCode
+              value: "SBO"
+          volumeMounts:
+            - mountPath: /app/appsettings.json
+              name: appsettings
+              readOnly: true
+              subPath: appsettings.json
+            - mountPath: /app/appsettings.Docker.json
+              name: appsettings-docker
+              readOnly: true
+              subPath: appsettings.Docker.json    
+      volumes:
+        - name: appsettings
+          configMap:
+            name: configmap-game
+        - name: appsettings-docker
+          configMap:
+            name: configmap-game-sbo
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: game-sbo
+  namespace: dev
+spec: 
+  ports:
+    - protocol: TCP
+      port: 80
+      name: api
+  selector:
+      app: game-sbo
+                
+                        
+                          

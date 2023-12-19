@@ -71,15 +71,9 @@ luaScripts:
         new_record = record
         sourceKey = string.char(123).."source"..string.char(125)
         
-        if(record["StateValues"] == nil) then
-          new_record["AdminLog"] = record["Attributes"][1][sourceKey]
-          new_record["Attributes"][1][sourceKey] = nil
-          new_record["AdminLog"]["trackingid"] = nil
-        else
-          new_record["AdminLog"] = record["StateValues"][1][sourceKey]
-          new_record["StateValues"][1][sourceKey] = nil
-          new_record["AdminLog"]["trackingid"] = nil
-        end
+        new_record["AdminLog"] = record["StateValues"][1][sourceKey]
+        new_record["StateValues"][1][sourceKey] = nil
+        new_record["AdminLog"]["trackingid"] = nil
 
         return 1, timestamp, new_record
     end

@@ -1,0 +1,37 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: lobby-21gen-th
+  namespace: staging
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+        proxy_set_header Brand-Token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiMjFnZW5USCIsInN1YiI6ImZmZDQ2N2E4LTRjYjItNGU4NC1iZGM0LTIwYzE5MzQxZDFmMCIsIm5iZiI6MTYzOTYzMzU4OCwiZXhwIjoxNjM5NjM3MTg4LCJpYXQiOjE2Mzk2MzM1ODgsImlzcyI6InRncyJ9.Z3WOrLbbfbjoACrq1vl2F9SXoidkJaQcbEHyMHhjbCHtsAdZ6HRozDA51Mzo-qzxD6ChDCVGc2lQdbm1XoymGKVm58Vx9Ixrw6HDzPZGmtczT42LxGYwiN4uQAh98odLmYktYqHsLvnk47c7izMW0eCscIpgZAF_AhLXPfs-etPKYlSNy5CkD4XaEmAJJhNP14uvcdgSJq_4Ek89tGSs1eQl8mN8e7ZSkE7vjnXXzDQZLVI5IOec8ty8OxFXdIApMhc8DNCIAYo5UYoH2VLI2NQPRQtdE5hanWfuoDJdXIpyzwvunm_FG34L57yXAP7UWMzof_912IlacE4CxBd4Vw;
+spec:
+  tls:
+  - hosts:
+    - stg-th.21gen.com
+    secretName: stg-th.21gen.com
+  rules:
+  - host: stg-th.21gen.com
+    http:
+      paths:
+      - path: /api/brandcommunication
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /api/brandlivechat
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /
+        backend:
+          serviceName: lobby-21gen-th
+          servicePort: 80
+      - path: /api
+        backend:
+          serviceName: operator-api
+          servicePort: 80

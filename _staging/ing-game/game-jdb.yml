@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-game-jdb
+  namespace: staging
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/server-snippet: |-
+      allow 18.166.81.123/32;
+      allow 175.98.161.217/32;
+      allow 220.132.206.70/32;
+      deny all;
+spec:
+  tls:
+  - hosts:
+    - game-jdb.rpgp.cc
+    secretName: game-jdb.rpgp.cc
+  rules: 
+  - host: game-jdb.rpgp.cc
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: game-jdb
+          servicePort: 80   

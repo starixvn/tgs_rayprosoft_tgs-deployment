@@ -16,7 +16,7 @@ spec:
     options:
       es:
         server-urls: http://elasticsearch-master
-        index-prefix: staging
+        #index-prefix: tracing
         num-replicas: 0
         num-shards: 1
         create-index-templates: "false"
@@ -24,7 +24,6 @@ spec:
   collector:
     autoscale: false
   query:
-    replicas: 0
     options:
       es: 
         use-aliases: true

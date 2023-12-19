@@ -1,0 +1,25 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-game-haba
+  namespace: staging
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/server-snippet: |-
+      allow 52.184.81.237/32;
+      allow 220.132.206.70/32;
+      deny all;
+spec:
+  tls:
+  - hosts:
+    - game-haba.rpgp.cc
+    secretName: game-haba.rpgp.cc
+  rules:
+  - host: game-haba.rpgp.cc
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: game-haba
+          servicePort: 80

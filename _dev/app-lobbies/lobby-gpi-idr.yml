@@ -1,0 +1,76 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  namespace: dev
+  name: lobby-gpi-idr
+  labels:
+    app: lobby-gpi-idr
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: lobby-gpi-idr
+  template:
+    metadata:
+      labels:
+        app: lobby-gpi-idr
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      containers:
+        - name: lobby-gpi-idr
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/lobby-t3:dev
+          imagePullPolicy: IfNotPresent
+          env:
+          - name: CLIENT
+            value: "D0pttkExTgstx5bPH2qPsubVq6BQpWUpJufjgKew6Tz0cV5BISEWeX"
+          - name: CURRENCY
+            value: "IDR"
+          - name: BRAND
+            value: "IDR"
+          - name: DEFAULT_LANGUAGE
+            value: "en-US"
+          - name: THEME
+            value: "black"
+          - name: "WAPTEMPLATE"
+            value: "4"
+          - name: SOURCE_URL
+            value: "https://images.srvptt.com/"
+          - name: HOMEPAGE
+            value: "[\"t4-1\",\"t4-2\",\"t4-3\",\"t4-4\"]"
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: site-data
+              mountPath: /data
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+      volumes:
+        - name: site-data
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lobby-gpi-idr
+  namespace: dev
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      name: web
+  selector:
+    app: lobby-gpi-idr

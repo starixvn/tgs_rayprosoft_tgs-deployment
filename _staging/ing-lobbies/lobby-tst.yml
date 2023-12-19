@@ -1,0 +1,59 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-lobby-tst
+  namespace: staging
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+    nginx.ingress.kubernetes.io/configuration-snippet: |
+        proxy_set_header Brand-Token eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoiVFNUVGVzdCIsInN1YiI6IjVjYzlhMTExLTQ5ODYtNDRlYS1iNzk0LWMxNDhkNmQ0ZDZhZiIsIm5iZiI6MTYzNzYzNTIxNiwiZXhwIjoxNjM3NjM4ODE2LCJpYXQiOjE2Mzc2MzUyMTYsImlzcyI6InRncyJ9.mQ_V1ByVf60A43Wxn5o2jI11P4SaOV83QjPdZEQAodSb--gApPTBcUsCUkqPXMN79ZRS-HXLkVTOvoezFJHn-9a3YCTVCiMNdsrTikvpqscXlfp1ckFumB9iJq92BBOoIlrPPrm0j3uDhu3aUuQ9RWGoYzH14ZrkuJKK80bQAw8Go9xLDMMydfmYziFmEqshJzaaDpSu7CLeAjnoGu0hw8BBrw8LS7IsfhcDpormE_oCvc8ZV7TTJZxUDzm1-4e9yTvyAUOoFEldIA09wKL_Mgs0r8ba3FW0gvwsdSCsQFtMpm1hWEuF0_Fs9W6_JT2NPotVFfnfzJw3OAZt5uDGNg;
+spec:
+  tls:
+  - hosts:
+    - tst.rpgp.cc
+    secretName: tst.rpgp.cc
+  - hosts:
+    - stg-tst.srvttt.com
+    secretName: stg-tst.srvttt.com
+  rules:
+  - host: tst.rpgp.cc
+    http:
+      paths:
+      - path: /api/brandcommunication
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /api/brandlivechat
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /
+        backend:
+          serviceName: lobby-tst
+          servicePort: 80
+      - path: /api
+        backend:
+          serviceName: operator-api
+          servicePort: 80
+  - host: stg-tst.srvttt.com
+    http:
+      paths:
+      - path: /api/brandcommunication
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /api/brandlivechat
+        backend:
+          serviceName: brand-api
+          servicePort: 80
+      - path: /
+        backend:
+          serviceName: lobby-tst
+          servicePort: 80
+      - path: /api
+        backend:
+          serviceName: operator-api
+          servicePort: 80

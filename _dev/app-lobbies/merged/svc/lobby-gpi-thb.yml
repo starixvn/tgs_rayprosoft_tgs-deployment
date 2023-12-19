@@ -1,0 +1,14 @@
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lobby-gpi-thb
+  namespace: dev
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 82
+      name: lobby-gpi-thb
+  selector:
+    app: lobby-t1-merged

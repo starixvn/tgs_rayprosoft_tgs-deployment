@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: viplevel-databaseserver
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: stg-viplevel-databaseserver.rpgp.cc
+    http:
+      paths:
+      - pathType: Prefix
+        path: /
+        backend:
+          service:
+            name: viplevel-databaseserver
+            port:
+              number: 80

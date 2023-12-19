@@ -1,0 +1,76 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: lobby-21gen-landing
+  namespace: prod
+  labels:
+    type: lobby
+    app: lobby-21gen-landing
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: lobby-21gen-landing
+  template:
+    metadata:
+      labels:
+        app: lobby-21gen-landing
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      nodeSelector:
+        dedicated: prod
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: prod
+      containers:
+        - name: lobby-21gen-landing
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/tgs-landing:2021-1026-0215
+          imagePullPolicy: IfNotPresent
+          env:
+          - name: URLS
+            value: "https://my.21gen.com,https://th.21gen.com"
+          ports:
+            - containerPort: 80
+          volumeMounts:
+            - name: site-data
+              mountPath: /data
+          livenessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /healthcheck
+              port: 80
+              scheme: HTTP
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          resources:
+            limits:
+              cpu: 5m
+              memory: 30Mi
+            requests:
+              cpu: 5m
+              memory: 30Mi
+      volumes:
+        - name: site-data
+          emptyDir: {}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: lobby-21gen-landing
+  namespace: prod
+spec:
+  ports:
+    - protocol: TCP
+      port: 80
+      name: web
+  selector:
+    app: lobby-21gen-landing

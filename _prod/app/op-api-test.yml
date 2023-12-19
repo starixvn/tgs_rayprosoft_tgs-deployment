@@ -1,0 +1,75 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: op-api-test
+  namespace: prod
+  labels:
+    type: backend
+    app: op-api-test
+spec:
+  selector:
+    matchLabels:
+      app: op-api-test
+  template:
+    metadata:
+      labels:
+        type: backend
+        app: op-api-test
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      securityContext:
+        {}
+      nodeSelector:
+        dedicated: prod
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: prod
+      containers:
+        - name: op-api-test
+          securityContext:
+            runAsGroup: 0
+            runAsUser: 0
+          image: "registry.gitlab.com/rayprosoft/turnkey-gaming-system/operator-api:2021.1212.1526-prod"
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: http
+              containerPort: 80
+              protocol: TCP
+          livenessProbe:
+            httpGet:
+              path: /health
+              port: 80
+            initialDelaySeconds: 10
+            failureThreshold: 10
+            periodSeconds: 5
+          readinessProbe:
+            httpGet:
+              path: /health
+              port: 80
+            initialDelaySeconds: 10
+            failureThreshold: 10
+            periodSeconds: 5
+          resources:
+            limits:
+              cpu: 200m
+              memory: 400Mi
+            requests:
+              cpu: 200m
+              memory: 400Mi
+          env:
+            - name: aspnetcore_environment
+              value: "Production"
+            - name: aspnetcore_https_port
+              value: "443"
+          volumeMounts:
+            - mountPath: /config/appsettings.json
+              name: appsettings
+              readOnly: true
+              subPath: appsettings.json  
+      volumes:
+        - name: appsettings
+          configMap:
+            name: configmap-operator-api

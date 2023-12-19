@@ -1,0 +1,26 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: agent-28bet
+  namespace: staging
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  tls:
+  - hosts:
+    - stg-agent.28bet.io
+    secretName: stg-agent.28bet.io
+  rules:
+  - host: stg-agent.28bet.io
+    http:
+      paths:
+      - path: /api
+        backend:
+          serviceName: agent-api
+          servicePort: 80
+      - path: /
+        backend:
+          serviceName: agent-28bet
+          servicePort: 80

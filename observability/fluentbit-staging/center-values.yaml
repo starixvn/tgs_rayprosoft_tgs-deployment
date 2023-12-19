@@ -37,16 +37,6 @@ config:
         Match   log.*
         script  /fluent-bit/scripts/append_tag.lua
         call    append_tag
-        
-    [FILTER]
-        Name  modify
-        Match kube.*
-        Add cluster staging
-        
-    [FILTER]
-        Name  modify
-        Match node.*
-        Add cluster staging
 
   ## https://docs.fluentbit.io/manual/pipeline/outputs
   outputs: |
@@ -56,7 +46,7 @@ config:
         Host            ${FLUENT_ELASTICSEARCH_HOST}
         Port            ${FLUENT_ELASTICSEARCH_PORT}
         Logstash_Format On
-        Logstash_Prefix kube-staging
+        Logstash_Prefix kube
         Replace_Dots    On
         Trace_Error     On
         Buffer_Size     5M
@@ -68,7 +58,7 @@ config:
         Host ${FLUENT_ELASTICSEARCH_HOST}
         Port ${FLUENT_ELASTICSEARCH_PORT}
         Logstash_Format On
-        Logstash_Prefix node-staging
+        Logstash_Prefix node
         Buffer_Size     5M
         Suppress_Type_Name On
     

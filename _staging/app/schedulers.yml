@@ -1,0 +1,79 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: schedulers
+  namespace: staging
+  labels:
+    app: schedulers
+spec:
+  selector:
+    matchLabels:
+      app: schedulers
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: schedulers
+    spec:
+      imagePullSecrets:
+        - name: registry-credentials
+      nodeSelector:
+        dedicated: nonprod
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: nonprod
+      containers:
+        - name: schedulers
+          image: registry.gitlab.com/rayprosoft/turnkey-gaming-system/schedulers:stag
+          imagePullPolicy: IfNotPresent
+          securityContext:
+            runAsUser: 0
+            runAsGroup: 0
+          ports:
+            - containerPort: 80
+          livenessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 5
+          readinessProbe:
+            tcpSocket:
+              port: 80
+            initialDelaySeconds: 30
+            periodSeconds: 5
+          resources:
+            limits:
+              cpu: 400m
+              memory: 1Gi
+            requests:
+              cpu: 400m
+              memory: 1Gi
+          env:
+            - name: ASPNETCORE_ENVIRONMENT
+              value: "Staging"
+            - name: aspnetcore_https_port
+              value: "443"
+          volumeMounts:
+            - mountPath: /app/appsettings.json
+              name: appsettings
+              readOnly: true
+              subPath: appsettings.json  
+      volumes:
+        - name: appsettings
+          configMap:
+            name: configmap-schedulers
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: schedulers
+  namespace: staging
+spec: 
+  ports:
+    - protocol: TCP
+      port: 80
+      name: schedulers
+  selector:
+      app: schedulers

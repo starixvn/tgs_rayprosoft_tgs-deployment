@@ -1,0 +1,23 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: ingress-tgs-operator
+  namespace: staging
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: "nginx"
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+    nginx.ingress.kubernetes.io/proxy-body-size: "50m"
+spec:
+  tls:
+  - hosts:
+    - stg-op.rpgp.cc
+    secretName: stg-op.rpgp.cc
+  rules:
+  - host: stg-op.rpgp.cc
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: operator-api
+          servicePort: 80
