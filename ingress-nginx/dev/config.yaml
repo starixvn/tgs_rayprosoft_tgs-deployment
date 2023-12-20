@@ -6,8 +6,6 @@ controller:
     enable-opentelemetry: "true"
     opentelemetry-operation-name: "HTTP $request_method $uri"
     otel-service-name: nginx-ingress-controller
-    access-log-path: /var/log/nginx/nginx_access.log
-    error-log-path: /var/log/nginx/nginx_error.log
     forwarded-for-header: X-Forwarded-For
     compute-full-forwarded-for: "true"
     enable-real-ip: "true"
