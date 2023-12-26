@@ -82,8 +82,6 @@ data:
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   game-gamewagers-rapidtest: |
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
-  game-gamewagers-reset: |
-    {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   game-gamewagers-stats: |
     {"limits":{"cpu":"1","memory":"256Mi"},"requests":{"cpu":"10m","memory":"64Mi"}}
   game-gamewagers-wager: |
@@ -382,6 +380,8 @@ data:
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"100Mi"}}
   payment-ganyopay: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"100Mi"}}
+  payment-dibaopay: |
+    {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"100Mi"}}
   payment-fixtool: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"100Mi"}}
   payment-withdraw-limit: |
@@ -401,7 +401,7 @@ data:
   player-bucket-scheduler: |
     {"limits":{"cpu":"200m","memory":"200Mi"},"requests":{"cpu":"30m","memory":"100Mi"}}
   profit-rebate-service: |
-    {"limits":{"cpu":"100m","memory":"200Mi"},"requests":{"cpu":"10m","memory":"200Mi"}}
+    {"limits":{"cpu":"100m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"200Mi"}}
   promotion-api: |
     {"limits":{"cpu":"200m","memory":"400Mi"},"requests":{"cpu":"10m","memory":"80Mi"}}
   promotion-deposit-service: |

@@ -44,8 +44,6 @@ data:
     {"enabled":false}
   game-gamewagers-rapidtest: |
     {"enabled":false}
-  game-gamewagers-reset: |
-    {"enabled":false}
   game-gamewagers-stats: |
     {"enabled":false}
   game-gamewagers-wager: |
@@ -311,6 +309,8 @@ data:
   payment-sbpay: |
     {"enabled":false}
   payment-ganyopay: |
+    {"enabled":false}
+  payment-dibaopay: |
     {"enabled":false}
   payment-fixtool: |
     {"enabled":false}
