@@ -8,14 +8,6 @@ PUT _component_template/fluent-bit-app-mapping
     },
     "mappings": {
       "properties": {
-        "StateValues": {
-          "eager_global_ordinals": false,
-          "index": true,
-          "type": "flattened",
-          "split_queries_on_whitespace": false,
-          "index_options": "docs",
-          "doc_values": true
-        },
         "ExceptionType": {
           "type": "keyword"
         },
@@ -78,6 +70,29 @@ PUT _component_template/fluent-bit-app-mapping
             }
           }
         },
+        "Attributes": {
+          "type": "flattened"
+        },
+        "flb-key": {
+          "type": "text"
+        },
+        "Exception": {
+          "type": "text"
+        },
+        "LogLevel": {
+          "type": "keyword"
+        },
+        "FormattedMessage": {
+          "type": "text"
+        },
+        "StateValues": {
+          "eager_global_ordinals": false,
+          "index": true,
+          "type": "flattened",
+          "split_queries_on_whitespace": false,
+          "index_options": "docs",
+          "doc_values": true
+        },
         "CategoryName": {
           "type": "keyword"
         },
@@ -97,18 +112,6 @@ PUT _component_template/fluent-bit-app-mapping
         },
         "es_index": {
           "type": "keyword"
-        },
-        "flb-key": {
-          "type": "text"
-        },
-        "Exception": {
-          "type": "text"
-        },
-        "LogLevel": {
-          "type": "keyword"
-        },
-        "FormattedMessage": {
-          "type": "text"
         },
         "SpanId": {
           "type": "keyword"
