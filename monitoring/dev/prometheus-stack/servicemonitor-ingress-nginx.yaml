@@ -14,4 +14,9 @@ spec:
     matchLabels:
       app.kubernetes.io/instance: nginx-ingress
   endpoints:
-  - port: metrics
+  - metricRelabelings:
+    - action: drop
+      regex: '.*_bucket'
+      sourceLabels:
+      - __name__
+    port: metrics
