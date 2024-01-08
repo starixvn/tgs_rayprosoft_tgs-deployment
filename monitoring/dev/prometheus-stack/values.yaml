@@ -39,10 +39,35 @@ grafana:
     ingressClassName: nginx
     hosts:
     - grafana.rpgp.cc
-kubeetcd: 
-  caFile: /etc/prometheus/secrets/etcd-certs/ca.crt
-  certFile: /etc/prometheus/secrets/etcd-certs/healthcheck-client.crt
-  keyFile: /etc/prometheus/secrets/etcd-certs/healthcheck-client.key
+  serviceMonitor:
+    enabled: false
+kubelet:
+  serviceMonitor:
+    probesMetricRelabelings:
+    - sourceLabels: [__name__]
+      separator: ;
+      regex: '.*_bucket'
+      replacement: $1
+      action: drop
+    metricRelabelings:
+    - sourceLabels: [__name__]
+      separator: ;
+      regex: '.*_bucket'
+      replacement: $1
+      action: drop
+kubeControllerManager:
+  serviceMonitor:
+    enabled: false
+kubeEtcd:
+  serviceMonitor:
+    metricRelabelings:
+    - action: drop
+      regex: '.*_bucket'
+      sourceLabels:
+      - __name__
+coreDns:
+  serviceMonitor:
+    enabled: false
 prometheus:
   service:
     type: NodePort
