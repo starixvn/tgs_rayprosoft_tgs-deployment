@@ -15,5 +15,9 @@ spec:
     matchLabels:
       app.kubernetes.io/instance: nginx
   endpoints:
-  - interval: 30s
+  - metricRelabelings:
+    - action: drop
+      regex: '.*_bucket'
+      sourceLabels:
+      - __name__
     port: metrics
