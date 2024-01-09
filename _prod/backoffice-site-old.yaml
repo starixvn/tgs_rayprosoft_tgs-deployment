@@ -44,17 +44,17 @@ spec:
           valueFrom:
             secretKeyRef:
               key: tgs
-              name: tgs-connections-prod
+              name: tgs-connections
         - name: ConnectionStrings__RedisConfigurationString
           valueFrom:
             secretKeyRef:
               key: redis
-              name: tgs-connections-prod
+              name: tgs-connections
         - name: NatsSetting__Urls
           valueFrom:
             secretKeyRef:
               key: nats
-              name: tgs-connections-prod
+              name: tgs-connections
         - name: STAKATER_TGS_CONNECTIONS_SECRET
           value: 78dc1130496b642e3dbcd0061742dd96da0b70c9
         - name: STAKATER_CONFIGMAP_BACKOFFICE_API_CONFIGMAP
