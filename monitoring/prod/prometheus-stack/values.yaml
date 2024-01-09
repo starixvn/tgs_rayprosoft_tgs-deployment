@@ -53,7 +53,7 @@ prometheus:
     podMonitorSelectorNilUsesHelmValues: false
     probeSelectorNilUsesHelmValues: false
     scrapeConfigSelectorNilUsesHelmValues: false
-    retention: 30d
+    retention: 15d
     nodeSelector: 
       dedicated: prometheus
     tolerations:
