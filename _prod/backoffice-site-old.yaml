@@ -160,7 +160,7 @@ spec:
       imagePullSecrets:
       - name: dockerhub
       nodeSelector:
-        dedicated: staging
+        dedicated: prod
       restartPolicy: Always
       schedulerName: default-scheduler
       securityContext: {}
@@ -169,7 +169,7 @@ spec:
       - effect: NoSchedule
         key: dedicated
         operator: Equal
-        value: staging
+        value: prod
       volumes:
       - configMap:
           defaultMode: 420
