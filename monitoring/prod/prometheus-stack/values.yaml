@@ -41,6 +41,42 @@ grafana:
     hosts:
     - grafana-stack.yydsgo.xyz
     - prod-grafana-stack.rpgp.cc
+  serviceMonitor:
+    enabled: false
+kubeApiServer:
+  serviceMonitor:
+    metricRelabelings:
+    - action: drop
+      regex: '.*_bucket'
+      sourceLabels:
+      - __name__
+kubelet:
+  serviceMonitor:
+    probesMetricRelabelings:
+    - sourceLabels: [__name__]
+      separator: ;
+      regex: '.*_bucket'
+      replacement: $1
+      action: drop
+    metricRelabelings:
+    - sourceLabels: [__name__]
+      separator: ;
+      regex: '.*_bucket'
+      replacement: $1
+      action: drop
+kubeControllerManager:
+  serviceMonitor:
+    enabled: false
+kubeEtcd:
+  serviceMonitor:
+    metricRelabelings:
+    - action: drop
+      regex: '.*_bucket'
+      sourceLabels:
+      - __name__
+coreDns:
+  serviceMonitor:
+    enabled: false
 prometheus:
   ingress: 
     enabled: true
@@ -53,7 +89,7 @@ prometheus:
     podMonitorSelectorNilUsesHelmValues: false
     probeSelectorNilUsesHelmValues: false
     scrapeConfigSelectorNilUsesHelmValues: false
-    retention: 15d
+    retention: 14d
     nodeSelector: 
       dedicated: prometheus
     tolerations:
