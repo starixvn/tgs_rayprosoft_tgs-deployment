@@ -2,7 +2,7 @@ apiVersion: monitoring.coreos.com/v1
 kind: ServiceMonitor
 metadata:
   name: pgpool-stats-monitor
-  namespace: dev
+  namespace: prod
   labels:
     app: pgpool-stats
 spec:
