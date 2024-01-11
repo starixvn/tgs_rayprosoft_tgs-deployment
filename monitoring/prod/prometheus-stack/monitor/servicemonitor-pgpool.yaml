@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: pgpool-stats-monitor
+  namespace: prod
+  labels:
+    app: pgpool-stats
+spec:
+  selector:
+    matchLabels:
+      app: pgpool-stats
+  endpoints:
+  - port: pgpool-stats-port
+    path: /metrics
