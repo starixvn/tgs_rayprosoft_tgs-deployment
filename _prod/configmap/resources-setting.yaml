@@ -53,9 +53,9 @@ data:
   brand-game-provider-service: |
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"100m","memory":"256Mi"}}
   cashservice-api: |
-    {"limits":{"cpu":"500m","memory":"400Mi"},"requests":{"cpu":"300m","memory":"400Mi"}}
+    {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"300m","memory":"400Mi"}}
   cashservice-worker: |
-    {"limits":{"cpu":"1","memory":"1Gi"},"requests":{"cpu":"300m","memory":"1Gi"}}
+    {"limits":{"cpu":"1","memory":"500Mi"},"requests":{"cpu":"300m","memory":"500Mi"}}
   cash-query: |
     {"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"100m","memory":"400Mi"}}
   deposit-accumulate-roulette: |
