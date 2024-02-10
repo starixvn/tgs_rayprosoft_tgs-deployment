@@ -4,8 +4,8 @@ global:
   storageClass: gp2
   redis:
     password: 1qaz2wsx
-image:
-  tag: 7.0.7
+#image:
+#  tag: 7.0.7
 metrics:
   enabled: true
 auth:
