@@ -17,7 +17,7 @@ nats:
       enabled: false
     fileStorage:
       enabled: true
-      size: 10Gi
+      size: 30Gi
       storageClassName: gp2
 
 affinity:
