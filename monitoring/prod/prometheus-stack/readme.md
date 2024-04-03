@@ -8,7 +8,7 @@ helm repo update
 
 helm upgrade -i prometheus-stack prometheus-community/kube-prometheus-stack -f values.yaml -n monitoring
 
-# helm template prometheus-stack prometheus-community/kube-prometheus-stack --version 46.6.0 -f values.yaml -n monitoring
+### helm template prometheus-stack prometheus-community/kube-prometheus-stack --version 46.6.0 -f values.yaml -n monitoring
 
 helm uninstall prometheus-stack -n monitoring
 
