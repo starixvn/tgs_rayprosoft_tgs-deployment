@@ -1,7 +1,9 @@
 https://hub.docker.com/r/grafana/grafana/tags
+
 https://github.com/grafana/helm-charts/blob/main/charts/grafana/README.md
 
 helm repo add grafana https://grafana.github.io/helm-charts
+
 helm install grafana grafana/grafana -f values.yaml -n monitoring
 
 
@@ -23,14 +25,19 @@ cd grafana-backup-tool
 sudo pip install .
 
 cp examples/grafana-backup.example.json grafana-backup.json
+
 cp examples/grafana-backup.example.json grafana-restore.json
 
 sudo grafana-backup save --config=backup-dev.json
+
 sudo grafana-backup save --config=backup-staging.json
+
 sudo grafana-backup save --config=backup-prod.json
 
 sudo grafana-backup restore --config=restore-dev.json   _OUTPUT_/202211250207.tar.gz
+
 sudo grafana-backup restore --config=restore-staging.json   _OUTPUT_/202211250207.tar.gz
+
 sudo grafana-backup restore --config=restore-prod.json   _OUTPUT_/202211250207.tar.gz
 
 ### k8s grafana backup
