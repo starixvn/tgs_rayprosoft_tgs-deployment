@@ -10,7 +10,7 @@ config:
   cluster:
     enabled: true
     name: nats
-    replicas: 3
+    replicas: 1
 
   jetstream:
     enabled: true
