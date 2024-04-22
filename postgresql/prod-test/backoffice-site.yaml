@@ -1,0 +1,160 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "11"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"deployment.kubernetes.io/revision":"15","kubernetes.io/change-cause":"kubectl set image deployment/backoffice-site backoffice-site=pgtgs/backoffice-site:prod-2023-1106-0929 --record=true --namespace=prod"},"creationTimestamp":"2023-03-09T18:39:00Z","generation":16,"labels":{"app":"backoffice-site"},"name":"backoffice-site","namespace":"prod","resourceVersion":"806035032","uid":"e5b63524-272a-42f4-a1d8-2f5e75b749fd"},"spec":{"progressDeadlineSeconds":600,"replicas":4,"revisionHistoryLimit":3,"selector":{"matchLabels":{"app":"backoffice-site"}},"strategy":{"rollingUpdate":{"maxSurge":"25%","maxUnavailable":"25%"},"type":"RollingUpdate"},"template":{"metadata":{"annotations":{"kubectl.kubernetes.io/restartedAt":"2023-03-09T18:33:08Z"},"creationTimestamp":null,"labels":{"app":"backoffice-site"}},"spec":{"containers":[{"env":[{"name":"MODE","value":"Production"},{"name":"LOGIN_BUTTON_COLOR","value":"#ffffff"},{"name":"LOGIN_BUTTON_BACKGROUND","value":"#1e417b"},{"name":"HEADER_BACKGROUND","value":"#1e417b"},{"name":"HEADER_BUTTON_COLOR","value":"#ffffff"},{"name":"HEADER_BUTTON_BACKGROUND","value":"transparent"},{"name":"LOGIN_IMAGE_URL","value":"//images.srvptt.com/GMS%20Logo/GMS.png"},{"name":"HEADER_IMAGE_URL","value":"//images.srvptt.com/GMS%20Logo/GMS-w.png"},{"name":"DEPLOY_DATE","value":"2022-02-25-18:45"}],"image":"pgtgs/backoffice-site:prod-2023-1106-0929","imagePullPolicy":"IfNotPresent","livenessProbe":{"failureThreshold":3,"httpGet":{"path":"/healthcheck","port":80,"scheme":"HTTP"},"initialDelaySeconds":5,"periodSeconds":5,"successThreshold":1,"timeoutSeconds":1},"name":"backoffice-site","ports":[{"containerPort":80,"protocol":"TCP"}],"readinessProbe":{"failureThreshold":3,"httpGet":{"path":"/healthcheck","port":80,"scheme":"HTTP"},"initialDelaySeconds":5,"periodSeconds":5,"successThreshold":1,"timeoutSeconds":1},"resources":{},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","volumeMounts":[{"mountPath":"/data","name":"site-data"}]}],"dnsPolicy":"ClusterFirst","imagePullSecrets":[{"name":"registry-credentials"},{"name":"dockerhub"}],"nodeSelector":{"dedicated":"prod"},"restartPolicy":"Always","schedulerName":"default-scheduler","securityContext":{},"terminationGracePeriodSeconds":30,"tolerations":[{"effect":"NoSchedule","key":"dedicated","operator":"Equal","value":"prod"}],"volumes":[{"emptyDir":{},"name":"site-data"}]}}},"status":{"availableReplicas":4,"conditions":[{"lastTransitionTime":"2023-08-26T13:42:24Z","lastUpdateTime":"2023-08-26T13:42:24Z","message":"Deployment has minimum availability.","reason":"MinimumReplicasAvailable","status":"True","type":"Available"},{"lastTransitionTime":"2023-03-09T18:39:00Z","lastUpdateTime":"2023-11-07T03:04:43Z","message":"ReplicaSet \"backoffice-site-5c67ccccbc\" has successfully progressed.","reason":"NewReplicaSetAvailable","status":"True","type":"Progressing"}],"observedGeneration":16,"readyReplicas":4,"replicas":4,"updatedReplicas":4}}
+    kubernetes.io/change-cause: kubectl set image deployment/backoffice-site backoffice-site=pgtgs/backoffice-site:prod-2024-0328-0321
+      --record=true --namespace=prod
+  creationTimestamp: "2023-11-22T01:55:16Z"
+  generation: 11
+  labels:
+    app: backoffice-site
+  name: backoffice-site
+  namespace: prod
+  resourceVersion: "157245222"
+  uid: 1257f870-a2eb-49eb-8786-9dddbe875d12
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 4
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: backoffice-site
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/restartedAt: "2023-03-09T18:33:08Z"
+      creationTimestamp: null
+      labels:
+        app: backoffice-site
+    spec:
+      containers:
+      - env:
+        - name: MODE
+          value: Production
+        - name: LOGIN_BUTTON_COLOR
+          value: '#ffffff'
+        - name: LOGIN_BUTTON_BACKGROUND
+          value: '#1e417b'
+        - name: HEADER_BACKGROUND
+          value: '#1e417b'
+        - name: HEADER_BUTTON_COLOR
+          value: '#ffffff'
+        - name: HEADER_BUTTON_BACKGROUND
+          value: transparent
+        - name: LOGIN_IMAGE_URL
+          value: //images.srvptt.com/GMS%20Logo/GMS.png
+        - name: HEADER_IMAGE_URL
+          value: //images.srvptt.com/GMS%20Logo/GMS-w.png
+        - name: DEPLOY_DATE
+          value: 2022-02-25-18:45
+        image: pgtgs/backoffice-site:prod-2024-0328-0321
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /healthcheck
+            port: 80
+            scheme: HTTP
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 1
+        name: backoffice-site
+        ports:
+        - containerPort: 80
+          protocol: TCP
+        readinessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /healthcheck
+            port: 80
+            scheme: HTTP
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 1
+        resources: {}
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /data
+          name: site-data
+      dnsPolicy: ClusterFirst
+      imagePullSecrets:
+      - name: registry-credentials
+      - name: dockerhub
+      nodeSelector:
+        dedicated: prod
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      terminationGracePeriodSeconds: 30
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: prod
+      volumes:
+      - emptyDir: {}
+        name: site-data
+status:
+  availableReplicas: 4
+  conditions:
+  - lastTransitionTime: "2024-03-13T01:24:46Z"
+    lastUpdateTime: "2024-03-13T01:24:46Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2023-11-22T01:55:16Z"
+    lastUpdateTime: "2024-03-28T03:23:46Z"
+    message: ReplicaSet "backoffice-site-bc4fcc99b" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 11
+  readyReplicas: 4
+  replicas: 4
+  updatedReplicas: 4
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"name":"backoffice-site","namespace":"prod"},"spec":{"ports":[{"name":"web","port":80,"protocol":"TCP"}],"selector":{"app":"backoffice-site"}}}
+  creationTimestamp: "2023-11-15T02:10:17Z"
+  labels:
+    velero.io/backup-name: svc-1115
+    velero.io/restore-name: svc
+  name: backoffice-site
+  namespace: prod
+  resourceVersion: "15113"
+  uid: c3206719-5617-448b-8823-6c2d15f7701f
+spec:
+  clusterIP: 172.20.62.70
+  clusterIPs:
+  - 172.20.62.70
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: web
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: backoffice-site
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}

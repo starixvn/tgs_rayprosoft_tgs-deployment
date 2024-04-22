@@ -1,0 +1,46 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"networking.k8s.io/v1","kind":"Ingress","metadata":{"annotations":{"cert-manager.io/cluster-issuer":"letsencrypt","nginx.ingress.kubernetes.io/proxy-body-size":"50m","nginx.ingress.kubernetes.io/ssl-redirect":"false"},"name":"backoffice-site-old","namespace":"prod"},"spec":{"ingressClassName":"nginx","rules":[{"host":"old.criop668.com","http":{"paths":[{"backend":{"service":{"name":"backoffice-api-old","port":{"number":80}}},"path":"/api","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"file-service","port":{"number":80}}},"path":"/fs","pathType":"ImplementationSpecific"},{"backend":{"service":{"name":"backoffice-site","port":{"number":80}}},"path":"/","pathType":"ImplementationSpecific"}]}}]}}
+    nginx.ingress.kubernetes.io/proxy-body-size: 50m
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+  creationTimestamp: "2024-01-09T07:29:55Z"
+  generation: 1
+  name: backoffice-site-old
+  namespace: prod
+  resourceVersion: "53557053"
+  uid: e15a22cb-9f6e-42af-b7af-f37e76cdf2f6
+spec:
+  ingressClassName: nginx
+  rules:
+  - host: old.criop668.com
+    http:
+      paths:
+      - backend:
+          service:
+            name: backoffice-api-old
+            port:
+              number: 80
+        path: /api
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: file-service
+            port:
+              number: 80
+        path: /fs
+        pathType: ImplementationSpecific
+      - backend:
+          service:
+            name: backoffice-site
+            port:
+              number: 80
+        path: /
+        pathType: ImplementationSpecific
+status:
+  loadBalancer:
+    ingress:
+    - hostname: afe430dae6bc84053a00426e4e5afbbc-87d97f2af730aa1c.elb.ap-east-1.amazonaws.com
