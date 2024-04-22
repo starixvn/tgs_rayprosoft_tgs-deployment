@@ -84,6 +84,26 @@ config:
         Suppress_Type_Name On
         Trace_Error     On
         Buffer_Size     5M
+    [OUTPUT]
+        Name            s3
+        Match           nginx.*
+        bucket          tgs-nginxlog
+        region          ap-east-1
+        s3_key_format   /stag/%Y/%m/%d_%H
+        total_file_size 100M
+        upload_timeout  60m
+        tls.verify      Off
+    [OUTPUT]
+        Name            es
+        Match           nginx.*
+        Host            ${FLUENT_ELASTICSEARCH_HOST}
+        Port            ${FLUENT_ELASTICSEARCH_PORT}
+        Logstash_Format On
+        Logstash_Prefix nginx-staging
+        Replace_Dots    On
+        Trace_Error     On
+        Buffer_Size     5M
+        Suppress_Type_Name On
 
 luaScripts:
   append_tag.lua: |

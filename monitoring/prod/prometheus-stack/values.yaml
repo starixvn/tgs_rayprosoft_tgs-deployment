@@ -96,6 +96,8 @@ coreDns:
   serviceMonitor:
     enabled: false
 prometheus:
+  scrapeInterval: 1m
+  evaluationInterval: 1m
   ingress: 
     enabled: true
     ingressClassName: nginx
