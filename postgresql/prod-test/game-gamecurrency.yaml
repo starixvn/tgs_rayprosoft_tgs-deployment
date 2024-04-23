@@ -161,11 +161,6 @@ spec:
       nodeSelector:
         dedicated: game
       restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext: {}
-      serviceAccount: game-gamecurrency
-      serviceAccountName: game-gamecurrency
-      terminationGracePeriodSeconds: 30
       tolerations:
       - effect: NoSchedule
         key: dedicated
