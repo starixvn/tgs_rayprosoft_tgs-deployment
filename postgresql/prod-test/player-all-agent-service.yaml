@@ -96,10 +96,6 @@ spec:
       nodeSelector:
         dedicated: prod
       restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext: {}
-      serviceAccountName: player-all-agent-service
-      terminationGracePeriodSeconds: 30
       tolerations:
       - effect: NoSchedule
         key: dedicated

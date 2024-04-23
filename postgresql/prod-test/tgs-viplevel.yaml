@@ -101,9 +101,6 @@ spec:
       nodeSelector:
         dedicated: prod
       restartPolicy: Always
-      serviceAccount: tgs-viplevel
-      serviceAccountName: tgs-viplevel
-      terminationGracePeriodSeconds: 30
       tolerations:
       - effect: NoSchedule
         key: dedicated
