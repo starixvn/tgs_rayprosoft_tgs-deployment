@@ -8,7 +8,7 @@ global:
     velero.io/exclude-from-backup: "true"
 config:
   cluster:
-    enabled: false
+    enabled: true
     name: nats
     replicas: 1
 
