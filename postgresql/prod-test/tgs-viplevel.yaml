@@ -12,11 +12,9 @@ metadata:
     tgs.viplevels.kind: api
   name: tgs-viplevel
   namespace: prod-old
-  resourceVersion: "137709954"
-  uid: 5a07c9cd-cafd-4fb1-85f1-4abc13342b4c
 spec:
   progressDeadlineSeconds: 600
-  replicas: 2
+  replicas: 1
   revisionHistoryLimit: 10
   selector:
     matchLabels:
@@ -37,7 +35,6 @@ spec:
         prometheus.io/path: /metrics
         prometheus.io/port: "8889"
         prometheus.io/scrape: "true"
-      creationTimestamp: null
       labels:
         app: viplevel
         app.kubernetes.io/instance: tgs
@@ -106,8 +103,6 @@ spec:
           periodSeconds: 2
           successThreshold: 1
           timeoutSeconds: 1
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
         volumeMounts:
         - mountPath: /app/appsettings.Production.json
           name: appsettings
@@ -119,8 +114,6 @@ spec:
       nodeSelector:
         dedicated: prod
       restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext: {}
       serviceAccount: tgs-viplevel
       serviceAccountName: tgs-viplevel
       terminationGracePeriodSeconds: 30
