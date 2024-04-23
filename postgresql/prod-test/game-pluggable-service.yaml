@@ -1,0 +1,323 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "24"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"reloader.stakater.com/auto":"true"},"labels":{"app":"game-pluggable-service","app.kubernetes.io/instance":"tgs","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"game-pluggable-service","app.kubernetes.io/version":"1.16.0","helm.sh/chart":"game-pluggable-service-0.1.0","tgs.game.kind":"pluggable","tgs.kind":"game","tgs.pluggable.kind":"service"},"name":"game-pluggable-service","namespace":"prod"},"spec":{"replicas":2,"selector":{"matchLabels":{"app":"game-pluggable-service","app.kubernetes.io/instance":"tgs","app.kubernetes.io/name":"game-pluggable-service","tgs.game.kind":"pluggable","tgs.kind":"game","tgs.pluggable.kind":"service"}},"template":{"metadata":{"annotations":{"prometheus.io/path":"/metrics","prometheus.io/port":"8889","prometheus.io/scrape":"true"},"labels":{"app":"game-pluggable-service","app.kubernetes.io/instance":"tgs","app.kubernetes.io/name":"game-pluggable-service","tgs.game.kind":"pluggable","tgs.kind":"game","tgs.pluggable.kind":"service"}},"spec":{"affinity":{"podAntiAffinity":{"requiredDuringSchedulingIgnoredDuringExecution":[{"labelSelector":{"matchExpressions":[{"key":"app","operator":"In","values":["game-pluggable-service"]}]},"topologyKey":"kubernetes.io/hostname"}]}},"containers":[{"env":[{"name":"OTEL_SERVICE_NAME","value":"Game-Pluggable-Service(prod)"},{"name":"NODE_IP","valueFrom":{"fieldRef":{"fieldPath":"status.hostIP"}}},{"name":"ConnectionStrings__Tgs","valueFrom":{"secretKeyRef":{"key":"tgs","name":"tgs-connections"}}},{"name":"ConnectionStrings__Nats","valueFrom":{"secretKeyRef":{"key":"nats","name":"tgs-connections"}}},{"name":"ConnectionStrings__Redis","valueFrom":{"secretKeyRef":{"key":"redis","name":"tgs-connections"}}}],"image":"pgtgs/game-pluggable-service:202404180929.94","imagePullPolicy":"IfNotPresent","livenessProbe":{"failureThreshold":5,"httpGet":{"path":"/healthz","port":"http"},"periodSeconds":60},"name":"game-pluggable-service","ports":[{"containerPort":8080,"name":"http","protocol":"TCP"}],"resources":{"limits":{"cpu":"1","memory":"512Mi"},"requests":{"cpu":"200m","memory":"512Mi"}},"securityContext":{},"startupProbe":{"failureThreshold":30,"httpGet":{"path":"/healthz","port":"http"},"periodSeconds":2},"volumeMounts":[{"mountPath":"/app/appsettings.Production.json","name":"appsettings","readOnly":true,"subPath":"appsettings.json"}]},{"args":["--config=/etc/otel/config.yaml"],"env":[{"name":"NODE_IP","valueFrom":{"fieldRef":{"fieldPath":"status.hostIP"}}}],"image":"otel/opentelemetry-collector:0.62.1","imagePullPolicy":"IfNotPresent","livenessProbe":{"httpGet":{"path":"/healthz","port":"health"},"periodSeconds":5},"name":"monitor","ports":[{"containerPort":8889,"name":"metrics","protocol":"TCP"},{"containerPort":13133,"name":"health","protocol":"TCP"},{"containerPort":4317,"name":"otlp","protocol":"TCP"}],"resources":{"limits":{"cpu":"250m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"32Mi"}},"startupProbe":{"failureThreshold":30,"httpGet":{"path":"/healthz","port":"health"},"periodSeconds":2},"volumeMounts":[{"mountPath":"/etc/otel/config.yaml","name":"appsettings","readOnly":true,"subPath":"otel-collector-config.yaml"}]}],"imagePullSecrets":[{"name":"dockerhub"}],"nodeSelector":{"dedicated":"game"},"securityContext":{},"serviceAccountName":"game-pluggable-service","tolerations":[{"effect":"NoSchedule","key":"dedicated","operator":"Equal","value":"game"}],"volumes":[{"configMap":{"name":"configmap-game-pluggable-service"},"name":"appsettings"}]}}}}
+    reloader.stakater.com/auto: "true"
+  creationTimestamp: "2024-04-08T02:29:46Z"
+  generation: 24
+  labels:
+    app: game-pluggable-service
+    app.kubernetes.io/instance: tgs
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: game-pluggable-service
+    app.kubernetes.io/version: 1.16.0
+    helm.sh/chart: game-pluggable-service-0.1.0
+    tgs.game.kind: pluggable
+    tgs.kind: game
+    tgs.pluggable.kind: service
+  name: game-pluggable-service
+  namespace: prod
+  resourceVersion: "157791715"
+  uid: 18c88c6e-a25e-4151-96e0-43c21a608baa
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 2
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: game-pluggable-service
+      app.kubernetes.io/instance: tgs
+      app.kubernetes.io/name: game-pluggable-service
+      tgs.game.kind: pluggable
+      tgs.kind: game
+      tgs.pluggable.kind: service
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/restartedAt: "2024-04-23T00:15:03Z"
+        prometheus.io/path: /metrics
+        prometheus.io/port: "8889"
+        prometheus.io/scrape: "true"
+      creationTimestamp: null
+      labels:
+        app: game-pluggable-service
+        app.kubernetes.io/instance: tgs
+        app.kubernetes.io/name: game-pluggable-service
+        tgs.game.kind: pluggable
+        tgs.kind: game
+        tgs.pluggable.kind: service
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app
+                operator: In
+                values:
+                - game-pluggable-service
+            topologyKey: kubernetes.io/hostname
+      containers:
+      - env:
+        - name: OTEL_SERVICE_NAME
+          value: Game-Pluggable-Service(prod)
+        - name: NODE_IP
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: status.hostIP
+        - name: ConnectionStrings__Tgs
+          valueFrom:
+            secretKeyRef:
+              key: tgs
+              name: tgs-connections
+        - name: ConnectionStrings__Nats
+          valueFrom:
+            secretKeyRef:
+              key: nats
+              name: tgs-connections
+        - name: ConnectionStrings__Redis
+          valueFrom:
+            secretKeyRef:
+              key: redis
+              name: tgs-connections
+        - name: STAKATER_TGS_CONNECTIONS_SECRET
+          value: 49e16a9db0eb035ef5213c2abb85424fc56e1c7a
+        - name: STAKATER_CONFIGMAP_GAME_PLUGGABLE_SERVICE_CONFIGMAP
+          value: 6ac45082f4d10dd960de0582e8fb8800ff3e03b1
+        image: pgtgs/game-pluggable-service:202404180929.94
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 5
+          httpGet:
+            path: /healthz
+            port: http
+            scheme: HTTP
+          periodSeconds: 60
+          successThreshold: 1
+          timeoutSeconds: 1
+        name: game-pluggable-service
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        resources:
+          limits:
+            cpu: "1"
+            memory: 512Mi
+          requests:
+            cpu: 200m
+            memory: 512Mi
+        securityContext: {}
+        startupProbe:
+          failureThreshold: 30
+          httpGet:
+            path: /healthz
+            port: http
+            scheme: HTTP
+          periodSeconds: 2
+          successThreshold: 1
+          timeoutSeconds: 1
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /app/appsettings.Production.json
+          name: appsettings
+          readOnly: true
+          subPath: appsettings.json
+      - args:
+        - --config=/etc/otel/config.yaml
+        env:
+        - name: NODE_IP
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: status.hostIP
+        image: otel/opentelemetry-collector:0.62.1
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /healthz
+            port: health
+            scheme: HTTP
+          periodSeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 1
+        name: monitor
+        ports:
+        - containerPort: 8889
+          name: metrics
+          protocol: TCP
+        - containerPort: 13133
+          name: health
+          protocol: TCP
+        - containerPort: 4317
+          name: otlp
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 250m
+            memory: 256Mi
+          requests:
+            cpu: 50m
+            memory: 32Mi
+        startupProbe:
+          failureThreshold: 30
+          httpGet:
+            path: /healthz
+            port: health
+            scheme: HTTP
+          periodSeconds: 2
+          successThreshold: 1
+          timeoutSeconds: 1
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /etc/otel/config.yaml
+          name: appsettings
+          readOnly: true
+          subPath: otel-collector-config.yaml
+      dnsPolicy: ClusterFirst
+      imagePullSecrets:
+      - name: dockerhub
+      nodeSelector:
+        dedicated: game
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: game-pluggable-service
+      serviceAccountName: game-pluggable-service
+      terminationGracePeriodSeconds: 30
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: game
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: configmap-game-pluggable-service
+        name: appsettings
+status:
+  availableReplicas: 2
+  conditions:
+  - lastTransitionTime: "2024-04-21T11:00:44Z"
+    lastUpdateTime: "2024-04-21T11:00:44Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  - lastTransitionTime: "2024-04-08T02:29:46Z"
+    lastUpdateTime: "2024-04-23T00:15:18Z"
+    message: ReplicaSet "game-pluggable-service-588944fb97" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  observedGeneration: 24
+  readyReplicas: 2
+  replicas: 2
+  updatedReplicas: 2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"game-pluggable-service","app.kubernetes.io/instance":"tgs","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"game-pluggable-service","app.kubernetes.io/version":"1.16.0","helm.sh/chart":"game-pluggable-service-0.1.0","tgs.game.kind":"pluggable","tgs.kind":"game","tgs.pluggable.kind":"service"},"name":"game-pluggable-service","namespace":"prod"},"spec":{"ports":[{"name":"http","port":80,"protocol":"TCP","targetPort":8080}],"selector":{"app":"game-pluggable-service","app.kubernetes.io/instance":"tgs","app.kubernetes.io/name":"game-pluggable-service","tgs.game.kind":"pluggable","tgs.kind":"game","tgs.pluggable.kind":"service"},"type":"ClusterIP"}}
+  creationTimestamp: "2023-11-15T02:10:25Z"
+  labels:
+    app: game-pluggable-service
+    app.kubernetes.io/instance: tgs
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: game-pluggable-service
+    app.kubernetes.io/version: 1.16.0
+    helm.sh/chart: game-pluggable-service-0.1.0
+    tgs.game.kind: pluggable
+    tgs.kind: game
+    tgs.pluggable.kind: service
+    velero.io/backup-name: svc-1115
+    velero.io/restore-name: svc
+  name: game-pluggable-service
+  namespace: prod
+  resourceVersion: "144410739"
+  uid: 58c472e8-a6da-408e-8c52-100be4bf2001
+spec:
+  clusterIP: 172.20.31.209
+  clusterIPs:
+  - 172.20.31.209
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: game-pluggable-service
+    app.kubernetes.io/instance: tgs
+    app.kubernetes.io/name: game-pluggable-service
+    tgs.game.kind: pluggable
+    tgs.kind: game
+    tgs.pluggable.kind: service
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
+---
+apiVersion: v1
+data:
+  appsettings.json: |
+    {
+      "Logging": {
+        "LogLevel": {
+          "Default": "Warning"
+        }
+      },
+      "Pluggable": {
+        "GameProvidersClientBaseUrl": "http://game-gameproviders/",
+        "CashServiceClientBaseUrl": "http://cashservice-api/",
+        "GameFundTransferClientBaseUrl": "dns:///game-gamefundtransfer:9090/",
+        "GameCurrencyClientBaseUrl": "http://game-gamecurrency/",
+        "GameRoundsClientBaseUrl": "http://game-gamerounds"
+      }
+    }
+  otel-collector-config.yaml: "receivers:\n  otlp:\n    protocols:\n      grpc:\n\nprocessors:\n
+    \ batch:\n\nexporters:\n  otlp:\n    endpoint: \"$NODE_IP:4317\"\n    tls:\n      insecure:
+    true\n  prometheus:\n    endpoint: \"0.0.0.0:8889\"\n    namespace: \"tgs\"\n\nextensions:\n
+    \ health_check:\n    endpoint: 0.0.0.0:13133\n\nservice:\n  extensions: [health_check]\n
+    \ pipelines:\n    traces: \n      receivers: [otlp]\n      processors:\n        -
+    batch\n      exporters: [otlp]\n    metrics:\n      receivers: [otlp]\n      exporters:
+    [prometheus]\n"
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","data":{"appsettings.json":"{\n  \"Logging\": {\n    \"LogLevel\": {\n      \"Default\": \"Warning\"\n    }\n  },\n  \"Pluggable\": {\n    \"GameProvidersClientBaseUrl\": \"http://game-gameproviders/\",\n    \"CashServiceClientBaseUrl\": \"http://cashservice-api/\",\n    \"GameFundTransferClientBaseUrl\": \"dns:///game-gamefundtransfer:9090/\",\n    \"GameCurrencyClientBaseUrl\": \"http://game-gamecurrency/\",\n    \"GameRoundsClientBaseUrl\": \"http://game-gamerounds\"\n  }\n}\n","otel-collector-config.yaml":"receivers:\n  otlp:\n    protocols:\n      grpc:\n\nprocessors:\n  batch:\n\nexporters:\n  otlp:\n    endpoint: \"$NODE_IP:4317\"\n    tls:\n      insecure: true\n  prometheus:\n    endpoint: \"0.0.0.0:8889\"\n    namespace: \"tgs\"\n\nextensions:\n  health_check:\n    endpoint: 0.0.0.0:13133\n\nservice:\n  extensions: [health_check]\n  pipelines:\n    traces: \n      receivers: [otlp]\n      processors:\n        - batch\n      exporters: [otlp]\n    metrics:\n      receivers: [otlp]\n      exporters: [prometheus]\n"},"kind":"ConfigMap","metadata":{"annotations":{},"labels":{"app":"game-pluggable-service","app.kubernetes.io/instance":"tgs","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"game-pluggable-service","app.kubernetes.io/version":"1.16.0","helm.sh/chart":"game-pluggable-service-0.1.0","tgs.game.kind":"pluggable","tgs.kind":"game","tgs.pluggable.kind":"service"},"name":"configmap-game-pluggable-service","namespace":"prod"}}
+  creationTimestamp: "2023-11-15T02:10:06Z"
+  labels:
+    app: game-pluggable-service
+    app.kubernetes.io/instance: tgs
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: game-pluggable-service
+    app.kubernetes.io/version: 1.16.0
+    helm.sh/chart: game-pluggable-service-0.1.0
+    tgs.game.kind: pluggable
+    tgs.kind: game
+    tgs.pluggable.kind: service
+    velero.io/backup-name: svc-1115
+    velero.io/restore-name: svc
+  name: configmap-game-pluggable-service
+  namespace: prod
+  resourceVersion: "146316902"
+  uid: 5cc28132-bcc5-44c3-9db6-1748eadc6c7b
