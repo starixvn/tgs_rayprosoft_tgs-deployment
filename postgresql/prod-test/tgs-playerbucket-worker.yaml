@@ -1,0 +1,298 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "4"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"deployment.kubernetes.io/revision":"60"},"creationTimestamp":"2022-11-16T08:05:36Z","generation":64,"labels":{"app.kubernetes.io/instance":"tgs","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"playerbucket-worker","app.kubernetes.io/version":"1.16.0","helm.sh/chart":"playerbucket-worker-0.1.0","tgs.kind":"playerbucket"},"name":"tgs-playerbucket-worker","namespace":"prod","resourceVersion":"807114409","uid":"89fe890b-36e9-40f4-bd57-6b8e8dbe7b5f"},"spec":{"progressDeadlineSeconds":600,"replicas":2,"revisionHistoryLimit":10,"selector":{"matchLabels":{"app.kubernetes.io/instance":"tgs","app.kubernetes.io/name":"playerbucket-worker","tgs.kind":"playerbucket"}},"strategy":{"rollingUpdate":{"maxSurge":"25%","maxUnavailable":"25%"},"type":"RollingUpdate"},"template":{"metadata":{"annotations":{"kubectl.kubernetes.io/restartedAt":"2023-10-31T16:34:27+08:00","prometheus.io/path":"/metrics","prometheus.io/port":"8889","prometheus.io/scrape":"true"},"creationTimestamp":null,"labels":{"app.kubernetes.io/instance":"tgs","app.kubernetes.io/name":"playerbucket-worker","tgs.kind":"playerbucket"}},"spec":{"containers":[{"env":[{"name":"OTEL_SERVICE_NAME","value":"PlayerBucket-Worker(prod)"},{"name":"NODE_IP","valueFrom":{"fieldRef":{"apiVersion":"v1","fieldPath":"status.hostIP"}}},{"name":"ConnectionStrings__Tgs","valueFrom":{"secretKeyRef":{"key":"tgs","name":"tgs-connections"}}},{"name":"ConnectionStrings__Nats","valueFrom":{"secretKeyRef":{"key":"nats","name":"tgs-connections"}}},{"name":"ConnectionStrings__Redis","valueFrom":{"secretKeyRef":{"key":"redis","name":"tgs-connections"}}},{"name":"ConnectionStrings__Mongo","valueFrom":{"secretKeyRef":{"key":"mongo-player-bucket","name":"tgs-connections"}}},{"name":"DOTNET_gcServer","value":"0"}],"image":"pgtgs/bucket-worker:202310310549.213","imagePullPolicy":"IfNotPresent","livenessProbe":{"failureThreshold":3,"httpGet":{"path":"/healthz","port":"http","scheme":"HTTP"},"periodSeconds":5,"successThreshold":1,"timeoutSeconds":1},"name":"playerbucket-worker","ports":[{"containerPort":80,"name":"http","protocol":"TCP"}],"resources":{"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"100m","memory":"400Mi"}},"securityContext":{},"startupProbe":{"failureThreshold":30,"httpGet":{"path":"/healthz","port":"http","scheme":"HTTP"},"periodSeconds":2,"successThreshold":1,"timeoutSeconds":1},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","volumeMounts":[{"mountPath":"/config/appsettings.json","name":"appsettings","readOnly":true,"subPath":"appsettings.json"},{"mountPath":"/etc/ssl/certs/rds-combined-ca-bundle.pem","name":"rds-combined-ca-bundle","readOnly":true,"subPath":"rds-combined-ca-bundle.pem"}]},{"args":["--config=/etc/otel/config.yaml"],"env":[{"name":"NODE_IP","valueFrom":{"fieldRef":{"apiVersion":"v1","fieldPath":"status.hostIP"}}}],"image":"otel/opentelemetry-collector:0.62.1","imagePullPolicy":"IfNotPresent","livenessProbe":{"failureThreshold":3,"httpGet":{"path":"/healthz","port":"health","scheme":"HTTP"},"periodSeconds":5,"successThreshold":1,"timeoutSeconds":1},"name":"monitor","ports":[{"containerPort":8889,"name":"metrics","protocol":"TCP"},{"containerPort":13133,"name":"health","protocol":"TCP"},{"containerPort":4317,"name":"otlp","protocol":"TCP"}],"resources":{"limits":{"cpu":"250m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"32Mi"}},"startupProbe":{"failureThreshold":30,"httpGet":{"path":"/healthz","port":"health","scheme":"HTTP"},"periodSeconds":2,"successThreshold":1,"timeoutSeconds":1},"terminationMessagePath":"/dev/termination-log","terminationMessagePolicy":"File","volumeMounts":[{"mountPath":"/etc/otel/config.yaml","name":"appsettings","readOnly":true,"subPath":"otel-collector-config.yaml"}]}],"dnsPolicy":"ClusterFirst","imagePullSecrets":[{"name":"dockerhub"}],"nodeSelector":{"dedicated":"prod"},"restartPolicy":"Always","schedulerName":"default-scheduler","securityContext":{},"serviceAccount":"default","serviceAccountName":"default","terminationGracePeriodSeconds":30,"tolerations":[{"effect":"NoSchedule","key":"dedicated","operator":"Equal","value":"prod"}],"volumes":[{"configMap":{"defaultMode":420,"name":"configmap-tgs-playerbucket-worker"},"name":"appsettings"},{"name":"rds-combined-ca-bundle","secret":{"defaultMode":420,"secretName":"rds-combined-ca-bundle"}}]}}},"status":{"availableReplicas":2,"conditions":[{"lastTransitionTime":"2022-11-16T08:05:36Z","lastUpdateTime":"2023-10-31T08:34:45Z","message":"ReplicaSet \"tgs-playerbucket-worker-746b78b748\" has successfully progressed.","reason":"NewReplicaSetAvailable","status":"True","type":"Progressing"},{"lastTransitionTime":"2023-11-15T05:43:43Z","lastUpdateTime":"2023-11-15T05:43:43Z","message":"Deployment has minimum availability.","reason":"MinimumReplicasAvailable","status":"True","type":"Available"}],"observedGeneration":64,"readyReplicas":2,"replicas":2,"updatedReplicas":2}}
+  creationTimestamp: "2023-11-22T01:56:20Z"
+  generation: 4
+  labels:
+    app.kubernetes.io/instance: tgs
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: playerbucket-worker
+    app.kubernetes.io/version: 1.16.0
+    helm.sh/chart: playerbucket-worker-0.1.0
+    tgs.kind: playerbucket
+  name: tgs-playerbucket-worker
+  namespace: prod
+  resourceVersion: "157245399"
+  uid: d409f8de-97bc-4e8b-adf3-c262d200806d
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 2
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app.kubernetes.io/instance: tgs
+      app.kubernetes.io/name: playerbucket-worker
+      tgs.kind: playerbucket
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/restartedAt: "2023-12-25T23:11:19+08:00"
+        prometheus.io/path: /metrics
+        prometheus.io/port: "8889"
+        prometheus.io/scrape: "true"
+      creationTimestamp: null
+      labels:
+        app.kubernetes.io/instance: tgs
+        app.kubernetes.io/name: playerbucket-worker
+        tgs.kind: playerbucket
+    spec:
+      containers:
+      - env:
+        - name: OTEL_SERVICE_NAME
+          value: PlayerBucket-Worker(prod)
+        - name: NODE_IP
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: status.hostIP
+        - name: ConnectionStrings__Tgs
+          valueFrom:
+            secretKeyRef:
+              key: tgs
+              name: tgs-connections
+        - name: ConnectionStrings__Nats
+          valueFrom:
+            secretKeyRef:
+              key: nats
+              name: tgs-connections
+        - name: ConnectionStrings__Redis
+          valueFrom:
+            secretKeyRef:
+              key: redis
+              name: tgs-connections
+        - name: ConnectionStrings__Mongo
+          valueFrom:
+            secretKeyRef:
+              key: mongo-player-bucket
+              name: tgs-connections
+        - name: DOTNET_gcServer
+          value: "0"
+        image: pgtgs/bucket-worker:202310310549.213
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /healthz
+            port: http
+            scheme: HTTP
+          periodSeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 1
+        name: playerbucket-worker
+        ports:
+        - containerPort: 80
+          name: http
+          protocol: TCP
+        resources:
+          limits:
+            cpu: "1"
+            memory: 400Mi
+          requests:
+            cpu: 100m
+            memory: 400Mi
+        securityContext: {}
+        startupProbe:
+          failureThreshold: 30
+          httpGet:
+            path: /healthz
+            port: http
+            scheme: HTTP
+          periodSeconds: 2
+          successThreshold: 1
+          timeoutSeconds: 1
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /config/appsettings.json
+          name: appsettings
+          readOnly: true
+          subPath: appsettings.json
+        - mountPath: /etc/ssl/certs/rds-combined-ca-bundle.pem
+          name: rds-combined-ca-bundle
+          readOnly: true
+          subPath: rds-combined-ca-bundle.pem
+      - args:
+        - --config=/etc/otel/config.yaml
+        env:
+        - name: NODE_IP
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: status.hostIP
+        image: otel/opentelemetry-collector:0.62.1
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /healthz
+            port: health
+            scheme: HTTP
+          periodSeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 1
+        name: monitor
+        ports:
+        - containerPort: 8889
+          name: metrics
+          protocol: TCP
+        - containerPort: 13133
+          name: health
+          protocol: TCP
+        - containerPort: 4317
+          name: otlp
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 250m
+            memory: 256Mi
+          requests:
+            cpu: 50m
+            memory: 32Mi
+        startupProbe:
+          failureThreshold: 30
+          httpGet:
+            path: /healthz
+            port: health
+            scheme: HTTP
+          periodSeconds: 2
+          successThreshold: 1
+          timeoutSeconds: 1
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /etc/otel/config.yaml
+          name: appsettings
+          readOnly: true
+          subPath: otel-collector-config.yaml
+      dnsPolicy: ClusterFirst
+      imagePullSecrets:
+      - name: dockerhub
+      nodeSelector:
+        dedicated: prod
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: default
+      serviceAccountName: default
+      terminationGracePeriodSeconds: 30
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: prod
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: configmap-tgs-playerbucket-worker
+        name: appsettings
+      - name: rds-combined-ca-bundle
+        secret:
+          defaultMode: 420
+          secretName: rds-combined-ca-bundle
+status:
+  availableReplicas: 2
+  conditions:
+  - lastTransitionTime: "2023-11-22T01:56:20Z"
+    lastUpdateTime: "2023-12-25T15:11:27Z"
+    message: ReplicaSet "tgs-playerbucket-worker-6d8685ff74" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  - lastTransitionTime: "2024-04-22T07:55:35Z"
+    lastUpdateTime: "2024-04-22T07:55:35Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  observedGeneration: 4
+  readyReplicas: 2
+  replicas: 2
+  updatedReplicas: 2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app.kubernetes.io/instance":"tgs","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"playerbucket-worker","app.kubernetes.io/version":"1.16.0","helm.sh/chart":"playerbucket-worker-0.1.0","tgs.kind":"playerbucket"},"name":"tgs-playerbucket-worker","namespace":"prod"},"spec":{"ports":[{"name":"http","port":80,"protocol":"TCP","targetPort":"http"}],"selector":{"app.kubernetes.io/instance":"tgs","app.kubernetes.io/name":"playerbucket-worker","tgs.kind":"playerbucket"},"type":"ClusterIP"}}
+  creationTimestamp: "2023-11-15T02:10:34Z"
+  labels:
+    app.kubernetes.io/instance: tgs
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: playerbucket-worker
+    app.kubernetes.io/version: 1.16.0
+    helm.sh/chart: playerbucket-worker-0.1.0
+    tgs.kind: playerbucket
+    velero.io/backup-name: svc-1115
+    velero.io/restore-name: svc
+  name: tgs-playerbucket-worker
+  namespace: prod
+  resourceVersion: "15994"
+  uid: 12c0c1ee-c4d1-4d24-9219-3d48f7df9bfb
+spec:
+  clusterIP: 172.20.6.182
+  clusterIPs:
+  - 172.20.6.182
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: http
+  selector:
+    app.kubernetes.io/instance: tgs
+    app.kubernetes.io/name: playerbucket-worker
+    tgs.kind: playerbucket
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
+---
+apiVersion: v1
+data:
+  appsettings.json: |
+    {
+      "OpenTelemetry": {
+        "Tracing": {
+          "Endpoint": "http://localhost:4317",
+          "ExportProcessorType": "Batch"
+        }
+      },
+      "Logging": {
+        "LogLevel": {
+          "Default": "Warning",
+        }
+      }
+    }
+  otel-collector-config.yaml: "receivers:\n  otlp:\n    protocols:\n      grpc:\n\nprocessors:\n
+    \ batch:\n\nexporters:\n  otlp:\n    endpoint: \"$NODE_IP:4317\"\n    tls:\n      insecure:
+    true\n  prometheus:\n    endpoint: \"0.0.0.0:8889\"\n    namespace: \"tgs\"\n\nextensions:\n
+    \ health_check:\n    endpoint: 0.0.0.0:13133\n\nservice:\n  extensions: [health_check]\n
+    \ pipelines:\n    traces: \n      receivers: [otlp]\n      processors:\n        -
+    batch\n      exporters: [otlp]\n    metrics:\n      receivers: [otlp]\n      exporters:
+    [prometheus]\n"
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","data":{"appsettings.json":"{\n  \"OpenTelemetry\": {\n    \"Tracing\": {\n      \"Endpoint\": \"http://localhost:4317\",\n      \"ExportProcessorType\": \"Batch\"\n    }\n  },\n  \"Logging\": {\n    \"LogLevel\": {\n      \"Default\": \"Warning\",\n    }\n  }\n}\n","otel-collector-config.yaml":"receivers:\n  otlp:\n    protocols:\n      grpc:\n\nprocessors:\n  batch:\n\nexporters:\n  otlp:\n    endpoint: \"$NODE_IP:4317\"\n    tls:\n      insecure: true\n  prometheus:\n    endpoint: \"0.0.0.0:8889\"\n    namespace: \"tgs\"\n\nextensions:\n  health_check:\n    endpoint: 0.0.0.0:13133\n\nservice:\n  extensions: [health_check]\n  pipelines:\n    traces: \n      receivers: [otlp]\n      processors:\n        - batch\n      exporters: [otlp]\n    metrics:\n      receivers: [otlp]\n      exporters: [prometheus]\n"},"kind":"ConfigMap","metadata":{"annotations":{},"name":"configmap-tgs-playerbucket-worker","namespace":"prod"}}
+  creationTimestamp: "2023-11-15T02:10:12Z"
+  labels:
+    velero.io/backup-name: svc-1115
+    velero.io/restore-name: svc
+  name: configmap-tgs-playerbucket-worker
+  namespace: prod
+  resourceVersion: "14954"
+  uid: 129b093a-9803-4dc7-84c0-33dea71dbdb1
