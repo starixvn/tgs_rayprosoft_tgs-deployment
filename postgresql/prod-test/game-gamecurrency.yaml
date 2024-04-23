@@ -1,0 +1,315 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "42"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"reloader.stakater.com/auto":"true"},"labels":{"app":"game-gamecurrency","app.kubernetes.io/instance":"RELEASE-NAME","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"game-gamecurrency","app.kubernetes.io/version":"1.16.0","helm.sh/chart":"game-gamecurrency-0.1.0","tgs.kind":"game"},"name":"game-gamecurrency","namespace":"prod"},"spec":{"selector":{"matchLabels":{"app":"game-gamecurrency","app.kubernetes.io/instance":"RELEASE-NAME","app.kubernetes.io/name":"game-gamecurrency","tgs.kind":"game"}},"template":{"metadata":{"annotations":{"prometheus.io/path":"/metrics","prometheus.io/port":"8889","prometheus.io/scrape":"true"},"labels":{"app":"game-gamecurrency","app.kubernetes.io/instance":"RELEASE-NAME","app.kubernetes.io/name":"game-gamecurrency","tgs.kind":"game"}},"spec":{"affinity":{"podAntiAffinity":{"requiredDuringSchedulingIgnoredDuringExecution":[{"labelSelector":{"matchExpressions":[{"key":"app.kubernetes.io/name","operator":"In","values":["game-gamecurrency"]}]},"topologyKey":"kubernetes.io/hostname"}]}},"containers":[{"env":[{"name":"OTEL_SERVICE_NAME","value":"Game-GameCurrency(prod)"},{"name":"NODE_IP","valueFrom":{"fieldRef":{"fieldPath":"status.hostIP"}}}],"image":"pgtgs/game-gamecurrency:202403070457.60","imagePullPolicy":"IfNotPresent","livenessProbe":{"httpGet":{"path":"/healthz","port":"http"},"initialDelaySeconds":5,"periodSeconds":5},"name":"game-gamecurrency","ports":[{"containerPort":8080,"name":"http","protocol":"TCP"}],"resources":{"limits":{"cpu":"1","memory":"384Mi"},"requests":{"cpu":"200m","memory":"384Mi"}},"securityContext":{},"startupProbe":{"failureThreshold":30,"httpGet":{"path":"/healthz","port":"http"},"periodSeconds":2},"volumeMounts":[{"mountPath":"/app/appsettings.Production.json","name":"appsettings","readOnly":true,"subPath":"appsettings.json"}]},{"args":["--config=/etc/otel/config.yaml"],"env":[{"name":"NODE_IP","valueFrom":{"fieldRef":{"fieldPath":"status.hostIP"}}}],"image":"otel/opentelemetry-collector:0.62.1","imagePullPolicy":"IfNotPresent","livenessProbe":{"httpGet":{"path":"/healthz","port":"health"},"periodSeconds":5},"name":"monitor","ports":[{"containerPort":8889,"name":"metrics","protocol":"TCP"},{"containerPort":13133,"name":"health","protocol":"TCP"},{"containerPort":4317,"name":"otlp","protocol":"TCP"}],"resources":{"limits":{"cpu":"250m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"32Mi"}},"startupProbe":{"failureThreshold":30,"httpGet":{"path":"/healthz","port":"health"},"periodSeconds":2},"volumeMounts":[{"mountPath":"/etc/otel/config.yaml","name":"appsettings","readOnly":true,"subPath":"otel-collector-config.yaml"}]}],"imagePullSecrets":[{"name":"dockerhub"}],"nodeSelector":{"dedicated":"game"},"securityContext":{},"serviceAccountName":"game-gamecurrency","tolerations":[{"effect":"NoSchedule","key":"dedicated","operator":"Equal","value":"game"}],"volumes":[{"configMap":{"name":"configmap-game-gamecurrency"},"name":"appsettings"}]}}}}
+    reloader.stakater.com/auto: "true"
+  creationTimestamp: "2023-11-22T01:55:29Z"
+  generation: 43
+  labels:
+    app: game-gamecurrency
+    app.kubernetes.io/instance: RELEASE-NAME
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: game-gamecurrency
+    app.kubernetes.io/version: 1.16.0
+    helm.sh/chart: game-gamecurrency-0.1.0
+    tgs.kind: game
+  name: game-gamecurrency
+  namespace: prod
+  resourceVersion: "154327746"
+  uid: 87db4f0d-6147-4043-894b-26e4afa15bd5
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 2
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: game-gamecurrency
+      app.kubernetes.io/instance: RELEASE-NAME
+      app.kubernetes.io/name: game-gamecurrency
+      tgs.kind: game
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/restartedAt: "2023-12-28T00:00:16Z"
+        prometheus.io/path: /metrics
+        prometheus.io/port: "8889"
+        prometheus.io/scrape: "true"
+      creationTimestamp: null
+      labels:
+        app: game-gamecurrency
+        app.kubernetes.io/instance: RELEASE-NAME
+        app.kubernetes.io/name: game-gamecurrency
+        tgs.kind: game
+    spec:
+      affinity:
+        podAntiAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+          - labelSelector:
+              matchExpressions:
+              - key: app.kubernetes.io/name
+                operator: In
+                values:
+                - game-gamecurrency
+            topologyKey: kubernetes.io/hostname
+      containers:
+      - env:
+        - name: OTEL_SERVICE_NAME
+          value: Game-GameCurrency(prod)
+        - name: NODE_IP
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: status.hostIP
+        - name: STAKATER_CONFIGMAP_GAME_GAMECURRENCY_CONFIGMAP
+          value: 96c577a9b1a2530e9c4b9ac2020092692a2b8151
+        image: pgtgs/game-gamecurrency:202403070457.60
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /healthz
+            port: http
+            scheme: HTTP
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 1
+        name: game-gamecurrency
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        resources:
+          limits:
+            cpu: "1"
+            memory: 384Mi
+          requests:
+            cpu: 200m
+            memory: 384Mi
+        securityContext: {}
+        startupProbe:
+          failureThreshold: 30
+          httpGet:
+            path: /healthz
+            port: http
+            scheme: HTTP
+          periodSeconds: 2
+          successThreshold: 1
+          timeoutSeconds: 1
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /app/appsettings.Production.json
+          name: appsettings
+          readOnly: true
+          subPath: appsettings.json
+      - args:
+        - --config=/etc/otel/config.yaml
+        env:
+        - name: NODE_IP
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: status.hostIP
+        image: otel/opentelemetry-collector:0.62.1
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /healthz
+            port: health
+            scheme: HTTP
+          periodSeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 1
+        name: monitor
+        ports:
+        - containerPort: 8889
+          name: metrics
+          protocol: TCP
+        - containerPort: 13133
+          name: health
+          protocol: TCP
+        - containerPort: 4317
+          name: otlp
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 250m
+            memory: 256Mi
+          requests:
+            cpu: 50m
+            memory: 32Mi
+        startupProbe:
+          failureThreshold: 30
+          httpGet:
+            path: /healthz
+            port: health
+            scheme: HTTP
+          periodSeconds: 2
+          successThreshold: 1
+          timeoutSeconds: 1
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /etc/otel/config.yaml
+          name: appsettings
+          readOnly: true
+          subPath: otel-collector-config.yaml
+      dnsPolicy: ClusterFirst
+      imagePullSecrets:
+      - name: dockerhub
+      nodeSelector:
+        dedicated: game
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: game-gamecurrency
+      serviceAccountName: game-gamecurrency
+      terminationGracePeriodSeconds: 30
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: game
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: configmap-game-gamecurrency
+        name: appsettings
+status:
+  availableReplicas: 2
+  conditions:
+  - lastTransitionTime: "2023-11-22T01:55:29Z"
+    lastUpdateTime: "2024-03-07T05:00:16Z"
+    message: ReplicaSet "game-gamecurrency-795d5446dc" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  - lastTransitionTime: "2024-04-18T15:43:18Z"
+    lastUpdateTime: "2024-04-18T15:43:18Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  observedGeneration: 43
+  readyReplicas: 2
+  replicas: 2
+  updatedReplicas: 2
+---
+apiVersion: v1
+kind: Service
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"game-gamecurrency","app.kubernetes.io/instance":"RELEASE-NAME","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"game-gamecurrency","app.kubernetes.io/version":"1.16.0","helm.sh/chart":"game-gamecurrency-0.1.0","tgs.kind":"game"},"name":"game-gamecurrency","namespace":"prod"},"spec":{"ports":[{"name":"http","port":80,"protocol":"TCP","targetPort":8080}],"selector":{"app":"game-gamecurrency","app.kubernetes.io/instance":"RELEASE-NAME","app.kubernetes.io/name":"game-gamecurrency","tgs.kind":"game"},"type":"ClusterIP"}}
+  creationTimestamp: "2023-11-15T02:10:18Z"
+  labels:
+    app: game-gamecurrency
+    app.kubernetes.io/instance: RELEASE-NAME
+    app.kubernetes.io/managed-by: Helm
+    app.kubernetes.io/name: game-gamecurrency
+    app.kubernetes.io/version: 1.16.0
+    helm.sh/chart: game-gamecurrency-0.1.0
+    tgs.kind: game
+    velero.io/backup-name: svc-1115
+    velero.io/restore-name: svc
+  name: game-gamecurrency
+  namespace: prod
+  resourceVersion: "23707227"
+  uid: 5b826fed-4c45-46bf-bb6a-309c0b845889
+spec:
+  clusterIP: 172.20.244.8
+  clusterIPs:
+  - 172.20.244.8
+  internalTrafficPolicy: Cluster
+  ipFamilies:
+  - IPv4
+  ipFamilyPolicy: SingleStack
+  ports:
+  - name: http
+    port: 80
+    protocol: TCP
+    targetPort: 8080
+  selector:
+    app: game-gamecurrency
+    app.kubernetes.io/instance: RELEASE-NAME
+    app.kubernetes.io/name: game-gamecurrency
+    tgs.kind: game
+  sessionAffinity: None
+  type: ClusterIP
+status:
+  loadBalancer: {}
+---
+apiVersion: v1
+data:
+  appsettings.json: |
+    {
+      "Logging": {
+        "LogLevel": {
+          "Default": "Warning"
+        }
+      },
+      "GameCurrencySettings": {
+        "GameProviderExchangeRates": [
+          {
+            "GameProviderCode": "AWC_PGS",
+            "CurrencyCode": "IDR",
+            "GameProviderCurrencyCode": "IDR",
+            "ExchangeRate": 1000
+          },
+          {
+            "GameProviderCode": "AWC_PGS",
+            "CurrencyCode": "VND",
+            "GameProviderCurrencyCode": "VND",
+            "ExchangeRate": 1000
+          },
+          {
+            "GameProviderCode": "BTI",
+            "CurrencyCode": "IDR",
+            "GameProviderCurrencyCode": "IDR",
+            "ExchangeRate": 1000
+          },
+          {
+            "GameProviderCode": "SABATF",
+            "CurrencyCode": "IDR",
+            "GameProviderCurrencyCode": "15",
+            "ExchangeRate": 1000
+          },
+          {
+            "GameProviderCode": "SABATF",
+            "CurrencyCode": "VND",
+            "GameProviderCurrencyCode": "51",
+            "ExchangeRate": 1000
+          }
+        ]
+      }
+    }
+  otel-collector-config.yaml: "receivers:\n  otlp:\n    protocols:\n      grpc:\n\nprocessors:\n
+    \ batch:\n\nexporters:\n  otlp:\n    endpoint: \"$NODE_IP:4317\"\n    tls:\n      insecure:
+    true\n  prometheus:\n    endpoint: \"0.0.0.0:8889\"\n    namespace: \"tgs\"\n\nextensions:\n
+    \ health_check:\n    endpoint: 0.0.0.0:13133\n\nservice:\n  extensions: [health_check]\n
+    \ pipelines:\n    traces: \n      receivers: [otlp]\n      processors:\n        -
+    batch\n      exporters: [otlp]\n    metrics:\n      receivers: [otlp]\n      exporters:
+    [prometheus]\n"
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","data":{"appsettings.json":"{\n  \"Logging\": {\n    \"LogLevel\": {\n      \"Default\": \"Warning\"\n    }\n  },\n  \"GameCurrencySettings\": {\n    \"GameProviderExchangeRates\": [\n      {\n        \"GameProviderCode\": \"AWC_PGS\",\n        \"CurrencyCode\": \"IDR\",\n        \"GameProviderCurrencyCode\": \"IDR\",\n        \"ExchangeRate\": 1000\n      },\n      {\n        \"GameProviderCode\": \"AWC_PGS\",\n        \"CurrencyCode\": \"VND\",\n        \"GameProviderCurrencyCode\": \"VND\",\n        \"ExchangeRate\": 1000\n      },\n      {\n        \"GameProviderCode\": \"BTI\",\n        \"CurrencyCode\": \"IDR\",\n        \"GameProviderCurrencyCode\": \"IDR\",\n        \"ExchangeRate\": 1000\n      },\n      {\n        \"GameProviderCode\": \"SABATF\",\n        \"CurrencyCode\": \"IDR\",\n        \"GameProviderCurrencyCode\": \"15\",\n        \"ExchangeRate\": 1000\n      },\n      {\n        \"GameProviderCode\": \"SABATF\",\n        \"CurrencyCode\": \"VND\",\n        \"GameProviderCurrencyCode\": \"51\",\n        \"ExchangeRate\": 1000\n      }\n    ]\n  }\n}\n","otel-collector-config.yaml":"receivers:\n  otlp:\n    protocols:\n      grpc:\n\nprocessors:\n  batch:\n\nexporters:\n  otlp:\n    endpoint: \"$NODE_IP:4317\"\n    tls:\n      insecure: true\n  prometheus:\n    endpoint: \"0.0.0.0:8889\"\n    namespace: \"tgs\"\n\nextensions:\n  health_check:\n    endpoint: 0.0.0.0:13133\n\nservice:\n  extensions: [health_check]\n  pipelines:\n    traces: \n      receivers: [otlp]\n      processors:\n        - batch\n      exporters: [otlp]\n    metrics:\n      receivers: [otlp]\n      exporters: [prometheus]\n"},"kind":"ConfigMap","metadata":{"annotations":{},"name":"configmap-game-gamecurrency","namespace":"prod"}}
+  creationTimestamp: "2023-11-15T02:09:45Z"
+  labels:
+    velero.io/backup-name: svc-1115
+    velero.io/restore-name: svc
+  name: configmap-game-gamecurrency
+  namespace: prod
+  resourceVersion: "23707225"
+  uid: 34990574-c944-444c-a32b-a24b3bfa648f
