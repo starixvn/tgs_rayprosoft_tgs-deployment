@@ -1,0 +1,227 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    deployment.kubernetes.io/revision: "181"
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{"reloader.stakater.com/auto":"true"},"labels":{"app":"cashservice-worker","app.kubernetes.io/name":"cashservice-worker","tgs.kind":"cash"},"name":"cashservice-worker","namespace":"prod"},"spec":{"replicas":3,"selector":{"matchLabels":{"app":"cashservice-worker","app.kubernetes.io/name":"cashservice-worker","tgs.kind":"cash"}},"template":{"metadata":{"annotations":{"prometheus.io/path":"/metrics","prometheus.io/port":"8889","prometheus.io/scrape":"true"},"labels":{"app":"cashservice-worker","app.kubernetes.io/name":"cashservice-worker","tgs.kind":"cash"}},"spec":{"containers":[{"env":[{"name":"OTEL_SERVICE_NAME","value":"Cash-Worker(prod)"},{"name":"NODE_IP","valueFrom":{"fieldRef":{"fieldPath":"status.hostIP"}}},{"name":"ConnectionStrings__Tgs","valueFrom":{"secretKeyRef":{"key":"tgs","name":"tgs-connections"}}},{"name":"ConnectionStrings__Redis","valueFrom":{"secretKeyRef":{"key":"redis","name":"tgs-connections"}}},{"name":"ConnectionStrings__Nats","valueFrom":{"secretKeyRef":{"key":"nats","name":"tgs-connections"}}},{"name":"DOTNET_gcServer","value":"0"}],"image":"pgtgs/cashservice-worker:202403250632.220","imagePullPolicy":"IfNotPresent","livenessProbe":{"httpGet":{"path":"/healthz","port":"http"},"initialDelaySeconds":5,"periodSeconds":5},"name":"cashservice-worker","ports":[{"containerPort":8080,"name":"http","protocol":"TCP"}],"resources":{"limits":{"cpu":"1","memory":"500Mi"},"requests":{"cpu":"300m","memory":"500Mi"}},"securityContext":{},"startupProbe":{"failureThreshold":30,"httpGet":{"path":"/healthz","port":"http"},"periodSeconds":2}},{"args":["--config=/etc/otel/config.yaml"],"env":[{"name":"NODE_IP","valueFrom":{"fieldRef":{"fieldPath":"status.hostIP"}}}],"image":"otel/opentelemetry-collector:0.89.0","imagePullPolicy":"IfNotPresent","livenessProbe":{"httpGet":{"path":"/healthz","port":"health"},"periodSeconds":5},"name":"monitor","ports":[{"containerPort":8889,"name":"metrics","protocol":"TCP"},{"containerPort":13133,"name":"health","protocol":"TCP"},{"containerPort":4317,"name":"otlp","protocol":"TCP"}],"resources":{"limits":{"cpu":"250m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"32Mi"}},"startupProbe":{"failureThreshold":30,"httpGet":{"path":"/healthz","port":"health"},"periodSeconds":2},"volumeMounts":[{"mountPath":"/etc/otel/config.yaml","name":"appsettings","readOnly":true,"subPath":"otel-collector-config.yaml"}]}],"imagePullSecrets":[{"name":"dockerhub"}],"nodeSelector":{"dedicated":"prod"},"securityContext":{},"serviceAccountName":"default","tolerations":[{"effect":"NoSchedule","key":"dedicated","operator":"Equal","value":"prod"}],"volumes":[{"configMap":{"name":"configmap-cashservice-worker"},"name":"appsettings"}]}}}}
+    reloader.stakater.com/auto: "true"
+  creationTimestamp: "2023-11-22T01:55:16Z"
+  generation: 183
+  labels:
+    app: cashservice-worker
+    app.kubernetes.io/name: cashservice-worker
+    tgs.kind: cash
+  name: cashservice-worker
+  namespace: prod
+  resourceVersion: "157773239"
+  uid: c7b7637e-66e4-4a60-a0b7-8fec2c532faf
+spec:
+  progressDeadlineSeconds: 600
+  replicas: 3
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      app: cashservice-worker
+      app.kubernetes.io/name: cashservice-worker
+      tgs.kind: cash
+  strategy:
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+    type: RollingUpdate
+  template:
+    metadata:
+      annotations:
+        kubectl.kubernetes.io/restartedAt: "2024-04-22T23:00:13Z"
+        prometheus.io/path: /metrics
+        prometheus.io/port: "8889"
+        prometheus.io/scrape: "true"
+      creationTimestamp: null
+      labels:
+        app: cashservice-worker
+        app.kubernetes.io/name: cashservice-worker
+        tgs.kind: cash
+    spec:
+      containers:
+      - env:
+        - name: OTEL_SERVICE_NAME
+          value: Cash-Worker(prod)
+        - name: NODE_IP
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: status.hostIP
+        - name: ConnectionStrings__Tgs
+          valueFrom:
+            secretKeyRef:
+              key: tgs
+              name: tgs-connections
+        - name: ConnectionStrings__Redis
+          valueFrom:
+            secretKeyRef:
+              key: redis
+              name: tgs-connections
+        - name: ConnectionStrings__Nats
+          valueFrom:
+            secretKeyRef:
+              key: nats
+              name: tgs-connections
+        - name: DOTNET_gcServer
+          value: "0"
+        - name: STAKATER_TGS_CONNECTIONS_SECRET
+          value: 49e16a9db0eb035ef5213c2abb85424fc56e1c7a
+        image: pgtgs/cashservice-worker:202403250632.220
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /healthz
+            port: http
+            scheme: HTTP
+          initialDelaySeconds: 5
+          periodSeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 1
+        name: cashservice-worker
+        ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
+        resources:
+          limits:
+            cpu: "1"
+            memory: 500Mi
+          requests:
+            cpu: 300m
+            memory: 500Mi
+        securityContext: {}
+        startupProbe:
+          failureThreshold: 30
+          httpGet:
+            path: /healthz
+            port: http
+            scheme: HTTP
+          periodSeconds: 2
+          successThreshold: 1
+          timeoutSeconds: 1
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+      - args:
+        - --config=/etc/otel/config.yaml
+        env:
+        - name: NODE_IP
+          valueFrom:
+            fieldRef:
+              apiVersion: v1
+              fieldPath: status.hostIP
+        - name: STAKATER_CONFIGMAP_CASHSERVICE_WORKER_CONFIGMAP
+          value: c1f9fe84c48742ab1662d65966b871939c183e7c
+        image: otel/opentelemetry-collector:0.89.0
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          failureThreshold: 3
+          httpGet:
+            path: /healthz
+            port: health
+            scheme: HTTP
+          periodSeconds: 5
+          successThreshold: 1
+          timeoutSeconds: 1
+        name: monitor
+        ports:
+        - containerPort: 8889
+          name: metrics
+          protocol: TCP
+        - containerPort: 13133
+          name: health
+          protocol: TCP
+        - containerPort: 4317
+          name: otlp
+          protocol: TCP
+        resources:
+          limits:
+            cpu: 250m
+            memory: 256Mi
+          requests:
+            cpu: 50m
+            memory: 32Mi
+        startupProbe:
+          failureThreshold: 30
+          httpGet:
+            path: /healthz
+            port: health
+            scheme: HTTP
+          periodSeconds: 2
+          successThreshold: 1
+          timeoutSeconds: 1
+        terminationMessagePath: /dev/termination-log
+        terminationMessagePolicy: File
+        volumeMounts:
+        - mountPath: /etc/otel/config.yaml
+          name: appsettings
+          readOnly: true
+          subPath: otel-collector-config.yaml
+      dnsPolicy: ClusterFirst
+      imagePullSecrets:
+      - name: dockerhub
+      nodeSelector:
+        dedicated: prod
+      restartPolicy: Always
+      schedulerName: default-scheduler
+      securityContext: {}
+      serviceAccount: default
+      serviceAccountName: default
+      terminationGracePeriodSeconds: 30
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: prod
+      volumes:
+      - configMap:
+          defaultMode: 420
+          name: configmap-cashservice-worker
+        name: appsettings
+status:
+  availableReplicas: 3
+  conditions:
+  - lastTransitionTime: "2023-11-22T01:55:16Z"
+    lastUpdateTime: "2024-04-22T23:00:46Z"
+    message: ReplicaSet "cashservice-worker-5bbc5fcc56" has successfully progressed.
+    reason: NewReplicaSetAvailable
+    status: "True"
+    type: Progressing
+  - lastTransitionTime: "2024-04-22T23:45:13Z"
+    lastUpdateTime: "2024-04-22T23:45:13Z"
+    message: Deployment has minimum availability.
+    reason: MinimumReplicasAvailable
+    status: "True"
+    type: Available
+  observedGeneration: 183
+  readyReplicas: 3
+  replicas: 3
+  updatedReplicas: 3
+---
+apiVersion: v1
+data:
+  otel-collector-config.yaml: "receivers:\n  otlp:\n    protocols:\n      grpc:\n\nprocessors:\n
+    \ batch:\n\nexporters:\n  otlp:\n    endpoint: \"$NODE_IP:4317\"\n    tls:\n      insecure:
+    true\n  prometheus:\n    endpoint: \"0.0.0.0:8889\"\n    namespace: \"tgs\"\n\nextensions:\n
+    \ health_check:\n    endpoint: 0.0.0.0:13133\n\nservice:\n  extensions: [health_check]\n
+    \ pipelines:\n    traces: \n      receivers: [otlp]\n      processors:\n        -
+    batch\n      exporters: [otlp]\n    metrics:\n      receivers: [otlp]\n      exporters:
+    [prometheus]\n"
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","data":{"otel-collector-config.yaml":"receivers:\n  otlp:\n    protocols:\n      grpc:\n\nprocessors:\n  batch:\n\nexporters:\n  otlp:\n    endpoint: \"$NODE_IP:4317\"\n    tls:\n      insecure: true\n  prometheus:\n    endpoint: \"0.0.0.0:8889\"\n    namespace: \"tgs\"\n\nextensions:\n  health_check:\n    endpoint: 0.0.0.0:13133\n\nservice:\n  extensions: [health_check]\n  pipelines:\n    traces: \n      receivers: [otlp]\n      processors:\n        - batch\n      exporters: [otlp]\n    metrics:\n      receivers: [otlp]\n      exporters: [prometheus]\n"},"kind":"ConfigMap","metadata":{"annotations":{},"name":"configmap-cashservice-worker","namespace":"prod"}}
+  creationTimestamp: "2023-11-15T02:09:45Z"
+  labels:
+    velero.io/backup-name: svc-1115
+    velero.io/restore-name: svc
+  name: configmap-cashservice-worker
+  namespace: prod
+  resourceVersion: "48200218"
+  uid: 15d53223-68b2-474f-8a17-abedeca0e2fc
