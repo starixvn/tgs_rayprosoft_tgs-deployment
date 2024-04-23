@@ -1,12 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    deployment.kubernetes.io/revision: "154"
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app":"game-gamewagers","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"game-gamewagers","app.kubernetes.io/version":"1.16.0","helm.sh/chart":"game-gamewagers-0.1.0","tgs.game.kind":"gamewagers","tgs.gamewagers.kind":"gamewagers","tgs.kind":"game","tgs.node.selector.kind":"gamewagers"},"name":"game-gamewagers","namespace":"prod"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"game-gamewagers","app.kubernetes.io/name":"game-gamewagers","tgs.game.kind":"gamewagers","tgs.gamewagers.kind":"gamewagers","tgs.kind":"game","tgs.node.selector.kind":"gamewagers"}},"template":{"metadata":{"annotations":{"prometheus.io/path":"/metrics","prometheus.io/port":"8889","prometheus.io/scrape":"true"},"labels":{"app":"game-gamewagers","app.kubernetes.io/name":"game-gamewagers","tgs.game.kind":"gamewagers","tgs.gamewagers.kind":"gamewagers","tgs.kind":"game","tgs.node.selector.kind":"gamewagers"}},"spec":{"affinity":{"podAntiAffinity":{"requiredDuringSchedulingIgnoredDuringExecution":[{"labelSelector":{"matchExpressions":[{"key":"app","operator":"In","values":["game-gamewagers"]}]},"topologyKey":"kubernetes.io/hostname"}]}},"containers":[{"env":[{"name":"OTEL_SERVICE_NAME","value":"Game-GameWagers(prod)"},{"name":"NODE_IP","valueFrom":{"fieldRef":{"fieldPath":"status.hostIP"}}},{"name":"ConnectionStrings__Tgs","valueFrom":{"secretKeyRef":{"key":"tgs","name":"tgs-connections"}}},{"name":"ConnectionStrings__Redis","valueFrom":{"secretKeyRef":{"key":"redis","name":"tgs-connections"}}},{"name":"ConnectionStrings__Nats","valueFrom":{"secretKeyRef":{"key":"nats","name":"tgs-connections"}}}],"image":"pgtgs/game-gamewagers:202404010257.42","imagePullPolicy":"IfNotPresent","livenessProbe":{"failureThreshold":5,"httpGet":{"path":"/healthz","port":"http"},"periodSeconds":60},"name":"game-gamewagers","ports":[{"containerPort":8080,"name":"http","protocol":"TCP"}],"resources":{"limits":{"cpu":"1","memory":"300Mi"},"requests":{"cpu":"100m","memory":"300Mi"}},"securityContext":{},"startupProbe":{"failureThreshold":30,"httpGet":{"path":"/healthz","port":"http"},"periodSeconds":2},"volumeMounts":[{"mountPath":"/app/appsettings.Production.json","name":"appsettings","readOnly":true,"subPath":"appsettings.json"}]},{"args":["--config=/etc/otel/config.yaml"],"env":[{"name":"NODE_IP","valueFrom":{"fieldRef":{"fieldPath":"status.hostIP"}}}],"image":"otel/opentelemetry-collector:0.62.1","imagePullPolicy":"IfNotPresent","livenessProbe":{"httpGet":{"path":"/healthz","port":"health"},"periodSeconds":5},"name":"monitor","ports":[{"containerPort":8889,"name":"metrics","protocol":"TCP"},{"containerPort":13133,"name":"health","protocol":"TCP"},{"containerPort":4317,"name":"otlp","protocol":"TCP"}],"resources":{"limits":{"cpu":"250m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"32Mi"}},"startupProbe":{"failureThreshold":30,"httpGet":{"path":"/healthz","port":"health"},"periodSeconds":2},"volumeMounts":[{"mountPath":"/etc/otel/config.yaml","name":"appsettings","readOnly":true,"subPath":"otel-collector-config.yaml"}]}],"imagePullSecrets":[{"name":"dockerhub"}],"nodeSelector":{"dedicated":"gamewagers"},"securityContext":{},"serviceAccountName":"game-gamewagers","tolerations":[{"effect":"NoSchedule","key":"dedicated","operator":"Equal","value":"gamewagers"}],"volumes":[{"configMap":{"name":"configmap-game-gamewagers"},"name":"appsettings"}]}}}}
-  creationTimestamp: "2023-11-20T02:12:44Z"
-  generation: 154
   labels:
     app: game-gamewagers
     app.kubernetes.io/managed-by: Helm
@@ -18,9 +12,7 @@ metadata:
     tgs.kind: game
     tgs.node.selector.kind: gamewagers
   name: game-gamewagers
-  namespace: prod
-  resourceVersion: "157907192"
-  uid: 869a1dea-de6d-4877-9ad9-24374dd95fff
+  namespace: prod-old
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -202,25 +194,6 @@ spec:
           defaultMode: 420
           name: configmap-game-gamewagers
         name: appsettings
-status:
-  availableReplicas: 1
-  conditions:
-  - lastTransitionTime: "2023-11-20T02:12:44Z"
-    lastUpdateTime: "2024-04-22T03:38:37Z"
-    message: ReplicaSet "game-gamewagers-86d9d8ccd5" has successfully progressed.
-    reason: NewReplicaSetAvailable
-    status: "True"
-    type: Progressing
-  - lastTransitionTime: "2024-04-23T03:41:19Z"
-    lastUpdateTime: "2024-04-23T03:41:19Z"
-    message: Deployment has minimum availability.
-    reason: MinimumReplicasAvailable
-    status: "True"
-    type: Available
-  observedGeneration: 154
-  readyReplicas: 1
-  replicas: 1
-  updatedReplicas: 1
 ---
 apiVersion: v1
 kind: Service
@@ -242,17 +215,8 @@ metadata:
     velero.io/backup-name: svc-1115
     velero.io/restore-name: svc
   name: game-gamewagers
-  namespace: prod
-  resourceVersion: "13397349"
-  uid: b7a0c3a5-ce70-43f5-8947-8eb48b36ce40
+  namespace: prod-old
 spec:
-  clusterIP: 172.20.149.51
-  clusterIPs:
-  - 172.20.149.51
-  internalTrafficPolicy: Cluster
-  ipFamilies:
-  - IPv4
-  ipFamilyPolicy: SingleStack
   ports:
   - name: http
     port: 80
@@ -267,8 +231,6 @@ spec:
     tgs.node.selector.kind: gamewagers
   sessionAffinity: None
   type: ClusterIP
-status:
-  loadBalancer: {}
 ---
 apiVersion: v1
 data:
@@ -297,6 +259,4 @@ metadata:
     velero.io/backup-name: svc-1115
     velero.io/restore-name: svc
   name: configmap-game-gamewagers
-  namespace: prod
-  resourceVersion: "137587529"
-  uid: 831e0bd0-9dbf-4b00-aecf-d931e40786d4
+  namespace: prod-old
