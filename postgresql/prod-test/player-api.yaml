@@ -25,7 +25,6 @@ spec:
   template:
     metadata:
       annotations:
-        kubectl.kubernetes.io/restartedAt: "2023-11-21T03:02:57Z"
         prometheus.io/path: /metrics
         prometheus.io/port: "8889"
         prometheus.io/scrape: "true"
