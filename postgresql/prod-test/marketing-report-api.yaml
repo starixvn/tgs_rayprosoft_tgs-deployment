@@ -10,7 +10,7 @@ metadata:
     helm.sh/chart: marketing-report-api-0.1.0
     tgs.kind: report
   name: marketing-report-api
-  namespace: prod
+  namespace: prod-old
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
