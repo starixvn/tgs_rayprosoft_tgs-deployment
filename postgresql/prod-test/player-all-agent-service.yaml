@@ -141,3 +141,31 @@ spec:
     app.kubernetes.io/name: player-all-agent-service
   sessionAffinity: None
   type: ClusterIP
+---
+apiVersion: v1
+data:
+  appsettings.json: |
+    {
+      "PlayerAllAgentRebate": {
+        "CashBaseUrl": "http://cashservice-api",
+        "PlayerBucketBaseUrl": "http://tgs-playerbucket-service",
+        "PlayerServiceBaseUrl": "http://player-api"
+      }
+    }
+  otel-collector-config.yaml: "receivers:\n  otlp:\n    protocols:\n      grpc:\n\nprocessors:\n
+    \ batch:\n\nexporters:\n  otlp:\n    endpoint: \"$NODE_IP:4317\"\n    tls:\n      insecure:
+    true\n  prometheus:\n    endpoint: \"0.0.0.0:8889\"\n    namespace: \"tgs\"\n\nextensions:\n
+    \ health_check:\n    endpoint: 0.0.0.0:13133\n\nservice:\n  extensions: [health_check]\n
+    \ pipelines:\n    traces: \n      receivers: [otlp]\n      processors:\n        -
+    batch\n      exporters: [otlp]\n    metrics:\n      receivers: [otlp]\n      exporters:
+    [prometheus]\n"
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","data":{"appsettings.json":"{\n  \"PlayerAllAgentRebate\": {\n    \"CashBaseUrl\": \"http://cashservice-api\",\n    \"PlayerBucketBaseUrl\": \"http://tgs-playerbucket-service\",\n    \"PlayerServiceBaseUrl\": \"http://player-api\"\n  }\n}\n","otel-collector-config.yaml":"receivers:\n  otlp:\n    protocols:\n      grpc:\n\nprocessors:\n  batch:\n\nexporters:\n  otlp:\n    endpoint: \"$NODE_IP:4317\"\n    tls:\n      insecure: true\n  prometheus:\n    endpoint: \"0.0.0.0:8889\"\n    namespace: \"tgs\"\n\nextensions:\n  health_check:\n    endpoint: 0.0.0.0:13133\n\nservice:\n  extensions: [health_check]\n  pipelines:\n    traces: \n      receivers: [otlp]\n      processors:\n        - batch\n      exporters: [otlp]\n    metrics:\n      receivers: [otlp]\n      exporters: [prometheus]\n"},"kind":"ConfigMap","metadata":{"annotations":{},"name":"configmap-player-all-agent-service","namespace":"prod"}}
+  creationTimestamp: "2024-01-04T02:46:15Z"
+  name: configmap-player-all-agent-service
+  namespace: prod
+  resourceVersion: "48199952"
+  uid: e5de2436-18f2-443d-8c77-d83234f335b3

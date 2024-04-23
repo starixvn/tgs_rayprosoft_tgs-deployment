@@ -164,4 +164,41 @@ spec:
     tgs.kind: viplevels
     tgs.viplevels.kind: api
   sessionAffinity: None
-  type: ClusterIP
+  type: ClusterIP---
+apiVersion: v1
+data:
+  appsettings.json: |
+    {
+      "Logging": {
+        "LogLevel": {
+          "Default": "Warning",
+          "Tgs.VipLevelService.Messages": "Information"
+        }
+      },
+      "VipLevelConnectionStrings": {
+        "CashServiceClientBaseUrl": "http://cashservice-api",
+        "PlayerBucketClientBaseUrl": "http://tgs-playerbucket-service",
+        "PaymentServiceClientBaseUrl": "http://payment-api",
+        "GameWagersClientBaseUrl": "http://game-gamewagers"
+      }
+    }
+  otel-collector-config.yaml: "receivers:\n  otlp:\n    protocols:\n      grpc:\n\nprocessors:\n
+    \ batch:\n\nexporters:\n  otlp:\n    endpoint: \"$NODE_IP:4317\"\n    tls:\n      insecure:
+    true\n  prometheus:\n    endpoint: \"0.0.0.0:8889\"\n    namespace: \"tgs\"\n\nextensions:\n
+    \ health_check:\n    endpoint: 0.0.0.0:13133\n\nservice:\n  extensions: [health_check]\n
+    \ pipelines:\n    traces: \n      receivers: [otlp]\n      processors:\n        -
+    batch\n      exporters: [otlp]\n    metrics:\n      receivers: [otlp]\n      exporters:
+    [prometheus]\n"
+kind: ConfigMap
+metadata:
+  annotations:
+    kubectl.kubernetes.io/last-applied-configuration: |
+      {"apiVersion":"v1","data":{"appsettings.json":"{\n  \"Logging\": {\n    \"LogLevel\": {\n      \"Default\": \"Warning\",\n      \"Tgs.VipLevelService.Messages\": \"Information\"\n    }\n  },\n  \"VipLevelConnectionStrings\": {\n    \"CashServiceClientBaseUrl\": \"http://cashservice-api\",\n    \"PlayerBucketClientBaseUrl\": \"http://tgs-playerbucket-service\",\n    \"PaymentServiceClientBaseUrl\": \"http://payment-api\",\n    \"GameWagersClientBaseUrl\": \"http://game-gamewagers\"\n  }\n}\n","otel-collector-config.yaml":"receivers:\n  otlp:\n    protocols:\n      grpc:\n\nprocessors:\n  batch:\n\nexporters:\n  otlp:\n    endpoint: \"$NODE_IP:4317\"\n    tls:\n      insecure: true\n  prometheus:\n    endpoint: \"0.0.0.0:8889\"\n    namespace: \"tgs\"\n\nextensions:\n  health_check:\n    endpoint: 0.0.0.0:13133\n\nservice:\n  extensions: [health_check]\n  pipelines:\n    traces: \n      receivers: [otlp]\n      processors:\n        - batch\n      exporters: [otlp]\n    metrics:\n      receivers: [otlp]\n      exporters: [prometheus]\n"},"kind":"ConfigMap","metadata":{"annotations":{},"name":"configmap-tgs-viplevel","namespace":"prod"}}
+  creationTimestamp: "2023-11-15T02:10:13Z"
+  labels:
+    velero.io/backup-name: svc-1115
+    velero.io/restore-name: svc
+  name: configmap-tgs-viplevel
+  namespace: prod
+  resourceVersion: "110890095"
+  uid: 08ea15d0-6915-46fe-a428-1598ef48129a
