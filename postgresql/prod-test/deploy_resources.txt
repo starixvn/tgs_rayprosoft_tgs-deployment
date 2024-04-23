@@ -1,0 +1,23 @@
+backoffice-api	500m	1600Mi
+backoffice-site		
+brand-api	100m	128Mi
+brand-cert-api	100m	400Mi
+cashservice-api	300m	400Mi
+cashservice-worker	300m	500Mi
+game-gamecurrency	200m 50m	384Mi 32Mi
+game-gameproviders	100m	300Mi
+game-gamerounds	50m	200Mi
+game-gamewagers	100m 50m	300Mi 32Mi
+game-pluggable-service	200m	512Mi
+marketing-report-api	300m	400Mi
+nats-box		
+payment-api	100m	300Mi
+pgpool	500m 100m	600Mi 256Mi
+player-all-agent-service	100m	200Mi
+player-api	200m	400Mi
+report-api	200m	512Mi
+tgs-cashservice-query	100m	400Mi
+tgs-playerbucket-committer	100m	600Mi
+tgs-playerbucket-service	30m	400Mi
+tgs-playerbucket-worker	100m	400Mi
+tgs-viplevel	100m	400Mi
