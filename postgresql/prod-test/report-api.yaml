@@ -1,18 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    deployment.kubernetes.io/revision: "5"
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app":"report-api"},"name":"report-api","namespace":"prod"},"spec":{"selector":{"matchLabels":{"app":"report-api"}},"template":{"metadata":{"labels":{"app":"report-api"}},"spec":{"containers":[{"env":[{"name":"OTEL_SERVICE_NAME","value":"Report-Api(prod)"},{"name":"NODE_IP","valueFrom":{"fieldRef":{"fieldPath":"status.hostIP"}}},{"name":"ConnectionStrings__Tgs","valueFrom":{"secretKeyRef":{"key":"tgs","name":"tgs-connections"}}},{"name":"ConnectionStrings__Nats","valueFrom":{"secretKeyRef":{"key":"nats","name":"tgs-connections"}}}],"image":"pgtgs/report-api:202403210321.89","imagePullPolicy":"IfNotPresent","livenessProbe":{"httpGet":{"path":"/healthz","port":"http"},"periodSeconds":5},"name":"report-api","ports":[{"containerPort":8080,"name":"http","protocol":"TCP"}],"resources":{"limits":{"cpu":"200m","memory":"512Mi"},"requests":{"cpu":"200m","memory":"512Mi"}},"securityContext":{},"startupProbe":{"failureThreshold":30,"httpGet":{"path":"/healthz","port":"http"},"periodSeconds":2},"volumeMounts":[{"mountPath":"/app/appsettings.Production.json","name":"appsettings","readOnly":true,"subPath":"appsettings.json"},{"mountPath":"/etc/ssl/certs/rds-combined-ca-bundle.pem","name":"rds-combined-ca-bundle","readOnly":true,"subPath":"rds-combined-ca-bundle.pem"}]}],"imagePullSecrets":[{"name":"dockerhub"}],"nodeSelector":{"dedicated":"prod"},"securityContext":{},"tolerations":[{"effect":"NoSchedule","key":"dedicated","operator":"Equal","value":"prod"}],"volumes":[{"configMap":{"name":"configmap-report-api"},"name":"appsettings"},{"configMap":{"name":"configmap-mongodb-pem"},"name":"rds-combined-ca-bundle"}]}}}}
-  creationTimestamp: "2023-11-20T09:10:10Z"
   generation: 8
   labels:
     app: report-api
   name: report-api
-  namespace: prod
-  resourceVersion: "156909291"
-  uid: b6fd9c0d-610f-4f46-9610-5c88ce64d4d8
+  namespace: prod-old
 spec:
   progressDeadlineSeconds: 600
   replicas: 2
@@ -100,9 +93,6 @@ spec:
       nodeSelector:
         dedicated: prod
       restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext: {}
-      terminationGracePeriodSeconds: 30
       tolerations:
       - effect: NoSchedule
         key: dedicated
@@ -117,49 +107,13 @@ spec:
           defaultMode: 420
           name: configmap-mongodb-pem
         name: rds-combined-ca-bundle
-status:
-  availableReplicas: 2
-  conditions:
-  - lastTransitionTime: "2023-11-20T09:10:10Z"
-    lastUpdateTime: "2024-03-22T02:59:13Z"
-    message: ReplicaSet "report-api-757db66dff" has successfully progressed.
-    reason: NewReplicaSetAvailable
-    status: "True"
-    type: Progressing
-  - lastTransitionTime: "2024-04-21T22:02:34Z"
-    lastUpdateTime: "2024-04-21T22:02:34Z"
-    message: Deployment has minimum availability.
-    reason: MinimumReplicasAvailable
-    status: "True"
-    type: Available
-  observedGeneration: 8
-  readyReplicas: 2
-  replicas: 2
-  updatedReplicas: 2
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"report-api"},"name":"report-api","namespace":"prod"},"spec":{"ports":[{"name":"http","port":80,"protocol":"TCP","targetPort":"http"}],"selector":{"app":"report-api"},"type":"ClusterIP"}}
-  creationTimestamp: "2023-11-15T02:10:31Z"
-  labels:
-    app: report-api
-    velero.io/backup-name: svc-1115
-    velero.io/restore-name: svc
   name: report-api
-  namespace: prod
-  resourceVersion: "15877"
-  uid: 56c7d440-0684-41b3-a694-4c9ef07d559d
+  namespace: prod-old
 spec:
-  clusterIP: 172.20.121.146
-  clusterIPs:
-  - 172.20.121.146
-  internalTrafficPolicy: Cluster
-  ipFamilies:
-  - IPv4
-  ipFamilyPolicy: SingleStack
   ports:
   - name: http
     port: 80
@@ -169,8 +123,6 @@ spec:
     app: report-api
   sessionAffinity: None
   type: ClusterIP
-status:
-  loadBalancer: {}
 ---
 apiVersion: v1
 data:
@@ -184,14 +136,5 @@ data:
     }
 kind: ConfigMap
 metadata:
-  annotations:
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"v1","data":{"appsettings.json":"{\n  \"Report\": {\n    \"GameProvidersPluggableBaseUrl\": \"http://game-pluggable-service\",\n    \"PlayerServiceBaseUrl\": \"http://player-api\",\n    \"BrandCertificate\": \"http://brand-cert-api\"\n  }\n}\n"},"kind":"ConfigMap","metadata":{"annotations":{},"name":"configmap-report-api","namespace":"prod"}}
-  creationTimestamp: "2023-11-15T02:10:09Z"
-  labels:
-    velero.io/backup-name: svc-1115
-    velero.io/restore-name: svc
   name: configmap-report-api
-  namespace: prod
-  resourceVersion: "127742313"
-  uid: 3dd2f1d4-df7c-432c-acfd-6e35701e1497
+  namespace: prod-old
