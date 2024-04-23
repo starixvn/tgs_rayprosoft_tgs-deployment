@@ -3,11 +3,6 @@ kind: Deployment
 metadata:
   labels:
     app: viplevel
-    app.kubernetes.io/instance: tgs
-    app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/name: viplevel
-    app.kubernetes.io/version: 1.16.0
-    helm.sh/chart: viplevel-0.1.0
     tgs.kind: viplevels
     tgs.viplevels.kind: api
   name: tgs-viplevel
@@ -19,8 +14,6 @@ spec:
   selector:
     matchLabels:
       app: viplevel
-      app.kubernetes.io/instance: tgs
-      app.kubernetes.io/name: viplevel
       tgs.kind: viplevels
       tgs.viplevels.kind: api
   strategy:
@@ -37,11 +30,6 @@ spec:
         prometheus.io/scrape: "true"
       labels:
         app: viplevel
-        app.kubernetes.io/instance: tgs
-        app.kubernetes.io/managed-by: Helm
-        app.kubernetes.io/name: viplevel
-        app.kubernetes.io/version: 1.16.0
-        helm.sh/chart: viplevel-0.1.0
         tgs.kind: viplevels
         tgs.viplevels.kind: api
     spec:

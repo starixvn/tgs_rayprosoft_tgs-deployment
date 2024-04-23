@@ -1,12 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  labels:
-    app.kubernetes.io/instance: tgs
-    app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/name: player-all-agent-service
-    app.kubernetes.io/version: 1.16.0
-    helm.sh/chart: player-all-agent-service-0.1.0
   name: player-all-agent-service
   namespace: prod-old
 spec:
