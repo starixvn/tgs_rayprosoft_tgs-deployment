@@ -160,10 +160,6 @@ data:
     [prometheus]\n"
 kind: ConfigMap
 metadata:
-  annotations:
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"v1","data":{"appsettings.json":"{\n  \"OpenTelemetry\": {\n    \"Tracing\": {\n      \"Endpoint\": \"http://localhost:4317\",\n      \"ExportProcessorType\": \"Batch\"\n    }\n  },\n  \"PlayerService\": {\n    \"MarketingReportBaseUrl\": \"http://marketing-report-api\",\n    \"CashServiceBaseUrl\": \"http://cashservice-api\"\n  }\n}\n","otel-collector-config.yaml":"receivers:\n  otlp:\n    protocols:\n      grpc:\n\nprocessors:\n  batch:\n\nexporters:\n  otlp:\n    endpoint: \"$NODE_IP:4317\"\n    tls:\n      insecure: true\n  prometheus:\n    endpoint: \"0.0.0.0:8889\"\n    namespace: \"tgs\"\n\nextensions:\n  health_check:\n    endpoint: 0.0.0.0:13133\n\nservice:\n  extensions: [health_check]\n  pipelines:\n    traces: \n      receivers: [otlp]\n      processors:\n        - batch\n      exporters: [otlp]\n    metrics:\n      receivers: [otlp]\n      exporters: [prometheus]\n"},"kind":"ConfigMap","metadata":{"annotations":{},"labels":{"app.kubernetes.io/instance":"RELEASE-NAME","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"player-api","app.kubernetes.io/version":"1.16.0","helm.sh/chart":"player-api-0.1.0"},"name":"configmap-player-api","namespace":"prod"}}
-  creationTimestamp: "2023-11-15T02:10:09Z"
   labels:
     app.kubernetes.io/instance: RELEASE-NAME
     app.kubernetes.io/managed-by: Helm
@@ -173,6 +169,4 @@ metadata:
     velero.io/backup-name: svc-1115
     velero.io/restore-name: svc
   name: configmap-player-api
-  namespace: prod
-  resourceVersion: "48198692"
-  uid: 66151256-7a1e-447a-a612-e67db42a4924
+  namespace: prod-old
