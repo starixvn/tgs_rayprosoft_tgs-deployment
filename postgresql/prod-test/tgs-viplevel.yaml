@@ -117,15 +117,8 @@ kind: Service
 metadata:
   labels:
     app: viplevel
-    app.kubernetes.io/instance: tgs
-    app.kubernetes.io/managed-by: Helm
-    app.kubernetes.io/name: viplevel
-    app.kubernetes.io/version: 1.16.0
-    helm.sh/chart: viplevel-0.1.0
     tgs.kind: viplevels
     tgs.viplevels.kind: api
-    velero.io/backup-name: svc-1115
-    velero.io/restore-name: svc
   name: tgs-viplevel
   namespace: prod-old
 spec:
@@ -136,8 +129,6 @@ spec:
     targetPort: 8080
   selector:
     app: viplevel
-    app.kubernetes.io/instance: tgs
-    app.kubernetes.io/name: viplevel
     tgs.kind: viplevels
     tgs.viplevels.kind: api
   sessionAffinity: None

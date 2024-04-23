@@ -128,8 +128,6 @@ metadata:
     app.kubernetes.io/version: 1.16.0
     helm.sh/chart: marketing-report-api-0.1.0
     tgs.kind: report
-    velero.io/backup-name: svc-1115
-    velero.io/restore-name: svc
   name: marketing-report-api
   namespace: prod-old
 spec:
