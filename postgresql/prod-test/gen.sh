@@ -1,5 +1,5 @@
 #!/bin/sh
-kubectl get deploy $1 -n prod -o yaml >> $1.yaml
+kubectl get deploy $1 -n prod -o yaml > $1.yaml
 echo "---" >> $1.yaml
 kubectl get svc $1 -n prod -o yaml >> $1.yaml
 echo "---" >> $1.yaml
