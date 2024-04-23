@@ -9,9 +9,9 @@ metadata:
   name: configmap-otel-collector
   namespace: observability
 data:
-  otel-config: | 
+  otel-config: |
     receivers:
-      otlp/2:
+      otlp:
         protocols:
           grpc:
             endpoint: 0.0.0.0:4317
@@ -20,8 +20,12 @@ data:
     exporters:
       logging:
         loglevel: debug
-      jaeger:
-        endpoint: "jaeger-eck-collector:14250"
+      otlp/jaeger:
+        endpoint: jaeger-eck-collector:4317
+        tls:
+          insecure: true
+      otlp/middle:
+        endpoint: otlp-middle-svc:80
         tls:
           insecure: true
     extensions:
@@ -31,7 +35,11 @@ data:
     service:
       extensions: [health_check, pprof, zpages]
       pipelines:
-        traces/2:
-          receivers: [otlp/2]
+        # logs:
+        #   receivers: [otlp]
+        #   processors: [batch]
+        #   exporters: [otlp/middle]
+        traces:
+          receivers: [otlp]
           processors: [batch]
-          exporters: [jaeger]
+          exporters: [otlp/jaeger]

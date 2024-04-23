@@ -12,7 +12,7 @@ spec:
     clientIP:
       timeoutSeconds: 10800
   ports:
-    - name: otel-jaeger
+    - name: otlp
       protocol: TCP
       port: 4317
       targetPort: 4317
