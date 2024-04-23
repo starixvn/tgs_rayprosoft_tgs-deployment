@@ -1,12 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    deployment.kubernetes.io/revision: "7"
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app":"viplevel","app.kubernetes.io/instance":"tgs","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"viplevel","app.kubernetes.io/version":"1.16.0","helm.sh/chart":"viplevel-0.1.0","tgs.kind":"viplevels","tgs.viplevels.kind":"api"},"name":"tgs-viplevel","namespace":"prod"},"spec":{"replicas":2,"selector":{"matchLabels":{"app":"viplevel","app.kubernetes.io/instance":"tgs","app.kubernetes.io/name":"viplevel","tgs.kind":"viplevels","tgs.viplevels.kind":"api"}},"template":{"metadata":{"annotations":{"prometheus.io/path":"/metrics","prometheus.io/port":"8889","prometheus.io/scrape":"true"},"labels":{"app":"viplevel","app.kubernetes.io/instance":"tgs","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"viplevel","app.kubernetes.io/version":"1.16.0","helm.sh/chart":"viplevel-0.1.0","tgs.kind":"viplevels","tgs.viplevels.kind":"api"}},"spec":{"containers":[{"env":[{"name":"OTEL_SERVICE_NAME","value":"VipLevel-Api(prod)"},{"name":"NODE_IP","valueFrom":{"fieldRef":{"fieldPath":"status.hostIP"}}},{"name":"ConnectionStrings__Tgs","valueFrom":{"secretKeyRef":{"key":"tgs","name":"tgs-connections"}}},{"name":"ConnectionStrings__Nats","valueFrom":{"secretKeyRef":{"key":"nats","name":"tgs-connections"}}},{"name":"ConnectionStrings__Redis","valueFrom":{"secretKeyRef":{"key":"redis","name":"tgs-connections"}}}],"image":"pgtgs/viplevel-api:202404010554.99","imagePullPolicy":"IfNotPresent","livenessProbe":{"httpGet":{"path":"/healthz","port":"http"},"initialDelaySeconds":5,"periodSeconds":5},"name":"viplevel","ports":[{"containerPort":8080,"name":"http","protocol":"TCP"}],"resources":{"limits":{"cpu":"1","memory":"400Mi"},"requests":{"cpu":"100m","memory":"400Mi"}},"securityContext":{},"startupProbe":{"failureThreshold":30,"httpGet":{"path":"/healthz","port":"http"},"periodSeconds":2},"volumeMounts":[{"mountPath":"/app/appsettings.Production.json","name":"appsettings","readOnly":true,"subPath":"appsettings.json"}]},{"args":["--config=/etc/otel/config.yaml"],"env":[{"name":"NODE_IP","valueFrom":{"fieldRef":{"fieldPath":"status.hostIP"}}}],"image":"otel/opentelemetry-collector:0.89.0","imagePullPolicy":"IfNotPresent","livenessProbe":{"httpGet":{"path":"/healthz","port":"health"},"periodSeconds":5},"name":"monitor","ports":[{"containerPort":8889,"name":"metrics","protocol":"TCP"},{"containerPort":13133,"name":"health","protocol":"TCP"},{"containerPort":4317,"name":"otlp","protocol":"TCP"}],"resources":{"limits":{"cpu":"250m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"32Mi"}},"startupProbe":{"failureThreshold":30,"httpGet":{"path":"/healthz","port":"health"},"periodSeconds":2},"volumeMounts":[{"mountPath":"/etc/otel/config.yaml","name":"appsettings","readOnly":true,"subPath":"otel-collector-config.yaml"}]}],"imagePullSecrets":[{"name":"dockerhub"}],"nodeSelector":{"dedicated":"prod"},"securityContext":{},"serviceAccountName":"tgs-viplevel","tolerations":[{"effect":"NoSchedule","key":"dedicated","operator":"Equal","value":"prod"}],"volumes":[{"configMap":{"name":"configmap-tgs-viplevel"},"name":"appsettings"}]}}}}
-  creationTimestamp: "2024-02-01T02:34:26Z"
-  generation: 7
   labels:
     app: viplevel
     app.kubernetes.io/instance: tgs
@@ -17,7 +11,7 @@ metadata:
     tgs.kind: viplevels
     tgs.viplevels.kind: api
   name: tgs-viplevel
-  namespace: prod
+  namespace: prod-old
   resourceVersion: "137709954"
   uid: 5a07c9cd-cafd-4fb1-85f1-4abc13342b4c
 spec:
@@ -119,59 +113,6 @@ spec:
           name: appsettings
           readOnly: true
           subPath: appsettings.json
-      - args:
-        - --config=/etc/otel/config.yaml
-        env:
-        - name: NODE_IP
-          valueFrom:
-            fieldRef:
-              apiVersion: v1
-              fieldPath: status.hostIP
-        image: otel/opentelemetry-collector:0.89.0
-        imagePullPolicy: IfNotPresent
-        livenessProbe:
-          failureThreshold: 3
-          httpGet:
-            path: /healthz
-            port: health
-            scheme: HTTP
-          periodSeconds: 5
-          successThreshold: 1
-          timeoutSeconds: 1
-        name: monitor
-        ports:
-        - containerPort: 8889
-          name: metrics
-          protocol: TCP
-        - containerPort: 13133
-          name: health
-          protocol: TCP
-        - containerPort: 4317
-          name: otlp
-          protocol: TCP
-        resources:
-          limits:
-            cpu: 250m
-            memory: 256Mi
-          requests:
-            cpu: 50m
-            memory: 32Mi
-        startupProbe:
-          failureThreshold: 30
-          httpGet:
-            path: /healthz
-            port: health
-            scheme: HTTP
-          periodSeconds: 2
-          successThreshold: 1
-          timeoutSeconds: 1
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
-        volumeMounts:
-        - mountPath: /etc/otel/config.yaml
-          name: appsettings
-          readOnly: true
-          subPath: otel-collector-config.yaml
       dnsPolicy: ClusterFirst
       imagePullSecrets:
       - name: dockerhub
@@ -193,33 +134,10 @@ spec:
           defaultMode: 420
           name: configmap-tgs-viplevel
         name: appsettings
-status:
-  availableReplicas: 2
-  conditions:
-  - lastTransitionTime: "2024-04-01T00:43:15Z"
-    lastUpdateTime: "2024-04-01T00:43:15Z"
-    message: Deployment has minimum availability.
-    reason: MinimumReplicasAvailable
-    status: "True"
-    type: Available
-  - lastTransitionTime: "2024-02-01T02:34:26Z"
-    lastUpdateTime: "2024-04-01T06:01:48Z"
-    message: ReplicaSet "tgs-viplevel-574bdb744b" has successfully progressed.
-    reason: NewReplicaSetAvailable
-    status: "True"
-    type: Progressing
-  observedGeneration: 7
-  readyReplicas: 2
-  replicas: 2
-  updatedReplicas: 2
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app":"viplevel","app.kubernetes.io/instance":"tgs","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"viplevel","app.kubernetes.io/version":"1.16.0","helm.sh/chart":"viplevel-0.1.0","tgs.kind":"viplevels","tgs.viplevels.kind":"api"},"name":"tgs-viplevel","namespace":"prod"},"spec":{"ports":[{"name":"http","port":80,"protocol":"TCP","targetPort":8080}],"selector":{"app":"viplevel","app.kubernetes.io/instance":"tgs","app.kubernetes.io/name":"viplevel","tgs.kind":"viplevels","tgs.viplevels.kind":"api"},"type":"ClusterIP"}}
-  creationTimestamp: "2023-11-15T02:10:34Z"
   labels:
     app: viplevel
     app.kubernetes.io/instance: tgs
@@ -232,17 +150,8 @@ metadata:
     velero.io/backup-name: svc-1115
     velero.io/restore-name: svc
   name: tgs-viplevel
-  namespace: prod
-  resourceVersion: "77010656"
-  uid: 5fa2e0cf-3e36-462a-bfd0-d6e68c5a5249
+  namespace: prod-old
 spec:
-  clusterIP: 172.20.255.252
-  clusterIPs:
-  - 172.20.255.252
-  internalTrafficPolicy: Cluster
-  ipFamilies:
-  - IPv4
-  ipFamilyPolicy: SingleStack
   ports:
   - name: http
     port: 80
@@ -256,5 +165,3 @@ spec:
     tgs.viplevels.kind: api
   sessionAffinity: None
   type: ClusterIP
-status:
-  loadBalancer: {}

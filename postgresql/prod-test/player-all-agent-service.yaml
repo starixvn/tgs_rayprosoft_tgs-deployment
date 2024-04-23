@@ -1,12 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    deployment.kubernetes.io/revision: "1"
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app.kubernetes.io/instance":"tgs","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"player-all-agent-service","app.kubernetes.io/version":"1.16.0","helm.sh/chart":"player-all-agent-service-0.1.0"},"name":"player-all-agent-service","namespace":"prod"},"spec":{"replicas":1,"selector":{"matchLabels":{"app.kubernetes.io/instance":"tgs","app.kubernetes.io/name":"player-all-agent-service"}},"template":{"metadata":{"annotations":{"prometheus.io/path":"/metrics","prometheus.io/port":"52325","prometheus.io/scrape":"true"},"labels":{"app.kubernetes.io/instance":"tgs","app.kubernetes.io/name":"player-all-agent-service"}},"spec":{"containers":[{"env":[{"name":"OTEL_SERVICE_NAME","value":"Player-All-Agent-Service(prod)"},{"name":"NODE_IP","valueFrom":{"fieldRef":{"fieldPath":"status.hostIP"}}},{"name":"ConnectionStrings__Tgs","valueFrom":{"secretKeyRef":{"key":"tgs","name":"tgs-connections"}}},{"name":"ConnectionStrings__Redis","valueFrom":{"secretKeyRef":{"key":"redis","name":"tgs-connections"}}},{"name":"ConnectionStrings__Nats","valueFrom":{"secretKeyRef":{"key":"nats","name":"tgs-connections"}}}],"image":"pgtgs/player-all-agent-service:202401020912.23","imagePullPolicy":"IfNotPresent","livenessProbe":{"httpGet":{"path":"/healthz","port":"http"}},"name":"player-all-agent-service","ports":[{"containerPort":80,"name":"http","protocol":"TCP"}],"readinessProbe":{"httpGet":{"path":"/healthz","port":"http"}},"resources":{"limits":{"cpu":"1","memory":"600Mi"},"requests":{"cpu":"100m","memory":"200Mi"}},"securityContext":{},"volumeMounts":[{"mountPath":"/config/appsettings.json","name":"appsettings","readOnly":true,"subPath":"appsettings.json"}]},{"args":["--config=/etc/otel/config.yaml"],"env":[{"name":"NODE_IP","valueFrom":{"fieldRef":{"fieldPath":"status.hostIP"}}}],"image":"otel/opentelemetry-collector:0.62.1","imagePullPolicy":"IfNotPresent","livenessProbe":{"httpGet":{"path":"/healthz","port":"health"},"periodSeconds":5},"name":"monitor","ports":[{"containerPort":8889,"name":"metrics","protocol":"TCP"},{"containerPort":13133,"name":"health","protocol":"TCP"},{"containerPort":4317,"name":"otlp","protocol":"TCP"}],"resources":{"limits":{"cpu":"250m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"32Mi"}},"startupProbe":{"failureThreshold":30,"httpGet":{"path":"/healthz","port":"health"},"periodSeconds":2},"volumeMounts":[{"mountPath":"/etc/otel/config.yaml","name":"appsettings","readOnly":true,"subPath":"otel-collector-config.yaml"}]}],"imagePullSecrets":[{"name":"dockerhub"}],"nodeSelector":{"dedicated":"prod"},"securityContext":{},"serviceAccountName":"player-all-agent-service","tolerations":[{"effect":"NoSchedule","key":"dedicated","operator":"Equal","value":"prod"}],"volumes":[{"configMap":{"name":"configmap-player-all-agent-service"},"name":"appsettings"}]}}}}
-  creationTimestamp: "2024-01-04T02:46:15Z"
-  generation: 1
   labels:
     app.kubernetes.io/instance: tgs
     app.kubernetes.io/managed-by: Helm
@@ -14,9 +8,7 @@ metadata:
     app.kubernetes.io/version: 1.16.0
     helm.sh/chart: player-all-agent-service-0.1.0
   name: player-all-agent-service
-  namespace: prod
-  resourceVersion: "118368243"
-  uid: 5fea9d61-0f9f-4a7b-aaef-5b8f8b140da5
+  namespace: prod-old
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -105,59 +97,6 @@ spec:
           name: appsettings
           readOnly: true
           subPath: appsettings.json
-      - args:
-        - --config=/etc/otel/config.yaml
-        env:
-        - name: NODE_IP
-          valueFrom:
-            fieldRef:
-              apiVersion: v1
-              fieldPath: status.hostIP
-        image: otel/opentelemetry-collector:0.62.1
-        imagePullPolicy: IfNotPresent
-        livenessProbe:
-          failureThreshold: 3
-          httpGet:
-            path: /healthz
-            port: health
-            scheme: HTTP
-          periodSeconds: 5
-          successThreshold: 1
-          timeoutSeconds: 1
-        name: monitor
-        ports:
-        - containerPort: 8889
-          name: metrics
-          protocol: TCP
-        - containerPort: 13133
-          name: health
-          protocol: TCP
-        - containerPort: 4317
-          name: otlp
-          protocol: TCP
-        resources:
-          limits:
-            cpu: 250m
-            memory: 256Mi
-          requests:
-            cpu: 50m
-            memory: 32Mi
-        startupProbe:
-          failureThreshold: 30
-          httpGet:
-            path: /healthz
-            port: health
-            scheme: HTTP
-          periodSeconds: 2
-          successThreshold: 1
-          timeoutSeconds: 1
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
-        volumeMounts:
-        - mountPath: /etc/otel/config.yaml
-          name: appsettings
-          readOnly: true
-          subPath: otel-collector-config.yaml
       dnsPolicy: ClusterFirst
       imagePullSecrets:
       - name: dockerhub
@@ -179,33 +118,10 @@ spec:
           defaultMode: 420
           name: configmap-player-all-agent-service
         name: appsettings
-status:
-  availableReplicas: 1
-  conditions:
-  - lastTransitionTime: "2024-01-04T02:46:15Z"
-    lastUpdateTime: "2024-01-04T02:46:24Z"
-    message: ReplicaSet "player-all-agent-service-5c6fd64fb4" has successfully progressed.
-    reason: NewReplicaSetAvailable
-    status: "True"
-    type: Progressing
-  - lastTransitionTime: "2024-03-12T17:03:09Z"
-    lastUpdateTime: "2024-03-12T17:03:09Z"
-    message: Deployment has minimum availability.
-    reason: MinimumReplicasAvailable
-    status: "True"
-    type: Available
-  observedGeneration: 1
-  readyReplicas: 1
-  replicas: 1
-  updatedReplicas: 1
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  annotations:
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"v1","kind":"Service","metadata":{"annotations":{},"labels":{"app.kubernetes.io/instance":"tgs","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"player-all-agent-service","app.kubernetes.io/version":"1.16.0","helm.sh/chart":"player-all-agent-service-0.1.0"},"name":"player-all-agent-service","namespace":"prod"},"spec":{"ports":[{"name":"http","port":80,"protocol":"TCP","targetPort":"http"}],"selector":{"app.kubernetes.io/instance":"tgs","app.kubernetes.io/name":"player-all-agent-service"},"type":"ClusterIP"}}
-  creationTimestamp: "2024-01-04T02:46:15Z"
   labels:
     app.kubernetes.io/instance: tgs
     app.kubernetes.io/managed-by: Helm
@@ -213,17 +129,8 @@ metadata:
     app.kubernetes.io/version: 1.16.0
     helm.sh/chart: player-all-agent-service-0.1.0
   name: player-all-agent-service
-  namespace: prod
-  resourceVersion: "48199955"
-  uid: 1f07d190-b9f0-4858-9f9e-389bfefd9640
+  namespace: prod-old
 spec:
-  clusterIP: 172.20.31.88
-  clusterIPs:
-  - 172.20.31.88
-  internalTrafficPolicy: Cluster
-  ipFamilies:
-  - IPv4
-  ipFamilyPolicy: SingleStack
   ports:
   - name: http
     port: 80
@@ -234,5 +141,3 @@ spec:
     app.kubernetes.io/name: player-all-agent-service
   sessionAffinity: None
   type: ClusterIP
-status:
-  loadBalancer: {}
