@@ -96,11 +96,6 @@ spec:
       nodeSelector:
         dedicated: prod
       restartPolicy: Always
-      schedulerName: default-scheduler
-      securityContext: {}
-      serviceAccount: default
-      serviceAccountName: default
-      terminationGracePeriodSeconds: 30
       tolerations:
       - effect: NoSchedule
         key: dedicated
