@@ -1,12 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  annotations:
-    deployment.kubernetes.io/revision: "18"
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"apps/v1","kind":"Deployment","metadata":{"annotations":{},"labels":{"app":"game-gamerounds","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"game-gamerounds","app.kubernetes.io/version":"1.16.0","helm.sh/chart":"game-gamerounds-0.1.0","tgs.game.kind":"gamerounds","tgs.gamerounds.kind":"gamerounds","tgs.kind":"game","tgs.node.selector.kind":"gamewagers"},"name":"game-gamerounds","namespace":"prod"},"spec":{"replicas":1,"selector":{"matchLabels":{"app":"game-gamerounds","app.kubernetes.io/name":"game-gamerounds","tgs.game.kind":"gamerounds","tgs.gamerounds.kind":"gamerounds","tgs.kind":"game","tgs.node.selector.kind":"gamewagers"}},"template":{"metadata":{"annotations":{"prometheus.io/path":"/metrics","prometheus.io/port":"8889","prometheus.io/scrape":"true"},"labels":{"app":"game-gamerounds","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"game-gamerounds","app.kubernetes.io/version":"1.16.0","helm.sh/chart":"game-gamerounds-0.1.0","tgs.game.kind":"gamerounds","tgs.gamerounds.kind":"gamerounds","tgs.kind":"game","tgs.node.selector.kind":"gamewagers"}},"spec":{"affinity":{"podAntiAffinity":{"requiredDuringSchedulingIgnoredDuringExecution":[{"labelSelector":{"matchExpressions":[{"key":"app","operator":"In","values":["game-gamerounds"]}]},"topologyKey":"kubernetes.io/hostname"}]}},"containers":[{"env":[{"name":"OTEL_SERVICE_NAME","value":"Game-GameRounds(prod)"},{"name":"NODE_IP","valueFrom":{"fieldRef":{"fieldPath":"status.hostIP"}}},{"name":"RELEASE_NAMESPACE","value":"prod"},{"name":"POD_IP","valueFrom":{"fieldRef":{"fieldPath":"status.podIP"}}},{"name":"ConnectionStrings__Tgs","valueFrom":{"secretKeyRef":{"key":"tgs","name":"tgs-connections"}}}],"image":"pgtgs/game-gamerounds:202401180926.86","imagePullPolicy":"IfNotPresent","livenessProbe":{"failureThreshold":5,"httpGet":{"path":"/healthz","port":"http"},"periodSeconds":60},"name":"game-gamerounds","ports":[{"containerPort":8080,"name":"http","protocol":"TCP"}],"resources":{"limits":{"cpu":"1","memory":"200Mi"},"requests":{"cpu":"50m","memory":"200Mi"}},"securityContext":{},"startupProbe":{"failureThreshold":30,"httpGet":{"path":"/healthz","port":"http"},"periodSeconds":2},"volumeMounts":[{"mountPath":"/app/appsettings.Production.json","name":"appsettings","readOnly":true,"subPath":"appsettings.json"}]},{"args":["--config=/etc/otel/config.yaml"],"env":[{"name":"NODE_IP","valueFrom":{"fieldRef":{"fieldPath":"status.hostIP"}}}],"image":"otel/opentelemetry-collector:0.62.1","imagePullPolicy":"IfNotPresent","livenessProbe":{"httpGet":{"path":"/healthz","port":"health"},"periodSeconds":5},"name":"monitor","ports":[{"containerPort":8889,"name":"metrics","protocol":"TCP"},{"containerPort":13133,"name":"health","protocol":"TCP"},{"containerPort":4317,"name":"otlp","protocol":"TCP"}],"resources":{"limits":{"cpu":"250m","memory":"256Mi"},"requests":{"cpu":"50m","memory":"32Mi"}},"startupProbe":{"failureThreshold":30,"httpGet":{"path":"/healthz","port":"health"},"periodSeconds":2},"volumeMounts":[{"mountPath":"/etc/otel/config.yaml","name":"appsettings","readOnly":true,"subPath":"otel-collector-config.yaml"}]}],"imagePullSecrets":[{"name":"dockerhub"}],"nodeSelector":{"dedicated":"gamewagers"},"securityContext":{},"serviceAccountName":"game-gamerounds","tolerations":[{"effect":"NoSchedule","key":"dedicated","operator":"Equal","value":"gamewagers"}],"volumes":[{"configMap":{"name":"configmap-game-gamerounds"},"name":"appsettings"}]}}}}
-  creationTimestamp: "2024-01-18T09:30:31Z"
-  generation: 18
   labels:
     app: game-gamerounds
     app.kubernetes.io/managed-by: Helm
@@ -18,9 +12,7 @@ metadata:
     tgs.kind: game
     tgs.node.selector.kind: gamewagers
   name: game-gamerounds
-  namespace: prod
-  resourceVersion: "157103912"
-  uid: a3e949a4-9829-46e8-9adb-f9e0a82c03b0
+  namespace: prod-old
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
@@ -128,59 +120,6 @@ spec:
           name: appsettings
           readOnly: true
           subPath: appsettings.json
-      - args:
-        - --config=/etc/otel/config.yaml
-        env:
-        - name: NODE_IP
-          valueFrom:
-            fieldRef:
-              apiVersion: v1
-              fieldPath: status.hostIP
-        image: otel/opentelemetry-collector:0.62.1
-        imagePullPolicy: IfNotPresent
-        livenessProbe:
-          failureThreshold: 3
-          httpGet:
-            path: /healthz
-            port: health
-            scheme: HTTP
-          periodSeconds: 5
-          successThreshold: 1
-          timeoutSeconds: 1
-        name: monitor
-        ports:
-        - containerPort: 8889
-          name: metrics
-          protocol: TCP
-        - containerPort: 13133
-          name: health
-          protocol: TCP
-        - containerPort: 4317
-          name: otlp
-          protocol: TCP
-        resources:
-          limits:
-            cpu: 250m
-            memory: 256Mi
-          requests:
-            cpu: 50m
-            memory: 32Mi
-        startupProbe:
-          failureThreshold: 30
-          httpGet:
-            path: /healthz
-            port: health
-            scheme: HTTP
-          periodSeconds: 2
-          successThreshold: 1
-          timeoutSeconds: 1
-        terminationMessagePath: /dev/termination-log
-        terminationMessagePolicy: File
-        volumeMounts:
-        - mountPath: /etc/otel/config.yaml
-          name: appsettings
-          readOnly: true
-          subPath: otel-collector-config.yaml
       dnsPolicy: ClusterFirst
       imagePullSecrets:
       - name: dockerhub
@@ -202,25 +141,6 @@ spec:
           defaultMode: 420
           name: configmap-game-gamerounds
         name: appsettings
-status:
-  availableReplicas: 1
-  conditions:
-  - lastTransitionTime: "2024-02-13T16:52:13Z"
-    lastUpdateTime: "2024-02-13T16:52:13Z"
-    message: Deployment has minimum availability.
-    reason: MinimumReplicasAvailable
-    status: "True"
-    type: Available
-  - lastTransitionTime: "2024-01-18T09:30:31Z"
-    lastUpdateTime: "2024-04-22T03:38:37Z"
-    message: ReplicaSet "game-gamerounds-7687794688" has successfully progressed.
-    reason: NewReplicaSetAvailable
-    status: "True"
-    type: Progressing
-  observedGeneration: 18
-  readyReplicas: 1
-  replicas: 1
-  updatedReplicas: 1
 ---
 apiVersion: v1
 kind: Service
@@ -242,17 +162,8 @@ metadata:
     velero.io/backup-name: svc-1115
     velero.io/restore-name: svc
   name: game-gamerounds
-  namespace: prod
-  resourceVersion: "62866597"
-  uid: ea489aa1-37d5-4c73-869d-901d4855443f
+  namespace: prod-old
 spec:
-  clusterIP: 172.20.160.205
-  clusterIPs:
-  - 172.20.160.205
-  internalTrafficPolicy: Cluster
-  ipFamilies:
-  - IPv4
-  ipFamilyPolicy: SingleStack
   ports:
   - name: http
     port: 80
@@ -267,8 +178,6 @@ spec:
     tgs.node.selector.kind: gamewagers
   sessionAffinity: None
   type: ClusterIP
-status:
-  loadBalancer: {}
 ---
 apiVersion: v1
 data:
@@ -289,10 +198,6 @@ data:
     [prometheus]\n"
 kind: ConfigMap
 metadata:
-  annotations:
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"v1","data":{"appsettings.json":"{\n  \"Logging\": {\n    \"LogLevel\": {\n      \"Default\": \"Warning\"\n    }\n  }\n}\n","otel-collector-config.yaml":"receivers:\n  otlp:\n    protocols:\n      grpc:\n\nprocessors:\n  batch:\n\nexporters:\n  otlp:\n    endpoint: \"$NODE_IP:4317\"\n    tls:\n      insecure: true\n  prometheus:\n    endpoint: \"0.0.0.0:8889\"\n    namespace: \"tgs\"\n\nextensions:\n  health_check:\n    endpoint: 0.0.0.0:13133\n\nservice:\n  extensions: [health_check]\n  pipelines:\n    traces: \n      receivers: [otlp]\n      processors:\n        - batch\n      exporters: [otlp]\n    metrics:\n      receivers: [otlp]\n      exporters: [prometheus]\n"},"kind":"ConfigMap","metadata":{"annotations":{},"labels":{"app":"game-gamerounds","app.kubernetes.io/managed-by":"Helm","app.kubernetes.io/name":"game-gamerounds","app.kubernetes.io/version":"1.16.0","helm.sh/chart":"game-gamerounds-0.1.0","tgs.game.kind":"gamerounds","tgs.gamerounds.kind":"gamerounds","tgs.kind":"game","tgs.node.selector.kind":"gamewagers"},"name":"configmap-game-gamerounds","namespace":"prod"}}
-  creationTimestamp: "2023-11-15T02:10:04Z"
   labels:
     app: game-gamerounds
     app.kubernetes.io/managed-by: Helm
@@ -306,6 +211,4 @@ metadata:
     velero.io/backup-name: svc-1115
     velero.io/restore-name: svc
   name: configmap-game-gamerounds
-  namespace: prod
-  resourceVersion: "62866595"
-  uid: 3039ec53-c128-43f2-8349-b58123dcfd75
+  namespace: prod-old
