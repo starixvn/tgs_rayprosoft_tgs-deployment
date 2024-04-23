@@ -192,10 +192,5 @@ data:
     [prometheus]\n"
 kind: ConfigMap
 metadata:
-  labels:
-    velero.io/backup-name: svc-1115
-    velero.io/restore-name: svc
   name: configmap-tgs-viplevel
   namespace: prod-old
-  resourceVersion: "110890095"
-  uid: 08ea15d0-6915-46fe-a428-1598ef48129a

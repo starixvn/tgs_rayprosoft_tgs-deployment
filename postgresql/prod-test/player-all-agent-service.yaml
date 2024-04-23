@@ -28,7 +28,6 @@ spec:
         prometheus.io/path: /metrics
         prometheus.io/port: "52325"
         prometheus.io/scrape: "true"
-      creationTimestamp: null
       labels:
         app.kubernetes.io/instance: tgs
         app.kubernetes.io/name: player-all-agent-service
