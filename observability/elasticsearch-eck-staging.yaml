@@ -1,4 +1,8 @@
 # https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-managing-compute-resources.html
+# https://www.elastic.co/guide/en/cloud-on-k8s/current/k8s-deploy-eck.html
+# install CRD
+# kubectl apply -f https://download.elastic.co/downloads/eck/2.12.1/crds.yaml
+# kubectl apply -f https://download.elastic.co/downloads/eck/2.12.1/operator.yaml
 ---
 apiVersion: elasticsearch.k8s.elastic.co/v1
 kind: Elasticsearch
@@ -50,4 +54,4 @@ spec:
         resources:
           requests:
             storage: 5Gi
-        storageClassName: nfs-provisioner
+        storageClassName: gp2
