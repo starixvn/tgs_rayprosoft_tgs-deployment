@@ -15,7 +15,7 @@ spec:
       schedule: "55 23 * * *"
     options:
       es:
-        server-urls: http://elasticsearch-master
+        server-urls: http://elasticsearch-es-default.eck
         index-prefix: staging
         num-replicas: 0
         num-shards: 1
