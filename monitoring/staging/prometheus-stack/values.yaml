@@ -93,7 +93,7 @@ kubeApiServer:
         - __name__
 kubelet:
   serviceMonitor:
-   probesMetricRelabelings:
+    probesMetricRelabelings:
     - sourceLabels: [__name__]
       separator: ;
       regex: '.*_bucket'
