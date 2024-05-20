@@ -141,9 +141,9 @@ prometheusOperator:
     limits:
       cpu: 200m
       memory: 200Mi
-   requests:
-     cpu: 100m
-     memory: 100Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
 prometheus:
   ingress: 
     enabled: true
