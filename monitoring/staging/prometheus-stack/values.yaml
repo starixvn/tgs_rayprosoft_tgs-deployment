@@ -93,7 +93,7 @@ kubeApiServer:
         - __name__
 kubelet:
   serviceMonitor:
-   probesMetricRelabelings:
+    probesMetricRelabelings:
     - sourceLabels: [__name__]
       separator: ;
       regex: '.*_bucket'
@@ -141,9 +141,9 @@ prometheusOperator:
     limits:
       cpu: 200m
       memory: 200Mi
-   requests:
-     cpu: 100m
-     memory: 100Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
 prometheus:
   ingress: 
     enabled: true
