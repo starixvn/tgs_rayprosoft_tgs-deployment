@@ -27,12 +27,12 @@ spec:
           echo "roles: {{ .Values.createUserJob.roles }}"
           
           mongosh --host {{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local --eval '
+            use admin
             db.createUser({
               user: "{{ .Values.createUserJob.user }}",
               pwd: "{{ .Values.createUserJob.password }}",
               roles: {{ .Values.createUserJob.roles | toJson }}
-            })'
-          mongosh --host {{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local --eval '
+            })
             db.getUsers()'
       restartPolicy: OnFailure
 {{- end }}
