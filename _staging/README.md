@@ -41,8 +41,6 @@ helm uninstall mongodb  -n staging
 mongodb-metrics:9216/metrics 
 https://github.com/bitnami/charts/tree/master/bitnami/mongodb#installing-the-chart
 
-helm repo add cowboysysop https://cowboysysop.github.io/charts/
-helm upgrade -i mongodb bitnami/mongodb -f values-mongo-express.yaml -n staging
 
 go to mongodb pods 
 mongosh
@@ -59,6 +57,9 @@ db.createUser(
 
 db.filedb.insert({name: "test"})
 
+
+helm repo add cowboysysop https://cowboysysop.github.io/charts/
+helm upgrade -i mongodb-express bitnami/mongodb -f values-mongo-express.yaml -n staging
 
 http://stg-mongodb-express.rpgp.cc/
 https://artifacthub.io/packages/helm/cowboysysop/mongo-express
