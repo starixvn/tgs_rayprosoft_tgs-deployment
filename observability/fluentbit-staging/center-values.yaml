@@ -8,9 +8,9 @@ extraPorts:
 
 env:
   - name: FLUENT_ELASTICSEARCH_HOST
-    value: "elasticsearch-master.observability"
+    value: "elasticsearch-es-default.eck"
   - name: FLUENT_ELASTICSEARCH_PORT
-    value: "80"
+    value: "9200"
 
 config:
   service: |
