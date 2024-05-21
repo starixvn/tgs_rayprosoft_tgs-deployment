@@ -26,9 +26,7 @@ spec:
           echo "password: {{ .Values.createUserJob.password }}"
           echo "roles: {{ .Values.createUserJob.roles }}"
           
-          mongosh --host {{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local --eval '
-            use admin;
-            db.createUser({
+          mongosh --host {{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local --eval 'db.getSiblingDB("admin").createUser({
               user: "{{ .Values.createUserJob.user }}",
               pwd: "{{ .Values.createUserJob.password }}",
               roles: {{ .Values.createUserJob.roles | toJson }}
