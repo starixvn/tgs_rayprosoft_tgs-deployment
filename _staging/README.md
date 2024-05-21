@@ -24,7 +24,7 @@ https://stg-redisinsight.rpgp.cc/
 mongodb 6.0 版本 更新很大
 https://www.mongodb.com/docs/v6.0/release-notes/6.0-compatibility/#legacy-opcodes-removed
 
-helm install mongodb bitnami/mongodb --set auth.rootPassword=1qaz2wsx,auth.enabled=false,metrics.enabled=true,image.tag=5.0.9-debian-11-r3 -n staging
+helm install mongodb bitnami/mongodb -f values-mongo.yaml -n staging
 
 改用版本 5.0.9-debian-11-r3 
 
