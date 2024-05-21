@@ -33,6 +33,6 @@ spec:
               pwd: "{{ .Values.createUserJob.password }}",
               roles: {{ .Values.createUserJob.roles | toJson }}
             });
-            db.getUsers();'
+            '
       restartPolicy: OnFailure
 {{- end }}
