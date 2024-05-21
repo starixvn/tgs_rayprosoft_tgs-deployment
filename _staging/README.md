@@ -16,7 +16,8 @@ https://github.com/bitnami/charts/tree/master/bitnami/redis/#installing-the-char
 
 # redisinsight
 cd redisinsight 
-helm install redisinsight . -f values.yaml -n staging
+helm template redisinsight . -f values.yaml -n staging
+helm upgrade -i redisinsight . -f values.yaml -n staging
 https://docs.redislabs.com/latest/ri/installing/install-k8s/
 https://stg-redisinsight.rpgp.cc/
 

@@ -1,5 +1,6 @@
+## https://github.com/cowboysysop/charts/tree/master/charts/mongo-express
 ## helm repo add cowboysysop https://cowboysysop.github.io/charts/
-## helm upgrade -i mongodb bitnami/mongodb -f values-mongo-express.yaml -n staging
+## helm upgrade -i mongodb-express cowboysysop/mongo-express -f values-mongo-express.yaml -n staging
 mongodbEnableAdmin: true
 mongodbAdminPassword: 1qaz2wsx
 ingress:
