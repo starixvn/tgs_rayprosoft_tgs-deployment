@@ -11,7 +11,6 @@ config:
     enabled: true
     name: nats
     replicas: 3
-
   jetstream:
     enabled: true
     memoryStore:
@@ -21,10 +20,8 @@ config:
         enabled: true
         size: 10Gi
         storageClassName: gp2
-
   nats:
     gomemlimit: "50MiB"
-  
 podTemplate:
   merge:
     spec:
