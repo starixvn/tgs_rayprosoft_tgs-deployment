@@ -17,3 +17,20 @@ tolerations:
   key: dedicated
   operator: Equal
   value: staging
+## https://chatgpt.com/c/62ddad0e-3881-4581-904a-216391148f59
+initContainers:
+  - name: create-mongodb-user
+    image: bitnami/mongodb:latest
+    command:
+      - sh
+      - -c
+      - |
+        until mongosh --host mongodb.staging.svc.cluster.local --eval "print(\"waiting for connection\")"; do
+          sleep 5
+        done
+        mongosh --host mongodb.staging.svc.cluster.local --eval 'db.createUser({user:"root", pwd:"1qaz2wsx", roles:[{role:"dbOwner", db:"admin"}]})'
+    env:
+      - name: MONGO_INITDB_ROOT_USERNAME
+        value: "root"
+      - name: MONGO_INITDB_ROOT_PASSWORD
+        value: "1qaz2wsx"
