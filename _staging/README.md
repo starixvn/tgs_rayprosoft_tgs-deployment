@@ -24,8 +24,13 @@ https://stg-redisinsight.rpgp.cc/
 mongodb 6.0 版本 更新很大
 https://www.mongodb.com/docs/v6.0/release-notes/6.0-compatibility/#legacy-opcodes-removed
 
+### 下載 mongodb helm chart 
+helm pull bitnami/mongodb --version 14.1.1
+加上 create-user-job.yaml 檔案
+cd mongodb 
 helm upgrade -i mongodb bitnami/mongodb -f values-mongo.yaml -n staging --version 14.1.1  
 
+local: helm upgrade -i mongodb . -f values-mongo.yaml -n staging --version 14.1.1  
 #14.1.1 可以正常安裝，太新的版本會有錯誤
 
 改用版本 5.0.9-debian-11-r3 

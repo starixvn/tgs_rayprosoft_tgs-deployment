@@ -18,10 +18,10 @@ spec:
         - /bin/sh
         - -c
         - |
-          until mongosh --host {{ .Release.Name }}-mongodb.{{ .Release.Namespace }}.svc.cluster.local --eval "print(\"waiting for connection\")"; do
+          until mongosh --host {{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local --eval "print(\"waiting for connection\")"; do
             sleep 5
           done
-          mongosh --host {{ .Release.Name }}-mongodb.{{ .Release.Namespace }}.svc.cluster.local --eval '
+          mongosh --host {{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local --eval '
             db.createUser({
               user: "{{ .Values.createUserJob.user }}",
               pwd: "{{ .Values.createUserJob.password }}",
