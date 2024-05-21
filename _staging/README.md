@@ -61,8 +61,9 @@ db.createUser(
 db.filedb.insert({name: "test"})
 
 
+# https://github.com/cowboysysop/charts/tree/master/charts/mongo-express
 helm repo add cowboysysop https://cowboysysop.github.io/charts/
-helm upgrade -i mongodb-express bitnami/mongodb -f values-mongo-express.yaml -n staging
+helm upgrade -i mongodb-express cowboysysop/mongo-express -f values-mongo-express.yaml -n staging
 
 http://stg-mongodb-express.rpgp.cc/
 https://artifacthub.io/packages/helm/cowboysysop/mongo-express
