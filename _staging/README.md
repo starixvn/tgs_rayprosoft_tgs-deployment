@@ -24,7 +24,9 @@ https://stg-redisinsight.rpgp.cc/
 mongodb 6.0 版本 更新很大
 https://www.mongodb.com/docs/v6.0/release-notes/6.0-compatibility/#legacy-opcodes-removed
 
-helm install mongodb bitnami/mongodb -f values-mongo.yaml -n staging
+helm upgrade -i mongodb bitnami/mongodb -f values-mongo.yaml -n staging --version 14.1.1  
+
+#14.1.1 可以正常安裝，太新的版本會有錯誤
 
 改用版本 5.0.9-debian-11-r3 
 
@@ -35,7 +37,8 @@ mongodb-metrics:9216/metrics
 https://github.com/bitnami/charts/tree/master/bitnami/mongodb#installing-the-chart
 
 helm repo add cowboysysop https://cowboysysop.github.io/charts/
-helm install mongodb-express cowboysysop/mongo-express  --set mongodbEnableAdmin=true,mongodbAdminPassword=1qaz2wsx,ingress.enabled=true,ingress.hosts[0].host=stg-mongodb-express.rpgp.cc,ingress.hosts[0].paths[0]=/ -n staging
+helm upgrade -i mongodb bitnami/mongodb -f values-mongo-express.yaml -n staging
+
 http://stg-mongodb-express.rpgp.cc/
 https://artifacthub.io/packages/helm/cowboysysop/mongo-express
 

@@ -1,0 +1,12 @@
+## helm repo add cowboysysop https://cowboysysop.github.io/charts/
+## helm upgrade -i mongodb bitnami/mongodb -f values-mongo-express.yaml -n staging
+mongodbEnableAdmin: true
+mongodbAdminPassword: 1qaz2wsx
+ingress:
+  enabled: true
+  hosts:
+    - host: stg-mongodb-express.rpgp.cc
+      paths: 
+        - path: /
+          pathType: Prefix
+        
