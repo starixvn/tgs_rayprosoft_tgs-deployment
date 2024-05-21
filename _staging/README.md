@@ -39,11 +39,6 @@ https://github.com/bitnami/charts/tree/master/bitnami/mongodb#installing-the-cha
 helm repo add cowboysysop https://cowboysysop.github.io/charts/
 helm upgrade -i mongodb bitnami/mongodb -f values-mongo-express.yaml -n staging
 
-http://stg-mongodb-express.rpgp.cc/
-https://artifacthub.io/packages/helm/cowboysysop/mongo-express
-
-helm install mongodb-express cowboysysop/mongo-express  --set mongodbEnableAdmin=true,mongodbAdminPassword=1qaz2wsx,ingress.enabled=true,ingress.hosts[0].host=stg-mongodb-express.rpgp.cc,ingress.hosts[0].paths[0]=/ -n staging
-
 go to mongodb pods 
 mongosh
 use admin
@@ -58,3 +53,7 @@ db.createUser(
 )
 
 db.filedb.insert({name: "test"})
+
+
+http://stg-mongodb-express.rpgp.cc/
+https://artifacthub.io/packages/helm/cowboysysop/mongo-express

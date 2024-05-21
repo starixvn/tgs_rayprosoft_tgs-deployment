@@ -1,0 +1,33 @@
+{{- if .Values.createUserJob.enabled }}
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: create-mongodb-user
+  namespace: {{ .Release.Namespace }}
+  labels:
+    app.kubernetes.io/name: {{ include "mongodb.name" . }}
+    helm.sh/chart: {{ include "mongodb.chart" . }}
+    app.kubernetes.io/instance: {{ .Release.Name }}
+    app.kubernetes.io/managed-by: {{ .Release.Service }}
+spec:
+  template:
+    spec:
+      containers:
+      - name: create-user
+        image: bitnami/mongodb:latest
+        command:
+        - /bin/sh
+        - -c
+        - |
+          until mongosh --host {{ .Release.Name }}-mongodb.{{ .Release.Namespace }}.svc.cluster.local --eval "print(\"waiting for connection\")"; do
+            sleep 5
+          done
+          mongosh --host {{ .Release.Name }}-mongodb.{{ .Release.Namespace }}.svc.cluster.local --eval '
+            db.createUser({
+              user: "{{ .Values.createUserJob.user }}",
+              pwd: "{{ .Values.createUserJob.password }}",
+              roles: {{ .Values.createUserJob.roles | toJson }}
+            })
+          '
+      restartPolicy: OnFailure
+{{- end }}
