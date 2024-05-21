@@ -21,6 +21,11 @@ spec:
           until mongosh --host {{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local --eval "print(\"waiting for connection\")"; do
             sleep 5
           done
+          
+          echo "user: {{ .Values.createUserJob.user }}"
+          echo "password: {{ .Values.createUserJob.password }}"
+          echo "roles: {{ .Values.createUserJob.roles }}"
+          
           mongosh --host {{ .Release.Name }}.{{ .Release.Namespace }}.svc.cluster.local --eval '
             db.createUser({
               user: "{{ .Values.createUserJob.user }}",
