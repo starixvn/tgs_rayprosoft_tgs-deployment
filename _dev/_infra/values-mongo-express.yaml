@@ -1,0 +1,15 @@
+## https://github.com/cowboysysop/charts/tree/master/charts/mongo-express
+## https://github.com/cowboysysop/charts/blob/master/charts/mongo-express/values.yaml
+##
+## helm repo add cowboysysop https://cowboysysop.github.io/charts/
+## helm upgrade -i mongodb-express cowboysysop/mongo-express -f values-mongo-express.yaml -n staging
+mongodbEnableAdmin: true
+mongodbAdminPassword: 1qaz2wsx
+ingress:
+  enabled: true
+  ingressClassName: "nginx"
+  pathType: ImplementationSpecific
+  hosts:
+    - host: mongodb-express.rpgp.cc
+      paths: 
+        - /
