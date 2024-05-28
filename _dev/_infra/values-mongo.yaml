@@ -1,6 +1,6 @@
 ## helm repo add bitnami https://charts.bitnami.com/bitnami
 ## helm upgrade -i mongodb bitnami/mongodb -f values-mongo.yaml -n dev
-## helm template mongodb bitnami/mongodb -f values-mongo.yaml -n dev
+## helm template mongodb bitnami/mongodb -f values-mongo.yaml -n dev --version 14.1.1
 global:
   storageClass: nfs-provisioner
 metrics:
