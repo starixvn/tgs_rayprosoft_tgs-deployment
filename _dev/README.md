@@ -1,37 +1,30 @@
-# install necessary component 
-## At first, install provisioner and pv  
-cd nfs-provisioner 
-kubectl apply -f .
-cd dev 
-kubectl apply -f 01.pv.yml 
+# nfs provisioner
+helm repo add nfs-subdir-external-provisioner \
+      https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
+  
+helm repo update
 
-helm repo add localstack-charts https://localstack.github.io/helm-charts
+helm install nfs-provisioner \
+  nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \
+  --set nfs.server=192.168.50.111 \
+  --set nfs.path=/nfsshare \
+  --set storageClass.name=nfs-provisioner
+  
+helm template nfs-provisioner \
+  nfs-subdir-external-provisioner/nfs-subdir-external-provisioner \
+  --set nfs.server=192.168.50.111 \
+  --set nfs.path=/nfsshare \
+  --set storageClass.name=nfs-provisioner
+	
+### cert-manager
+https://cert-manager.io/docs/installation/
+kubectl apply -f https://github.com/cert-manager/cert-manager/releases/download/v1.7.1/cert-manager.yaml
 
-https://github.com/localstack/helm-charts/blob/main/charts/localstack/README.md
+# install reloader
 
-helm install localstack localstack-charts/localstack -n dev
+https://github.com/stakater/Reloader
+kubectl apply -f https://raw.githubusercontent.com/stakater/Reloader/master/deployments/kubernetes/reloader.yaml
 
-helm install localstack localstack-repo/localstack -n dev
-https://github.com/localstack/localstack
-
-kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.1.0/cert-manager.crds.yaml
-helm install cert-manager jetstack/cert-manager --namespace cert-manager --version v1.1.0
-https://cert-manager.io/docs/installation/kubernetes/
-
-
-helm install sonarqube . -f values.yaml --set OpenShift.enabled=true,serviceAccount.create=true,postgresql.serviceAccount.enabled=true,postgresql.securityContext.enabled=false,postgresql.volumePermissions.enabled=true,postgresql.volumePermissions.securityContext.runAsUser="auto",ingress.enabled=true,ingress.hosts[0].host=sonarqube.tgsdev.gq,ingress.hosts[0].paths[0]=/ -n dev
-										  
-helm install sonarqube oteemocharts/sonarqube --set OpenShift.enabled=true,\
-                                          serviceAccount.create=true,\
-                                          postgresql.serviceAccount.enabled=true,\
-                                          postgresql.securityContext.enabled=false,\
-                                          postgresql.volumePermissions.enabled=true,\
-                                          postgresql.volumePermissions.securityContext.runAsUser="auto",\
-										  ingress.enabled=true,\
-										  ingress.hosts[0].host=sonarqube.tgsdev.gq,\
-									      ingress.hosts[0].paths[0]=/ -n dev
-										  
-https://artifacthub.io/packages/helm/oteemo-charts/sonarqube
 
 # nats and its exporter
 helm install nats bitnami/nats --set metrics.enabled=true,auth.enabled=false -n dev
@@ -95,11 +88,6 @@ https://github.com/bitnami/charts/tree/master/bitnami
 
 kubectl create secret generic brand-cert --from-literal=key.pem="$(openssl genrsa 2048)" -n dev
  
-
-更新 jenkins, harbor ingress
-更新 baget 
-更新 email, notofy
-
 
 
 
