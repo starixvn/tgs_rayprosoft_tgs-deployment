@@ -50,9 +50,7 @@ helm uninstall nats -n dev
 ### https://github.com/nats-io/k8s/tree/master/helm/charts/stan
 
 # redis, redis exporter and redisinsight
-helm install redis bitnami/redis --set password=1qaz2wsx,metrics.enabled=true,master.disableCommands=["FLUSHDB"] -n dev
-
-helm install redis bitnami/redis --set global.storageClass=nfs-provisioner,global.redis.password=1qaz2wsx,metrics.enabled=true -n dev
+helm install redis bitnami/redis -f values-redis.yaml -n dev
 
 redis-metrics:9121/metrics 
 https://github.com/bitnami/charts/tree/master/bitnami/redis/#installing-the-chart
@@ -93,15 +91,6 @@ helm install consul bitnami/consul --set ingress.enabled=true,ingress.hostname=c
 
 # root helm url 
 https://github.com/bitnami/charts/tree/master/bitnami
-
-
-install nats 
-install localstack 
-install redis  (可能要到 50.111 刪除資料 才能運作)
-install rabbitmq
-install configmap & secrets
-在jenkins 更新 k8s config 
-lobby 的 ingress  brand token 要重新設定
 
 
 kubectl create secret generic brand-cert --from-literal=key.pem="$(openssl genrsa 2048)" -n dev
