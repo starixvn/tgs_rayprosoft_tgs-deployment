@@ -1,6 +1,6 @@
 ## helm repo add bitnami https://charts.bitnami.com/bitnami
-## helm upgrade -i mongodb bitnami/mongodb -f values-mongo.yaml -n staging
-## helm template mongodb bitnami/mongodb -f values-mongo.yaml -n staging
+## helm upgrade -i mongodb bitnami/mongodb -f values-mongo.yaml -n dev
+## helm template mongodb bitnami/mongodb -f values-mongo.yaml -n dev
 global:
   storageClass: nfs-provisioner
 metrics:
@@ -14,7 +14,7 @@ image:
 extraInitContainers: |
   - name: create-mongodb-user
     image: bitnami/mongodb:latest
-    command: ['sh', '-c', 'until mongosh --host mongodb.staging.svc.cluster.local --eval "print(\"waiting for connection\")"; do sleep 5; done; mongosh --host mongodb.staging.svc.cluster.local --eval "db.createUser({user:\"root\", pwd:\"1qaz2wsx\", roles:[{role:\"dbOwner\", db:\"admin\"}]})"']
+    command: ['sh', '-c', 'until mongosh --host mongodb.dev.svc.cluster.local --eval "print(\"waiting for connection\")"; do sleep 5; done; mongosh --host mongodb.dev.svc.cluster.local --eval "db.createUser({user:\"root\", pwd:\"1qaz2wsx\", roles:[{role:\"dbOwner\", db:\"admin\"}]})"']
     env:
       - name: MONGO_INITDB_ROOT_USERNAME
         value: "root"
