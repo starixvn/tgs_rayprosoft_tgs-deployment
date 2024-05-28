@@ -10,6 +10,11 @@ export account_name=tgs-build
 
 ## 1.26 version
 ### https://kubernetes.io/zh-cn/docs/tasks/configure-pod-container/configure-service-account/
+export account_name=tgs-build
 export user_token=$(kubectl -n $namespace get secret/${account_name} -o=go-template='{{.data.token}}' | base64 --decode)
+envsubst < kubeconfig > ~/.kube/config-${account_name}
 
-envsubst < kubeconfig > config-${account_name}
+export account_name=tgs-build
+export user_token=$(kubectl -n $namespace get secret/${account_name} -o=go-template='{{.data.token}}' | base64 --decode)
+envsubst < kubeconfig > ~/.kube/config-${account_name}
+
