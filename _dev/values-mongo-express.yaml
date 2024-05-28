@@ -2,7 +2,7 @@
 ## https://github.com/cowboysysop/charts/blob/master/charts/mongo-express/values.yaml
 ##
 ## helm repo add cowboysysop https://cowboysysop.github.io/charts/
-## helm upgrade -i mongodb-express cowboysysop/mongo-express -f values-mongo-express.yaml -n staging
+## helm upgrade -i mongodb-express cowboysysop/mongo-express -f values-mongo-express.yaml -n dev
 mongodbEnableAdmin: true
 mongodbAdminPassword: 1qaz2wsx
 ingress:

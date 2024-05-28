@@ -87,22 +87,12 @@ db.createUser(
 helm install postgres bitnami/postgresql --set postgresqlPassword='1qaz2wsx!@',metrics.enabled=true,postgresqlDatabase=tgs,service.type=NodePort,service.nodePort=30007 -n dev
 postgres-postgresql-metrics:9187/metrics 
 
-# pgadmin
-helm repo add runix https://helm.runix.net/
-helm install pgadmin runix/pgadmin4 --set ingress.enabled=true,ingress.hosts[0].host=pgadmin.rpgp.cc,ingress.hosts[0].paths[0].path=/,ingress.hosts[0].paths[0].pathType=Prefix
-
-,env.email=tgs@rayprosoft.com
-
-https://github.com/rowanruseler/helm-charts/tree/master/charts/pgadmin4
 
 # consul
 helm install consul bitnami/consul --set ingress.enabled=true,ingress.hostname=consul.tgsdev.gq
 
 # root helm url 
 https://github.com/bitnami/charts/tree/master/bitnami
-
-
-
 
 
 install nats 
