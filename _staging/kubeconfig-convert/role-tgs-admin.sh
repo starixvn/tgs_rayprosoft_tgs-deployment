@@ -124,4 +124,13 @@ subjects:
 - kind: ServiceAccount
   name: ${account}
   namespace: ${namespace}
+---
+apiVersion: v1
+kind: Secret
+type: kubernetes.io/service-account-token
+metadata:
+  name: ${account}
+  namespace: ${namespace}
+  annotations:
+    kubernetes.io/service-account.name: "${account}"
 EOF

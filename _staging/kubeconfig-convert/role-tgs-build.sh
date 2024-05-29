@@ -47,9 +47,10 @@ metadata:
 ---
 apiVersion: v1
 kind: Secret
+type: kubernetes.io/service-account-token
 metadata:
-  name: ${account}-token
-  namespace: $namespace
+  name: ${account}
+  namespace: ${namespace}
   annotations:
     kubernetes.io/service-account.name: "${account}"
 EOF
