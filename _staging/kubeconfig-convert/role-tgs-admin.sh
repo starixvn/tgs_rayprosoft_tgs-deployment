@@ -41,7 +41,7 @@ metadata:
   namespace: ${namespace}
 rules:
 - apiGroups:
-  - ''
+  - '*'
   resources:
   - '*'
   verbs:
@@ -72,7 +72,7 @@ metadata:
   name: ${account}
 rules:
 - apiGroups:
-  - ''
+  - '*'
   resources:
   - '*'
   verbs:

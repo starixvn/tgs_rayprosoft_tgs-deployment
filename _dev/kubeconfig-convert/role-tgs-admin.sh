@@ -40,7 +40,7 @@ metadata:
   namespace: ${namespace}
 rules:
 - apiGroups:
-  - ''
+  - '*'
   resources:
   - '*'
   verbs:
