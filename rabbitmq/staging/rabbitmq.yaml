@@ -6,6 +6,13 @@ metadata:
   namespace: rabbitmq
 spec:
   replicas: 1
+  resources:
+    requests:
+      cpu: 0.5
+      memory: 500Mi
+    limits:
+      cpu: 2
+      memory: 2Gi
   persistence:
     storageClassName: gp2
     storage: 20Gi
