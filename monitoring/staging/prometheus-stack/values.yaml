@@ -165,11 +165,11 @@ prometheus:
       value: staging  
     resources:
       limits:
-        cpu: 2000m
-        memory: 3000Mi
+        cpu: 4000m
+        memory: 6000Mi
       requests:
         cpu: 500m
-        memory: 1000Mi
+        memory: 2000Mi
     additionalScrapeConfigs:
       - job_name: 'kubernetes-pods'
         honor_labels: true
