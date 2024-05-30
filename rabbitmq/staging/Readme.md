@@ -2,7 +2,7 @@
 
 ## https://www.rabbitmq.com/kubernetes/operator/operator-overview.html
 
-kubectl apply -f "https://github.com/rabbitmq/cluster-operator/releases/latest/download/cluster-operator.yml"
+# kubectl apply -f "https://github.com/rabbitmq/cluster-operator/releases/latest/download/cluster-operator.yml"
 
 ## install krew
 https://krew.sigs.k8s.io/docs/user-guide/setup/install/
