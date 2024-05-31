@@ -24,7 +24,7 @@ spec:
   collector:
     autoscale: false
   query:
-    replicas: 1
+    replicas: 0
     options:
       es: 
         use-aliases: true
