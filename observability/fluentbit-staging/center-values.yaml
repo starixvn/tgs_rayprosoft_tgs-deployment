@@ -114,7 +114,8 @@ luaScripts:
     end
 
 logLevel: warn
-
+imagePullSecrets:
+  - name: dockerhub
 tolerations:
   - effect: NoSchedule
     key: dedicated
