@@ -54,13 +54,6 @@ alertmanager:
     hosts:
       - stg-alertmanager.rpgp.cc
   alertmanagerSpec:
-    nodeSelector:
-      dedicated: staging
-    tolerations:
-    - effect: NoSchedule
-      key: dedicated
-      operator: Equal
-      value: staging  
     storage:
       volumeClaimTemplate:
         spec:
@@ -70,13 +63,6 @@ alertmanager:
             requests:
               storage: 10Gi
 grafana: 
-  nodeSelector:
-    dedicated: staging
-  tolerations:
-  - effect: NoSchedule
-    key: dedicated
-    operator: Equal
-    value: staging  
   ingress: 
     enabled: true
     ingressClassName: nginx
@@ -156,13 +142,6 @@ prometheus:
     podMonitorSelectorNilUsesHelmValues: false
     probeSelectorNilUsesHelmValues: false
     scrapeConfigSelectorNilUsesHelmValues: false
-    nodeSelector:
-      dedicated: staging
-    tolerations:
-    - effect: NoSchedule
-      key: dedicated
-      operator: Equal
-      value: staging  
     resources:
       limits:
         cpu: 4000m

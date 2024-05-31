@@ -31,6 +31,7 @@ helm pull bitnami/mongodb --version 14.1.1
 加上 create-user-job.yaml 檔案
 
 cd mongodb 
+helm uninstall mongodb -n staging
 helm upgrade -i mongodb bitnami/mongodb -f values-mongo.yaml -n staging --version 14.1.1  
 
 local: helm upgrade -i mongodb . -f values-mongo.yaml -n staging --version 14.1.1  
