@@ -8,9 +8,9 @@ extraPorts:
 
 env:
   - name: FLUENT_ELASTICSEARCH_HOST
-    value: "elasticsearch-es-default.eck"
+    value: "affc2936155ad451ead94683f446d158-7127a35ee29a71cf.elb.ap-east-1.amazonaws.com"
   - name: FLUENT_ELASTICSEARCH_PORT
-    value: "9200"
+    value: "80"
 
 config:
   service: |
