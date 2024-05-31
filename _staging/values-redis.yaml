@@ -11,19 +11,9 @@ metrics:
 auth:
   enabled: false
 master:
-  nodeSelector: 
-    dedicated: staging
-  tolerations: 
-  - effect: NoSchedule
-    key: dedicated
-    operator: Equal
-    value: staging
+  nodeSelector: {}
+  tolerations: []
 replica: 
   replicaCount: 0
-  nodeSelector: 
-    dedicated: staging
-  tolerations: 
-  - effect: NoSchedule
-    key: dedicated
-    operator: Equal
-    value: staging
+  nodeSelector: {}
+  tolerations: []

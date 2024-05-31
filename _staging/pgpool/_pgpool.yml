@@ -15,13 +15,6 @@ spec:
     spec:
       imagePullSecrets:
       - name: dockerhub
-      nodeSelector:
-        dedicated: staging
-      tolerations:
-      - effect: NoSchedule
-        key: dedicated
-        operator: Equal
-        value: staging
       containers:
       - name: pgpool
         image: pgpool/pgpool:4.2.2

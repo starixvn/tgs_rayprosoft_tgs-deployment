@@ -11,12 +11,8 @@ auth:
 image:
   tag: 5.0.9-debian-11-r3
 nodeSelector: 
-  dedicated: staging
-tolerations: 
-- effect: NoSchedule
-  key: dedicated
-  operator: Equal
-  value: staging
+  dedicated: {}
+tolerations: []
 ## https://chatgpt.com/c/62ddad0e-3881-4581-904a-216391148f59
 extraInitContainers: |
   - name: create-mongodb-user
