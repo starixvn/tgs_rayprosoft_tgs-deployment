@@ -29,6 +29,7 @@ config:
   inputs: |
     [INPUT]
         Name              forward
+        Buffer_Max_Size   12M
 
   ## https://docs.fluentbit.io/manual/pipeline/filters
   filters: |
