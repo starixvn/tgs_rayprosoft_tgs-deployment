@@ -38,6 +38,7 @@ config:
     [INPUT]
         Name              forward
         Tag_Prefix        log.
+        Buffer_Max_Size 12M
 
   ## https://docs.fluentbit.io/manual/pipeline/filters
   filters: |
