@@ -26,6 +26,7 @@ config:
         multiline.parser docker, cri
         Tag kube.*
         Mem_Buf_Limit 5MB
+        Buffer_Max_Size 12M
         Skip_Long_Lines On
 
     [INPUT]

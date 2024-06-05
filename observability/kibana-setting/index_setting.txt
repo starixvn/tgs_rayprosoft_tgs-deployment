@@ -1,6 +1,28 @@
 # https://www.elastic.co/guide/en/elasticsearch/reference/current/indices-rollover-index.html#roll-over-index-alias-with-write-index
 # 執行之前要先把jaeger-collector跟jaeger-query 停掉
 
+
+## dev 
+
+PUT %3Cjaeger-span-%7Bnow%2Fd%7D-000001%3E
+{
+  "aliases": {
+    "jaeger-span-write": {
+      "is_write_index": true
+    }
+  }
+}
+
+PUT %3Cjaeger-service-%7Bnow%2Fd%7D-000001%3E
+{
+  "aliases": {
+    "jaeger-service-write": {
+      "is_write_index": true
+    }
+  }
+}
+
+## prod
 PUT %3Cjaeger-span-%7Bnow%2Fd%7D%28prod%29-000001%3E
 {
   "aliases": {
