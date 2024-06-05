@@ -11,7 +11,16 @@ env:
     value: "elasticsearch-master.observability"
   - name: FLUENT_ELASTICSEARCH_PORT
     value: "80"
-
+  - name: AWS_ACCESS_KEY_ID
+      valueFrom:
+        secretKeyRef:
+          name: aws-s3-secret
+          key: aws_access_key_id
+  - name: AWS_SECRET_ACCESS_KEY
+      valueFrom:
+        secretKeyRef:
+          name: aws-s3-secret
+          key: aws_secret_access_key
 config:
   service: |
     [SERVICE]
