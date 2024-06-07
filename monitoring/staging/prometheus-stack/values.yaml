@@ -63,8 +63,9 @@ alertmanager:
             requests:
               storage: 10Gi
 grafana: 
+  enabled: true
   ingress: 
-    enabled: true
+    enabled: false
     ingressClassName: nginx
     hosts:
     - stg-grafana-stack.rpgp.cc
