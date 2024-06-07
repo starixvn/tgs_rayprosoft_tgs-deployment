@@ -63,7 +63,7 @@ alertmanager:
             requests:
               storage: 10Gi
 grafana: 
-  enabled: true
+  enabled: false
   ingress: 
     enabled: false
     ingressClassName: nginx
