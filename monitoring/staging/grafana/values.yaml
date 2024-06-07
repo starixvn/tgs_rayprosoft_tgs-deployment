@@ -1,0 +1,16 @@
+# helm repo add grafana https://grafana.github.io/helm-charts
+# helm repo update
+# helm install my-release grafana/grafana 
+# grafana2 => grafana/grafana:9.2.6
+# grafana3 => docker.io/grafana/grafana:10.4.0
+# https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.
+image: 
+  registry: docker.io
+  repository: grafana/grafana
+  tag: 9.2.6
+ingress:
+  enabled: true
+  hosts:
+  - stg-grafana2.rpgp.cc
+imageRenderer:
+  enabled: true
