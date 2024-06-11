@@ -4,7 +4,7 @@ metadata:
   name: grafana-backup
   namespace: monitoring
 data:
-  GRAFANA_URL: "http://stg-grafana.rpgp.cc"
+  GRAFANA_URL: "http://stg-grafana2.rpgp.cc"
   GRAFANA_TOKEN: "eyJrIjoiTTNkaDBFQTdiUW9nM29HclFPNmN0WTJOeUNDZUVhTkMiLCJuIjoiYmFja3VwMiIsImlkIjoxfQ=="
   GRAFANA_ADMIN_ACCOUNT: "admin"
   GRAFANA_ADMIN_PASSWORD: "7NVdAAkk33vqnZj6u4WisilXzvlMYqlFvDe8ZHKf"
