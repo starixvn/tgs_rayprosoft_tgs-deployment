@@ -2,13 +2,13 @@
 #!/bin/sh
 ALERTS_JSON_PATH=./alerts.json
 FOLDER_NAME="Alert"
-NUMBER_OF_ALERTS=$(jq -c '.["$FOLDER_NAME"] | length' ${ALERTS_JSON_PATH})
+NUMBER_OF_ALERTS=$(jq -c '.['"$FOLDER_NAME"'] | length' ${ALERTS_JSON_PATH})
 GRAFANA_TOKEN="glsa_LTTGR8fcwQ9Y8iT6beeZJ6008DwxTcoV_f11f93d7"
 DOMAIN=stg-grafana2.rpgp.cc
 
 for ((i=0; i<NUMBER_OF_ALERTS; i++)); do
-  ALERT_OBJECT=$(jq -c --arg i "$i" '.["#FOLDER_NAME"][($i | tonumber)] | del(.rules[0].grafana_alert.uid)' ${ALERTS_JSON_PATH})
-  ALERT_NAME=$(jq -c --arg i "$i" '.["$FOLDER_NAME"][($i | tonumber)].name' ${ALERTS_JSON_PATH})
+  ALERT_OBJECT=$(jq -c --arg i "$i" '.['"#FOLDER_NAME"'][($i | tonumber)] | del(.rules[0].grafana_alert.uid)' ${ALERTS_JSON_PATH})
+  ALERT_NAME=$(jq -c --arg i "$i" '.['"$FOLDER_NAME"'][($i | tonumber)].name' ${ALERTS_JSON_PATH})
   echo "Creating ${ALERT_NAME}...\n"
 	curl -X POST \
 		-H "Authorization: Bearer ${GRAFANA_TOKEN}" \
