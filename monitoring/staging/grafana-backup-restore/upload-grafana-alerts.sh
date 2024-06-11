@@ -7,7 +7,10 @@ DOMAIN=stg-grafana2.rpgp.cc
 
 for ((i=0; i<NUMBER_OF_ALERTS; i++)); do
   ALERT_OBJECT=$(jq -c --arg i "$i" '.Alert[($i | tonumber)] | del(.rules[0].grafana_alert.uid)' ${ALERTS_JSON_PATH})
+  echo "ALERT_OBJECT=$ALERT_OBJECT"
   ALERT_NAME=$(jq -c --arg i "$i" '.Alert[($i | tonumber)].name' ${ALERTS_JSON_PATH})
+  echo "ALERT_NAME=$ALERT_NAME"
+  
   echo "Creating ${ALERT_NAME}...\n"
 	response=$(curl -X POST \
 		-H "Authorization: Bearer ${GRAFANA_TOKEN}" \
