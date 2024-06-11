@@ -2,7 +2,7 @@
 #!/bin/sh
 ALERTS_JSON_PATH=./alerts.json
 NUMBER_OF_ALERTS=$(jq -c '.Alert | length' ${ALERTS_JSON_PATH})
-GRAFANA_TOKEN="sa-1-admin-690a5312-2dda-4655-a45d-06fe856002e7"
+GRAFANA_TOKEN="glsa_LTTGR8fcwQ9Y8iT6beeZJ6008DwxTcoV_f11f93d7"
 DOMAIN=stg-grafana2.rpgp.cc
 
 for ((i=0; i<NUMBER_OF_ALERTS; i++)); do
