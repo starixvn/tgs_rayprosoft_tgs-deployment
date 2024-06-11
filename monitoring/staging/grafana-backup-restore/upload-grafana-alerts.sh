@@ -9,7 +9,7 @@ for ((i=0; i<NUMBER_OF_ALERTS; i++)); do
   ALERT_OBJECT=$(jq -c --arg i "$i" '.Alert[($i | tonumber)] | del(.rules[0].grafana_alert.uid)' ${ALERTS_JSON_PATH})
   ALERT_NAME=$(jq -c --arg i "$i" '.Alert[($i | tonumber)].name' ${ALERTS_JSON_PATH})
   echo "Creating ${ALERT_NAME}...\n"
-	response=$(Ocurl -X POST \
+	response=$(curl -X POST \
 		-H "Authorization: Bearer ${GRAFANA_TOKEN}" \
 		-H "Content-type: application/json" \
 		"https://$DOMAIN/api/ruler/grafana/api/v1/rules/$FOLDER_NAME" \
