@@ -15,7 +15,24 @@ for ((i=0; i<NUMBER_OF_ALERTS; i++)); do
 	response=$(curl -X POST \
 		-H "Authorization: Bearer ${GRAFANA_TOKEN}" \
 		-H "Content-type: application/json" \
-		"https://$DOMAIN/api/ruler/grafana/api/v1/rules/$FOLDER_NAME" \
+		"https://$DOMAIN/api/ruler/grafana/api/v1/rules/Alert" \
+		-d "${ALERT_OBJECT}")
+	echo "response=$response"
+	echo "\n"
+done
+
+NUMBER_OF_ALERTS2=$(jq -c '.alert2 | length' ${ALERTS_JSON_PATH})
+for ((i=0; i<NUMBER_OF_ALERTS2; i++)); do
+  ALERT_OBJECT=$(jq -c --arg i "$i" '.alert2[($i | tonumber)] | del(.rules[0].grafana_alert.uid)' ${ALERTS_JSON_PATH})
+  echo "ALERT_OBJECT=$ALERT_OBJECT"
+  ALERT_NAME=$(jq -c --arg i "$i" '.alert2[($i | tonumber)].name' ${ALERTS_JSON_PATH})
+  echo "ALERT_NAME=$ALERT_NAME"
+  
+  echo "Creating ${ALERT_NAME}...\n"
+	response=$(curl -X POST \
+		-H "Authorization: Bearer ${GRAFANA_TOKEN}" \
+		-H "Content-type: application/json" \
+		"https://$DOMAIN/api/ruler/grafana/api/v1/rules/alert2" \
 		-d "${ALERT_OBJECT}")
 	echo "response=$response"
 	echo "\n"
