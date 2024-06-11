@@ -3,10 +3,10 @@
 ALERTS_JSON_PATH=./alerts.json
 NUMBER_OF_ALERTS=$(jq -c '.Alert | length' ${ALERTS_JSON_PATH})
 
-export GRAFANA_TOKEN="glsa_aZLBtligeLcvs7ee3RWgrEvVgiXo5niF_3370c414"
-export DOMAIN="grafana-kubeinfo.yydsgo.xyz"
-# GRAFANA_TOKEN="glsa_lO7k65hGSSCzWQxZYyWS38PeUpARZA0I_a640e626"
-# DOMAIN=stg-grafana2.rpgp.cc
+# export GRAFANA_TOKEN="glsa_aZLBtligeLcvs7ee3RWgrEvVgiXo5niF_3370c414"
+# export DOMAIN="grafana-kubeinfo.yydsgo.xyz"
+GRAFANA_TOKEN="glsa_lO7k65hGSSCzWQxZYyWS38PeUpARZA0I_a640e626"
+DOMAIN=stg-grafana2.rpgp.cc
 
 for ((i=0; i<NUMBER_OF_ALERTS; i++)); do
   ALERT_OBJECT=$(jq -c --arg i "$i" '.Alert[($i | tonumber)] | del(.rules[0].grafana_alert.uid)' ${ALERTS_JSON_PATH})
