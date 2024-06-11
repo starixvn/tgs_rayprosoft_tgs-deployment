@@ -5,5 +5,5 @@ export DOMAIN="grafana-kubeinfo.yydsgo.xyz"
 
 curl -X GET \
 	  -H "Authorization: Bearer ${GRAFANA_TOKEN}" \
-	 "https://${DOMAIN}/ruler/grafana/api/v1/rules" \
+	 "https://${DOMAIN}/api/ruler/grafana/api/v1/rules" \
 	 | jq > './alerts.json'
