@@ -34,7 +34,7 @@ sudo grafana-backup save --config=/home/ubuntu/tgs-deployment/monitoring/staging
 sudo grafana-backup restore --config=/home/ubuntu/tgs-deployment/monitoring/staging/grafana-backup-restore/restore.json  202308300705.tar.gz
 
 aws s3 cp s3://tgs-prod-backup/grafana3/202406110315.tar.gz
-grafana-backup restore --config=/home/staging/tgs-deployment/monitoring/staging/grafana-backup-restore/restore.json  202406110315.tar.gz
+sudo rafana-backup restore --config=/home/staging/tgs-deployment/monitoring/staging/grafana-backup-restore/restore.json  202406110315.tar.gz
 
 ### k8s grafana backup
 

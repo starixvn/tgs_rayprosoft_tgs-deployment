@@ -76,7 +76,7 @@ echo "$json_data" | jq -c '.[]' | while read rule; do
 	
 	rule_json=$(echo "$rule" | jq '.')
 	echo "old_rule_json=$rule_json"
-	modified_json=$(echo "$rule_json" | jq --arg new_uid "$new_folder_uid" '.folderUID = $new_uid')
+	modified_json=$(echo "$rule_json" | jq --arg new_uid "$folderUid" '.folderUID = $new_uid')
 	echo "new_rule_json=$modified_json"
 
 	# Make the POST request to provision the alert rule
