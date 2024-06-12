@@ -53,6 +53,9 @@ echo "json_data=$json_data"
 
 # Loop through each group in the JSON data
 echo "$json_data" | jq -c '.[]' | while read rule; do
+	echo "==========================================="
+	echo "$rule" | jq '.'
+	
     id=$(echo "$rule" | jq -r '.id')
     uid=$(echo "$rule" | jq -r '.uid')
 	folderUID=$(echo "$rule" | jq -r '.folderUID')
