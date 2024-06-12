@@ -10,6 +10,13 @@ kubectl get secret --namespace monitoring grafana2 -o jsonpath="{.data.admin-pas
 
 
 ### grafana backup/restore
+method1 
+sudo apt install python3-virtualenv
+virtualenv -p $(which python3) venv
+source venv/bin/activate
+pip install grafana-backup
+
+method2
 sudo apt install python3-venv
 python3 -m venv path/to/venv
 source path/to/venv/bin/activate
@@ -27,7 +34,7 @@ sudo grafana-backup save --config=/home/ubuntu/tgs-deployment/monitoring/staging
 sudo grafana-backup restore --config=/home/ubuntu/tgs-deployment/monitoring/staging/grafana-backup-restore/restore.json  202308300705.tar.gz
 
 aws s3 cp s3://tgs-prod-backup/grafana3/202406110315.tar.gz
-sudo grafana-backup restore --config=/home/staging/tgs-deployment/monitoring/staging/grafana-backup-restore/restore.json  202406110315.tar.gz
+grafana-backup restore --config=/home/staging/tgs-deployment/monitoring/staging/grafana-backup-restore/restore.json  202406110315.tar.gz
 
 ### k8s grafana backup
 
