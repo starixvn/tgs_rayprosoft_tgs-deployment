@@ -34,7 +34,9 @@ echo "$json_data" | jq -c '.groups[]' | while read group; do
     # Loop through each rule in the group
     echo "$group" | jq -c '.rules[]' | while read rule; do
         rule_json=$(echo "$rule" | jq '.')
-
+		
+		echo "rule_json=$rule_json"
+	
         # Make the POST request to provision the alert rule
         response=$(curl -s -X POST \
             -H "Authorization: Bearer $TARGET_GRAFANA_TOKEN" \
