@@ -42,13 +42,14 @@ echo "folder_uids_prod=${folder_uids_prod}"
 json_data=$(curl -X GET \
 	  -H "Authorization: Bearer ${SOURCE_GRAFANA_TOKEN}" \
 	 "${SOURCE_GRAFANA_URL}/v1/provisioning/alert-rules" | jq)
+	 
+echo "json_data=$json_data"
 
 # install yq
 # sudo wget https://github.com/mikefarah/yq/releases/download/v4.18.1/yq_linux_amd64 -O /usr/local/bin/yq
 # sudo chmod +x /usr/local/bin/yq
 # sudo apt-get install jq -y
 
-json_data=$(yq eval -o=json "${OUTPUT_FILE}")
 
 # Loop through each group in the JSON data
 echo "$json_data" | jq -c '.[]' | while read rule; do
