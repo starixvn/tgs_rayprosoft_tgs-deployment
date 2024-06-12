@@ -4,11 +4,11 @@ export SOURCE_GRAFANA_TOKEN="glsa_aZLBtligeLcvs7ee3RWgrEvVgiXo5niF_3370c414"
 export SOURCE_GRAFANA_DOMAIN="grafana-kubeinfo.yydsgo.xyz"
 export TARGET_GRAFANA_TOKEN="glsa_lO7k65hGSSCzWQxZYyWS38PeUpARZA0I_a640e626"
 export TARGET_GRAFANA_URL="https://stg-grafana2.rpgp.cc/api/v1/provisioning/alert-rules"
-
+export OUTPUT_FILE="alerts-export.yaml"
 
 curl -X GET \
 	  -H "Authorization: Bearer ${SOURCE_GRAFANA_TOKEN}" \
-	 "https://${SOURCE_GRAFANA_DOMAIN}/api/v1/provisioning/alert-rules/export" -o alerts-export.yaml
+	 "https://${SOURCE_GRAFANA_DOMAIN}/api/v1/provisioning/alert-rules/export" -o ${OUTPUT_FILE}
 
 # install yq
 # sudo wget https://github.com/mikefarah/yq/releases/download/v4.18.1/yq_linux_amd64 -O /usr/local/bin/yq
@@ -16,10 +16,7 @@ curl -X GET \
 # sudo apt-get install jq -y
 
 yaml_file="alerts-export.yaml"
-yq eval -o=json "$yaml_file"
-
-yaml_file="config.yaml"
-json_data=$(yq eval -o=json "$yaml_file")
+json_data=$(yq eval -o=json "${OUTPUT_FILE}")
 
 # Loop through each group in the JSON data
 echo "$json_data" | jq -c '.groups[]' | while read group; do
