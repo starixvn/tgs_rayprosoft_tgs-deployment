@@ -3,7 +3,7 @@
 export SOURCE_GRAFANA_TOKEN="glsa_aZLBtligeLcvs7ee3RWgrEvVgiXo5niF_3370c414"
 export SOURCE_GRAFANA_URL="https://grafana-kubeinfo.yydsgo.xyz/api"
 export TARGET_GRAFANA_TOKEN="glsa_lO7k65hGSSCzWQxZYyWS38PeUpARZA0I_a640e626"
-export TARGET_GRAFANA_URL="https://stg-grafana2.rpgp.cc/api/v1/provisioning/alert-rules"
+export TARGET_GRAFANA_URL="https://stg-grafana2.rpgp.cc/api"
 export OUTPUT_FILE="alerts-export.json"
 
 # 定义一个函数来获取所有 folder 的 title 和 uid
@@ -11,13 +11,13 @@ get_all_folder_uids_staging() {
     local json=$(curl -s -X GET -H "Authorization: Bearer ${TARGET_GRAFANA_TOKEN}" "$TARGET_GRAFANA_URL/folders?limit=10")
     
     # 使用 jq 将 JSON 数据转换为 key-value 格式，并存储到关联数组中
-    declare -A folder_uids
+    declare -A folder_uids_staging
     while IFS="=" read -r title uid; do
-        folder_uids["$title"]="$uid"
+        folder_uids_staging["$title"]="$uid"
     done < <(echo "$json" | jq -r '.[] | "\(.title)=\(.uid)"')
     
     # 使用 declare -p 打印关联数组
-    declare -p folder_uids
+    declare -p folder_uids_staging
 }
 
 get_all_folder_uids_prod() {
