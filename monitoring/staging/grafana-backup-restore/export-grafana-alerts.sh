@@ -61,8 +61,8 @@ echo "$json_data" | jq -c '.[]' | while read rule; do
 	rule=$(echo "$rule" | sed 's/database="tgs"/database=\\"tgs\\"/g')
 	echo "\n"
 	echo "$rule"
-	rule=$(echo "$rule" | sed 's/kubelet_volume_stats_used_bytes{namespace!~""}/kubelet_volume_stats_used_bytes{namespace!~\\"\\\\"}/g')
 	rule=$(echo "$rule" | sed 's/namespace!~""}/namespace!~\"\"}/g')
+	rule=$(echo "$rule" | sed 's/namespace!=""}/namespace!=\"\"}/g')
 	echo "\n"
 	echo "$rule"
     id=$(echo "$rule" | jq -r '.id')
