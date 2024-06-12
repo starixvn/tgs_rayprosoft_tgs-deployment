@@ -62,7 +62,8 @@ echo "$json_data" | jq -c '.[]' | while read rule; do
 	rule=$(echo "$rule" | sed 's/kubelet_volume_stats_used_bytes{namespace!~""}/kubelet_volume_stats_used_bytes{namespace!~\\"\\\\"}/g')
 	rule=$(echo "$rule" | sed 's/kubelet_volume_stats_capacity_bytes{namespace!=""}/kubelet_volume_stats_capacity_bytes{namespace!=\\"\\\\"}/g')
 	rule=$(echo "$rule" | sed 's/namespace="prod",job="kubelet",container!="monitor",container!=""/namespace=\\"prod\\",job=\\"kubelet\\",container!=\\"monitor\\",container!=\\""/g')
-
+	echo "\n"
+	echo "$rule"
     id=$(echo "$rule" | jq -r '.id')
     uid=$(echo "$rule" | jq -r '.uid')
 	folderUID=$(echo "$rule" | jq -r '.folderUID')
