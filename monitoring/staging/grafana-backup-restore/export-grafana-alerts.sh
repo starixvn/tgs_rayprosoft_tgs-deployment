@@ -59,9 +59,10 @@ echo "$json_data" | jq -c '.[]' | while read rule; do
 	rule=$(echo "$rule" | sed 's/namespace="prod"/namespace=\\"staging\\"/g' | sed 's/job="kubelet"/job=\\"kubelet\\"/g' | sed 's/container!="monitor"/container!=\\"monitor\\"/g' | sed 's/container!=""/container!=\\"\\"/g')
 	rule=$(echo "$rule" | sed 's/namespace="prod",job="kubelet",container!="monitor",container!=""/namespace=\\"staging\\",job=\\"kubelet\\",container!=\\"monitor\\",container!=\\""/g')
 	rule=$(echo "$rule" | sed 's/database="tgs"/database=\\"tgs\\"/g')
+	echo "\n"
+	echo "$rule"
 	rule=$(echo "$rule" | sed 's/kubelet_volume_stats_used_bytes{namespace!~""}/kubelet_volume_stats_used_bytes{namespace!~\\"\\\\"}/g')
 	rule=$(echo "$rule" | sed 's/namespace!~""}/namespace!~\"\"}/g')
-	rule=$(echo "$rule" | sed 's/namespace="prod",job="kubelet",container!="monitor",container!=""/namespace=\\"staging\\",job=\\"kubelet\\",container!=\\"monitor\\",container!=\\""/g')
 	echo "\n"
 	echo "$rule"
     id=$(echo "$rule" | jq -r '.id')
