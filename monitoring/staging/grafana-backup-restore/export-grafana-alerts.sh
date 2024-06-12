@@ -5,5 +5,4 @@ export DOMAIN="grafana-kubeinfo.yydsgo.xyz"
 
 curl -X GET \
 	  -H "Authorization: Bearer ${GRAFANA_TOKEN}" \
-	 "https://${DOMAIN}/api/v1/provisioning/alert-rules/export" \
-	 | jq > './alerts-export.json'
+	 "https://${DOMAIN}/api/v1/provisioning/alert-rules/export" -o alerts-export.yaml
