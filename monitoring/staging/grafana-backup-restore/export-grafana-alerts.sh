@@ -75,15 +75,16 @@ echo "$json_data" | jq -c '.[]' | while read rule; do
     echo "  title: $title"
 	
 	rule_json=$(echo "$rule" | jq '.')
-	echo "rule_json=$rule_json"
+	echo "old_rule_json=$rule_json"
+	modified_json=$(echo "$rule_json" | jq --arg new_uid "$new_folder_uid" '.folderUID = $new_uid')
+	echo "new_rule_json=$modified_json"
 
 	# Make the POST request to provision the alert rule
 	response=$(curl -s -X POST \
 		-H "Authorization: Bearer $TARGET_GRAFANA_TOKEN" \
 		-H "Content-Type: application/json" \
-		-d "$rule_json" \
+		-d "$modified_json" \
 		"$TARGET_GRAFANA_URL/v1/provisioning/alert-rules")
 
 	echo "Response: $response"
-		
 done
