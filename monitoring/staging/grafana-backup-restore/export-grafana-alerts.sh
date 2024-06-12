@@ -35,7 +35,9 @@ get_all_folder_uids_prod() {
 
 # 调用函数并捕获其输出
 eval "$(get_all_folder_uids_staging)"
+echo "folder_uids_staging=${folder_uids_staging}"
 eval "$(get_all_folder_uids_prod)"
+echo "folder_uids_prod=${folder_uids_prod}"
 
 json_data=$(curl -X GET \
 	  -H "Authorization: Bearer ${SOURCE_GRAFANA_TOKEN}" \
