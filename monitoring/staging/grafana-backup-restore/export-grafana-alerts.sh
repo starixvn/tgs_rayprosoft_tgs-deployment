@@ -2,7 +2,7 @@
 #!/bin/sh
 export SOURCE_GRAFANA_TOKEN="glsa_aZLBtligeLcvs7ee3RWgrEvVgiXo5niF_3370c414"
 export SOURCE_GRAFANA_URL="https://grafana-kubeinfo.yydsgo.xyz/api"
-export TARGET_GRAFANA_TOKEN="glsa_lO7k65hGSSCzWQxZYyWS38PeUpARZA0I_a640e626"
+export TARGET_GRAFANA_TOKEN="glsa_YeYw4t2ypgqTHaBhkutTwyly19nT6O3t_1c743d49"
 export TARGET_GRAFANA_URL="https://stg-grafana2.rpgp.cc/api"
 export OUTPUT_FILE="alerts-export.json"
 

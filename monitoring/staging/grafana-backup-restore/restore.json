@@ -6,11 +6,11 @@
   },
   "grafana": {
     "url": "https://stg-grafana2.rpgp.cc",
-    "token": "glsa_I5k3en0AKLOT4f9Rr0OkWmBJrGf0oSsG_3a408857",
+    "token": "glsa_YeYw4t2ypgqTHaBhkutTwyly19nT6O3t_1c743d49",
     "search_api_limit": 5000,
     "default_password": "00000000",
     "admin_account": "admin",
-    "admin_password": "EjsRvDrpFn3zAdOKGLdNWo0FDrhfVPm54ihs4gXn"
+    "admin_password": "tFm8lSr3E8bfLMDEvg0dckchcnVBs6qHt0umiacY"
   },
   "aws": {
     "s3_bucket_name": "tgs-prod-backup",
