@@ -6,7 +6,7 @@
   },
   "grafana": {
     "url": "https://stg-grafana2.rpgp.cc",
-    "token": "glsa_YeYw4t2ypgqTHaBhkutTwyly19nT6O3t_1c743d49",
+    "token": "glsa_rLHiFpTPj3Fv7HJIsjGZJsdAE6L2Z6KO_2072c8b7",
     "search_api_limit": 5000,
     "default_password": "00000000",
     "admin_account": "admin",

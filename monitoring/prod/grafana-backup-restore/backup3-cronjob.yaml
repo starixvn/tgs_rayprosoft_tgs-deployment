@@ -5,7 +5,7 @@ metadata:
   namespace: monitoring
 data:
   GRAFANA_URL: "http://grafana3"
-  GRAFANA_TOKEN: "glsa_aZLBtligeLcvs7ee3RWgrEvVgiXo5niF_3370c414"
+  GRAFANA_TOKEN: "glsa_rLHiFpTPj3Fv7HJIsjGZJsdAE6L2Z6KO_2072c8b7"
   GRAFANA_ADMIN_ACCOUNT: "admin"
   GRAFANA_ADMIN_PASSWORD: "t8FnaHqbCCyJcxER1M78OQujCWSjrnfcuIWqJXUz"
   AWS_ENDPOINT_URL: "https://s3.ap-east-1.amazonaws.com"

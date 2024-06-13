@@ -23,7 +23,7 @@ source path/to/venv/bin/activate
 
 git clone https://github.com/ysde/grafana-backup-tool.git
 cd grafana-backup-tool
-sudo pip install .
+sudo pip install grafana-backup-tool
 
 cp examples/grafana-backup.example.json grafana-backup.json
 cp examples/grafana-backup.example.json grafana-restore.json
