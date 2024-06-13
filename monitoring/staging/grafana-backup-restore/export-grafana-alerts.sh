@@ -2,7 +2,7 @@
 #!/bin/sh
 export SOURCE_GRAFANA_TOKEN="glsa_aZLBtligeLcvs7ee3RWgrEvVgiXo5niF_3370c414"
 export SOURCE_GRAFANA_URL="https://grafana-kubeinfo.yydsgo.xyz/api"
-export TARGET_GRAFANA_TOKEN="glsa_YeYw4t2ypgqTHaBhkutTwyly19nT6O3t_1c743d49"
+export TARGET_GRAFANA_TOKEN="glsa_rLHiFpTPj3Fv7HJIsjGZJsdAE6L2Z6KO_2072c8b7"
 export TARGET_GRAFANA_URL="https://stg-grafana2.rpgp.cc/api"
 export OUTPUT_FILE="alerts-export.json"
 
@@ -55,12 +55,11 @@ echo "json_data=$json_data"
 echo "$json_data" | jq -c '.[]' | while read rule; do
 	echo "==========================================="
 	echo "$rule"
+	## fix cannot convert to json format
 	rule=$(echo "$rule" | sed 's/container_memory_working_set_bytes{namespace="prod",job="kubelet",container!="monitor",container!=""}/container_memory_working_set_bytes{namespace=\\"staging\\",job=\\"kubelet\\",container!=\\"monitor\\",container!=\\"\\"}/g' | sed 's/container_spec_memory_limit_bytes{namespace="prod",container!="monitor",container!="",job="kubelet"}/container_spec_memory_limit_bytes{namespace=\\"prod\\",container!=\\"monitor\\",container!=\\"\\" ,job=\\"kubelet\\"}/g')
 	rule=$(echo "$rule" | sed 's/namespace="prod"/namespace=\\"staging\\"/g' | sed 's/job="kubelet"/job=\\"kubelet\\"/g' | sed 's/container!="monitor"/container!=\\"monitor\\"/g' | sed 's/container!=""/container!=\\"\\"/g')
 	rule=$(echo "$rule" | sed 's/namespace="prod",job="kubelet",container!="monitor",container!=""/namespace=\\"staging\\",job=\\"kubelet\\",container!=\\"monitor\\",container!=\\""/g')
 	rule=$(echo "$rule" | sed 's/database="tgs"/database=\\"tgs\\"/g')
-	echo "\n"
-	echo "$rule"
 	rule=$(echo "$rule" | sed 's/namespace!~""}/namespace!~\\"\\"}/g')
 	rule=$(echo "$rule" | sed 's/namespace!=""}/namespace!=\\"\\"}/g')
 	echo "\n"
