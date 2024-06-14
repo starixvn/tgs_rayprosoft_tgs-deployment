@@ -4,6 +4,8 @@
 
 ## dev 
 
+### Sample
+    <jaeger-span-{now/d}-000001> 
 PUT %3Cjaeger-span-%7Bnow%2Fd%7D-000001%3E
 {
   "aliases": {
@@ -23,6 +25,7 @@ PUT %3Cjaeger-service-%7Bnow%2Fd%7D-000001%3E
 }
 
 ## prod
+    <jaeger-span-{now/d}(prod)-000001> 
 PUT %3Cjaeger-span-%7Bnow%2Fd%7D%28prod%29-000001%3E
 {
   "aliases": {

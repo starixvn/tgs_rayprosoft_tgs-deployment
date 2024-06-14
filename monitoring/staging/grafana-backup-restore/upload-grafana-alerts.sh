@@ -5,7 +5,7 @@ NUMBER_OF_ALERTS=$(jq -c '.Alert | length' ${ALERTS_JSON_PATH})
 
 # export GRAFANA_TOKEN="glsa_aZLBtligeLcvs7ee3RWgrEvVgiXo5niF_3370c414"
 # export DOMAIN="grafana-kubeinfo.yydsgo.xyz"
-GRAFANA_TOKEN="glsa_lO7k65hGSSCzWQxZYyWS38PeUpARZA0I_a640e626"
+GRAFANA_TOKEN="glsa_rLHiFpTPj3Fv7HJIsjGZJsdAE6L2Z6KO_2072c8b7"
 DOMAIN=stg-grafana2.rpgp.cc
 
 for ((i=0; i<NUMBER_OF_ALERTS; i++)); do
