@@ -11,6 +11,8 @@ json_data=$(curl -X GET \
 echo "$json_data" | jq -c '.[]' | while read rule; do
 	echo "==========================================="
 	## fix cannot convert to json format
+	rule=$(echo "$rule" | sed 's/namespace!~""}/namespace!~\\"\\"}/g')
+	rule=$(echo "$rule" | sed 's/namespace!=""}/namespace!=\\"\\"}/g')
 	echo $rule
 	uid=$(echo $rule | jq -r '.uid' )
 	
