@@ -4,8 +4,8 @@ export TARGET_GRAFANA_TOKEN="glsa_G8JdXgFME50LIkMdmk1kT4SIBzae3BfN_e07d97b9"
 export TARGET_GRAFANA_URL="https://stg-grafana2.rpgp.cc/api"
 
 json_data=$(curl -X GET \
-	  -H "Authorization: Bearer ${SOURCE_GRAFANA_TOKEN}" \
-	 "${SOURCE_GRAFANA_URL}/v1/provisioning/alert-rules" | jq)
+	  -H "Authorization: Bearer ${TARGET_GRAFANA_TOKEN}" \
+	 "${TARGET_GRAFANA_URL}/v1/provisioning/alert-rules" | jq)
 	 
 # Loop through each group in the JSON data
 echo "$json_data" | jq -c '.[]' | while read rule; do
