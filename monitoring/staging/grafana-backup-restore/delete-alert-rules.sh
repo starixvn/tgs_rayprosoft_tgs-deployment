@@ -11,10 +11,14 @@ json_data=$(curl -X GET \
 echo "$json_data" | jq -c '.[]' | while read rule; do
 	echo "==========================================="
 	## fix cannot convert to json format
-	rule=$(echo "$rule" | sed 's/database="tgs"}/database=\\"tgs\\"}/g')
-	rule=$(echo "$rule" | sed 's/namespace="staging"}/namespace=\\"staging\\"}/g')
-	rule=$(echo "$rule" | sed 's/namespace!~""}/namespace!~\\"\\"}/g')
-	rule=$(echo "$rule" | sed 's/namespace!=""}/namespace!=\\"\\"}/g')
+	rule=$(echo "$rule" | sed 's/job="kubelet"/job=\\"kubelet\\"/g')
+	rule=$(echo "$rule" | sed 's/container!=""/container!=\\"\\"/g')
+	rule=$(echo "$rule" | sed 's/container!="monitor"/container!=\\"monitor\\"/g')
+	rule=$(echo "$rule" | sed 's/job="kubelet"/job=\\"kubelet\\"/g')
+	rule=$(echo "$rule" | sed 's/database="tgs"/database=\\"tgs\\"/g')
+	rule=$(echo "$rule" | sed 's/namespace="staging"/namespace=\\"staging\\"/g')
+	rule=$(echo "$rule" | sed 's/namespace!~""/namespace!~\\"\\"/g')
+	rule=$(echo "$rule" | sed 's/namespace!=""/namespace!=\\"\\"/g')
 	echo $rule
 	uid=$(echo $rule | jq -r '.uid' )
 	
