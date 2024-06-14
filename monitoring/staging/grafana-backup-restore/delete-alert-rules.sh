@@ -19,6 +19,8 @@ echo "$json_data" | jq -c '.[]' | while read rule; do
 	rule=$(echo "$rule" | sed 's/namespace="staging"/namespace=\\"staging\\"/g')
 	rule=$(echo "$rule" | sed 's/namespace!~""/namespace!~\\"\\"/g')
 	rule=$(echo "$rule" | sed 's/namespace!=""/namespace!=\\"\\"/g')
+	rule=$(echo "$rule" | sed 's/namespace="prod"/namespace=\\"prod\\"/g')
+	
 	echo $rule
 	uid=$(echo $rule | jq -r '.uid' )
 	
