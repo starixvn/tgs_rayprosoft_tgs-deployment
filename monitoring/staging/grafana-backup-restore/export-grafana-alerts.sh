@@ -41,7 +41,6 @@ echo "folder_uids_prod=${folder_uids_prod}"
 
 json_data=$(curl -X GET \
 	  -H "Authorization: Bearer ${SOURCE_GRAFANA_TOKEN}" \
-	  -H "X-Disable-Provenance: true" \
 	 "${SOURCE_GRAFANA_URL}/v1/provisioning/alert-rules" | jq)
 	 
 echo "json_data=$json_data"
@@ -94,6 +93,7 @@ echo "$json_data" | jq -c '.[]' | while read rule; do
 	# Make the POST request to provision the alert rule
 	response=$(curl -s -X POST \
 		-H "Authorization: Bearer $TARGET_GRAFANA_TOKEN" \
+		-H "X-Disable-Provenance: true" \
 		-H "Content-Type: application/json" \
 		-d "$modified_json" \
 		"$TARGET_GRAFANA_URL/v1/provisioning/alert-rules")

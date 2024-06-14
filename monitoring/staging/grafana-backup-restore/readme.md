@@ -20,6 +20,7 @@ method2
 sudo apt install python3-venv
 python3 -m venv path/to/venv
 source path/to/venv/bin/activate
+pip install grafana-backup
 
 git clone https://github.com/ysde/grafana-backup-tool.git
 cd grafana-backup-tool
