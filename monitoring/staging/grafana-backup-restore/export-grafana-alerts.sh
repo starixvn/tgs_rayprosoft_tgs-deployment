@@ -41,6 +41,7 @@ echo "folder_uids_prod=${folder_uids_prod}"
 
 json_data=$(curl -X GET \
 	  -H "Authorization: Bearer ${SOURCE_GRAFANA_TOKEN}" \
+	  -H "X-Disable-Provenance: true" \
 	 "${SOURCE_GRAFANA_URL}/v1/provisioning/alert-rules" | jq)
 	 
 echo "json_data=$json_data"
