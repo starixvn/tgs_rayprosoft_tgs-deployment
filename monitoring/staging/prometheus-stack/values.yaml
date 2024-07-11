@@ -152,6 +152,18 @@ prometheus:
         cpu: 500m
         memory: 2000Mi
     additionalScrapeConfigs:
+      - job_name: 'dev-gitlab-runner-metrics'
+        scrape_interval: 30s
+        metrics_path: /metrics
+        scheme: https
+        static_configs:
+          - targets: ['dev-gitlab-runner-metrics.rpgp.cc']
+      - job_name: 'dev-gitlab-runner-node-expoter'
+        scrape_interval: 30s
+        metrics_path: /metrics
+        scheme: https
+        static_configs:
+          - targets: ['dev-gitlab-runner-node-exporter.rpgp.cc']
       - job_name: 'kubernetes-pods'
         honor_labels: true
 
