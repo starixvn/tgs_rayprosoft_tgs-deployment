@@ -143,6 +143,7 @@ prometheus:
     podMonitorSelectorNilUsesHelmValues: false
     probeSelectorNilUsesHelmValues: false
     scrapeConfigSelectorNilUsesHelmValues: false
+    retention: 30d
     resources:
       limits:
         cpu: 4000m
