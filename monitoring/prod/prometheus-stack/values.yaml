@@ -196,9 +196,14 @@ prometheus:
         cpu: 2
         memory: 14Gi
     additionalScrapeConfigs:
+      - job_name: 'prometheus-node-expoter'
+        scrape_interval: 30s
+        metrics_path: /metrics
+        scheme: https
+        static_configs:
+          - targets: ['prometheus-stack-prometheus-node-exporter:9100']
       - job_name: 'kubernetes-pods'
         honor_labels: true
-
         kubernetes_sd_configs:
           - role: pod
 
