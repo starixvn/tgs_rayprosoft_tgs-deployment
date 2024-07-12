@@ -95,6 +95,18 @@ kubeProxy:
       enabled: false
   serviceMonitor:
     enabled: true
+
+kubeEtcd:
+  enabled: true
+  endpoints: []
+  service:
+    enabled: true
+    port: 2381
+    targetPort: 2381
+    ipDualStack:
+      enabled: false
+  serviceMonitor:
+    enabled: true
     
 kubeApiServer:
   serviceMonitor:
