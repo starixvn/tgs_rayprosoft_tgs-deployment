@@ -72,7 +72,7 @@ grafana:
   serviceMonitor:
     enabled: false
 kubeScheduler:
-  enabled: true
+  enabled: false
 kubeApiServer:
   serviceMonitor:
     metricRelabelings:
