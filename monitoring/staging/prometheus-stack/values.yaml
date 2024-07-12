@@ -232,12 +232,6 @@ prometheus:
         scheme: https
         static_configs:
           - targets: ['dev-gitlab-runner-node-exporter.rpgp.cc']
-      - job_name: 'prometheus-node-expoter'
-        scrape_interval: 30s
-        metrics_path: /metrics
-        scheme: https
-        static_configs:
-          - targets: ['prometheus-stack-prometheus-node-exporter:9100']
       - job_name: 'kubernetes-pods'
         honor_labels: true
 
