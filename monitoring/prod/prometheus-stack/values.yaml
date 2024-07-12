@@ -2,6 +2,9 @@
 # helm -n monitoring upgrade --reuse-values -f values.yaml prometheus-stack prometheus-community/kube-prometheus-stack 
 alertmanager:
   enabled: true
+  service:
+    ipDualStack:
+      enabled: false
   config:
     route:
       group_by: ['namespace']
@@ -43,13 +46,55 @@ grafana:
     - prod-grafana-stack.rpgp.cc
   serviceMonitor:
     enabled: false
-kubeApiServer:
+# https://github.com/prometheus-community/helm-charts/blob/main/charts/kube-prometheus-stack/values.yaml#L1836
+kubeScheduler:
+  enabled: true
+  endpoints: []
+  service:
+    enabled: true
+    port: null
+    targetPort: null
+    ipDualStack:
+      enabled: false
   serviceMonitor:
+    enabled: true
+    
+kubeProxy:
+  enabled: true
+  endpoints: []
+  service:
+    enabled: true
+    port: 10249
+    targetPort: 10249
+    ipDualStack:
+      enabled: false
+  serviceMonitor:
+    enabled: true
+
+kubeEtcd:
+  enabled: true
+  endpoints: []
+  service:
+    enabled: true
+    port: 2381
+    targetPort: 2381
+    ipDualStack:
+      enabled: false
+  serviceMonitor:
+    enabled: true
     metricRelabelings:
     - action: drop
       regex: '.*_bucket'
       sourceLabels:
       - __name__
+    
+kubeApiServer:
+  serviceMonitor:
+    metricRelabelings:
+      - action: drop
+        regex: '.*_bucket'
+        sourceLabels:
+        - __name__
 kubelet:
   serviceMonitor:
     probesMetricRelabelings:
@@ -82,22 +127,51 @@ kubelet:
       regex: '.*_bucket'
       replacement: $1
       action: drop
+      
 kubeControllerManager:
+  enabled: true
+  service:
+    enabled: true
+    port: null
+    targetPort: null
+    ipDualStack:
+      enabled: false
   serviceMonitor:
-    enabled: false
-kubeEtcd:
-  serviceMonitor:
-    metricRelabelings:
-    - action: drop
-      regex: '.*_bucket'
-      sourceLabels:
-      - __name__
+    enabled: true
+    
 coreDns:
+  enabled: true
+  service:
+    enabled: true
+    port: 9153
+    targetPort: 9153
+    ipDualStack:
+      enabled: false
   serviceMonitor:
-    enabled: false
+    enabled: true
+
+prometheusOperator:
+  service:
+    ipDualStack:
+      enabled: false
+  admissionWebhooks:
+    enabled: true
+    patch:
+      enabled: true
+      serviceAccount:
+        create: true
+        automountServiceAccountToken: true
+  resources: 
+    limits:
+      cpu: 200m
+      memory: 200Mi
+    requests:
+      cpu: 100m
+      memory: 100Mi
 prometheus:
-  scrapeInterval: 1m
-  evaluationInterval: 1m
+  service:
+    ipDualStack:
+      enabled: false
   ingress: 
     enabled: true
     ingressClassName: nginx
