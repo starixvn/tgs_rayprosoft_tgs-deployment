@@ -184,6 +184,11 @@ prometheusOperator:
       enabled: false
   admissionWebhooks:
     enabled: true
+    patch:
+      enabled: true
+      serviceAccount:
+        create: true
+        automountServiceAccountToken: true
   resources: 
     limits:
       cpu: 200m
