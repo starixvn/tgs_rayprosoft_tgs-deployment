@@ -124,6 +124,8 @@ coreDns:
   serviceMonitor:
     enabled: false
 prometheusOperator:
+  admissionWebhooks:
+    enabled: false
   resources: 
     limits:
       cpu: 200m
