@@ -107,6 +107,11 @@ kubeEtcd:
       enabled: false
   serviceMonitor:
     enabled: true
+    metricRelabelings:
+    - action: drop
+      regex: '.*_bucket'
+      sourceLabels:
+      - __name__
     
 kubeApiServer:
   serviceMonitor:
@@ -150,13 +155,6 @@ kubelet:
 kubeControllerManager:
   serviceMonitor:
     enabled: false
-kubeEtcd:
-  serviceMonitor:
-    metricRelabelings:
-    - action: drop
-      regex: '.*_bucket'
-      sourceLabels:
-      - __name__
 coreDns:
   serviceMonitor:
     enabled: false
