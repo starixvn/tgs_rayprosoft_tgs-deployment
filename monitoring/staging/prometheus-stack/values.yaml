@@ -71,6 +71,8 @@ grafana:
     - stg-grafana-stack.rpgp.cc
   serviceMonitor:
     enabled: false
+kubeScheduler:
+  enabled: true
 kubeApiServer:
   serviceMonitor:
     metricRelabelings:
