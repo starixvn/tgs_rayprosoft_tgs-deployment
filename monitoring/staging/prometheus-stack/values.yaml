@@ -176,6 +176,9 @@ coreDns:
     enabled: true
 
 prometheusOperator:
+  service:
+    ipDualStack:
+      enabled: false
   admissionWebhooks:
     enabled: false
   resources: 
