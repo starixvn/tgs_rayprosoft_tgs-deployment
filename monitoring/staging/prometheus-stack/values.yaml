@@ -7,6 +7,9 @@ defaultRules:
     kubeSchedulerAlerting: false
 alertmanager:
   enabled: true
+  service:
+    ipDualStack:
+      enabled: false
   config:
     global:
       resolve_timeout: 5m
