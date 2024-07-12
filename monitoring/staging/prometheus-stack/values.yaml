@@ -183,7 +183,7 @@ prometheusOperator:
     ipDualStack:
       enabled: false
   admissionWebhooks:
-    enabled: false
+    enabled: true
   resources: 
     limits:
       cpu: 200m
