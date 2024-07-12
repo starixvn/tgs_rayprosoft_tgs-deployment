@@ -152,12 +152,29 @@ kubelet:
       regex: '.*_bucket'
       replacement: $1
       action: drop
+      
 kubeControllerManager:
+  enabled: true
+  service:
+    enabled: true
+    port: null
+    targetPort: null
+    ipDualStack:
+      enabled: false
   serviceMonitor:
-    enabled: false
+    enabled: true
+    
 coreDns:
+  enabled: true
+  service:
+    enabled: true
+    port: 9153
+    targetPort: 9153
+    ipDualStack:
+      enabled: false
   serviceMonitor:
-    enabled: false
+    enabled: true
+
 prometheusOperator:
   admissionWebhooks:
     enabled: false
