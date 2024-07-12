@@ -186,6 +186,9 @@ prometheusOperator:
       cpu: 100m
       memory: 100Mi
 prometheus:
+  service:
+    ipDualStack:
+      enabled: false
   ingress: 
     enabled: true
     ingressClassName: nginx
