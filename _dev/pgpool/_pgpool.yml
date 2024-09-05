@@ -60,13 +60,6 @@ spec:
           requests:
             cpu: 100m
             memory: 256Mi
-        nodeSelector:
-          dedicated: dev
-        tolerations:
-        - effect: NoSchedule
-          key: dedicated
-          operator: Equal
-          value: dev
         env:
         - name: POSTGRES_USERNAME
           value: rpdev
@@ -78,6 +71,13 @@ spec:
           value: "localhost"
         - name: PGPOOL_SERVICE_PORT
           value: "9999"
+      nodeSelector:
+        dedicated: dev
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: dev
       volumes:
       - name: volume-config
         configMap:
