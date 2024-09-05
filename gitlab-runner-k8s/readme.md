@@ -91,8 +91,14 @@ runners:
 
 ## 安裝
 ```
-export token="glrt-rDijy5CKWtzLsxueyDLJ"
+後端
+export token="glrt--ExTWWoJNZixziqxbEFc"
 envsubst < values.yaml | helm install -n gitlab-runner -f - backend gitlab/gitlab-runner
+前端
+export token="glrt-rxQnspUuAkf_p9pzkqL8"
+envsubst < values.yaml | helm install -n gitlab-runner -f - frontend gitlab/gitlab-runner
+
+
 envsubst < values_helm.yaml | helm template -n gitlab-runner -f - backend-api-deploy gitlab/gitlab-runner
 envsubst < values_helm.yaml | helm install -n gitlab-runner -f - backend-api-deploy gitlab/gitlab-runner
 ```

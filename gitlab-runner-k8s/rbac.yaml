@@ -45,3 +45,17 @@ subjects:
 - kind: ServiceAccount
   name: backend-gitlab-runner
   namespace: gitlab-runner
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: tgs-build-gitlab-runner-frontend
+  namespace: dev
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: tgs-build-gitlab-runner
+subjects:
+- kind: ServiceAccount
+  name: frontend-gitlab-runner
+  namespace: gitlab-runner
