@@ -12,7 +12,7 @@ helm repo add gitlab https://charts.gitlab.io
 kubectl create ns gitlab-runner
 
 ## 已廢棄 kubeconfig
-kubectl create secret generic kubeconfig --from-file=/home/ubuntu/.kube/config -n gitlab-runner
+kubectl create secret generic kubeconfig --from-file=/root/.kube/config -n gitlab-runner
 kubectl delete secrets kubeconfig  -n gitlab-runner
 kubectl create secret generic kubeconfig --from-file=/root/kubeconfig -n gitlab-runner
 
@@ -86,7 +86,7 @@ runners:
       [runners.kubernetes]
         namespace = "dev"
         privileged = true
-		service_account = "tgs-build"   //指定image 所使用的service account
+        service_account = "tgs-build"   //指定image 所使用的service account
 ```
 
 ## 安裝
@@ -99,7 +99,7 @@ envsubst < values_helm.yaml | helm install -n gitlab-runner -f - backend-api-dep
 
 ## rbac.yaml 
 ```
-export namespace=staging
+export namespace=dev
 cat << EOF | kubectl apply -f -
 apiVersion: rbac.authorization.k8s.io/v1
 kind: Role
