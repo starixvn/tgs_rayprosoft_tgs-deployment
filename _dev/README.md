@@ -53,7 +53,10 @@ https://docs.redislabs.com/latest/ri/installing/install-k8s/
 http://dev-redisinsight.rpgp.cc/
 
 # mongodb, mpmgodb express and exporter
-helm install mongodb bitnami/mongodb --set global.storageClass=nfs-provisioner,auth.rootPassword=1qaz2wsx,auth.enabled=false,metrics.enabled=true -n dev
+helm install mongodb bitnami/mongodb --set global.storageClass=nfs-provisioner,auth.rootPassword=1qaz2wsx,auth.enabled=false,metrics.enabled=true,image.tag=5.0.9-debian-11-r3 -n dev
+
+helm install mongodb bitnami/mongodb -f values-mongo.yaml -n dev
+
 mongodb-metrics:9216/metrics 
 https://github.com/bitnami/charts/tree/master/bitnami/mongodb#installing-the-chart
 

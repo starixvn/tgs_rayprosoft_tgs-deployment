@@ -60,6 +60,13 @@ spec:
           requests:
             cpu: 100m
             memory: 256Mi
+        nodeSelector:
+          dedicated: dev
+        tolerations:
+        - effect: NoSchedule
+          key: dedicated
+          operator: Equal
+          value: dev
         env:
         - name: POSTGRES_USERNAME
           value: rpdev

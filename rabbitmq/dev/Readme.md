@@ -23,8 +23,8 @@ kubectl krew install rabbitmq
 kubectl rabbitmq install-cluster-operator
 
 kubectl create ns rabbitmq
-kubectl apply -f rabbitmq.yml
-kubectl apply -f ingress.yml
+kubectl apply -f rabbitmq.yaml
+kubectl apply -f ingress.yaml
 
 kubectl -n rabbitmq exec mq-server-0 -- rabbitmqctl add_vhost /tgs/dev
 kubectl -n rabbitmq exec mq-server-0 -- rabbitmqctl set_permissions -p "/tgs/dev" "tgs" '.*' '.*' '.*'
