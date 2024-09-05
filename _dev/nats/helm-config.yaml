@@ -28,6 +28,13 @@ config:
 podTemplate:
   merge:
     spec:
+      nodeSelector:
+        dedicated: dev
+      tolerations:
+      - effect: NoSchedule
+        key: dedicated
+        operator: Equal
+        value: dev
       affinity:
         podAntiAffinity:
           requiredDuringSchedulingIgnoredDuringExecution:
