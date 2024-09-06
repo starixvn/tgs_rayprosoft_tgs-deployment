@@ -10,6 +10,13 @@ rbac:
       verbs: ["get", "delete", "create", "update"]
 serviceAccount:
   create: true
+nodeSelector:
+  dedicated: dev
+tolerations:
+- effect: NoSchedule
+  key: dedicated
+  operator: Equal
+  value: dev
 runners:
   config: |
     concurrent = 3
