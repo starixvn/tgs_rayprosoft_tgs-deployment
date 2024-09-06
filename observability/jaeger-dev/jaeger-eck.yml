@@ -46,6 +46,13 @@ spec:
     limits:
       memory: "512Mi"
       cpu: "1"
+  nodeSelector:
+    dedicated: dev
+  tolerations:
+  - effect: NoSchedule
+    key: dedicated
+    operator: Equal
+    value: dev
   serviceAccount: jaeger-operator
   securityContext:
     runAsUser: 1000
