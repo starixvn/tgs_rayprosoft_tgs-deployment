@@ -58,7 +58,7 @@ metadata:
   name: ${account}
 rules:
 - apiGroups:
-  - ''
+  - '*'
   resources:
   - '*'
   verbs:
@@ -66,6 +66,23 @@ rules:
   - patch
   - list
   - watch
+  - create
+  - delete
+  - update
+  - pods/portforward
+- apiGroups:
+  - ""
+  resources:
+  - '*'
+  verbs:
+  - get
+  - patch
+  - list
+  - watch
+  - create
+  - delete
+  - update
+  - pods/portforward
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
