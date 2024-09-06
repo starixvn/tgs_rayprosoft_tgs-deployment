@@ -1,3 +1,5 @@
+# https://www.jaegertracing.io/docs/1.42/operator/#production-strategy
+# kubectl apply -f https://github.com/jaegertracing/jaeger-operator/releases/download/v1.42.0/jaeger-operator.yaml -n observability
 apiVersion: jaegertracing.io/v1
 kind: Jaeger
 metadata:
@@ -46,13 +48,19 @@ spec:
     limits:
       memory: "512Mi"
       cpu: "1"
-  # nodeSelector:
-    # dedicated: dev
-  # tolerations:
-  # - effect: NoSchedule
-    # key: dedicated
-    # operator: Equal
-    # value: dev
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: dedicated
+            operator: Equal
+            values: dev
+  tolerations:
+  - effect: NoSchedule
+    key: dedicated
+    operator: Equal
+    value: dev
   serviceAccount: jaeger-operator
   securityContext:
     runAsUser: 1000
