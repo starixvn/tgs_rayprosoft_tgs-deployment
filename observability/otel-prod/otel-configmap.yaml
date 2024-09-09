@@ -21,7 +21,7 @@ data:
       batch:
     exporters:
       logging:
-        loglevel: debug
+        loglevel: info
       otlp/jaeger:
         endpoint: jaeger-eck-collector-headless:14250
         tls:
