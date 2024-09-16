@@ -7,8 +7,5 @@ spec:
   namespaceSelector:
     matchNames:
       - devops
-  selector:
-    matchLabels:
-      type: backend
   podMetricsEndpoints:
   - targetPort: 8889
