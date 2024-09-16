@@ -7,9 +7,6 @@ spec:
   namespaceSelector:
     matchNames:
       - devops
-  selector: 
-    matchExpressions:
-    - key: app.kubernetes.io/instance:
-      operator: Exists
+  selector: {}
   podMetricsEndpoints:
   - targetPort: 8889
