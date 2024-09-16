@@ -1,0 +1,14 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PodMonitor
+metadata:
+  name: pod-monitor-devops
+  namespace: monitoring
+spec:
+  namespaceSelector:
+    matchNames:
+      - devops
+  selector:
+    matchLabels:
+      type: backend
+  podMetricsEndpoints:
+  - targetPort: 8889
