@@ -80,7 +80,7 @@ luaScripts:
         return 1, timestamp, new_record
     end
 
-logLevel: warn
+logLevel: trace
 
 tolerations:
   - effect: NoSchedule
