@@ -24,6 +24,17 @@ rules:
   - watch
   - create
   - update
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  verbs:
+  - get
+  - patch
+  - list
+  - create
+  - update
+  - delete
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
